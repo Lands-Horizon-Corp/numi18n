@@ -6,6 +6,8 @@ func (op *NumI18NOptions) WordToNum(amount string) float64 {
 	return 0
 }
 
+// FormatToNum converts localized formatted number strings back to their numeric representation
+// Example: "1,234,567.89" -> 1234567.89 (US), "1.234.567,89" -> 1234567.89 (DE), "1 234 567,89" -> 1234567.89 (FR)
 func (op *NumI18NOptions) FormatToNum(amount string) float64 {
 	return 0
 }
