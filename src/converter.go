@@ -15,3 +15,7 @@ func (op *NumI18NOptions) ToOrdinalWords(amount float64) string {
 func (op *NumI18NOptions) ToFormat(amount float64) string {
 	return ""
 }
+
+func ToRomanNumeral(amount float64) string {
+	return ""
+}
