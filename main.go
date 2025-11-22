@@ -6,7 +6,7 @@ func main() {
 	fmt.Println("hello world")
 }
 
-type NumI18Options struct {
+type NumI18NOptions struct {
 	CountryName    string // Full country name, e.g., "Philippines"
 	Currency       string // Currency code, e.g., "PHP", "USD"
 	ISO3166Alpha2  string // ISO 3166-1 alpha-2 code, e.g., "PH"
@@ -47,15 +47,45 @@ type NumI18Options struct {
 	}
 }
 
-// Methods (can implement your logic later)
-func (op *NumI18Options) Words(amount float64) string {
+type NumI18NCurrency struct {
+	CountryName    string
+	Currency       string
+	Symbol         string
+	ISO3166Alpha2  string
+	ISO3166Alpha3  string
+	ISO3166Numeric string
+	Locale         string
+	Timezone       string
+	Language       string
+	FractionDigits int
+	SymbolNative   string
+}
+
+func (op *NumI18NOptions) ToWords(amount float64) string {
 	return ""
 }
 
-func (op *NumI18Options) Ordinal(amount float64) string {
+func (op *NumI18NOptions) ToOrdinal(amount float64) string {
 	return ""
 }
 
-func (op *NumI18Options) OrdinalWords(amount float64) string {
+func (op *NumI18NOptions) ToOrdinalWords(amount float64) string {
 	return ""
+}
+
+func (op *NumI18NOptions) ToFormat(amount float64) string {
+	return ""
+}
+
+func (op NumI18NOptions) CurrencyDetails() NumI18NCurrency {
+	return NumI18NCurrency{
+		CountryName:    op.CountryName,
+		Currency:       op.Currency,
+		ISO3166Alpha2:  op.ISO3166Alpha2,
+		ISO3166Alpha3:  op.ISO3166Alpha3,
+		ISO3166Numeric: op.ISO3166Numeric,
+		Locale:         op.Locale,
+		Timezone:       op.Timezone,
+		Language:       op.Language,
+	}
 }
