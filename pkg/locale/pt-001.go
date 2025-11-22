@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// PT001Locale is a NumI18NLocale configured for Portuguese (World) - pt-001
+var PT001Locale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Euro",
+		Plural:   "Euros",
+		Singular: "Euro",
+		Symbol:   "€",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Cêntimo",
+			Plural:   "Cêntimos",
+			Singular: "Cêntimo",
+			Symbol:   "¢",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "E",
+		Minus: "Menos",
+		Only:  "Apenas",
+		Point: "Vírgula",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Quadrilhão"},
+		{Number: 1000000000000, Value: "Bilião"},
+		{Number: 1000000000, Value: "Mil milhões"},
+		{Number: 1000000, Value: "Milhão"},
+		{Number: 1000, Value: "Mil"},
+		{Number: 100, Value: "Cento"},
+		{Number: 90, Value: "Noventa"},
+		{Number: 80, Value: "Oitenta"},
+		{Number: 70, Value: "Setenta"},
+		{Number: 60, Value: "Sessenta"},
+		{Number: 50, Value: "Cinquenta"},
+		{Number: 40, Value: "Quarenta"},
+		{Number: 30, Value: "Trinta"},
+		{Number: 20, Value: "Vinte"},
+		{Number: 19, Value: "Dezanove"},
+		{Number: 18, Value: "Dezoito"},
+		{Number: 17, Value: "Dezessete"},
+		{Number: 16, Value: "Dezasseis"},
+		{Number: 15, Value: "Quinze"},
+		{Number: 14, Value: "Catorze"},
+		{Number: 13, Value: "Treze"},
+		{Number: 12, Value: "Doze"},
+		{Number: 11, Value: "Onze"},
+		{Number: 10, Value: "Dez"},
+		{Number: 9, Value: "Nove"},
+		{Number: 8, Value: "Oito"},
+		{Number: 7, Value: "Sete"},
+		{Number: 6, Value: "Seis"},
+		{Number: 5, Value: "Cinco"},
+		{Number: 4, Value: "Quatro"},
+		{Number: 3, Value: "Três"},
+		{Number: 2, Value: "Dois"},
+		{Number: 1, Value: "Um"},
+		{Number: 0, Value: "Zero"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Cento"},
+	},
+}

@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// RU001Locale is a NumI18NLocale configured for Russian (World) - ru-001
+var RU001Locale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "рубль",
+		Plural:   "рублей",
+		Singular: "рубль",
+		Symbol:   "₽",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "копейка",
+			Plural:   "копеек",
+			Singular: "копейка",
+			Symbol:   "к",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "и",
+		Minus: "минус",
+		Only:  "только",
+		Point: "точка",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "квадриллион"},
+		{Number: 1000000000000, Value: "триллион"},
+		{Number: 1000000000, Value: "миллиард"},
+		{Number: 1000000, Value: "миллион"},
+		{Number: 1000, Value: "тысяча"},
+		{Number: 100, Value: "сто"},
+		{Number: 90, Value: "девяносто"},
+		{Number: 80, Value: "восемьдесят"},
+		{Number: 70, Value: "семьдесят"},
+		{Number: 60, Value: "шестьдесят"},
+		{Number: 50, Value: "пятьдесят"},
+		{Number: 40, Value: "сорок"},
+		{Number: 30, Value: "тридцать"},
+		{Number: 20, Value: "двадцать"},
+		{Number: 19, Value: "девятнадцать"},
+		{Number: 18, Value: "восемнадцать"},
+		{Number: 17, Value: "семнадцать"},
+		{Number: 16, Value: "шестнадцать"},
+		{Number: 15, Value: "пятнадцать"},
+		{Number: 14, Value: "четырнадцать"},
+		{Number: 13, Value: "тринадцать"},
+		{Number: 12, Value: "двенадцать"},
+		{Number: 11, Value: "одиннадцать"},
+		{Number: 10, Value: "десять"},
+		{Number: 9, Value: "девять"},
+		{Number: 8, Value: "восемь"},
+		{Number: 7, Value: "семь"},
+		{Number: 6, Value: "шесть"},
+		{Number: 5, Value: "пять"},
+		{Number: 4, Value: "четыре"},
+		{Number: 3, Value: "три"},
+		{Number: 2, Value: "два"},
+		{Number: 1, Value: "один"},
+		{Number: 0, Value: "ноль"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "сто"},
+	},
+}

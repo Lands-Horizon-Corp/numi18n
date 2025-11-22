@@ -2,18 +2,18 @@ package locale
 
 import "github.com/Lands-Horizon-Corp/numi18n/pkg"
 
-// AR001Locale is a NumI18NLocale configured for Arabic (World) - ar-001
-var AR001Locale = pkg.NumI18NLocale{
+// ARAELocale is a NumI18NLocale configured for Arabic (United Arab Emirates) - ar-AE
+var ARAELocale = pkg.NumI18NLocale{
 	Currency: pkg.Currency{
-		Name:     "دولار",
-		Plural:   "دولارات",
-		Singular: "دولار",
-		Symbol:   "$",
+		Name:     "درهم",
+		Plural:   "درهم",
+		Singular: "درهم",
+		Symbol:   "د.إ",
 		FractionUnit: pkg.FractionUnit{
-			Name:     "سنت",
-			Plural:   "سنتات",
-			Singular: "سنت",
-			Symbol:   "¢",
+			Name:     "فلس",
+			Plural:   "فلوس",
+			Singular: "فلس",
+			Symbol:   "ف",
 		},
 	},
 	Texts: pkg.Texts{
