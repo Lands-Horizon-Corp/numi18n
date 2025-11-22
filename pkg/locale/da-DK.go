@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// DADKLocale is a NumI18NLocale configured for Danish (Denmark) - da-DK
+var DADKLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Krone",
+		Plural:   "Kroner",
+		Singular: "Krone",
+		Symbol:   "kr",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Øre",
+			Plural:   "Øre",
+			Singular: "Øre",
+			Symbol:   "ø",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "og",
+		Minus: "minus",
+		Only:  "kun",
+		Point: "punktum",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Kvadrillion"},
+		{Number: 1000000000000, Value: "Billion"},
+		{Number: 1000000000, Value: "Milliard"},
+		{Number: 1000000, Value: "Million"},
+		{Number: 1000, Value: "Tusind"},
+		{Number: 100, Value: "Hundrede"},
+		{Number: 90, Value: "Halvfems"},
+		{Number: 80, Value: "Firs"},
+		{Number: 70, Value: "Halvfjerds"},
+		{Number: 60, Value: "Tres"},
+		{Number: 50, Value: "Halvtreds"},
+		{Number: 40, Value: "Fyrre"},
+		{Number: 30, Value: "Tredive"},
+		{Number: 20, Value: "Tyve"},
+		{Number: 19, Value: "Nitten"},
+		{Number: 18, Value: "Atten"},
+		{Number: 17, Value: "Sytten"},
+		{Number: 16, Value: "Seksten"},
+		{Number: 15, Value: "Femten"},
+		{Number: 14, Value: "Fjorten"},
+		{Number: 13, Value: "Tretten"},
+		{Number: 12, Value: "Tolv"},
+		{Number: 11, Value: "Elleve"},
+		{Number: 10, Value: "Ti"},
+		{Number: 9, Value: "Ni"},
+		{Number: 8, Value: "Otte"},
+		{Number: 7, Value: "Syv"},
+		{Number: 6, Value: "Seks"},
+		{Number: 5, Value: "Fem"},
+		{Number: 4, Value: "Fire"},
+		{Number: 3, Value: "Tre"},
+		{Number: 2, Value: "To"},
+		{Number: 1, Value: "En"},
+		{Number: 0, Value: "Nul"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Hundrede"},
+	},
+}

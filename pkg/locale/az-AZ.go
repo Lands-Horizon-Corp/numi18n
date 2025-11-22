@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// AZAZLocale is a NumI18NLocale configured for Azerbaijani (Azerbaijan) - az-AZ
+var AZAZLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Manat",
+		Plural:   "Manat",
+		Singular: "Manat",
+		Symbol:   "₼",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Qəpik",
+			Plural:   "Qəpiklər",
+			Singular: "Qəpik",
+			Symbol:   "q",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "Və",
+		Minus: "Mənfi",
+		Only:  "Yalnız",
+		Point: "Nöqtə",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Kvadrilyon"},
+		{Number: 1000000000000, Value: "Trilyon"},
+		{Number: 1000000000, Value: "Milyard"},
+		{Number: 1000000, Value: "Milyon"},
+		{Number: 1000, Value: "Min"},
+		{Number: 100, Value: "Yüz"},
+		{Number: 90, Value: "Doxsan"},
+		{Number: 80, Value: "Səksən"},
+		{Number: 70, Value: "Yetmiş"},
+		{Number: 60, Value: "Altmış"},
+		{Number: 50, Value: "Əlli"},
+		{Number: 40, Value: "Qırx"},
+		{Number: 30, Value: "Otuz"},
+		{Number: 20, Value: "İyirmi"},
+		{Number: 19, Value: "On doqquz"},
+		{Number: 18, Value: "On səkkiz"},
+		{Number: 17, Value: "On yeddi"},
+		{Number: 16, Value: "On altı"},
+		{Number: 15, Value: "On beş"},
+		{Number: 14, Value: "On dörd"},
+		{Number: 13, Value: "On üç"},
+		{Number: 12, Value: "On iki"},
+		{Number: 11, Value: "On bir"},
+		{Number: 10, Value: "On"},
+		{Number: 9, Value: "Doqquz"},
+		{Number: 8, Value: "Səkkiz"},
+		{Number: 7, Value: "Yeddi"},
+		{Number: 6, Value: "Altı"},
+		{Number: 5, Value: "Beş"},
+		{Number: 4, Value: "Dörd"},
+		{Number: 3, Value: "Üç"},
+		{Number: 2, Value: "İki"},
+		{Number: 1, Value: "Bir"},
+		{Number: 0, Value: "Sıfır"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Bir Yüz"},
+	},
+}

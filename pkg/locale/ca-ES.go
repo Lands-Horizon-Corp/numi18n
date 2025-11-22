@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// CAESLocale is a NumI18NLocale configured for Catalan (Spain) - ca-ES
+var CAESLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Euro",
+		Plural:   "Euros",
+		Singular: "Euro",
+		Symbol:   "€",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Cèntim",
+			Plural:   "Cèntims",
+			Singular: "Cèntim",
+			Symbol:   "c",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "i",
+		Minus: "Menys",
+		Only:  "Només",
+		Point: "Punt",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Quadrilió"},
+		{Number: 1000000000000, Value: "Trilió"},
+		{Number: 1000000000, Value: "Mil milions"},
+		{Number: 1000000, Value: "Milió"},
+		{Number: 1000, Value: "Mil"},
+		{Number: 100, Value: "Cent"},
+		{Number: 90, Value: "Noranta"},
+		{Number: 80, Value: "Vuitanta"},
+		{Number: 70, Value: "Setanta"},
+		{Number: 60, Value: "Seixanta"},
+		{Number: 50, Value: "Cinquanta"},
+		{Number: 40, Value: "Quaranta"},
+		{Number: 30, Value: "Trenta"},
+		{Number: 20, Value: "Vint"},
+		{Number: 19, Value: "Dinou"},
+		{Number: 18, Value: "Divuit"},
+		{Number: 17, Value: "Disset"},
+		{Number: 16, Value: "Setze"},
+		{Number: 15, Value: "Quinze"},
+		{Number: 14, Value: "Catorze"},
+		{Number: 13, Value: "Tretze"},
+		{Number: 12, Value: "Dotze"},
+		{Number: 11, Value: "Onze"},
+		{Number: 10, Value: "Deu"},
+		{Number: 9, Value: "Nou"},
+		{Number: 8, Value: "Vuit"},
+		{Number: 7, Value: "Set"},
+		{Number: 6, Value: "Sis"},
+		{Number: 5, Value: "Cinc"},
+		{Number: 4, Value: "Quatre"},
+		{Number: 3, Value: "Tres"},
+		{Number: 2, Value: "Dos"},
+		{Number: 1, Value: "Un"},
+		{Number: 0, Value: "Zero"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Cent"},
+	},
+}

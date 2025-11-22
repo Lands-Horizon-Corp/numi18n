@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// BNINLocale is a NumI18NLocale configured for Bengali (India) - bn-IN
+var BNINLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "রুপি",
+		Plural:   "রুপি",
+		Singular: "রুপি",
+		Symbol:   "₹",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "পয়সা",
+			Plural:   "পয়সা",
+			Singular: "পয়সা",
+			Symbol:   "p",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "এবং",
+		Minus: "মাইনাস",
+		Only:  "শুধুমাত্র",
+		Point: "দশমিক",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "কোয়াড্রিলিয়ন"},
+		{Number: 1000000000000, Value: "ট্রিলিয়ন"},
+		{Number: 1000000000, Value: "বিলিয়ন"},
+		{Number: 1000000, Value: "মিলিয়ন"},
+		{Number: 1000, Value: "হাজার"},
+		{Number: 100, Value: "শত"},
+		{Number: 90, Value: "নব্বই"},
+		{Number: 80, Value: "আশি"},
+		{Number: 70, Value: "সত্তর"},
+		{Number: 60, Value: "ষাট"},
+		{Number: 50, Value: "পঞ্চাশ"},
+		{Number: 40, Value: "চল্লিশ"},
+		{Number: 30, Value: "ত্রিশ"},
+		{Number: 20, Value: "বিশ"},
+		{Number: 19, Value: "উনিশ"},
+		{Number: 18, Value: "অষ্টাদশ"},
+		{Number: 17, Value: "সতের"},
+		{Number: 16, Value: "ষোল"},
+		{Number: 15, Value: "পনের"},
+		{Number: 14, Value: "চৌদ্দ"},
+		{Number: 13, Value: "তের"},
+		{Number: 12, Value: "বার"},
+		{Number: 11, Value: "এঘার"},
+		{Number: 10, Value: "দশ"},
+		{Number: 9, Value: "নয়"},
+		{Number: 8, Value: "আট"},
+		{Number: 7, Value: "সাত"},
+		{Number: 6, Value: "ছয়"},
+		{Number: 5, Value: "পাঁচ"},
+		{Number: 4, Value: "চার"},
+		{Number: 3, Value: "তিন"},
+		{Number: 2, Value: "দুই"},
+		{Number: 1, Value: "এক"},
+		{Number: 0, Value: "শূন্য"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "একশত"},
+	},
+}

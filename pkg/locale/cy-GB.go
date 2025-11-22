@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// CYGBLocale is a NumI18NLocale configured for Welsh (United Kingdom) - cy-GB
+var CYGBLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Punt",
+		Plural:   "Puntiau",
+		Singular: "Punt",
+		Symbol:   "£",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Ceiniog",
+			Plural:   "Ceiniogau",
+			Singular: "Ceiniog",
+			Symbol:   "p",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "a",
+		Minus: "minus",
+		Only:  "yn unig",
+		Point: "pwynt",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Quadriliwn"},
+		{Number: 1000000000000, Value: "Triliwn"},
+		{Number: 1000000000, Value: "Biliwn"},
+		{Number: 1000000, Value: "Miliwn"},
+		{Number: 1000, Value: "Mil"},
+		{Number: 100, Value: "Can"},
+		{Number: 90, Value: "Nawdeg"},
+		{Number: 80, Value: "Wythdeg"},
+		{Number: 70, Value: "Saithdeg"},
+		{Number: 60, Value: "Chwedeg"},
+		{Number: 50, Value: "Hanner cant"},
+		{Number: 40, Value: "Pedwar deg"},
+		{Number: 30, Value: "Deg ar hugain"},
+		{Number: 20, Value: "Ugain"},
+		{Number: 19, Value: "Pedwar ar bymtheg"},
+		{Number: 18, Value: "Deunaw"},
+		{Number: 17, Value: "Saith ar bymtheg"},
+		{Number: 16, Value: "Un ar bymtheg"},
+		{Number: 15, Value: "Pymtheg"},
+		{Number: 14, Value: "Pedwar ar ddeg"},
+		{Number: 13, Value: "Tri ar ddeg"},
+		{Number: 12, Value: "Deuddeg"},
+		{Number: 11, Value: "Un ar ddeg"},
+		{Number: 10, Value: "Deg"},
+		{Number: 9, Value: "Naw"},
+		{Number: 8, Value: "Wyth"},
+		{Number: 7, Value: "Saith"},
+		{Number: 6, Value: "Chwech"},
+		{Number: 5, Value: "Pum"},
+		{Number: 4, Value: "Pedwar"},
+		{Number: 3, Value: "Tri"},
+		{Number: 2, Value: "Dau"},
+		{Number: 1, Value: "Un"},
+		{Number: 0, Value: "Sero"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Can"},
+	},
+}

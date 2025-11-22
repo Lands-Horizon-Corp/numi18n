@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// ASINLocale is a NumI18NLocale configured for Assamese (India) - as-IN
+var ASINLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "ৰুপি",
+		Plural:   "ৰুপি",
+		Singular: "ৰুপি",
+		Symbol:   "₹",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "পাইছা",
+			Plural:   "পাইছা",
+			Singular: "পাইছা",
+			Symbol:   "p",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "আৰু",
+		Minus: "মাইনাছ",
+		Only:  "মাত্ৰ",
+		Point: "ডট",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "কোয়াড্ৰিলিয়ন"},
+		{Number: 1000000000000, Value: "ট্ৰিলিয়ন"},
+		{Number: 1000000000, Value: "বিলিয়ন"},
+		{Number: 1000000, Value: "মিলিয়ন"},
+		{Number: 1000, Value: "হাজাৰ"},
+		{Number: 100, Value: "শত"},
+		{Number: 90, Value: "নৱ্বই"},
+		{Number: 80, Value: "আশি"},
+		{Number: 70, Value: "সত্তৰ"},
+		{Number: 60, Value: "ষাট"},
+		{Number: 50, Value: "পঞ্চাশ"},
+		{Number: 40, Value: "চাৰিশ"},
+		{Number: 30, Value: "ত্ৰিশ"},
+		{Number: 20, Value: "বিশ"},
+		{Number: 19, Value: "উনিশ"},
+		{Number: 18, Value: "অঠাৰ"},
+		{Number: 17, Value: "সতের"},
+		{Number: 16, Value: "ষোল"},
+		{Number: 15, Value: "পন্ধৰ"},
+		{Number: 14, Value: "চৌদ্দ"},
+		{Number: 13, Value: "তেৰ"},
+		{Number: 12, Value: "বার"},
+		{Number: 11, Value: "এঘাৰ"},
+		{Number: 10, Value: "দহ"},
+		{Number: 9, Value: "নয়"},
+		{Number: 8, Value: "আঠ"},
+		{Number: 7, Value: "সাত"},
+		{Number: 6, Value: "ছয়"},
+		{Number: 5, Value: "পাঁচ"},
+		{Number: 4, Value: "চাৰ"},
+		{Number: 3, Value: "তিন"},
+		{Number: 2, Value: "দুই"},
+		{Number: 1, Value: "এটা"},
+		{Number: 0, Value: "শূন্য"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "এক শত"},
+	},
+}
