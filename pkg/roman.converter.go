@@ -36,6 +36,8 @@ var romanNumerals = []struct {
 	{1, "I"},
 }
 
+// ToRoman converts an integer to Roman numeral representation
+// Example: 1994 -> "MCMXCIV", 42 -> "XLII", 3999 -> "MMMCMXCIX"
 func ToRoman(amount int) string {
 	if amount <= 0 {
 		return ""
@@ -51,6 +53,8 @@ func ToRoman(amount int) string {
 	return sb.String()
 }
 
+// FromRoman converts a Roman numeral string to its integer value
+// Example: "MCMXCIV" -> 1994, "XLII" -> 42, "IV" -> 4
 func FromRoman(roman string) int {
 	if !IsValid(roman) {
 		return 0
@@ -81,6 +85,8 @@ func FromRoman(roman string) int {
 	return num
 }
 
+// IsValid checks if a Roman numeral string is properly formatted
+// Example: "MCMXCIV" -> true, "IIII" -> false, "VV" -> false
 func IsValid(roman string) bool {
 	re := `^(_?M{0,3}|M_V|_V|_X_C|_C_D|_D|_C_M|_M)(_?C{0,3}|CM|CD|D?C{0,3})(_?X{0,3}|XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$`
 	matched, _ := regexp.MatchString(re, roman)
