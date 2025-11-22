@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// DZBTLocale is a NumI18NLocale configured for Dzongkha (Bhutan) - dz-BT
+var DZBTLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Ngultrum",
+		Plural:   "Ngultrum",
+		Singular: "Ngultrum",
+		Symbol:   "Nu",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Chhertum",
+			Plural:   "Chhertum",
+			Singular: "Chhertum",
+			Symbol:   "Ch",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "དང་",
+		Minus: "མིང་མེད་",
+		Only:  "ཡང་ན་",
+		Point: "ཐུང་",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "ཀྱུར་དྲི་ལི་ཨན་"},
+		{Number: 1000000000000, Value: "ཊྲི་ལི་ཨན་"},
+		{Number: 1000000000, Value: "བི་ལི་ཨན་"},
+		{Number: 1000000, Value: "མི་ལི་ཨན་"},
+		{Number: 1000, Value: "མི་ལ་"},
+		{Number: 100, Value: "སུང་"},
+		{Number: 90, Value: "དང་ལྔ་དུས་དེབ་"},
+		{Number: 80, Value: "བརྒྱ་བརྒྱ་"},
+		{Number: 70, Value: "བདུན་བརྒྱ་"},
+		{Number: 60, Value: "དགུ་བརྒྱ་"},
+		{Number: 50, Value: "ལྔ་བརྒྱ་"},
+		{Number: 40, Value: "བཞི་བརྒྱ་"},
+		{Number: 30, Value: "སུམ་བརྒྱ་"},
+		{Number: 20, Value: "ཉེ་བརྒྱ་"},
+		{Number: 19, Value: "དགུ་གཅིག་"},
+		{Number: 18, Value: "བཞི་གཉིས་"},
+		{Number: 17, Value: "བདུན་གཉིས་"},
+		{Number: 16, Value: "དགུ་གཉིས་"},
+		{Number: 15, Value: "ལྔ་གཉིས་"},
+		{Number: 14, Value: "བཞི་བཞི་"},
+		{Number: 13, Value: "སུམ་གསུམ་"},
+		{Number: 12, Value: "ཉེ་གཉིས་"},
+		{Number: 11, Value: "གཅིག་གཅིག་"},
+		{Number: 10, Value: "བཅུ་"},
+		{Number: 9, Value: "དགུ་"},
+		{Number: 8, Value: "བརྒྱད་"},
+		{Number: 7, Value: "བདུན་"},
+		{Number: 6, Value: "དྲུག་"},
+		{Number: 5, Value: "ལྔ་"},
+		{Number: 4, Value: "བཞི་"},
+		{Number: 3, Value: "སུམ་"},
+		{Number: 2, Value: "གཉིས་"},
+		{Number: 1, Value: "གཅིག་"},
+		{Number: 0, Value: "སོ་རོ་"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "སུང་"},
+	},
+}

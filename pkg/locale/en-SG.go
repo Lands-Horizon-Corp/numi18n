@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// SGLocale is a NumI18NLocale configured for Singapore (en-SG)
+var SGLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Singapore Dollar",
+		Plural:   "Singapore Dollars",
+		Singular: "Singapore Dollar",
+		Symbol:   "S$",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Cent",
+			Plural:   "Cents",
+			Singular: "Cent",
+			Symbol:   "¢",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "And",
+		Minus: "Minus",
+		Only:  "Only",
+		Point: "Point",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Quadrillion"},
+		{Number: 1000000000000, Value: "Trillion"},
+		{Number: 1000000000, Value: "Billion"},
+		{Number: 1000000, Value: "Million"},
+		{Number: 1000, Value: "Thousand"},
+		{Number: 100, Value: "Hundred"},
+		{Number: 90, Value: "Ninety"},
+		{Number: 80, Value: "Eighty"},
+		{Number: 70, Value: "Seventy"},
+		{Number: 60, Value: "Sixty"},
+		{Number: 50, Value: "Fifty"},
+		{Number: 40, Value: "Forty"},
+		{Number: 30, Value: "Thirty"},
+		{Number: 20, Value: "Twenty"},
+		{Number: 19, Value: "Nineteen"},
+		{Number: 18, Value: "Eighteen"},
+		{Number: 17, Value: "Seventeen"},
+		{Number: 16, Value: "Sixteen"},
+		{Number: 15, Value: "Fifteen"},
+		{Number: 14, Value: "Fourteen"},
+		{Number: 13, Value: "Thirteen"},
+		{Number: 12, Value: "Twelve"},
+		{Number: 11, Value: "Eleven"},
+		{Number: 10, Value: "Ten"},
+		{Number: 9, Value: "Nine"},
+		{Number: 8, Value: "Eight"},
+		{Number: 7, Value: "Seven"},
+		{Number: 6, Value: "Six"},
+		{Number: 5, Value: "Five"},
+		{Number: 4, Value: "Four"},
+		{Number: 3, Value: "Three"},
+		{Number: 2, Value: "Two"},
+		{Number: 1, Value: "One"},
+		{Number: 0, Value: "Zero"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "One Hundred"},
+	},
+}
