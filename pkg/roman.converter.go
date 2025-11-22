@@ -1,4 +1,4 @@
-package roman
+package pkg
 
 import (
 	"regexp"

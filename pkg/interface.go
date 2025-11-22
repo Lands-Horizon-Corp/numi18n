@@ -1,4 +1,4 @@
-package src
+package pkg
 
 type NumI18NOptions struct {
 	CountryName    string // Full country name, e.g., "Philippines"

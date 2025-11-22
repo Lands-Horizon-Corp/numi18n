@@ -1,4 +1,4 @@
-package src
+package pkg
 
 func (op *NumI18NOptions) ToWords(amount float64) string {
 	return ""
