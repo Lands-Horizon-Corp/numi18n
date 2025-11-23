@@ -32,6 +32,12 @@ type ExactWordMapping struct {
 	Value  string // Exact word representation, e.g., "One Hundred"
 }
 
+type OrdinalMapping struct {
+	Number int64  // Ordinal numeric value, e.g., 1, 2, 3
+	Word   string // Ordinal word, e.g., "first", "second", "third"
+	Suffix string // Ordinal suffix for numeric form, e.g., "st", "nd", "rd", "th"
+}
+
 type NumI18Identifier struct {
 	CountryName    string   // Full country name, e.g., "Philippines"
 	Currency       string   // Currency code, e.g., "PHP", "USD"
@@ -49,4 +55,5 @@ type NumI18NLocale struct {
 	Texts              Texts
 	NumberWordsMapping []NumberWordMapping
 	ExactWordsMapping  []ExactWordMapping
+	OrdinalMapping     []OrdinalMapping
 }

@@ -1,0 +1,53 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+*.wasm
+
+# Build artifacts
+*.o
+*.a
+*.obj
+*.lib
+
+# Test binaries
+*_test
+
+# IDE-specific files and directories
+.idea/ # IntelliJ IDEA
+.vscode/ # VS Code
+*.iml
+*.iws
+*.ipr
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+
+# Dependency directories (if not using Go Modules or if vendoring is not desired)
+# vendor/
+
+# Go Modules cache
+# You might want to ignore the module cache if you're not committing it
+# and rely on `go mod download` or similar commands.
+# go.sum
+# go.mod
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# Temporary files
+*~
+#*#
+.#*
+*.bak
+*.swp
+*.swo
+
+# User-specific configuration or data
+# For example, if your application generates user-specific config files,
+# you might want to ignore them.
+# config.local.yaml
+# data/
