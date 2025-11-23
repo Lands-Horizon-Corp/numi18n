@@ -1,7 +1,6 @@
 package locale
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -378,64 +377,4 @@ func (locale NumI18NLocale) FindOrdinalByNumber(number int64) *OrdinalMapping {
 		}
 	}
 	return nil
-}
-
-// GetOrdinalWord returns the ordinal word for a number, or empty string if not found
-func (locale NumI18NLocale) GetOrdinalWord(number int64) string {
-	if ordinal := locale.FindOrdinalByNumber(number); ordinal != nil {
-		return ordinal.Word
-	}
-	return ""
-}
-
-// GetOrdinalSuffix returns the ordinal suffix for a number, or empty string if not found
-func (locale NumI18NLocale) GetOrdinalSuffix(number int64) string {
-	if ordinal := locale.FindOrdinalByNumber(number); ordinal != nil {
-		return ordinal.Suffix
-	}
-	return ""
-}
-
-// FormatOrdinalNumeric formats a number with its ordinal suffix (e.g., "1st", "2nd", "3rd")
-func (locale NumI18NLocale) FormatOrdinalNumeric(number int64) string {
-	suffix := locale.GetOrdinalSuffix(number)
-	if suffix == "" {
-		// Fallback to generic suffix logic for numbers not in mapping
-		switch {
-		case locale.NumI18Identifier.Language == "en":
-			if number%100 >= 11 && number%100 <= 13 {
-				suffix = "th"
-			} else {
-				switch number % 10 {
-				case 1:
-					suffix = "st"
-				case 2:
-					suffix = "nd"
-				case 3:
-					suffix = "rd"
-				default:
-					suffix = "th"
-				}
-			}
-		case locale.NumI18Identifier.Language == "fr":
-			if number == 1 {
-				suffix = "er"
-			} else {
-				suffix = "e"
-			}
-		default:
-			suffix = ""
-		}
-	}
-	return fmt.Sprintf("%d%s", number, suffix)
-}
-
-// FormatOrdinalWord formats a number as its ordinal word (e.g., "first", "second", "third")
-func (locale NumI18NLocale) FormatOrdinalWord(number int64) string {
-	word := locale.GetOrdinalWord(number)
-	if word == "" {
-		// Fallback to numeric format if word not available
-		return locale.FormatOrdinalNumeric(number)
-	}
-	return word
 }
