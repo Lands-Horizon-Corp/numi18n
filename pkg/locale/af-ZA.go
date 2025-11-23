@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // AFZALocale is a NumI18NLocale configured for Afrikaans (South Africa) - af-ZA
 var AFZALocale = NumI18NLocale{
 	Currency: Currency{
@@ -67,6 +69,8 @@ var AFZALocale = NumI18NLocale{
 		{Number: 0, Value: "Nul"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
+		{Number: 1000000, Value: "Een Miljoen"},
+		{Number: 1000, Value: "Een Duizend"},
 		{Number: 100, Value: "Honderd"},
 	},
 	OrdinalMapping: []OrdinalMapping{
@@ -101,4 +105,117 @@ var AFZALocale = NumI18NLocale{
 		{Number: 100, Word: "Honderdste", Suffix: "ste", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000, Word: "Duizendste", Suffix: "ste", Masculine: "", Feminine: "", Neuter: ""},
 	},
+	LocaleFormatter: &AfrikaansFormatter{},
+}
+
+// AfrikaansFormatter handles Afrikaans formatting
+type AfrikaansFormatter struct{}
+
+func (f *AfrikaansFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	// Convert to decimal for consistent handling
+	decNumber := decimal.NewFromInt(number)
+
+	// Handle zero
+	if decNumber.Equal(decimal.Zero) {
+		return GetWordForNumber(decimal.Zero, targetLocale)
+	}
+
+	// Check for exact mappings first
+	for _, mapping := range targetLocale.ExactWordsMapping {
+		if decimal.NewFromInt(mapping.Number).Equal(decNumber) {
+			return mapping.Value
+		}
+	}
+
+	result := ""
+	million := decimal.NewFromInt(1000000)
+	thousand := decimal.NewFromInt(1000)
+	hundred := decimal.NewFromInt(100)
+	twentyOne := decimal.NewFromInt(21)
+	ninety9 := decimal.NewFromInt(99)
+	ten := decimal.NewFromInt(10)
+	one := decimal.NewFromInt(1)
+
+	// Handle millions and above
+	if decNumber.GreaterThanOrEqual(million) {
+		millions := decNumber.Div(million).Floor()
+		if millions.Equal(one) {
+			result += "Een " + GetWordForNumber(million, targetLocale)
+		} else {
+			result += f.FormatNumber(millions.IntPart(), targetLocale) + " " + GetWordForNumber(million, targetLocale)
+		}
+		remainder := decNumber.Mod(million)
+		if remainder.GreaterThan(decimal.Zero) {
+			result += " " + f.FormatNumber(remainder.IntPart(), targetLocale)
+		}
+		return result
+	}
+
+	// Handle thousands
+	if decNumber.GreaterThanOrEqual(thousand) {
+		thousands := decNumber.Div(thousand).Floor()
+		if thousands.Equal(one) {
+			result += "Een " + GetWordForNumber(thousand, targetLocale)
+		} else {
+			result += f.FormatNumber(thousands.IntPart(), targetLocale) + " " + GetWordForNumber(thousand, targetLocale)
+		}
+		remainder := decNumber.Mod(thousand)
+		if remainder.GreaterThan(decimal.Zero) {
+			result += " " + f.FormatNumber(remainder.IntPart(), targetLocale)
+		}
+		return result
+	}
+
+	// Handle hundreds
+	if decNumber.GreaterThanOrEqual(hundred) {
+		hundreds := decNumber.Div(hundred).Floor()
+		if hundreds.Equal(one) {
+			result += GetWordForNumber(hundred, targetLocale)
+		} else {
+			result += GetWordForNumber(hundreds, targetLocale) + " " + GetWordForNumber(hundred, targetLocale)
+		}
+		remainder := decNumber.Mod(hundred)
+		if remainder.GreaterThan(decimal.Zero) {
+			result += " " + f.FormatNumber(remainder.IntPart(), targetLocale)
+		}
+		return result
+	}
+	if decNumber.GreaterThanOrEqual(twentyOne) && decNumber.LessThanOrEqual(ninety9) {
+		tens := decNumber.Div(ten).Floor().Mul(ten)
+		ones := decNumber.Mod(ten)
+		if ones.Equal(decimal.Zero) {
+			return GetWordForNumber(tens, targetLocale)
+		}
+		return GetWordForNumber(ones, targetLocale) + " " + targetLocale.Texts.And + " " + GetWordForNumber(tens, targetLocale)
+	}
+	return GetWordForNumber(decNumber, targetLocale)
+}
+
+func (f *AfrikaansFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *AfrikaansFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *AfrikaansFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *AfrikaansFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *AfrikaansFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }
