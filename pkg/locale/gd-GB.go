@@ -16,6 +16,16 @@ var GBGDLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "United Kingdom",
+		Currency:       "GBP",
+		ISO3166Alpha2:  "GB",
+		ISO3166Alpha3:  "GBR",
+		ISO3166Numeric: "826",
+		Locale:         "gd-GB",
+		Timezone:       []string{"Europe/London"},
+		Language:       "gd",
+	},
 	Texts: pkg.Texts{
 		And:   "Agus",
 		Minus: "As aonais",

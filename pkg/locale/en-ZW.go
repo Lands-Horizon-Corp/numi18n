@@ -16,6 +16,16 @@ var ZWLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Zimbabwe",
+		Currency:       "ZWL",
+		ISO3166Alpha2:  "ZW",
+		ISO3166Alpha3:  "ZWE",
+		ISO3166Numeric: "716",
+		Locale:         "en-ZW",
+		Timezone:       []string{"Africa/Harare"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

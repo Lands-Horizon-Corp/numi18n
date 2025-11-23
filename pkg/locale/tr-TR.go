@@ -16,6 +16,16 @@ var TRTRLocale = pkg.NumI18NLocale{
 			Symbol:   "kr",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Turkey",
+		Currency:       "TRY",
+		ISO3166Alpha2:  "TR",
+		ISO3166Alpha3:  "TUR",
+		ISO3166Numeric: "792",
+		Locale:         "tr-TR",
+		Timezone:       []string{"Europe/Istanbul"},
+		Language:       "tr",
+	},
 	Texts: pkg.Texts{
 		And:   "ve",
 		Minus: "eksi",

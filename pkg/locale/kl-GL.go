@@ -16,6 +16,16 @@ var GLLocale = pkg.NumI18NLocale{
 			Symbol:   "ø",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Greenland",
+		Currency:       "DKK",
+		ISO3166Alpha2:  "GL",
+		ISO3166Alpha3:  "GRL",
+		ISO3166Numeric: "304",
+		Locale:         "kl-GL",
+		Timezone:       []string{"America/Godthab"},
+		Language:       "kl",
+	},
 	Texts: pkg.Texts{
 		And:   "Aamma",
 		Minus: "Minus",

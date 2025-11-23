@@ -16,6 +16,16 @@ var HULocale = pkg.NumI18NLocale{
 			Symbol:   "f",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Hungary",
+		Currency:       "HUF",
+		ISO3166Alpha2:  "HU",
+		ISO3166Alpha3:  "HUN",
+		ISO3166Numeric: "348",
+		Locale:         "hu-HU",
+		Timezone:       []string{"Europe/Budapest"},
+		Language:       "hu",
+	},
 	Texts: pkg.Texts{
 		And:   "És",
 		Minus: "Mínusz",

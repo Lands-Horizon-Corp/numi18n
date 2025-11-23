@@ -16,6 +16,16 @@ var ARIQLocale = pkg.NumI18NLocale{
 			Symbol:   "ف",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Iraq",
+		Currency:       "IQD",
+		ISO3166Alpha2:  "IQ",
+		ISO3166Alpha3:  "IRQ",
+		ISO3166Numeric: "368",
+		Locale:         "ar-IQ",
+		Timezone:       []string{"Asia/Baghdad"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

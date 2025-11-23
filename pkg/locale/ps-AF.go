@@ -16,6 +16,16 @@ var PSAFLocale = pkg.NumI18NLocale{
 			Symbol:   "پ",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Afghanistan",
+		Currency:       "AFN",
+		ISO3166Alpha2:  "AF",
+		ISO3166Alpha3:  "AFG",
+		ISO3166Numeric: "004",
+		Locale:         "ps-AF",
+		Timezone:       []string{"Asia/Kabul"},
+		Language:       "ps",
+	},
 	Texts: pkg.Texts{
 		And:   "او",
 		Minus: "منفي",

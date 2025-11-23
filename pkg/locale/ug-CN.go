@@ -16,6 +16,16 @@ var UGCNLocale = pkg.NumI18NLocale{
 			Symbol:   "角",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "China",
+		Currency:       "CNY",
+		ISO3166Alpha2:  "CN",
+		ISO3166Alpha3:  "CHN",
+		ISO3166Numeric: "156",
+		Locale:         "ug-CN",
+		Timezone:       []string{"Asia/Shanghai"},
+		Language:       "ug",
+	},
 	Texts: pkg.Texts{
 		And:   "ۋە",
 		Minus: "مىنۇس",

@@ -16,6 +16,16 @@ var NLNLLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Netherlands",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "NL",
+		ISO3166Alpha3:  "NLD",
+		ISO3166Numeric: "528",
+		Locale:         "nl-NL",
+		Timezone:       []string{"Europe/Amsterdam"},
+		Language:       "nl",
+	},
 	Texts: pkg.Texts{
 		And:   "en",
 		Minus: "min",

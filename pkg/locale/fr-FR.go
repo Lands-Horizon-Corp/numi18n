@@ -16,6 +16,16 @@ var FRLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "France",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "FR",
+		ISO3166Alpha3:  "FRA",
+		ISO3166Numeric: "250",
+		Locale:         "fr-FR",
+		Timezone:       []string{"Europe/Paris"},
+		Language:       "fr",
+	},
 	Texts: pkg.Texts{
 		And:   "Et",
 		Minus: "Moins",

@@ -16,6 +16,16 @@ var BOLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Bolivia",
+		Currency:       "BOB",
+		ISO3166Alpha2:  "BO",
+		ISO3166Alpha3:  "BOL",
+		ISO3166Numeric: "068",
+		Locale:         "es-BO",
+		Timezone:       []string{"America/La_Paz"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

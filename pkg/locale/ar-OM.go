@@ -16,6 +16,16 @@ var AROMLocale = pkg.NumI18NLocale{
 			Symbol:   "ب",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Oman",
+		Currency:       "OMR",
+		ISO3166Alpha2:  "OM",
+		ISO3166Alpha3:  "OMN",
+		ISO3166Numeric: "512",
+		Locale:         "ar-OM",
+		Timezone:       []string{"Asia/Muscat"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

@@ -16,6 +16,16 @@ var AZAZLocale = pkg.NumI18NLocale{
 			Symbol:   "q",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Azerbaijan",
+		Currency:       "AZN",
+		ISO3166Alpha2:  "AZ",
+		ISO3166Alpha3:  "AZE",
+		ISO3166Numeric: "031",
+		Locale:         "az-AZ",
+		Timezone:       []string{"Asia/Baku"},
+		Language:       "az",
+	},
 	Texts: pkg.Texts{
 		And:   "Və",
 		Minus: "Mənfi",

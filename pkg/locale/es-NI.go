@@ -16,6 +16,16 @@ var NILocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Nicaragua",
+		Currency:       "NIO",
+		ISO3166Alpha2:  "NI",
+		ISO3166Alpha3:  "NIC",
+		ISO3166Numeric: "558",
+		Locale:         "es-NI",
+		Timezone:       []string{"America/Managua"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

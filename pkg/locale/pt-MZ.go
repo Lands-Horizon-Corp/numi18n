@@ -16,6 +16,16 @@ var PTMZLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Mozambique",
+		Currency:       "MZN",
+		ISO3166Alpha2:  "MZ",
+		ISO3166Alpha3:  "MOZ",
+		ISO3166Numeric: "508",
+		Locale:         "pt-MZ",
+		Timezone:       []string{"Africa/Maputo"},
+		Language:       "pt",
+	},
 	Texts: pkg.Texts{
 		And:   "e",
 		Minus: "menos",

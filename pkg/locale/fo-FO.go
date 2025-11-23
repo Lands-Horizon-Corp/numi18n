@@ -16,6 +16,16 @@ var FOLocale = pkg.NumI18NLocale{
 			Symbol:   "ø",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Faroe Islands",
+		Currency:       "DKK",
+		ISO3166Alpha2:  "FO",
+		ISO3166Alpha3:  "FRO",
+		ISO3166Numeric: "234",
+		Locale:         "fo-FO",
+		Timezone:       []string{"Atlantic/Faroe"},
+		Language:       "fo",
+	},
 	Texts: pkg.Texts{
 		And:   "Og",
 		Minus: "Mínus",

@@ -16,6 +16,16 @@ var PTAOLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Angola",
+		Currency:       "AOA",
+		ISO3166Alpha2:  "AO",
+		ISO3166Alpha3:  "AGO",
+		ISO3166Numeric: "024",
+		Locale:         "pt-AO",
+		Timezone:       []string{"Africa/Luanda"},
+		Language:       "pt",
+	},
 	Texts: pkg.Texts{
 		And:   "e",
 		Minus: "menos",

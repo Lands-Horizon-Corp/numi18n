@@ -16,6 +16,16 @@ var SRRSLocale = pkg.NumI18NLocale{
 			Symbol:   "п",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Serbia",
+		Currency:       "RSD",
+		ISO3166Alpha2:  "RS",
+		ISO3166Alpha3:  "SRB",
+		ISO3166Numeric: "688",
+		Locale:         "sr-RS",
+		Timezone:       []string{"Europe/Belgrade"},
+		Language:       "sr",
+	},
 	Texts: pkg.Texts{
 		And:   "и",
 		Minus: "минус",

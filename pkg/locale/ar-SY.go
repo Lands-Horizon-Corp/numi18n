@@ -16,6 +16,16 @@ var ARSYLocale = pkg.NumI18NLocale{
 			Symbol:   "ق",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Syria",
+		Currency:       "SYP",
+		ISO3166Alpha2:  "SY",
+		ISO3166Alpha3:  "SYR",
+		ISO3166Numeric: "760",
+		Locale:         "ar-SY",
+		Timezone:       []string{"Asia/Damascus"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

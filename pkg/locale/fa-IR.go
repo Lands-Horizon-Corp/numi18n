@@ -16,6 +16,16 @@ var IRLocale = pkg.NumI18NLocale{
 			Symbol:   "دینار",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Iran",
+		Currency:       "IRR",
+		ISO3166Alpha2:  "IR",
+		ISO3166Alpha3:  "IRN",
+		ISO3166Numeric: "364",
+		Locale:         "fa-IR",
+		Timezone:       []string{"Asia/Tehran"},
+		Language:       "fa",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "منفی",

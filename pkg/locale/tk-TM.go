@@ -16,6 +16,16 @@ var TKTMLocale = pkg.NumI18NLocale{
 			Symbol:   "t",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Turkmenistan",
+		Currency:       "TMT",
+		ISO3166Alpha2:  "TM",
+		ISO3166Alpha3:  "TKM",
+		ISO3166Numeric: "795",
+		Locale:         "tk-TM",
+		Timezone:       []string{"Asia/Ashgabat"},
+		Language:       "tk",
+	},
 	Texts: pkg.Texts{
 		And:   "we",
 		Minus: "minus",

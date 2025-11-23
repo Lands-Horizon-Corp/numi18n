@@ -16,6 +16,16 @@ var HNLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Honduras",
+		Currency:       "HNL",
+		ISO3166Alpha2:  "HN",
+		ISO3166Alpha3:  "HND",
+		ISO3166Numeric: "340",
+		Locale:         "es-HN",
+		Timezone:       []string{"America/Tegucigalpa"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

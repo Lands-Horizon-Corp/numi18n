@@ -16,6 +16,16 @@ var MNMNLocale = pkg.NumI18NLocale{
 			Symbol:   "м",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Mongolia",
+		Currency:       "MNT",
+		ISO3166Alpha2:  "MN",
+		ISO3166Alpha3:  "MNG",
+		ISO3166Numeric: "496",
+		Locale:         "mn-MN",
+		Timezone:       []string{"Asia/Ulaanbaatar"},
+		Language:       "mn",
+	},
 	Texts: pkg.Texts{
 		And:   "ба",
 		Minus: "хасах",

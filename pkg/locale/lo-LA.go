@@ -16,6 +16,16 @@ var LOLALocale = pkg.NumI18NLocale{
 			Symbol:   "att",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Laos",
+		Currency:       "LAK",
+		ISO3166Alpha2:  "LA",
+		ISO3166Alpha3:  "LAO",
+		ISO3166Numeric: "418",
+		Locale:         "lo-LA",
+		Timezone:       []string{"Asia/Vientiane"},
+		Language:       "lo",
+	},
 	Texts: pkg.Texts{
 		And:   "ແລະ",
 		Minus: "ລົບ",

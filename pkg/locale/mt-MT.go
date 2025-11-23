@@ -16,6 +16,16 @@ var MTMTLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Malta",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "MT",
+		ISO3166Alpha3:  "MLT",
+		ISO3166Numeric: "470",
+		Locale:         "mt-MT",
+		Timezone:       []string{"Europe/Malta"},
+		Language:       "mt",
+	},
 	Texts: pkg.Texts{
 		And:   "u",
 		Minus: "inqas",

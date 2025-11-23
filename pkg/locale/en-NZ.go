@@ -16,6 +16,16 @@ var NZLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "New Zealand",
+		Currency:       "NZD",
+		ISO3166Alpha2:  "NZ",
+		ISO3166Alpha3:  "NZL",
+		ISO3166Numeric: "554",
+		Locale:         "en-NZ",
+		Timezone:       []string{"Pacific/Auckland"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

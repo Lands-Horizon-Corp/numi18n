@@ -16,6 +16,16 @@ var SVLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "El Salvador",
+		Currency:       "USD",
+		ISO3166Alpha2:  "SV",
+		ISO3166Alpha3:  "SLV",
+		ISO3166Numeric: "222",
+		Locale:         "es-SV",
+		Timezone:       []string{"America/El_Salvador"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

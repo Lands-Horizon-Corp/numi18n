@@ -16,6 +16,16 @@ var IELocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Ireland",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "IE",
+		ISO3166Alpha3:  "IRL",
+		ISO3166Numeric: "372",
+		Locale:         "en-IE",
+		Timezone:       []string{"Europe/Dublin"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

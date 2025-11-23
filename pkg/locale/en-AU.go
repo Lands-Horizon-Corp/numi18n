@@ -16,6 +16,16 @@ var AUALocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Australia",
+		Currency:       "AUD",
+		ISO3166Alpha2:  "AU",
+		ISO3166Alpha3:  "AUS",
+		ISO3166Numeric: "036",
+		Locale:         "en-AU",
+		Timezone:       []string{"Australia/Sydney"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

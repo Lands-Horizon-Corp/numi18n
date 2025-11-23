@@ -16,6 +16,16 @@ var SWKELocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Kenya",
+		Currency:       "KES",
+		ISO3166Alpha2:  "KE",
+		ISO3166Alpha3:  "KEN",
+		ISO3166Numeric: "404",
+		Locale:         "sw-KE",
+		Timezone:       []string{"Africa/Nairobi"},
+		Language:       "sw",
+	},
 	Texts: pkg.Texts{
 		And:   "na",
 		Minus: "hasi",

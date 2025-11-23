@@ -16,6 +16,16 @@ var RUBYLocale = pkg.NumI18NLocale{
 			Symbol:   "к",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Belarus",
+		Currency:       "BYN",
+		ISO3166Alpha2:  "BY",
+		ISO3166Alpha3:  "BLR",
+		ISO3166Numeric: "112",
+		Locale:         "ru-BY",
+		Timezone:       []string{"Europe/Minsk"},
+		Language:       "ru",
+	},
 	Texts: pkg.Texts{
 		And:   "и",
 		Minus: "минус",

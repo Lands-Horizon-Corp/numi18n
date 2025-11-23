@@ -16,6 +16,16 @@ var LVLVLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Latvia",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "LV",
+		ISO3166Alpha3:  "LVA",
+		ISO3166Numeric: "428",
+		Locale:         "lv-LV",
+		Timezone:       []string{"Europe/Riga"},
+		Language:       "lv",
+	},
 	Texts: pkg.Texts{
 		And:   "un",
 		Minus: "mīnus",

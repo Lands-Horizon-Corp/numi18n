@@ -16,6 +16,16 @@ var VIVNLocale = pkg.NumI18NLocale{
 			Symbol:   "xu",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Vietnam",
+		Currency:       "VND",
+		ISO3166Alpha2:  "VN",
+		ISO3166Alpha3:  "VNM",
+		ISO3166Numeric: "704",
+		Locale:         "vi-VN",
+		Timezone:       []string{"Asia/Ho_Chi_Minh"},
+		Language:       "vi",
+	},
 	Texts: pkg.Texts{
 		And:   "và",
 		Minus: "âm",

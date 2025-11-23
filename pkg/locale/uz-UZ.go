@@ -16,6 +16,16 @@ var UZUZLocale = pkg.NumI18NLocale{
 			Symbol:   "t",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Uzbekistan",
+		Currency:       "UZS",
+		ISO3166Alpha2:  "UZ",
+		ISO3166Alpha3:  "UZB",
+		ISO3166Numeric: "860",
+		Locale:         "uz-UZ",
+		Timezone:       []string{"Asia/Tashkent"},
+		Language:       "uz",
+	},
 	Texts: pkg.Texts{
 		And:   "va",
 		Minus: "minus",

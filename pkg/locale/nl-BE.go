@@ -16,6 +16,16 @@ var NLBELocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Belgium",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "BE",
+		ISO3166Alpha3:  "BEL",
+		ISO3166Numeric: "056",
+		Locale:         "nl-BE",
+		Timezone:       []string{"Europe/Brussels"},
+		Language:       "nl",
+	},
 	Texts: pkg.Texts{
 		And:   "en",
 		Minus: "min",

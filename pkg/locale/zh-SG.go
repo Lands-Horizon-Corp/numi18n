@@ -16,6 +16,16 @@ var ZHSGLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Singapore",
+		Currency:       "SGD",
+		ISO3166Alpha2:  "SG",
+		ISO3166Alpha3:  "SGP",
+		ISO3166Numeric: "702",
+		Locale:         "zh-SG",
+		Timezone:       []string{"Asia/Singapore"},
+		Language:       "zh",
+	},
 	Texts: pkg.Texts{
 		And:   "和",
 		Minus: "负",

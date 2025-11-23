@@ -16,6 +16,16 @@ var ARMALocale = pkg.NumI18NLocale{
 			Symbol:   "س",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Morocco",
+		Currency:       "MAD",
+		ISO3166Alpha2:  "MA",
+		ISO3166Alpha3:  "MAR",
+		ISO3166Numeric: "504",
+		Locale:         "ar-MA",
+		Timezone:       []string{"Africa/Casablanca"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

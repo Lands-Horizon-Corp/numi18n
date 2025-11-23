@@ -16,6 +16,16 @@ var MINZLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "New Zealand",
+		Currency:       "NZD",
+		ISO3166Alpha2:  "NZ",
+		ISO3166Alpha3:  "NZL",
+		ISO3166Numeric: "554",
+		Locale:         "mi-NZ",
+		Timezone:       []string{"Pacific/Auckland"},
+		Language:       "mi",
+	},
 	Texts: pkg.Texts{
 		And:   "me",
 		Minus: "rēhia",

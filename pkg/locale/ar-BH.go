@@ -16,6 +16,16 @@ var ARBHLocale = pkg.NumI18NLocale{
 			Symbol:   "ف",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Bahrain",
+		Currency:       "BHD",
+		ISO3166Alpha2:  "BH",
+		ISO3166Alpha3:  "BHR",
+		ISO3166Numeric: "048",
+		Locale:         "ar-BH",
+		Timezone:       []string{"Asia/Bahrain"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

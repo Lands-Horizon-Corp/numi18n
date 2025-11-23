@@ -16,6 +16,16 @@ var GTLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Guatemala",
+		Currency:       "GTQ",
+		ISO3166Alpha2:  "GT",
+		ISO3166Alpha3:  "GTM",
+		ISO3166Numeric: "320",
+		Locale:         "es-GT",
+		Timezone:       []string{"America/Guatemala"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

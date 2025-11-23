@@ -16,6 +16,16 @@ var SNFRLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Senegal",
+		Currency:       "XOF",
+		ISO3166Alpha2:  "SN",
+		ISO3166Alpha3:  "SEN",
+		ISO3166Numeric: "686",
+		Locale:         "fr-SN",
+		Timezone:       []string{"Africa/Dakar"},
+		Language:       "fr",
+	},
 	Texts: pkg.Texts{
 		And:   "Et",
 		Minus: "Moins",

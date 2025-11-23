@@ -16,6 +16,16 @@ var TAINLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "India",
+		Currency:       "INR",
+		ISO3166Alpha2:  "IN",
+		ISO3166Alpha3:  "IND",
+		ISO3166Numeric: "356",
+		Locale:         "ta-IN",
+		Timezone:       []string{"Asia/Kolkata"},
+		Language:       "ta",
+	},
 	Texts: pkg.Texts{
 		And:   "மற்றும்",
 		Minus: "கழித்தல்",

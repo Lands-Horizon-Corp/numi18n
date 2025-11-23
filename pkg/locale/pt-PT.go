@@ -16,6 +16,16 @@ var PTPTLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Portugal",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "PT",
+		ISO3166Alpha3:  "PRT",
+		ISO3166Numeric: "620",
+		Locale:         "pt-PT",
+		Timezone:       []string{"Europe/Lisbon"},
+		Language:       "pt",
+	},
 	Texts: pkg.Texts{
 		And:   "e",
 		Minus: "menos",

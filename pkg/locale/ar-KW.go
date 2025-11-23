@@ -16,6 +16,16 @@ var ARKWLocale = pkg.NumI18NLocale{
 			Symbol:   "ف",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Kuwait",
+		Currency:       "KWD",
+		ISO3166Alpha2:  "KW",
+		ISO3166Alpha3:  "KWT",
+		ISO3166Numeric: "414",
+		Locale:         "ar-KW",
+		Timezone:       []string{"Asia/Kuwait"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

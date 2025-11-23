@@ -16,6 +16,16 @@ var RMCHLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Switzerland",
+		Currency:       "CHF",
+		ISO3166Alpha2:  "CH",
+		ISO3166Alpha3:  "CHE",
+		ISO3166Numeric: "756",
+		Locale:         "rm-CH",
+		Timezone:       []string{"Europe/Zurich"},
+		Language:       "rm",
+	},
 	Texts: pkg.Texts{
 		And:   "e",
 		Minus: "minus",

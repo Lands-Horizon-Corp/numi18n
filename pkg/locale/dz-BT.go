@@ -16,6 +16,16 @@ var DZBTLocale = pkg.NumI18NLocale{
 			Symbol:   "Ch",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Bhutan",
+		Currency:       "BTN",
+		ISO3166Alpha2:  "BT",
+		ISO3166Alpha3:  "BTN",
+		ISO3166Numeric: "064",
+		Locale:         "dz-BT",
+		Timezone:       []string{"Asia/Thimphu"},
+		Language:       "dz",
+	},
 	Texts: pkg.Texts{
 		And:   "དང་",
 		Minus: "མིང་མེད་",

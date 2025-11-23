@@ -16,6 +16,16 @@ var URINLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "India",
+		Currency:       "INR",
+		ISO3166Alpha2:  "IN",
+		ISO3166Alpha3:  "IND",
+		ISO3166Numeric: "356",
+		Locale:         "ur-IN",
+		Timezone:       []string{"Asia/Kolkata"},
+		Language:       "ur",
+	},
 	Texts: pkg.Texts{
 		And:   "اور",
 		Minus: "منفی",

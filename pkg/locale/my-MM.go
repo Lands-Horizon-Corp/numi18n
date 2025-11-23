@@ -16,6 +16,16 @@ var MYMMLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Myanmar",
+		Currency:       "MMK",
+		ISO3166Alpha2:  "MM",
+		ISO3166Alpha3:  "MMR",
+		ISO3166Numeric: "104",
+		Locale:         "my-MM",
+		Timezone:       []string{"Asia/Yangon"},
+		Language:       "my",
+	},
 	Texts: pkg.Texts{
 		And:   "နှင့်",
 		Minus: "နုတ်",

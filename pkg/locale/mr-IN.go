@@ -16,6 +16,16 @@ var MRINLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "India",
+		Currency:       "INR",
+		ISO3166Alpha2:  "IN",
+		ISO3166Alpha3:  "IND",
+		ISO3166Numeric: "356",
+		Locale:         "mr-IN",
+		Timezone:       []string{"Asia/Kolkata"},
+		Language:       "mr",
+	},
 	Texts: pkg.Texts{
 		And:   "आणि",
 		Minus: "वजा",

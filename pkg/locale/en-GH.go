@@ -16,6 +16,16 @@ var GHLocale = pkg.NumI18NLocale{
 			Symbol:   "Gp",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Ghana",
+		Currency:       "GHS",
+		ISO3166Alpha2:  "GH",
+		ISO3166Alpha3:  "GHA",
+		ISO3166Numeric: "288",
+		Locale:         "en-GH",
+		Timezone:       []string{"Africa/Accra"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

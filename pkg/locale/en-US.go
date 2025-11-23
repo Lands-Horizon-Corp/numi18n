@@ -16,6 +16,16 @@ var USLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "United States",
+		Currency:       "USD",
+		ISO3166Alpha2:  "US",
+		ISO3166Alpha3:  "USA",
+		ISO3166Numeric: "840",
+		Locale:         "en-US",
+		Timezone:       []string{"America/New_York"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

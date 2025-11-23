@@ -16,6 +16,16 @@ var RURULocale = pkg.NumI18NLocale{
 			Symbol:   "к",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Russia",
+		Currency:       "RUB",
+		ISO3166Alpha2:  "RU",
+		ISO3166Alpha3:  "RUS",
+		ISO3166Numeric: "643",
+		Locale:         "ru-RU",
+		Timezone:       []string{"Europe/Moscow"},
+		Language:       "ru",
+	},
 	Texts: pkg.Texts{
 		And:   "и",
 		Minus: "минус",

@@ -16,6 +16,16 @@ var PTGWLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Guinea-Bissau",
+		Currency:       "XOF",
+		ISO3166Alpha2:  "GW",
+		ISO3166Alpha3:  "GNB",
+		ISO3166Numeric: "624",
+		Locale:         "pt-GW",
+		Timezone:       []string{"Africa/Bissau"},
+		Language:       "pt",
+	},
 	Texts: pkg.Texts{
 		And:   "e",
 		Minus: "menos",

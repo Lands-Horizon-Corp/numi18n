@@ -16,6 +16,16 @@ var DEATLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Austria",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "AT",
+		ISO3166Alpha3:  "AUT",
+		ISO3166Numeric: "040",
+		Locale:         "de-AT",
+		Timezone:       []string{"Europe/Vienna"},
+		Language:       "de",
+	},
 	Texts: pkg.Texts{
 		And:   "und",
 		Minus: "minus",

@@ -16,6 +16,16 @@ var HKLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Hong Kong",
+		Currency:       "HKD",
+		ISO3166Alpha2:  "HK",
+		ISO3166Alpha3:  "HKG",
+		ISO3166Numeric: "344",
+		Locale:         "en-HK",
+		Timezone:       []string{"Asia/Hong_Kong"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

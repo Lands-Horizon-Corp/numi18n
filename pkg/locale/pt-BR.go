@@ -16,6 +16,16 @@ var PTBRLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Brazil",
+		Currency:       "BRL",
+		ISO3166Alpha2:  "BR",
+		ISO3166Alpha3:  "BRA",
+		ISO3166Numeric: "076",
+		Locale:         "pt-BR",
+		Timezone:       []string{"America/Sao_Paulo"},
+		Language:       "pt",
+	},
 	Texts: pkg.Texts{
 		And:   "e",
 		Minus: "menos",

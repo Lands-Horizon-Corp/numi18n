@@ -16,6 +16,16 @@ var ZUZALocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "South Africa",
+		Currency:       "ZAR",
+		ISO3166Alpha2:  "ZA",
+		ISO3166Alpha3:  "ZAF",
+		ISO3166Numeric: "710",
+		Locale:         "zu-ZA",
+		Timezone:       []string{"Africa/Johannesburg"},
+		Language:       "zu",
+	},
 	Texts: pkg.Texts{
 		And:   "ne",
 		Minus: "minus",

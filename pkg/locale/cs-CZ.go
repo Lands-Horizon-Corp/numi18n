@@ -16,6 +16,16 @@ var CSCZLocale = pkg.NumI18NLocale{
 			Symbol:   "h",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Czech Republic",
+		Currency:       "CZK",
+		ISO3166Alpha2:  "CZ",
+		ISO3166Alpha3:  "CZE",
+		ISO3166Numeric: "203",
+		Locale:         "cs-CZ",
+		Timezone:       []string{"Europe/Prague"},
+		Language:       "cs",
+	},
 	Texts: pkg.Texts{
 		And:   "a",
 		Minus: "mínus",

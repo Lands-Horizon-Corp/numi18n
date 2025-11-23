@@ -16,6 +16,16 @@ var ZMLocale = pkg.NumI18NLocale{
 			Symbol:   "ng",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Zambia",
+		Currency:       "ZMW",
+		ISO3166Alpha2:  "ZM",
+		ISO3166Alpha3:  "ZMB",
+		ISO3166Numeric: "894",
+		Locale:         "en-ZM",
+		Timezone:       []string{"Africa/Lusaka"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

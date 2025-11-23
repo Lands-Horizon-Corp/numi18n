@@ -16,6 +16,16 @@ var MGMGLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Madagascar",
+		Currency:       "MGA",
+		ISO3166Alpha2:  "MG",
+		ISO3166Alpha3:  "MDG",
+		ISO3166Numeric: "450",
+		Locale:         "mg-MG",
+		Timezone:       []string{"Indian/Antananarivo"},
+		Language:       "mg",
+	},
 	Texts: pkg.Texts{
 		And:   "ary",
 		Minus: "miiba",

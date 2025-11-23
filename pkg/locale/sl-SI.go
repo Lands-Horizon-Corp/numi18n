@@ -16,6 +16,16 @@ var SLSILocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Slovenia",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "SI",
+		ISO3166Alpha3:  "SVN",
+		ISO3166Numeric: "705",
+		Locale:         "sl-SI",
+		Timezone:       []string{"Europe/Ljubljana"},
+		Language:       "sl",
+	},
 	Texts: pkg.Texts{
 		And:   "in",
 		Minus: "minus",

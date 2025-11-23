@@ -16,6 +16,16 @@ var NGHALocale = pkg.NumI18NLocale{
 			Symbol:   "k",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Nigeria",
+		Currency:       "NGN",
+		ISO3166Alpha2:  "NG",
+		ISO3166Alpha3:  "NGA",
+		ISO3166Numeric: "566",
+		Locale:         "ha-NG",
+		Timezone:       []string{"Africa/Lagos"},
+		Language:       "ha",
+	},
 	Texts: pkg.Texts{
 		And:   "Da",
 		Minus: "Rashi",

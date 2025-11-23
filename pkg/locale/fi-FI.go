@@ -16,6 +16,16 @@ var FILocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Finland",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "FI",
+		ISO3166Alpha3:  "FIN",
+		ISO3166Numeric: "246",
+		Locale:         "fi-FI",
+		Timezone:       []string{"Europe/Helsinki"},
+		Language:       "fi",
+	},
 	Texts: pkg.Texts{
 		And:   "Ja",
 		Minus: "Miinus",

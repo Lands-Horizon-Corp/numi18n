@@ -16,6 +16,16 @@ var ELGRLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Greece",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "GR",
+		ISO3166Alpha3:  "GRC",
+		ISO3166Numeric: "300",
+		Locale:         "el-GR",
+		Timezone:       []string{"Europe/Athens"},
+		Language:       "el",
+	},
 	Texts: pkg.Texts{
 		And:   "και",
 		Minus: "μείον",

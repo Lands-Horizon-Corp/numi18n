@@ -16,6 +16,16 @@ var CULocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Cuba",
+		Currency:       "CUP",
+		ISO3166Alpha2:  "CU",
+		ISO3166Alpha3:  "CUB",
+		ISO3166Numeric: "192",
+		Locale:         "es-CU",
+		Timezone:       []string{"America/Havana"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

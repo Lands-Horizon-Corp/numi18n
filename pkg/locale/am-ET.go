@@ -16,6 +16,16 @@ var AMETLocale = pkg.NumI18NLocale{
 			Symbol:   "ms",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Ethiopia",
+		Currency:       "ETB",
+		ISO3166Alpha2:  "ET",
+		ISO3166Alpha3:  "ETH",
+		ISO3166Numeric: "231",
+		Locale:         "am-ET",
+		Timezone:       []string{"Africa/Addis_Ababa"},
+		Language:       "am",
+	},
 	Texts: pkg.Texts{
 		And:   "እና",
 		Minus: "አልፎ",

@@ -16,6 +16,16 @@ var KZLocale = pkg.NumI18NLocale{
 			Symbol:   "т",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Kazakhstan",
+		Currency:       "KZT",
+		ISO3166Alpha2:  "KZ",
+		ISO3166Alpha3:  "KAZ",
+		ISO3166Numeric: "398",
+		Locale:         "kk-KZ",
+		Timezone:       []string{"Asia/Almaty"},
+		Language:       "kk",
+	},
 	Texts: pkg.Texts{
 		And:   "Және",
 		Minus: "Минус",

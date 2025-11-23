@@ -16,6 +16,16 @@ var CAESLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Spain",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "ES",
+		ISO3166Alpha3:  "ESP",
+		ISO3166Numeric: "724",
+		Locale:         "ca-ES",
+		Timezone:       []string{"Europe/Madrid"},
+		Language:       "ca",
+	},
 	Texts: pkg.Texts{
 		And:   "i",
 		Minus: "Menys",

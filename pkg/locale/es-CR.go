@@ -16,6 +16,16 @@ var CRLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Costa Rica",
+		Currency:       "CRC",
+		ISO3166Alpha2:  "CR",
+		ISO3166Alpha3:  "CRI",
+		ISO3166Numeric: "188",
+		Locale:         "es-CR",
+		Timezone:       []string{"America/Costa_Rica"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

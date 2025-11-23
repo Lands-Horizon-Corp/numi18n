@@ -16,6 +16,16 @@ var ARYELocale = pkg.NumI18NLocale{
 			Symbol:   "ف",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Yemen",
+		Currency:       "YER",
+		ISO3166Alpha2:  "YE",
+		ISO3166Alpha3:  "YEM",
+		ISO3166Numeric: "887",
+		Locale:         "ar-YE",
+		Timezone:       []string{"Asia/Aden"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

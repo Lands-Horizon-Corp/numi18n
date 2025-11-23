@@ -16,6 +16,16 @@ var ARLYLocale = pkg.NumI18NLocale{
 			Symbol:   "ق",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Libya",
+		Currency:       "LYD",
+		ISO3166Alpha2:  "LY",
+		ISO3166Alpha3:  "LBY",
+		ISO3166Numeric: "434",
+		Locale:         "ar-LY",
+		Timezone:       []string{"Africa/Tripoli"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

@@ -16,6 +16,16 @@ var AMLocale = pkg.NumI18NLocale{
 			Symbol:   "լ",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Armenia",
+		Currency:       "AMD",
+		ISO3166Alpha2:  "AM",
+		ISO3166Alpha3:  "ARM",
+		ISO3166Numeric: "051",
+		Locale:         "hy-AM",
+		Timezone:       []string{"Asia/Yerevan"},
+		Language:       "hy",
+	},
 	Texts: pkg.Texts{
 		And:   "Եվ",
 		Minus: "Մինուս",

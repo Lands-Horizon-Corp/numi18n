@@ -16,6 +16,16 @@ var NENPLocale = pkg.NumI18NLocale{
 			Symbol:   "प",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Nepal",
+		Currency:       "NPR",
+		ISO3166Alpha2:  "NP",
+		ISO3166Alpha3:  "NPL",
+		ISO3166Numeric: "524",
+		Locale:         "ne-NP",
+		Timezone:       []string{"Asia/Kathmandu"},
+		Language:       "ne",
+	},
 	Texts: pkg.Texts{
 		And:   "र",
 		Minus: "माइनस",

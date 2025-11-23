@@ -16,6 +16,16 @@ var VELocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Venezuela",
+		Currency:       "VED",
+		ISO3166Alpha2:  "VE",
+		ISO3166Alpha3:  "VEN",
+		ISO3166Numeric: "862",
+		Locale:         "es-VE",
+		Timezone:       []string{"America/Caracas"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

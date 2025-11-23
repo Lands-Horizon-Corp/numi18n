@@ -16,6 +16,16 @@ var PALocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Panama",
+		Currency:       "PAB",
+		ISO3166Alpha2:  "PA",
+		ISO3166Alpha3:  "PAN",
+		ISO3166Numeric: "591",
+		Locale:         "es-PA",
+		Timezone:       []string{"America/Panama"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

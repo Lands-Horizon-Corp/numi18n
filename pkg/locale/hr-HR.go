@@ -16,6 +16,16 @@ var HRLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Croatia",
+		Currency:       "HRK",
+		ISO3166Alpha2:  "HR",
+		ISO3166Alpha3:  "HRV",
+		ISO3166Numeric: "191",
+		Locale:         "hr-HR",
+		Timezone:       []string{"Europe/Zagreb"},
+		Language:       "hr",
+	},
 	Texts: pkg.Texts{
 		And:   "I",
 		Minus: "Minus",

@@ -16,6 +16,16 @@ var ESGLLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Spain",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "ES",
+		ISO3166Alpha3:  "ESP",
+		ISO3166Numeric: "724",
+		Locale:         "gl-ES",
+		Timezone:       []string{"Europe/Madrid"},
+		Language:       "gl",
+	},
 	Texts: pkg.Texts{
 		And:   "E",
 		Minus: "Menos",

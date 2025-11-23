@@ -16,6 +16,16 @@ var CLLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Chile",
+		Currency:       "CLP",
+		ISO3166Alpha2:  "CL",
+		ISO3166Alpha3:  "CHL",
+		ISO3166Numeric: "152",
+		Locale:         "es-CL",
+		Timezone:       []string{"America/Santiago"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

@@ -16,6 +16,16 @@ var EELocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Estonia",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "EE",
+		ISO3166Alpha3:  "EST",
+		ISO3166Numeric: "233",
+		Locale:         "et-EE",
+		Timezone:       []string{"Europe/Tallinn"},
+		Language:       "et",
+	},
 	Texts: pkg.Texts{
 		And:   "Ja",
 		Minus: "Miinus",

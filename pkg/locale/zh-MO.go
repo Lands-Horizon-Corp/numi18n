@@ -16,6 +16,16 @@ var ZHMOLocale = pkg.NumI18NLocale{
 			Symbol:   "avo",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Macau",
+		Currency:       "MOP",
+		ISO3166Alpha2:  "MO",
+		ISO3166Alpha3:  "MAC",
+		ISO3166Numeric: "446",
+		Locale:         "zh-MO",
+		Timezone:       []string{"Asia/Macau"},
+		Language:       "zh",
+	},
 	Texts: pkg.Texts{
 		And:   "同",
 		Minus: "負",

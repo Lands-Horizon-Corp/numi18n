@@ -16,6 +16,16 @@ var PLPLLocale = pkg.NumI18NLocale{
 			Symbol:   "gr",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Poland",
+		Currency:       "PLN",
+		ISO3166Alpha2:  "PL",
+		ISO3166Alpha3:  "POL",
+		ISO3166Numeric: "616",
+		Locale:         "pl-PL",
+		Timezone:       []string{"Europe/Warsaw"},
+		Language:       "pl",
+	},
 	Texts: pkg.Texts{
 		And:   "i",
 		Minus: "minus",

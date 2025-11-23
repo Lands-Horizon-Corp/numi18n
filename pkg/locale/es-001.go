@@ -16,6 +16,16 @@ var ES001Locale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "World",
+		Currency:       "USD",
+		ISO3166Alpha2:  "001",
+		ISO3166Alpha3:  "WLD",
+		ISO3166Numeric: "001",
+		Locale:         "es-001",
+		Timezone:       []string{"UTC"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

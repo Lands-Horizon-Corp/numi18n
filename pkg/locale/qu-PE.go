@@ -16,6 +16,16 @@ var QUPELocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Peru",
+		Currency:       "PEN",
+		ISO3166Alpha2:  "PE",
+		ISO3166Alpha3:  "PER",
+		ISO3166Numeric: "604",
+		Locale:         "qu-PE",
+		Timezone:       []string{"America/Lima"},
+		Language:       "qu",
+	},
 	Texts: pkg.Texts{
 		And:   "wan",
 		Minus: "ayqiq",

@@ -16,6 +16,16 @@ var KGLocale = pkg.NumI18NLocale{
 			Symbol:   "т",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Kyrgyzstan",
+		Currency:       "KGS",
+		ISO3166Alpha2:  "KG",
+		ISO3166Alpha3:  "KGZ",
+		ISO3166Numeric: "417",
+		Locale:         "ky-KG",
+		Timezone:       []string{"Asia/Bishkek"},
+		Language:       "ky",
+	},
 	Texts: pkg.Texts{
 		And:   "Жана",
 		Minus: "Минус",

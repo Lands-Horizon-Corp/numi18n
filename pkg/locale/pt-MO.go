@@ -16,6 +16,16 @@ var PTMOLocale = pkg.NumI18NLocale{
 			Symbol:   "a",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Macau",
+		Currency:       "MOP",
+		ISO3166Alpha2:  "MO",
+		ISO3166Alpha3:  "MAC",
+		ISO3166Numeric: "446",
+		Locale:         "pt-MO",
+		Timezone:       []string{"Asia/Macau"},
+		Language:       "pt",
+	},
 	Texts: pkg.Texts{
 		And:   "e",
 		Minus: "menos",

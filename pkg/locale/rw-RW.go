@@ -16,6 +16,16 @@ var RWRWLocale = pkg.NumI18NLocale{
 			Symbol:   "s",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Rwanda",
+		Currency:       "RWF",
+		ISO3166Alpha2:  "RW",
+		ISO3166Alpha3:  "RWA",
+		ISO3166Numeric: "646",
+		Locale:         "rw-RW",
+		Timezone:       []string{"Africa/Kigali"},
+		Language:       "rw",
+	},
 	Texts: pkg.Texts{
 		And:   "na",
 		Minus: "kubana",

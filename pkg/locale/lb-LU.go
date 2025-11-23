@@ -16,6 +16,16 @@ var LBLULocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Luxembourg",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "LU",
+		ISO3166Alpha3:  "LUX",
+		ISO3166Numeric: "442",
+		Locale:         "lb-LU",
+		Timezone:       []string{"Europe/Luxembourg"},
+		Language:       "lb",
+	},
 	Texts: pkg.Texts{
 		And:   "an",
 		Minus: "minus",

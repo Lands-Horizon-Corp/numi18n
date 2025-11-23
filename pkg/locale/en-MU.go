@@ -16,6 +16,16 @@ var MULocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Mauritius",
+		Currency:       "MUR",
+		ISO3166Alpha2:  "MU",
+		ISO3166Alpha3:  "MUS",
+		ISO3166Numeric: "480",
+		Locale:         "en-MU",
+		Timezone:       []string{"Indian/Mauritius"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

@@ -16,6 +16,16 @@ var SGLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Singapore",
+		Currency:       "SGD",
+		ISO3166Alpha2:  "SG",
+		ISO3166Alpha3:  "SGP",
+		ISO3166Numeric: "702",
+		Locale:         "en-SG",
+		Timezone:       []string{"Asia/Singapore"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

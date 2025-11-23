@@ -16,12 +16,23 @@ var DECHLocale = pkg.NumI18NLocale{
 			Symbol:   "Rp",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Switzerland",
+		Currency:       "CHF",
+		ISO3166Alpha2:  "CH",
+		ISO3166Alpha3:  "CHE",
+		ISO3166Numeric: "756",
+		Locale:         "de-CH",
+		Timezone:       []string{"Europe/Zurich"},
+		Language:       "de",
+	},
 	Texts: pkg.Texts{
 		And:   "und",
 		Minus: "minus",
 		Only:  "nur",
 		Point: "Komma",
 	},
+
 	NumberWordsMapping: []pkg.NumberWordMapping{
 		{Number: 1000000000000000, Value: "Billiarde"},
 		{Number: 1000000000000, Value: "Billion"},

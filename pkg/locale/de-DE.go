@@ -16,10 +16,20 @@ var DEDELocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Germany",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "DE",
+		ISO3166Alpha3:  "DEU",
+		ISO3166Numeric: "276",
+		Locale:         "de-DE",
+		Timezone:       []string{"Europe/Berlin"},
+		Language:       "de",
+	},
 	Texts: pkg.Texts{
-		And:   "und",
-		Minus: "minus",
-		Only:  "nur",
+		And:   "Und",
+		Minus: "Minus",
+		Only:  "Nur",
 		Point: "Komma",
 	},
 	NumberWordsMapping: []pkg.NumberWordMapping{

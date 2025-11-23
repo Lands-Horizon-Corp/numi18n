@@ -16,6 +16,16 @@ var ISLocale = pkg.NumI18NLocale{
 			Symbol:   "a",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Iceland",
+		Currency:       "ISK",
+		ISO3166Alpha2:  "IS",
+		ISO3166Alpha3:  "ISL",
+		ISO3166Numeric: "352",
+		Locale:         "is-IS",
+		Timezone:       []string{"Atlantic/Reykjavik"},
+		Language:       "is",
+	},
 	Texts: pkg.Texts{
 		And:   "Og",
 		Minus: "Mínus",

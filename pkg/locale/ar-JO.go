@@ -16,6 +16,16 @@ var ARJOLocale = pkg.NumI18NLocale{
 			Symbol:   "ف",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Jordan",
+		Currency:       "JOD",
+		ISO3166Alpha2:  "JO",
+		ISO3166Alpha3:  "JOR",
+		ISO3166Numeric: "400",
+		Locale:         "ar-JO",
+		Timezone:       []string{"Asia/Amman"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

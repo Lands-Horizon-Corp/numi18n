@@ -16,6 +16,16 @@ var ARSALocale = pkg.NumI18NLocale{
 			Symbol:   "هـ",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Saudi Arabia",
+		Currency:       "SAR",
+		ISO3166Alpha2:  "SA",
+		ISO3166Alpha3:  "SAU",
+		ISO3166Numeric: "682",
+		Locale:         "ar-SA",
+		Timezone:       []string{"Asia/Riyadh"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

@@ -16,6 +16,16 @@ var ARTNLocale = pkg.NumI18NLocale{
 			Symbol:   "م",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Tunisia",
+		Currency:       "TND",
+		ISO3166Alpha2:  "TN",
+		ISO3166Alpha3:  "TUN",
+		ISO3166Numeric: "788",
+		Locale:         "ar-TN",
+		Timezone:       []string{"Africa/Tunis"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

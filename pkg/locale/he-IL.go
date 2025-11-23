@@ -16,6 +16,16 @@ var ILLocale = pkg.NumI18NLocale{
 			Symbol:   "ע׳",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Israel",
+		Currency:       "ILS",
+		ISO3166Alpha2:  "IL",
+		ISO3166Alpha3:  "ISR",
+		ISO3166Numeric: "376",
+		Locale:         "he-IL",
+		Timezone:       []string{"Asia/Jerusalem"},
+		Language:       "he",
+	},
 	Texts: pkg.Texts{
 		And:   "ו",
 		Minus: "מינוס",

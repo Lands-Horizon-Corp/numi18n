@@ -16,6 +16,16 @@ var MXLlocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Mexico",
+		Currency:       "MXN",
+		ISO3166Alpha2:  "MX",
+		ISO3166Alpha3:  "MEX",
+		ISO3166Numeric: "484",
+		Locale:         "es-MX",
+		Timezone:       []string{"America/Mexico_City"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

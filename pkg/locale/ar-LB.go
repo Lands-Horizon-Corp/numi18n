@@ -16,6 +16,16 @@ var ARLBLocale = pkg.NumI18NLocale{
 			Symbol:   "ق",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Lebanon",
+		Currency:       "LBP",
+		ISO3166Alpha2:  "LB",
+		ISO3166Alpha3:  "LBN",
+		ISO3166Numeric: "422",
+		Locale:         "ar-LB",
+		Timezone:       []string{"Asia/Beirut"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

@@ -16,6 +16,16 @@ var ARAELocale = pkg.NumI18NLocale{
 			Symbol:   "ف",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "United Arab Emirates",
+		Currency:       "AED",
+		ISO3166Alpha2:  "AE",
+		ISO3166Alpha3:  "ARE",
+		ISO3166Numeric: "784",
+		Locale:         "ar-AE",
+		Timezone:       []string{"Asia/Dubai"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

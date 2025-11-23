@@ -16,6 +16,16 @@ var ARLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Argentina",
+		Currency:       "ARS",
+		ISO3166Alpha2:  "AR",
+		ISO3166Alpha3:  "ARG",
+		ISO3166Numeric: "032",
+		Locale:         "es-AR",
+		Timezone:       []string{"America/Argentina/Buenos_Aires"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

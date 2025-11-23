@@ -16,6 +16,16 @@ var NYMWLocale = pkg.NumI18NLocale{
 			Symbol:   "t",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Malawi",
+		Currency:       "MWK",
+		ISO3166Alpha2:  "MW",
+		ISO3166Alpha3:  "MWI",
+		ISO3166Numeric: "454",
+		Locale:         "ny-MW",
+		Timezone:       []string{"Africa/Blantyre"},
+		Language:       "ny",
+	},
 	Texts: pkg.Texts{
 		And:   "ndi",
 		Minus: "chotsitsa",

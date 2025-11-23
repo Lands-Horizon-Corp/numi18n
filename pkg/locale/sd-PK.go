@@ -16,6 +16,16 @@ var SDPKLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Pakistan",
+		Currency:       "PKR",
+		ISO3166Alpha2:  "PK",
+		ISO3166Alpha3:  "PAK",
+		ISO3166Numeric: "586",
+		Locale:         "sd-PK",
+		Timezone:       []string{"Asia/Karachi"},
+		Language:       "sd",
+	},
 	Texts: pkg.Texts{
 		And:   "۽",
 		Minus: "گهٽ",

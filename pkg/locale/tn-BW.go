@@ -16,6 +16,16 @@ var TNBWLocale = pkg.NumI18NLocale{
 			Symbol:   "t",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Botswana",
+		Currency:       "BWP",
+		ISO3166Alpha2:  "BW",
+		ISO3166Alpha3:  "BWA",
+		ISO3166Numeric: "072",
+		Locale:         "tn-BW",
+		Timezone:       []string{"Africa/Gaborone"},
+		Language:       "tn",
+	},
 	Texts: pkg.Texts{
 		And:   "le",
 		Minus: "tlosa",

@@ -16,6 +16,16 @@ var ITLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Italy",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "IT",
+		ISO3166Alpha3:  "ITA",
+		ISO3166Numeric: "380",
+		Locale:         "it-IT",
+		Timezone:       []string{"Europe/Rome"},
+		Language:       "it",
+	},
 	Texts: pkg.Texts{
 		And:   "E",
 		Minus: "Meno",

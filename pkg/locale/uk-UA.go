@@ -16,6 +16,16 @@ var UKUALocale = pkg.NumI18NLocale{
 			Symbol:   "к",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Ukraine",
+		Currency:       "UAH",
+		ISO3166Alpha2:  "UA",
+		ISO3166Alpha3:  "UKR",
+		ISO3166Numeric: "804",
+		Locale:         "uk-UA",
+		Timezone:       []string{"Europe/Kiev"},
+		Language:       "uk",
+	},
 	Texts: pkg.Texts{
 		And:   "і",
 		Minus: "мінус",

@@ -16,6 +16,16 @@ var CAFRLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Canada",
+		Currency:       "CAD",
+		ISO3166Alpha2:  "CA",
+		ISO3166Alpha3:  "CAN",
+		ISO3166Numeric: "124",
+		Locale:         "fr-CA",
+		Timezone:       []string{"America/Toronto"},
+		Language:       "fr",
+	},
 	Texts: pkg.Texts{
 		And:   "Et",
 		Minus: "Moins",

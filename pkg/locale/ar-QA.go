@@ -16,6 +16,16 @@ var ARQALocale = pkg.NumI18NLocale{
 			Symbol:   "ف",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Qatar",
+		Currency:       "QAR",
+		ISO3166Alpha2:  "QA",
+		ISO3166Alpha3:  "QAT",
+		ISO3166Numeric: "634",
+		Locale:         "ar-QA",
+		Timezone:       []string{"Asia/Qatar"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

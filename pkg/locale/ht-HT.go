@@ -16,6 +16,16 @@ var HTLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Haiti",
+		Currency:       "HTG",
+		ISO3166Alpha2:  "HT",
+		ISO3166Alpha3:  "HTI",
+		ISO3166Numeric: "332",
+		Locale:         "ht-HT",
+		Timezone:       []string{"America/Port-au-Prince"},
+		Language:       "ht",
+	},
 	Texts: pkg.Texts{
 		And:   "ak",
 		Minus: "mwens",

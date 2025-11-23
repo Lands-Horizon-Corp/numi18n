@@ -16,6 +16,16 @@ var ROROLocale = pkg.NumI18NLocale{
 			Symbol:   "b",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Romania",
+		Currency:       "RON",
+		ISO3166Alpha2:  "RO",
+		ISO3166Alpha3:  "ROU",
+		ISO3166Numeric: "642",
+		Locale:         "ro-RO",
+		Timezone:       []string{"Europe/Bucharest"},
+		Language:       "ro",
+	},
 	Texts: pkg.Texts{
 		And:   "și",
 		Minus: "minus",

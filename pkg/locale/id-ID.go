@@ -16,6 +16,16 @@ var IDLocale = pkg.NumI18NLocale{
 			Symbol:   "s",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Indonesia",
+		Currency:       "IDR",
+		ISO3166Alpha2:  "ID",
+		ISO3166Alpha3:  "IDN",
+		ISO3166Numeric: "360",
+		Locale:         "id-ID",
+		Timezone:       []string{"Asia/Jakarta"},
+		Language:       "id",
+	},
 	Texts: pkg.Texts{
 		And:   "Dan",
 		Minus: "Minus",

@@ -16,6 +16,16 @@ var DADKLocale = pkg.NumI18NLocale{
 			Symbol:   "ø",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Denmark",
+		Currency:       "DKK",
+		ISO3166Alpha2:  "DK",
+		ISO3166Alpha3:  "DNK",
+		ISO3166Numeric: "208",
+		Locale:         "da-DK",
+		Timezone:       []string{"Europe/Copenhagen"},
+		Language:       "da",
+	},
 	Texts: pkg.Texts{
 		And:   "og",
 		Minus: "minus",

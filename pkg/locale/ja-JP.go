@@ -16,6 +16,16 @@ var JPLocale = pkg.NumI18NLocale{
 			Symbol:   "銭",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Japan",
+		Currency:       "JPY",
+		ISO3166Alpha2:  "JP",
+		ISO3166Alpha3:  "JPN",
+		ISO3166Numeric: "392",
+		Locale:         "ja-JP",
+		Timezone:       []string{"Asia/Tokyo"},
+		Language:       "ja",
+	},
 	Texts: pkg.Texts{
 		And:   "と",
 		Minus: "マイナス",

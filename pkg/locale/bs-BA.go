@@ -16,6 +16,16 @@ var BSBALocale = pkg.NumI18NLocale{
 			Symbol:   "f",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Bosnia and Herzegovina",
+		Currency:       "BAM",
+		ISO3166Alpha2:  "BA",
+		ISO3166Alpha3:  "BIH",
+		ISO3166Numeric: "070",
+		Locale:         "bs-BA",
+		Timezone:       []string{"Europe/Sarajevo"},
+		Language:       "bs",
+	},
 	Texts: pkg.Texts{
 		And:   "i",
 		Minus: "minus",

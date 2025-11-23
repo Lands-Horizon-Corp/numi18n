@@ -16,6 +16,16 @@ var ECLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Ecuador",
+		Currency:       "USD",
+		ISO3166Alpha2:  "EC",
+		ISO3166Alpha3:  "ECU",
+		ISO3166Numeric: "218",
+		Locale:         "es-EC",
+		Timezone:       []string{"America/Guayaquil"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

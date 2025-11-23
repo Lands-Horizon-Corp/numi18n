@@ -16,6 +16,16 @@ var MLINLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "India",
+		Currency:       "INR",
+		ISO3166Alpha2:  "IN",
+		ISO3166Alpha3:  "IND",
+		ISO3166Numeric: "356",
+		Locale:         "ml-IN",
+		Timezone:       []string{"Asia/Kolkata"},
+		Language:       "ml",
+	},
 	Texts: pkg.Texts{
 		And:   "ഉം",
 		Minus: "കുറച്ച്",

@@ -16,6 +16,16 @@ var LTLTLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Lithuania",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "LT",
+		ISO3166Alpha3:  "LTU",
+		ISO3166Numeric: "440",
+		Locale:         "lt-LT",
+		Timezone:       []string{"Europe/Vilnius"},
+		Language:       "lt",
+	},
 	Texts: pkg.Texts{
 		And:   "ir",
 		Minus: "minus",

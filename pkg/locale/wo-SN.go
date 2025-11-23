@@ -16,6 +16,16 @@ var WOSNLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Senegal",
+		Currency:       "XOF",
+		ISO3166Alpha2:  "SN",
+		ISO3166Alpha3:  "SEN",
+		ISO3166Numeric: "686",
+		Locale:         "wo-SN",
+		Timezone:       []string{"Africa/Dakar"},
+		Language:       "wo",
+	},
 	Texts: pkg.Texts{
 		And:   "ak",
 		Minus: "jiitu",

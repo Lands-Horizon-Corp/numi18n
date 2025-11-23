@@ -16,6 +16,16 @@ var PTCVLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Cape Verde",
+		Currency:       "CVE",
+		ISO3166Alpha2:  "CV",
+		ISO3166Alpha3:  "CPV",
+		ISO3166Numeric: "132",
+		Locale:         "pt-CV",
+		Timezone:       []string{"Atlantic/Cape_Verde"},
+		Language:       "pt",
+	},
 	Texts: pkg.Texts{
 		And:   "e",
 		Minus: "menos",

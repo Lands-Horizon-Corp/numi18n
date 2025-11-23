@@ -16,6 +16,16 @@ var ZHTWLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Taiwan",
+		Currency:       "TWD",
+		ISO3166Alpha2:  "TW",
+		ISO3166Alpha3:  "TWN",
+		ISO3166Numeric: "158",
+		Locale:         "zh-TW",
+		Timezone:       []string{"Asia/Taipei"},
+		Language:       "zh",
+	},
 	Texts: pkg.Texts{
 		And:   "和",
 		Minus: "負",

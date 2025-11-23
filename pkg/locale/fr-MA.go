@@ -16,6 +16,16 @@ var MAFRLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Morocco",
+		Currency:       "MAD",
+		ISO3166Alpha2:  "MA",
+		ISO3166Alpha3:  "MAR",
+		ISO3166Numeric: "504",
+		Locale:         "fr-MA",
+		Timezone:       []string{"Africa/Casablanca"},
+		Language:       "fr",
+	},
 	Texts: pkg.Texts{
 		And:   "Et",
 		Minus: "Moins",

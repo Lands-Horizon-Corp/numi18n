@@ -16,6 +16,16 @@ var DVMVLocale = pkg.NumI18NLocale{
 			Symbol:   "l",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Maldives",
+		Currency:       "MVR",
+		ISO3166Alpha2:  "MV",
+		ISO3166Alpha3:  "MDV",
+		ISO3166Numeric: "462",
+		Locale:         "dv-MV",
+		Timezone:       []string{"Indian/Maldives"},
+		Language:       "dv",
+	},
 	Texts: pkg.Texts{
 		And:   "އަންޑް",
 		Minus: "މިނަސް",

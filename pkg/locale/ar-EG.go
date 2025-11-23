@@ -16,6 +16,16 @@ var AREGLocale = pkg.NumI18NLocale{
 			Symbol:   "ق",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Egypt",
+		Currency:       "EGP",
+		ISO3166Alpha2:  "EG",
+		ISO3166Alpha3:  "EGY",
+		ISO3166Numeric: "818",
+		Locale:         "ar-EG",
+		Timezone:       []string{"Africa/Cairo"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

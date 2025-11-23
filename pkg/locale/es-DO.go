@@ -16,6 +16,16 @@ var DOLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Dominican Republic",
+		Currency:       "DOP",
+		ISO3166Alpha2:  "DO",
+		ISO3166Alpha3:  "DOM",
+		ISO3166Numeric: "214",
+		Locale:         "es-DO",
+		Timezone:       []string{"America/Santo_Domingo"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

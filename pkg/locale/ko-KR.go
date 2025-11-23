@@ -16,6 +16,16 @@ var KRLocale = pkg.NumI18NLocale{
 			Symbol:   "전",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "South Korea",
+		Currency:       "KRW",
+		ISO3166Alpha2:  "KR",
+		ISO3166Alpha3:  "KOR",
+		ISO3166Numeric: "410",
+		Locale:         "ko-KR",
+		Timezone:       []string{"Asia/Seoul"},
+		Language:       "ko",
+	},
 	Texts: pkg.Texts{
 		And:   "그리고",
 		Minus: "마이너스",

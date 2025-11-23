@@ -16,6 +16,16 @@ var MSMYLocale = pkg.NumI18NLocale{
 			Symbol:   "s",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Malaysia",
+		Currency:       "MYR",
+		ISO3166Alpha2:  "MY",
+		ISO3166Alpha3:  "MYS",
+		ISO3166Numeric: "458",
+		Locale:         "ms-MY",
+		Timezone:       []string{"Asia/Kuala_Lumpur"},
+		Language:       "ms",
+	},
 	Texts: pkg.Texts{
 		And:   "dan",
 		Minus: "tolak",

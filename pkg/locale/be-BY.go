@@ -16,6 +16,16 @@ var BEBYLocale = pkg.NumI18NLocale{
 			Symbol:   "к.",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Belarus",
+		Currency:       "BYN",
+		ISO3166Alpha2:  "BY",
+		ISO3166Alpha3:  "BLR",
+		ISO3166Numeric: "112",
+		Locale:         "be-BY",
+		Timezone:       []string{"Europe/Minsk"},
+		Language:       "be",
+	},
 	Texts: pkg.Texts{
 		And:   "і",
 		Minus: "мінус",

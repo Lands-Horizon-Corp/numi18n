@@ -16,6 +16,16 @@ var TZLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Tanzania",
+		Currency:       "TZS",
+		ISO3166Alpha2:  "TZ",
+		ISO3166Alpha3:  "TZA",
+		ISO3166Numeric: "834",
+		Locale:         "en-TZ",
+		Timezone:       []string{"Africa/Dar_es_Salaam"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

@@ -16,6 +16,16 @@ var THTHLocale = pkg.NumI18NLocale{
 			Symbol:   "ส.",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Thailand",
+		Currency:       "THB",
+		ISO3166Alpha2:  "TH",
+		ISO3166Alpha3:  "THA",
+		ISO3166Numeric: "764",
+		Locale:         "th-TH",
+		Timezone:       []string{"Asia/Bangkok"},
+		Language:       "th",
+	},
 	Texts: pkg.Texts{
 		And:   "และ",
 		Minus: "ลบ",

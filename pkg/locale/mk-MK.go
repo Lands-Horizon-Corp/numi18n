@@ -16,6 +16,16 @@ var MKMKLocale = pkg.NumI18NLocale{
 			Symbol:   "д",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "North Macedonia",
+		Currency:       "MKD",
+		ISO3166Alpha2:  "MK",
+		ISO3166Alpha3:  "MKD",
+		ISO3166Numeric: "807",
+		Locale:         "mk-MK",
+		Timezone:       []string{"Europe/Skopje"},
+		Language:       "mk",
+	},
 	Texts: pkg.Texts{
 		And:   "и",
 		Minus: "минус",

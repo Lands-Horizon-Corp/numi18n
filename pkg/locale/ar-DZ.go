@@ -16,6 +16,16 @@ var ARDZLocale = pkg.NumI18NLocale{
 			Symbol:   "س",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Algeria",
+		Currency:       "DZD",
+		ISO3166Alpha2:  "DZ",
+		ISO3166Alpha3:  "DZA",
+		ISO3166Numeric: "012",
+		Locale:         "ar-DZ",
+		Timezone:       []string{"Africa/Algiers"},
+		Language:       "ar",
+	},
 	Texts: pkg.Texts{
 		And:   "و",
 		Minus: "ناقص",

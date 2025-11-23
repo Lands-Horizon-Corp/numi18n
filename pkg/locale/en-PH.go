@@ -16,6 +16,16 @@ var PHLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Philippines",
+		Currency:       "PHP",
+		ISO3166Alpha2:  "PH",
+		ISO3166Alpha3:  "PHL",
+		ISO3166Numeric: "608",
+		Locale:         "en-PH",
+		Timezone:       []string{"Asia/Manila"},
+		Language:       "en",
+	},
 	Texts: pkg.Texts{
 		And:   "And",
 		Minus: "Minus",

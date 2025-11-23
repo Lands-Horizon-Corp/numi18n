@@ -16,6 +16,16 @@ var LUFRLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Luxembourg",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "LU",
+		ISO3166Alpha3:  "LUX",
+		ISO3166Numeric: "442",
+		Locale:         "fr-LU",
+		Timezone:       []string{"Europe/Luxembourg"},
+		Language:       "fr",
+	},
 	Texts: pkg.Texts{
 		And:   "Et",
 		Minus: "Moins",

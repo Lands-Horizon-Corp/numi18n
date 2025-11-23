@@ -16,6 +16,16 @@ var EOLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "World",
+		Currency:       "USD",
+		ISO3166Alpha2:  "001",
+		ISO3166Alpha3:  "WLD",
+		ISO3166Numeric: "001",
+		Locale:         "eo-001",
+		Timezone:       []string{"UTC"},
+		Language:       "eo",
+	},
 	Texts: pkg.Texts{
 		And:   "Kaj",
 		Minus: "Minus",

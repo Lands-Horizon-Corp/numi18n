@@ -16,6 +16,16 @@ var SOSOLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Somalia",
+		Currency:       "SOS",
+		ISO3166Alpha2:  "SO",
+		ISO3166Alpha3:  "SOM",
+		ISO3166Numeric: "706",
+		Locale:         "so-SO",
+		Timezone:       []string{"Africa/Mogadishu"},
+		Language:       "so",
+	},
 	Texts: pkg.Texts{
 		And:   "iyo",
 		Minus: "naqsi",

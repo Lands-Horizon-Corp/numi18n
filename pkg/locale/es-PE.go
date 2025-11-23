@@ -16,6 +16,16 @@ var PELocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Peru",
+		Currency:       "PEN",
+		ISO3166Alpha2:  "PE",
+		ISO3166Alpha3:  "PER",
+		ISO3166Numeric: "604",
+		Locale:         "es-PE",
+		Timezone:       []string{"America/Lima"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

@@ -16,6 +16,16 @@ var UYLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Uruguay",
+		Currency:       "UYU",
+		ISO3166Alpha2:  "UY",
+		ISO3166Alpha3:  "URY",
+		ISO3166Numeric: "858",
+		Locale:         "es-UY",
+		Timezone:       []string{"America/Montevideo"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

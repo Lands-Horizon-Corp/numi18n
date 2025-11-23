@@ -16,6 +16,16 @@ var BNBDLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Bangladesh",
+		Currency:       "BDT",
+		ISO3166Alpha2:  "BD",
+		ISO3166Alpha3:  "BGD",
+		ISO3166Numeric: "050",
+		Locale:         "bn-BD",
+		Timezone:       []string{"Asia/Dhaka"},
+		Language:       "bn",
+	},
 	Texts: pkg.Texts{
 		And:   "এবং",
 		Minus: "মাইনাস",

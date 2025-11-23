@@ -16,6 +16,16 @@ var SQALLocale = pkg.NumI18NLocale{
 			Symbol:   "q",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Albania",
+		Currency:       "ALL",
+		ISO3166Alpha2:  "AL",
+		ISO3166Alpha3:  "ALB",
+		ISO3166Numeric: "008",
+		Locale:         "sq-AL",
+		Timezone:       []string{"Europe/Tirane"},
+		Language:       "sq",
+	},
 	Texts: pkg.Texts{
 		And:   "dhe",
 		Minus: "minus",

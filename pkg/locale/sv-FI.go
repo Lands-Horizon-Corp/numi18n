@@ -16,6 +16,16 @@ var SVFILocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Finland",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "FI",
+		ISO3166Alpha3:  "FIN",
+		ISO3166Numeric: "246",
+		Locale:         "sv-FI",
+		Timezone:       []string{"Europe/Helsinki"},
+		Language:       "sv",
+	},
 	Texts: pkg.Texts{
 		And:   "och",
 		Minus: "minus",

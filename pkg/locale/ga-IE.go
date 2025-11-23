@@ -16,6 +16,16 @@ var IEGALocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Ireland",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "IE",
+		ISO3166Alpha3:  "IRL",
+		ISO3166Numeric: "372",
+		Locale:         "ga-IE",
+		Timezone:       []string{"Europe/Dublin"},
+		Language:       "ga",
+	},
 	Texts: pkg.Texts{
 		And:   "Agus",
 		Minus: "Lúide",

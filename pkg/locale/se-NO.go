@@ -16,6 +16,16 @@ var SENOLocale = pkg.NumI18NLocale{
 			Symbol:   "ø",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Norway",
+		Currency:       "NOK",
+		ISO3166Alpha2:  "NO",
+		ISO3166Alpha3:  "NOR",
+		ISO3166Numeric: "578",
+		Locale:         "se-NO",
+		Timezone:       []string{"Europe/Oslo"},
+		Language:       "se",
+	},
 	Texts: pkg.Texts{
 		And:   "ja",
 		Minus: "miinus",

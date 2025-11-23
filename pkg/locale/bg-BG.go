@@ -16,6 +16,16 @@ var BGBGLocale = pkg.NumI18NLocale{
 			Symbol:   "ст.",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Bulgaria",
+		Currency:       "BGN",
+		ISO3166Alpha2:  "BG",
+		ISO3166Alpha3:  "BGR",
+		ISO3166Numeric: "100",
+		Locale:         "bg-BG",
+		Timezone:       []string{"Europe/Sofia"},
+		Language:       "bg",
+	},
 	Texts: pkg.Texts{
 		And:   "и",
 		Minus: "минус",

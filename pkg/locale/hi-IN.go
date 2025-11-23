@@ -16,6 +16,16 @@ var INHILocale = pkg.NumI18NLocale{
 			Symbol:   "प",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "India",
+		Currency:       "INR",
+		ISO3166Alpha2:  "IN",
+		ISO3166Alpha3:  "IND",
+		ISO3166Numeric: "356",
+		Locale:         "hi-IN",
+		Timezone:       []string{"Asia/Kolkata"},
+		Language:       "hi",
+	},
 	Texts: pkg.Texts{
 		And:   "और",
 		Minus: "ऋण",

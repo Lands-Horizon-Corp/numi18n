@@ -16,6 +16,16 @@ var SILKLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Sri Lanka",
+		Currency:       "LKR",
+		ISO3166Alpha2:  "LK",
+		ISO3166Alpha3:  "LKA",
+		ISO3166Numeric: "144",
+		Locale:         "si-LK",
+		Timezone:       []string{"Asia/Colombo"},
+		Language:       "si",
+	},
 	Texts: pkg.Texts{
 		And:   "සහ",
 		Minus: "අඩු",

@@ -16,6 +16,16 @@ var NNNOLocale = pkg.NumI18NLocale{
 			Symbol:   "øre",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Norway",
+		Currency:       "NOK",
+		ISO3166Alpha2:  "NO",
+		ISO3166Alpha3:  "NOR",
+		ISO3166Numeric: "578",
+		Locale:         "nn-NO",
+		Timezone:       []string{"Europe/Oslo"},
+		Language:       "nn",
+	},
 	Texts: pkg.Texts{
 		And:   "og",
 		Minus: "minus",

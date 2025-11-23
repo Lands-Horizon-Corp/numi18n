@@ -16,6 +16,16 @@ var GELocale = pkg.NumI18NLocale{
 			Symbol:   "თ",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Georgia",
+		Currency:       "GEL",
+		ISO3166Alpha2:  "GE",
+		ISO3166Alpha3:  "GEO",
+		ISO3166Numeric: "268",
+		Locale:         "ka-GE",
+		Timezone:       []string{"Asia/Tbilisi"},
+		Language:       "ka",
+	},
 	Texts: pkg.Texts{
 		And:   "და",
 		Minus: "მინუს",

@@ -16,6 +16,16 @@ var SVSELocale = pkg.NumI18NLocale{
 			Symbol:   "ö",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Sweden",
+		Currency:       "SEK",
+		ISO3166Alpha2:  "SE",
+		ISO3166Alpha3:  "SWE",
+		ISO3166Numeric: "752",
+		Locale:         "sv-SE",
+		Timezone:       []string{"Europe/Stockholm"},
+		Language:       "sv",
+	},
 	Texts: pkg.Texts{
 		And:   "och",
 		Minus: "minus",

@@ -16,6 +16,16 @@ var CYGBLocale = pkg.NumI18NLocale{
 			Symbol:   "p",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "United Kingdom",
+		Currency:       "GBP",
+		ISO3166Alpha2:  "GB",
+		ISO3166Alpha3:  "GBR",
+		ISO3166Numeric: "826",
+		Locale:         "cy-GB",
+		Timezone:       []string{"Europe/London"},
+		Language:       "cy",
+	},
 	Texts: pkg.Texts{
 		And:   "a",
 		Minus: "minus",

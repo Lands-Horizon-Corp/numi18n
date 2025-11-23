@@ -16,6 +16,16 @@ var PYLocale = pkg.NumI18NLocale{
 			Symbol:   "¢",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Paraguay",
+		Currency:       "PYG",
+		ISO3166Alpha2:  "PY",
+		ISO3166Alpha3:  "PRY",
+		ISO3166Numeric: "600",
+		Locale:         "es-PY",
+		Timezone:       []string{"America/Asuncion"},
+		Language:       "es",
+	},
 	Texts: pkg.Texts{
 		And:   "Y",
 		Minus: "Menos",

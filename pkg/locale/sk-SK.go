@@ -16,6 +16,16 @@ var SKSKLocale = pkg.NumI18NLocale{
 			Symbol:   "c",
 		},
 	},
+	NumI18Identifier: pkg.NumI18Identifier{
+		CountryName:    "Slovakia",
+		Currency:       "EUR",
+		ISO3166Alpha2:  "SK",
+		ISO3166Alpha3:  "SVK",
+		ISO3166Numeric: "703",
+		Locale:         "sk-SK",
+		Timezone:       []string{"Europe/Bratislava"},
+		Language:       "sk",
+	},
 	Texts: pkg.Texts{
 		And:   "a",
 		Minus: "mínus",
