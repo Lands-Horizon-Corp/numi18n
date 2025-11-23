@@ -68,6 +68,7 @@ var PHPHLocale = NumI18NLocale{
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Isang daan"},
+		{Number: 1, Value: "Isang"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "Una", Suffix: "-ng", Masculine: "", Feminine: "", Neuter: ""},
