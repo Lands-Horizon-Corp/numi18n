@@ -369,12 +369,120 @@ func (n NumI18NLocales) AllLocales() []NumI18NLocale {
 	return n.Locale
 }
 
-// FindOrdinalByNumber finds the ordinal mapping for a specific number in a locale
-func (locale NumI18NLocale) FindOrdinalByNumber(number int64) *OrdinalMapping {
-	for _, ordinal := range locale.OrdinalMapping {
-		if ordinal.Number == number {
-			return &ordinal
+func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI18NLocale {
+	if len(n.Locale) == 0 {
+		return nil
+	}
+
+	type localeScore struct {
+		locale       NumI18NLocale
+		fieldMatches int
+		priority     int
+	}
+
+	var candidates []localeScore
+
+	for _, locale := range n.Locale {
+		fieldMatches := 0
+		priority := 0
+
+		// Count field matches and calculate priority based on order
+		if strings.EqualFold(
+			strings.TrimSpace(locale.NumI18Identifier.Locale),
+			strings.TrimSpace(identifier.Locale)) &&
+			strings.TrimSpace(identifier.Locale) != "" {
+			fieldMatches++
+			priority += 7 // Highest priority
+		}
+		if strings.EqualFold(
+			strings.TrimSpace(locale.NumI18Identifier.ISO3166Alpha2),
+			strings.TrimSpace(identifier.ISO3166Alpha2)) &&
+			strings.TrimSpace(identifier.ISO3166Alpha2) != "" {
+			fieldMatches++
+			priority += 6
+		}
+		if strings.EqualFold(
+			strings.TrimSpace(locale.NumI18Identifier.ISO3166Alpha3),
+			strings.TrimSpace(identifier.ISO3166Alpha3)) &&
+			strings.TrimSpace(identifier.ISO3166Alpha3) != "" {
+			fieldMatches++
+			priority += 5
+		}
+		if strings.EqualFold(
+			strings.TrimSpace(locale.NumI18Identifier.CountryName),
+			strings.TrimSpace(identifier.CountryName)) &&
+			strings.TrimSpace(identifier.CountryName) != "" {
+			fieldMatches++
+			priority += 4
+		}
+		if identifier.Timezone != nil {
+			for _, searchTz := range identifier.Timezone {
+				for _, localeTz := range locale.NumI18Identifier.Timezone {
+					if strings.EqualFold(strings.TrimSpace(localeTz), strings.TrimSpace(searchTz)) {
+						fieldMatches++
+						priority += 3
+						goto nextField1
+					}
+				}
+			}
+		}
+	nextField1:
+		if strings.EqualFold(strings.TrimSpace(locale.NumI18Identifier.Language), strings.TrimSpace(identifier.Language)) && strings.TrimSpace(identifier.Language) != "" {
+			fieldMatches++
+			priority += 2
+		}
+		if strings.TrimSpace(locale.NumI18Identifier.ISO3166Numeric) == strings.TrimSpace(identifier.ISO3166Numeric) && strings.TrimSpace(identifier.ISO3166Numeric) != "" {
+			fieldMatches++
+			priority += 1 // Lowest priority
+		}
+
+		// Currency bonus - if currencies match, add extra weight
+		if strings.EqualFold(strings.TrimSpace(locale.NumI18Identifier.Currency), strings.TrimSpace(identifier.Currency)) && strings.TrimSpace(identifier.Currency) != "" {
+			fieldMatches++
+			priority += 8 // Currency gets highest bonus
+		}
+
+		if fieldMatches > 0 {
+			candidates = append(candidates, localeScore{
+				locale:       locale,
+				fieldMatches: fieldMatches,
+				priority:     priority,
+			})
 		}
 	}
-	return nil
+
+	if len(candidates) == 0 {
+		return nil
+	}
+
+	// Sort by field matches first (descending), then by priority (descending)
+	bestCandidate := candidates[0]
+	for _, candidate := range candidates[1:] {
+		if candidate.fieldMatches > bestCandidate.fieldMatches ||
+			(candidate.fieldMatches == bestCandidate.fieldMatches && candidate.priority > bestCandidate.priority) {
+			bestCandidate = candidate
+		}
+	}
+
+	return &bestCandidate.locale
+}
+
+// FindMatch allows clients to find the best matching locale using any field value
+// They can provide country name, locale string, currency, ISO codes, timezone, or language
+func (n NumI18NLocales) FindMatch(query string) *NumI18NLocale {
+	if strings.TrimSpace(query) == "" {
+		return nil
+	}
+	query = strings.TrimSpace(query)
+	searchIdentifier := NumI18Identifier{
+		CountryName:    query,
+		Currency:       query,
+		ISO3166Alpha2:  query,
+		ISO3166Alpha3:  query,
+		ISO3166Numeric: query,
+		Locale:         query,
+		Language:       query,
+		Timezone:       []string{query},
+	}
+	return n.FindMostMatchedLocale(searchIdentifier)
 }
