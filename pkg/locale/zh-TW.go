@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZHTWLocale represents the Chinese (Taiwan) locale
-var ZHTWLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZHTWLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "New Taiwan Dollar",
 		Plural:   "新台幣",
 		Singular: "新台幣",
 		Symbol:   "NT$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "分",
 			Singular: "分",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Taiwan",
 		Currency:       "TWD",
 		ISO3166Alpha2:  "TW",
@@ -26,13 +24,13 @@ var ZHTWLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Taipei"},
 		Language:       "zh",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "和",
 		Minus: "負",
 		Only:  "僅",
 		Point: "點",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "一千兆"},
 		{Number: 1000000000000, Value: "一兆"},
 		{Number: 1000000000, Value: "十億"},
@@ -160,7 +158,7 @@ var ZHTWLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "一"},
 		{Number: 0, Value: "零"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "百"},
 	},
 }

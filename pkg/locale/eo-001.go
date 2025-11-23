@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // EOLocale is a NumI18NLocale configured for Esperanto (eo-001)
-var EOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var EOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Eŭroj",
 		Singular: "Eŭro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cento",
 			Plural:   "Centoj",
 			Singular: "Cento",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "World",
 		Currency:       "USD",
 		ISO3166Alpha2:  "001",
@@ -26,13 +24,13 @@ var EOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "eo",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Kaj",
 		Minus: "Minus",
 		Only:  "Nur",
 		Point: "Punkto",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Kvadriliono"},
 		{Number: 1000000000000, Value: "Triliono"},
 		{Number: 1000000000, Value: "Bilio"},
@@ -68,7 +66,7 @@ var EOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Unu"},
 		{Number: 0, Value: "Nulo"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Unu Cento"},
 	},
 }

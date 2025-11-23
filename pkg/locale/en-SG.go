@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SGLocale is a NumI18NLocale configured for Singapore (en-SG)
-var SGLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SGLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Singapore Dollar",
 		Plural:   "Singapore Dollars",
 		Singular: "Singapore Dollar",
 		Symbol:   "S$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cents",
 			Singular: "Cent",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Singapore",
 		Currency:       "SGD",
 		ISO3166Alpha2:  "SG",
@@ -26,13 +24,13 @@ var SGLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Singapore"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var SGLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

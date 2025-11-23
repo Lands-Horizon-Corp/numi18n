@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // RWRWLocale represents the Kinyarwanda (Rwanda) locale
-var RWRWLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var RWRWLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Ifaranga ry'u Rwanda",
 		Plural:   "Amafaranga y'u Rwanda",
 		Singular: "Ifaranga ry'u Rwanda",
 		Symbol:   "RWF",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Santima",
 			Plural:   "Santima",
 			Singular: "Santima",
 			Symbol:   "s",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Rwanda",
 		Currency:       "RWF",
 		ISO3166Alpha2:  "RW",
@@ -26,13 +24,13 @@ var RWRWLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Kigali"},
 		Language:       "rw",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "na",
 		Minus: "kubana",
 		Only:  "gusa",
 		Point: "akadomo",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "umuyobozi mukuru"},
 		{Number: 1000000000000, Value: "umuyobozi"},
 		{Number: 1000000000, Value: "umuyagutse"},
@@ -175,7 +173,7 @@ var RWRWLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "rimwe"},
 		{Number: 0, Value: "ubusa"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Ijana"},
 	},
 }

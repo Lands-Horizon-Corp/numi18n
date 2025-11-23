@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // HRLocale is a NumI18NLocale configured for Croatia (hr-HR)
-var HRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var HRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Eura",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Centa",
 			Singular: "Cent",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Croatia",
 		Currency:       "HRK",
 		ISO3166Alpha2:  "HR",
@@ -26,13 +24,13 @@ var HRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Zagreb"},
 		Language:       "hr",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "I",
 		Minus: "Minus",
 		Only:  "Samo",
 		Point: "Zarez",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Jedan kvadrilijun"},
 		{Number: 1000000000000, Value: "Jedan trilijun"},
 		{Number: 1000000000, Value: "Jedan milijarda"},
@@ -68,7 +66,7 @@ var HRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Jedan"},
 		{Number: 0, Value: "Nula"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Sto"},
 	},
 }

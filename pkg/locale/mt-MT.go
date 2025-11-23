@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MTMTLocale represents the Maltese (Malta) locale
-var MTMTLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MTMTLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Ewro",
 		Singular: "Ewro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Ċenteżmu",
 			Plural:   "Ċenteżmi",
 			Singular: "Ċenteżmu",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Malta",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "MT",
@@ -26,13 +24,13 @@ var MTMTLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Malta"},
 		Language:       "mt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "u",
 		Minus: "inqas",
 		Only:  "biss",
 		Point: "punt",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "biljun ta' biljuni"},
 		{Number: 1000000000000, Value: "biljun"},
 		{Number: 1000000000, Value: "biljun żgħir"},
@@ -175,7 +173,7 @@ var MTMTLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "wieħed"},
 		{Number: 0, Value: "żero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Mija waħda"},
 	},
 }

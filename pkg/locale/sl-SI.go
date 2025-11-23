@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SLSILocale represents the Slovenian (Slovenia) locale
-var SLSILocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SLSILocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Evri",
 		Singular: "Evro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Centi",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Slovenia",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "SI",
@@ -26,13 +24,13 @@ var SLSILocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Ljubljana"},
 		Language:       "sl",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "in",
 		Minus: "minus",
 		Only:  "samo",
 		Point: "pika",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "tisoč bilijonov"},
 		{Number: 1000000000000, Value: "bilijon"},
 		{Number: 1000000000, Value: "milijarda"},
@@ -175,7 +173,7 @@ var SLSILocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ena"},
 		{Number: 0, Value: "nič"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Sto"},
 	},
 }

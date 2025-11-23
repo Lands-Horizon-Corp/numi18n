@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // BNBDLocale is a NumI18NLocale configured for Bengali (Bangladesh) - bn-BD
-var BNBDLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var BNBDLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "টাকা",
 		Plural:   "টাকা",
 		Singular: "টাকা",
 		Symbol:   "৳",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "পয়সা",
 			Plural:   "পয়সা",
 			Singular: "পয়সা",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Bangladesh",
 		Currency:       "BDT",
 		ISO3166Alpha2:  "BD",
@@ -26,13 +24,13 @@ var BNBDLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Dhaka"},
 		Language:       "bn",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "এবং",
 		Minus: "মাইনাস",
 		Only:  "শুধুমাত্র",
 		Point: "দশমিক",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "কোয়াড্রিলিয়ন"},
 		{Number: 1000000000000, Value: "ট্রিলিয়ন"},
 		{Number: 1000000000, Value: "বিলিয়ন"},
@@ -68,7 +66,7 @@ var BNBDLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "এক"},
 		{Number: 0, Value: "শূন্য"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "একশত"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // UZUZLocale represents the Uzbek (Uzbekistan) locale
-var UZUZLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var UZUZLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Uzbekistani Som",
 		Plural:   "So'm",
 		Singular: "So'm",
 		Symbol:   "so'm",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Tiyin",
 			Plural:   "Tiyin",
 			Singular: "Tiyin",
 			Symbol:   "t",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Uzbekistan",
 		Currency:       "UZS",
 		ISO3166Alpha2:  "UZ",
@@ -26,13 +24,13 @@ var UZUZLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Tashkent"},
 		Language:       "uz",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "va",
 		Minus: "minus",
 		Only:  "faqat",
 		Point: "nuqta",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "bir kvadrilyon"},
 		{Number: 1000000000000, Value: "bir trillion"},
 		{Number: 1000000000, Value: "bir milliard"},
@@ -175,7 +173,7 @@ var UZUZLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "bir"},
 		{Number: 0, Value: "nol"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Yuz"},
 	},
 }

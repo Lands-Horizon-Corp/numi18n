@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PT001Locale is a NumI18NLocale configured for Portuguese (World) - pt-001
-var PT001Locale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PT001Locale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euros",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cêntimo",
 			Plural:   "Cêntimos",
 			Singular: "Cêntimo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "World",
 		Currency:       "USD",
 		ISO3166Alpha2:  "001",
@@ -26,13 +24,13 @@ var PT001Locale = pkg.NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "pt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "E",
 		Minus: "Menos",
 		Only:  "Apenas",
 		Point: "Vírgula",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrilhão"},
 		{Number: 1000000000000, Value: "Bilião"},
 		{Number: 1000000000, Value: "Mil milhões"},
@@ -68,7 +66,7 @@ var PT001Locale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Um"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cento"},
 	},
 }

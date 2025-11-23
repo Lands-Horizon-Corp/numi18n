@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // CRLocale is a NumI18NLocale configured for Costa Rica (es-CR)
-var CRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var CRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Colón Costarricense",
 		Plural:   "Colones Costarricenses",
 		Singular: "Colón Costarricense",
 		Symbol:   "₡",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Céntimo",
 			Plural:   "Céntimos",
 			Singular: "Céntimo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Costa Rica",
 		Currency:       "CRC",
 		ISO3166Alpha2:  "CR",
@@ -26,13 +24,13 @@ var CRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/Costa_Rica"},
 		Language:       "es",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Y",
 		Minus: "Menos",
 		Only:  "Solo",
 		Point: "Punto",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Cuatrillón"},
 		{Number: 1000000000000, Value: "Trillón"},
 		{Number: 1000000000, Value: "Mil millones"},
@@ -68,7 +66,7 @@ var CRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Uno"},
 		{Number: 0, Value: "Cero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cien"},
 	},
 }

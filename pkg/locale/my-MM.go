@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MYMMLocale represents the Myanmar (Myanmar) locale
-var MYMMLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MYMMLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ကျပ်",
 		Plural:   "ကျပ်",
 		Singular: "ကျပ်",
 		Symbol:   "K",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "ပြား",
 			Plural:   "ပြား",
 			Singular: "ပြား",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Myanmar",
 		Currency:       "MMK",
 		ISO3166Alpha2:  "MM",
@@ -26,13 +24,13 @@ var MYMMLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Yangon"},
 		Language:       "my",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "နှင့်",
 		Minus: "နုတ်",
 		Only:  "သာ",
 		Point: "အမှတ်",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ကုဋိကုဋိ"},
 		{Number: 1000000000000, Value: "တထောင်ကုဋိ"},
 		{Number: 1000000000, Value: "တဆယ်ကုဋိ"},
@@ -177,7 +175,7 @@ var MYMMLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "တ"},
 		{Number: 0, Value: "သုည"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "တရာ"},
 	},
 }

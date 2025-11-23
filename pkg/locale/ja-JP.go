@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // JPLocale is a NumI18NLocale configured for Japan (ja-JP)
-var JPLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var JPLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "円",
 		Plural:   "円",
 		Singular: "円",
 		Symbol:   "¥",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "銭",
 			Plural:   "銭",
 			Singular: "銭",
 			Symbol:   "銭",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Japan",
 		Currency:       "JPY",
 		ISO3166Alpha2:  "JP",
@@ -26,13 +24,13 @@ var JPLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Tokyo"},
 		Language:       "ja",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "と",
 		Minus: "マイナス",
 		Only:  "のみ",
 		Point: "点",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "一千兆"},
 		{Number: 1000000000000, Value: "一兆"},
 		{Number: 100000000, Value: "一億"},
@@ -71,7 +69,7 @@ var JPLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "一"},
 		{Number: 0, Value: "零"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "百"},
 		{Number: 10000, Value: "一万"},
 		{Number: 100000000, Value: "一億"},

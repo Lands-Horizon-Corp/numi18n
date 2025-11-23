@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZWLocale is a NumI18NLocale configured for Zimbabwe (en-ZW)
-var ZWLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZWLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Zimbabwean Dollar",
 		Plural:   "Zimbabwean Dollars",
 		Singular: "Zimbabwean Dollar",
 		Symbol:   "ZWL$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cents",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Zimbabwe",
 		Currency:       "ZWL",
 		ISO3166Alpha2:  "ZW",
@@ -26,13 +24,13 @@ var ZWLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Harare"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var ZWLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

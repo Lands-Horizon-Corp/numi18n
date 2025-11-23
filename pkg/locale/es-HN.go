@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // HNLocale is a NumI18NLocale configured for Honduras (es-HN)
-var HNLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var HNLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Lempira",
 		Plural:   "Lempiras",
 		Singular: "Lempira",
 		Symbol:   "L",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centavo",
 			Plural:   "Centavos",
 			Singular: "Centavo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Honduras",
 		Currency:       "HNL",
 		ISO3166Alpha2:  "HN",
@@ -26,13 +24,13 @@ var HNLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/Tegucigalpa"},
 		Language:       "es",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Y",
 		Minus: "Menos",
 		Only:  "Solo",
 		Point: "Punto",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Cuatrillón"},
 		{Number: 1000000000000, Value: "Trillón"},
 		{Number: 1000000000, Value: "Mil millones"},
@@ -68,7 +66,7 @@ var HNLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Uno"},
 		{Number: 0, Value: "Cero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cien"},
 	},
 }

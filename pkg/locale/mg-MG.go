@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MGMGLocale represents the Malagasy (Madagascar) locale
-var MGMGLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MGMGLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Ariary",
 		Plural:   "Ariary",
 		Singular: "Ariary",
 		Symbol:   "Ar",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Iraimbilanja",
 			Plural:   "Iraimbilanja",
 			Singular: "Iraimbilanja",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Madagascar",
 		Currency:       "MGA",
 		ISO3166Alpha2:  "MG",
@@ -26,13 +24,13 @@ var MGMGLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Indian/Antananarivo"},
 		Language:       "mg",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ary",
 		Minus: "miiba",
 		Only:  "ihany",
 		Point: "teboka",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "arivo tapitrisa"},
 		{Number: 1000000000000, Value: "tapitrisa"},
 		{Number: 1000000000, Value: "arivo tapitrisa kely"},
@@ -175,7 +173,7 @@ var MGMGLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "iraika"},
 		{Number: 0, Value: "aotra"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Zato iray"},
 	},
 }

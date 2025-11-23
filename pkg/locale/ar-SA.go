@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARSALocale is a NumI18NLocale configured for Arabic (Saudi Arabia) - ar-SA
-var ARSALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARSALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ريال سعودي",
 		Plural:   "ريالات سعودية",
 		Singular: "ريال سعودي",
 		Symbol:   "ر.س",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "هللة",
 			Plural:   "هللات",
 			Singular: "هللة",
 			Symbol:   "هـ",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Saudi Arabia",
 		Currency:       "SAR",
 		ISO3166Alpha2:  "SA",
@@ -26,13 +24,13 @@ var ARSALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Riyadh"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARSALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

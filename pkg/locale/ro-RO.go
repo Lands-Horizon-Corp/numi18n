@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ROROLocale represents the Romanian (Romania) locale
-var ROROLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ROROLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Leu românesc",
 		Plural:   "Lei românești",
 		Singular: "Leu românesc",
 		Symbol:   "RON",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Ban",
 			Plural:   "Bani",
 			Singular: "Ban",
 			Symbol:   "b",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Romania",
 		Currency:       "RON",
 		ISO3166Alpha2:  "RO",
@@ -26,13 +24,13 @@ var ROROLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Bucharest"},
 		Language:       "ro",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "și",
 		Minus: "minus",
 		Only:  "numai",
 		Point: "virgulă",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "un biliard"},
 		{Number: 1000000000000, Value: "un bilion"},
 		{Number: 1000000000, Value: "un miliard"},
@@ -175,7 +173,7 @@ var ROROLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "unu"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "O sută"},
 	},
 }

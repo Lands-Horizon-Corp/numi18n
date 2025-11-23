@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SWKELocale represents the Swahili (Kenya) locale
-var SWKELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SWKELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Kenyan Shilling",
 		Plural:   "Shilingi za Kikinya",
 		Singular: "Shilingi ya Kikinya",
 		Symbol:   "KSh",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Senti",
 			Singular: "Senti",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Kenya",
 		Currency:       "KES",
 		ISO3166Alpha2:  "KE",
@@ -26,13 +24,13 @@ var SWKELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Nairobi"},
 		Language:       "sw",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "na",
 		Minus: "hasi",
 		Only:  "tu",
 		Point: "nukta",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "trilioni moja"},
 		{Number: 1000000000000, Value: "trilioni moja"},
 		{Number: 1000000000, Value: "bilioni moja"},
@@ -175,7 +173,7 @@ var SWKELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "moja"},
 		{Number: 0, Value: "sifuri"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Mia moja"},
 	},
 }

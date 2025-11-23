@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // INKNLocale is a NumI18NLocale configured for India (kn-IN)
-var INKNLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var INKNLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ರೂಪಾಯಿ",
 		Plural:   "ರೂಪಾಯಿಗಳು",
 		Singular: "ರೂಪಾಯಿ",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "ಪೈಸೆ",
 			Plural:   "ಪೈಸೆಗಳು",
 			Singular: "ಪೈಸೆ",
 			Symbol:   "ಪ",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var INKNLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "kn",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ಮತ್ತು",
 		Minus: "ಮೈನಸ್",
 		Only:  "ಮಾತ್ರ",
 		Point: "ಬಿಂದು",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ಒಂದು ಪದ್ಮ"},
 		{Number: 1000000000000, Value: "ಒಂದು ನೀಲ"},
 		{Number: 1000000000, Value: "ಒಂದು ಅಬ್ಜ"},
@@ -70,7 +68,7 @@ var INKNLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ಒಂದು"},
 		{Number: 0, Value: "ಶೂನ್ಯ"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ಒಂದು ನೂರು"},
 		{Number: 100000, Value: "ಒಂದು ಲಕ್ಷ"},
 		{Number: 10000000, Value: "ಒಂದು ಕೋಟಿ"},

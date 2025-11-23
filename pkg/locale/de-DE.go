@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // DEDELocale is a NumI18NLocale configured for German (Germany) - de-DE
-var DEDELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var DEDELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euro",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cent",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Germany",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "DE",
@@ -26,13 +24,13 @@ var DEDELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Berlin"},
 		Language:       "de",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Und",
 		Minus: "Minus",
 		Only:  "Nur",
 		Point: "Komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Billiarde"},
 		{Number: 1000000000000, Value: "Billion"},
 		{Number: 1000000000, Value: "Milliarde"},
@@ -68,7 +66,7 @@ var DEDELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Eins"},
 		{Number: 0, Value: "Null"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Einhundert"},
 	},
 }

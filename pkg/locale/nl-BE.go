@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // NLBELocale represents the Dutch (Belgium) locale
-var NLBELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var NLBELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euro",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cent",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Belgium",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "BE",
@@ -26,13 +24,13 @@ var NLBELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Brussels"},
 		Language:       "nl",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "en",
 		Minus: "min",
 		Only:  "alleen",
 		Point: "komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "biljard"},
 		{Number: 1000000000000, Value: "biljoen"},
 		{Number: 1000000000, Value: "miljard"},
@@ -175,7 +173,7 @@ var NLBELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "een"},
 		{Number: 0, Value: "nul"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Eenhonderd"},
 	},
 }

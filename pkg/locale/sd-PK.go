@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SDPKLocale represents the Sindhi (Pakistan) locale
-var SDPKLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SDPKLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "پاڪستاني رپيو",
 		Plural:   "پاڪستاني رپيا",
 		Singular: "پاڪستاني رپيو",
 		Symbol:   "Rs",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "پيسو",
 			Plural:   "پيسا",
 			Singular: "پيسو",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Pakistan",
 		Currency:       "PKR",
 		ISO3166Alpha2:  "PK",
@@ -26,13 +24,13 @@ var SDPKLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Karachi"},
 		Language:       "sd",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "۽",
 		Minus: "گهٽ",
 		Only:  "فقط",
 		Point: "نقطو",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "هڪ کرب"},
 		{Number: 1000000000000, Value: "هڪ ارب"},
 		{Number: 1000000000, Value: "هڪ کرور"},
@@ -175,7 +173,7 @@ var SDPKLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "هڪ"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "سئو"},
 	},
 }

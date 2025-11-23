@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZMLocale is a NumI18NLocale configured for Zambia (en-ZM)
-var ZMLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZMLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Zambian Kwacha",
 		Plural:   "Zambian Kwachas",
 		Singular: "Zambian Kwacha",
 		Symbol:   "ZMW",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Ngwee",
 			Plural:   "Ngwee",
 			Singular: "Ngwee",
 			Symbol:   "ng",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Zambia",
 		Currency:       "ZMW",
 		ISO3166Alpha2:  "ZM",
@@ -26,13 +24,13 @@ var ZMLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Lusaka"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var ZMLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

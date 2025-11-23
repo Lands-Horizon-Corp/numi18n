@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // DECHLocale is a NumI18NLocale configured for German (Switzerland) - de-CH
-var DECHLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var DECHLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Schweizer Franken",
 		Plural:   "Schweizer Franken",
 		Singular: "Schweizer Franken",
 		Symbol:   "CHF",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Rappen",
 			Plural:   "Rappen",
 			Singular: "Rappen",
 			Symbol:   "Rp",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Switzerland",
 		Currency:       "CHF",
 		ISO3166Alpha2:  "CH",
@@ -26,14 +24,14 @@ var DECHLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "de",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "und",
 		Minus: "minus",
 		Only:  "nur",
 		Point: "Komma",
 	},
 
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Billiarde"},
 		{Number: 1000000000000, Value: "Billion"},
 		{Number: 1000000000, Value: "Milliarde"},
@@ -69,7 +67,7 @@ var DECHLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Eins"},
 		{Number: 0, Value: "Null"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Einhundert"},
 	},
 }

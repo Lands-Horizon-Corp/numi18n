@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // AEELocale is a NumI18NLocale configured for United Arab Emirates (en-AE)
-var AEELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var AEELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Dirham",
 		Plural:   "Dirhams",
 		Singular: "Dirham",
 		Symbol:   "AED",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Fils",
 			Plural:   "Fils",
 			Singular: "Fil",
 			Symbol:   "ف",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "United Arab Emirates",
 		Currency:       "AED",
 		ISO3166Alpha2:  "AE",
@@ -26,13 +24,13 @@ var AEELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Dubai"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var AEELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

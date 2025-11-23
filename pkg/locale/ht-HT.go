@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // HTLocale is a NumI18NLocale configured for Haiti (ht-HT)
-var HTLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var HTLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Goud",
 		Plural:   "Goud",
 		Singular: "Goud",
 		Symbol:   "G",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Santim",
 			Plural:   "Santim",
 			Singular: "Santim",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Haiti",
 		Currency:       "HTG",
 		ISO3166Alpha2:  "HT",
@@ -26,13 +24,13 @@ var HTLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/Port-au-Prince"},
 		Language:       "ht",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ak",
 		Minus: "mwens",
 		Only:  "sèlman",
 		Point: "pwen",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "yon mil milya milya"},
 		{Number: 1000000000000, Value: "yon mil milya"},
 		{Number: 1000000000, Value: "yon milya"},
@@ -68,7 +66,7 @@ var HTLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "yon"},
 		{Number: 0, Value: "zewo"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "yon san"},
 	},
 }

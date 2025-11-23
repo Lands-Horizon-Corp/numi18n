@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // XHZALocale represents the Xhosa (South Africa) locale
-var XHZALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var XHZALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "South African Rand",
 		Plural:   "iiRandi",
 		Singular: "iRandi",
 		Symbol:   "R",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "iicenti",
 			Singular: "icenti",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "South Africa",
 		Currency:       "ZAR",
 		ISO3166Alpha2:  "ZA",
@@ -26,13 +24,13 @@ var XHZALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Johannesburg"},
 		Language:       "xh",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "no",
 		Minus: "minus",
 		Only:  "kuphela",
 		Point: "ichaphaza",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "isigidi sezigidi sezigidi"},
 		{Number: 1000000000000, Value: "isigidi sezigidi"},
 		{Number: 1000000000, Value: "isigidi semilliyone"},
@@ -175,7 +173,7 @@ var XHZALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "inye"},
 		{Number: 0, Value: "iqanda"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Ikhulu"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // AZAZLocale is a NumI18NLocale configured for Azerbaijani (Azerbaijan) - az-AZ
-var AZAZLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var AZAZLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Manat",
 		Plural:   "Manat",
 		Singular: "Manat",
 		Symbol:   "₼",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Qəpik",
 			Plural:   "Qəpiklər",
 			Singular: "Qəpik",
 			Symbol:   "q",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Azerbaijan",
 		Currency:       "AZN",
 		ISO3166Alpha2:  "AZ",
@@ -26,13 +24,13 @@ var AZAZLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Baku"},
 		Language:       "az",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Və",
 		Minus: "Mənfi",
 		Only:  "Yalnız",
 		Point: "Nöqtə",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Kvadrilyon"},
 		{Number: 1000000000000, Value: "Trilyon"},
 		{Number: 1000000000, Value: "Milyard"},
@@ -68,7 +66,7 @@ var AZAZLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Bir"},
 		{Number: 0, Value: "Sıfır"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Bir Yüz"},
 	},
 }

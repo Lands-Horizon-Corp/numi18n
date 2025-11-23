@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // BSBALocale is a NumI18NLocale configured for Bosnian (Bosnia and Herzegovina) - bs-BA
-var BSBALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var BSBALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Konvertibilna marka",
 		Plural:   "Konvertibilne marke",
 		Singular: "Konvertibilna marka",
 		Symbol:   "KM",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Fening",
 			Plural:   "Feninga",
 			Singular: "Fening",
 			Symbol:   "f",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Bosnia and Herzegovina",
 		Currency:       "BAM",
 		ISO3166Alpha2:  "BA",
@@ -26,13 +24,13 @@ var BSBALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Sarajevo"},
 		Language:       "bs",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "i",
 		Minus: "minus",
 		Only:  "samo",
 		Point: "tačka",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Kvadrilion"},
 		{Number: 1000000000000, Value: "Trilion"},
 		{Number: 1000000000, Value: "Milijarda"},
@@ -68,7 +66,7 @@ var BSBALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Jedan"},
 		{Number: 0, Value: "Nula"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Jedan Sto"},
 	},
 }

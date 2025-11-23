@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // DEATLocale is a NumI18NLocale configured for German (Austria) - de-AT
-var DEATLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var DEATLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euro",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cent",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Austria",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "AT",
@@ -26,13 +24,13 @@ var DEATLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Vienna"},
 		Language:       "de",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "und",
 		Minus: "minus",
 		Only:  "nur",
 		Point: "Komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Billiarde"},
 		{Number: 1000000000000, Value: "Billion"},
 		{Number: 1000000000, Value: "Milliarde"},
@@ -68,7 +66,7 @@ var DEATLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Eins"},
 		{Number: 0, Value: "Null"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Einhundert"},
 	},
 }

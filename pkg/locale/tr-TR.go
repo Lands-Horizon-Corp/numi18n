@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // TRTRLocale represents the Turkish (Turkey) locale
-var TRTRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var TRTRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Turkish Lira",
 		Plural:   "Türk Lirası",
 		Singular: "Türk Lirası",
 		Symbol:   "₺",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Kuruş",
 			Plural:   "Kuruş",
 			Singular: "Kuruş",
 			Symbol:   "kr",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Turkey",
 		Currency:       "TRY",
 		ISO3166Alpha2:  "TR",
@@ -26,13 +24,13 @@ var TRTRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Istanbul"},
 		Language:       "tr",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ve",
 		Minus: "eksi",
 		Only:  "sadece",
 		Point: "virgül",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "bir katrilyon"},
 		{Number: 1000000000000, Value: "bir trilyon"},
 		{Number: 1000000000, Value: "bir milyar"},
@@ -175,7 +173,7 @@ var TRTRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "bir"},
 		{Number: 0, Value: "sıfır"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Yüz"},
 	},
 }

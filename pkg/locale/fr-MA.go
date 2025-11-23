@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MAFRLocale is a NumI18NLocale configured for Morocco (fr-MA)
-var MAFRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MAFRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Dirham marocain",
 		Plural:   "Dirhams marocains",
 		Singular: "Dirham marocain",
 		Symbol:   "MAD",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centime",
 			Plural:   "Centimes",
 			Singular: "Centime",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Morocco",
 		Currency:       "MAD",
 		ISO3166Alpha2:  "MA",
@@ -26,13 +24,13 @@ var MAFRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Casablanca"},
 		Language:       "fr",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Et",
 		Minus: "Moins",
 		Only:  "Seulement",
 		Point: "Virgule",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Un billiard"},
 		{Number: 1000000000000, Value: "Un billion"},
 		{Number: 1000000000, Value: "Un milliard"},
@@ -68,7 +66,7 @@ var MAFRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Un"},
 		{Number: 0, Value: "Zéro"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cent"},
 	},
 }

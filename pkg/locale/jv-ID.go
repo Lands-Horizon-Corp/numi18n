@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // IDJVLocale is a NumI18NLocale configured for Indonesia (jv-ID)
-var IDJVLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var IDJVLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Rupiah",
 		Plural:   "Rupiah",
 		Singular: "Rupiah",
 		Symbol:   "Rp",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Sen",
 			Plural:   "Sen",
 			Singular: "Sen",
 			Symbol:   "s",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Indonesia",
 		Currency:       "IDR",
 		ISO3166Alpha2:  "ID",
@@ -26,13 +24,13 @@ var IDJVLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Jakarta"},
 		Language:       "jv",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Lan",
 		Minus: "Minus",
 		Only:  "Mung",
 		Point: "Titik",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Siji kuadriliyun"},
 		{Number: 1000000000000, Value: "Siji triliyun"},
 		{Number: 1000000000, Value: "Siji milyar"},
@@ -68,7 +66,7 @@ var IDJVLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Siji"},
 		{Number: 0, Value: "Kosong"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Satus"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // LOLALocale represents the Lao (Laos) locale
-var LOLALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var LOLALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Kip",
 		Plural:   "Kip",
 		Singular: "Kip",
 		Symbol:   "₭",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Att",
 			Plural:   "Att",
 			Singular: "Att",
 			Symbol:   "att",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Laos",
 		Currency:       "LAK",
 		ISO3166Alpha2:  "LA",
@@ -26,13 +24,13 @@ var LOLALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Vientiane"},
 		Language:       "lo",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ແລະ",
 		Minus: "ລົບ",
 		Only:  "ພຽງ",
 		Point: "ຈຸດ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ພັນລ້ານລ້ານ"},
 		{Number: 1000000000000, Value: "ລ້ານລ້ານ"},
 		{Number: 1000000000, Value: "ພັນລ້ານ"},
@@ -158,7 +156,7 @@ var LOLALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ຫນຶ່ງ"},
 		{Number: 0, Value: "ສູນ"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ນຶ່ງຮ້ອຍ"},
 	},
 }

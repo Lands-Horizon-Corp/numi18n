@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PTBRLocale represents the Portuguese (Brazil) locale
-var PTBRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PTBRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Real",
 		Plural:   "Reais",
 		Singular: "Real",
 		Symbol:   "R$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centavo",
 			Plural:   "Centavos",
 			Singular: "Centavo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Brazil",
 		Currency:       "BRL",
 		ISO3166Alpha2:  "BR",
@@ -26,13 +24,13 @@ var PTBRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/Sao_Paulo"},
 		Language:       "pt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "e",
 		Minus: "menos",
 		Only:  "apenas",
 		Point: "vírgula",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "um quatrilhão"},
 		{Number: 1000000000000, Value: "um trilhão"},
 		{Number: 1000000000, Value: "um bilhão"},
@@ -175,7 +173,7 @@ var PTBRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "um"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cem"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SRRSLocale represents the Serbian (Serbia) locale
-var SRRSLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SRRSLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Serbian Dinar",
 		Plural:   "Динара",
 		Singular: "Динар",
 		Symbol:   "РСД",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Para",
 			Plural:   "Паре",
 			Singular: "Пара",
 			Symbol:   "п",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Serbia",
 		Currency:       "RSD",
 		ISO3166Alpha2:  "RS",
@@ -26,13 +24,13 @@ var SRRSLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Belgrade"},
 		Language:       "sr",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "и",
 		Minus: "минус",
 		Only:  "само",
 		Point: "тачка",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "хиљада билијарди"},
 		{Number: 1000000000000, Value: "билијарда"},
 		{Number: 1000000000, Value: "милијарда"},
@@ -175,7 +173,7 @@ var SRRSLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "један"},
 		{Number: 0, Value: "нула"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Сто"},
 	},
 }

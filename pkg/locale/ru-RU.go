@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // RURULocale represents the Russian (Russia) locale
-var RURULocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var RURULocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Российский рубль",
 		Plural:   "Российских рублей",
 		Singular: "Российский рубль",
 		Symbol:   "₽",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Копейка",
 			Plural:   "Копеек",
 			Singular: "Копейка",
 			Symbol:   "к",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Russia",
 		Currency:       "RUB",
 		ISO3166Alpha2:  "RU",
@@ -26,13 +24,13 @@ var RURULocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Moscow"},
 		Language:       "ru",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "и",
 		Minus: "минус",
 		Only:  "только",
 		Point: "запятая",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "квадриллион"},
 		{Number: 1000000000000, Value: "триллион"},
 		{Number: 1000000000, Value: "миллиард"},
@@ -175,7 +173,7 @@ var RURULocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "один"},
 		{Number: 0, Value: "ноль"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Сто"},
 	},
 }

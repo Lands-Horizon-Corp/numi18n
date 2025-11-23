@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // BGBGLocale is a NumI18NLocale configured for Bulgarian (Bulgaria) - bg-BG
-var BGBGLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var BGBGLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "лев",
 		Plural:   "лева",
 		Singular: "лев",
 		Symbol:   "лв",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "стотинка",
 			Plural:   "стотинки",
 			Singular: "стотинка",
 			Symbol:   "ст.",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Bulgaria",
 		Currency:       "BGN",
 		ISO3166Alpha2:  "BG",
@@ -26,13 +24,13 @@ var BGBGLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Sofia"},
 		Language:       "bg",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "и",
 		Minus: "минус",
 		Only:  "само",
 		Point: "точка",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Квадриллион"},
 		{Number: 1000000000000, Value: "Трилион"},
 		{Number: 1000000000, Value: "Милиард"},
@@ -68,7 +66,7 @@ var BGBGLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Едно"},
 		{Number: 0, Value: "Нула"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Сто"},
 	},
 }

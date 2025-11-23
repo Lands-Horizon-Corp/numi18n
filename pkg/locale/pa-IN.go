@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PAINLocale represents the Punjabi (India) locale
-var PAINLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PAINLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ਭਾਰਤੀ ਰੁਪਇਆ",
 		Plural:   "ਭਾਰਤੀ ਰੁਪਏ",
 		Singular: "ਭਾਰਤੀ ਰੁਪਇਆ",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "ਪੈਸਾ",
 			Plural:   "ਪੈਸੇ",
 			Singular: "ਪੈਸਾ",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var PAINLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "pa",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ਅਤੇ",
 		Minus: "ਮਾਇਨਸ",
 		Only:  "ਸਿਰਫ਼",
 		Point: "ਦਸ਼ਮਲਵ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 10000000000000, Value: "ਦਸ ਖਰਬ"},
 		{Number: 1000000000000, Value: "ਇੱਕ ਖਰਬ"},
 		{Number: 100000000000, Value: "ਦਸ ਨੀਲ"},
@@ -179,7 +177,7 @@ var PAINLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ਇੱਕ"},
 		{Number: 0, Value: "ਸਿਫ਼ਰ"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ਇੱਕ ਸੌ"},
 	},
 }

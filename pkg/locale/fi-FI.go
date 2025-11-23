@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // FILocale is a NumI18NLocale configured for Finland (fi-FI)
-var FILocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var FILocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euroa",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Sentti",
 			Plural:   "Senttiä",
 			Singular: "Sentti",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Finland",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "FI",
@@ -26,13 +24,13 @@ var FILocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Helsinki"},
 		Language:       "fi",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Ja",
 		Minus: "Miinus",
 		Only:  "Vain",
 		Point: "Pilkku",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Kvadriljoona"},
 		{Number: 1000000000000, Value: "Triljoona"},
 		{Number: 1000000000, Value: "Miljardi"},
@@ -68,7 +66,7 @@ var FILocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Yksi"},
 		{Number: 0, Value: "Nolla"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Sata"},
 	},
 }

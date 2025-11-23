@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARMALocale is a NumI18NLocale configured for Arabic (Morocco) - ar-MA
-var ARMALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARMALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "درهم",
 		Plural:   "دراهم",
 		Singular: "درهم",
 		Symbol:   "د.م",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "سنتيم",
 			Plural:   "سنتيمات",
 			Singular: "سنتيم",
 			Symbol:   "س",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Morocco",
 		Currency:       "MAD",
 		ISO3166Alpha2:  "MA",
@@ -26,13 +24,13 @@ var ARMALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Casablanca"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARMALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

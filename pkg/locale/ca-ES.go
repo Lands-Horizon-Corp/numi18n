@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // CAESLocale is a NumI18NLocale configured for Catalan (Spain) - ca-ES
-var CAESLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var CAESLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euros",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cèntim",
 			Plural:   "Cèntims",
 			Singular: "Cèntim",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Spain",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "ES",
@@ -26,13 +24,13 @@ var CAESLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "ca",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "i",
 		Minus: "Menys",
 		Only:  "Només",
 		Point: "Punt",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrilió"},
 		{Number: 1000000000000, Value: "Trilió"},
 		{Number: 1000000000, Value: "Mil milions"},
@@ -68,7 +66,7 @@ var CAESLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Un"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cent"},
 	},
 }

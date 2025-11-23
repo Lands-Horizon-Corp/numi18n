@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // EN001Locale is a NumI18NLocale configured for English (World) - en-001
-var EN001Locale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var EN001Locale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Dollar",
 		Plural:   "Dollars",
 		Singular: "Dollar",
 		Symbol:   "$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cents",
 			Singular: "Cent",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "World",
 		Currency:       "USD",
 		ISO3166Alpha2:  "001",
@@ -26,13 +24,13 @@ var EN001Locale = pkg.NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var EN001Locale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

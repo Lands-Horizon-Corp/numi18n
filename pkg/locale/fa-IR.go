@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // IRLocale is a NumI18NLocale configured for Iran (fa-IR)
-var IRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var IRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ریال",
 		Plural:   "ریال",
 		Singular: "ریال",
 		Symbol:   "﷼",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "دینار",
 			Plural:   "دینار",
 			Singular: "دینار",
 			Symbol:   "دینار",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Iran",
 		Currency:       "IRR",
 		ISO3166Alpha2:  "IR",
@@ -26,13 +24,13 @@ var IRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Tehran"},
 		Language:       "fa",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "منفی",
 		Only:  "فقط",
 		Point: "نقطه",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "یک کوادریلیون"},
 		{Number: 1000000000000, Value: "یک تریلیون"},
 		{Number: 1000000000, Value: "یک میلیارد"},
@@ -68,7 +66,7 @@ var IRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "یک"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "یک صد"},
 	},
 }

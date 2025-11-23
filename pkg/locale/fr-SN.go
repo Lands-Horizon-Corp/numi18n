@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SNFRLocale is a NumI18NLocale configured for Senegal (fr-SN)
-var SNFRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SNFRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Franc CFA",
 		Plural:   "Francs CFA",
 		Singular: "Franc CFA",
 		Symbol:   "CFA",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centime",
 			Plural:   "Centimes",
 			Singular: "Centime",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Senegal",
 		Currency:       "XOF",
 		ISO3166Alpha2:  "SN",
@@ -26,13 +24,13 @@ var SNFRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Dakar"},
 		Language:       "fr",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Et",
 		Minus: "Moins",
 		Only:  "Seulement",
 		Point: "Virgule",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Un billiard"},
 		{Number: 1000000000000, Value: "Un billion"},
 		{Number: 1000000000, Value: "Un milliard"},
@@ -68,7 +66,7 @@ var SNFRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Un"},
 		{Number: 0, Value: "Zéro"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cent"},
 	},
 }

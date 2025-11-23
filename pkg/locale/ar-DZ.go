@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARDZLocale is a NumI18NLocale configured for Arabic (Algeria) - ar-DZ
-var ARDZLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARDZLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "دينار",
 		Plural:   "دنانير",
 		Singular: "دينار",
 		Symbol:   "دج",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "سنتيم",
 			Plural:   "سنتيمات",
 			Singular: "سنتيم",
 			Symbol:   "س",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Algeria",
 		Currency:       "DZD",
 		ISO3166Alpha2:  "DZ",
@@ -26,13 +24,13 @@ var ARDZLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Algiers"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARDZLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

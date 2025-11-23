@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // QUPELocale represents the Quechua (Peru) locale
-var QUPELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var QUPELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Sol",
 		Plural:   "Soles",
 		Singular: "Sol",
 		Symbol:   "S/",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Céntimo",
 			Plural:   "Céntimos",
 			Singular: "Céntimo",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Peru",
 		Currency:       "PEN",
 		ISO3166Alpha2:  "PE",
@@ -26,13 +24,13 @@ var QUPELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/Lima"},
 		Language:       "qu",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "wan",
 		Minus: "ayqiq",
 		Only:  "sapalla",
 		Point: "t'uqu",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "waranqa waranqa waranqa waranqa waranqa"},
 		{Number: 1000000000000, Value: "waranqa waranqa waranqa waranqa"},
 		{Number: 1000000000, Value: "waranqa waranqa waranqa"},
@@ -175,7 +173,7 @@ var QUPELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "huk"},
 		{Number: 0, Value: "ch'usaq"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Pachak"},
 	},
 }

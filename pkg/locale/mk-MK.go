@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MKMKLocale represents the Macedonian (North Macedonia) locale
-var MKMKLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MKMKLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Денар",
 		Plural:   "Денари",
 		Singular: "Денар",
 		Symbol:   "ден",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Дени",
 			Plural:   "Дени",
 			Singular: "Ден",
 			Symbol:   "д",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "North Macedonia",
 		Currency:       "MKD",
 		ISO3166Alpha2:  "MK",
@@ -26,13 +24,13 @@ var MKMKLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Skopje"},
 		Language:       "mk",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "и",
 		Minus: "минус",
 		Only:  "само",
 		Point: "точка",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "билијарда"},
 		{Number: 1000000000000, Value: "билион"},
 		{Number: 1000000000, Value: "милијарда"},
@@ -175,7 +173,7 @@ var MKMKLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "еден"},
 		{Number: 0, Value: "нула"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Едно сто"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // URPKLocale represents the Urdu (Pakistan) locale
-var URPKLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var URPKLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Pakistani Rupee",
 		Plural:   "روپے",
 		Singular: "روپیہ",
 		Symbol:   "Rs",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Paisa",
 			Plural:   "پیسے",
 			Singular: "پیسہ",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Pakistan",
 		Currency:       "PKR",
 		ISO3166Alpha2:  "PK",
@@ -26,13 +24,13 @@ var URPKLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Karachi"},
 		Language:       "ur",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "اور",
 		Minus: "منفی",
 		Only:  "صرف",
 		Point: "نقطہ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ایک کھرب"},
 		{Number: 1000000000000, Value: "ایک ارب"},
 		{Number: 1000000000, Value: "ایک ارب"},
@@ -175,7 +173,7 @@ var URPKLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ایک"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "سو"},
 	},
 }

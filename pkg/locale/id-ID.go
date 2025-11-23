@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // IDLocale is a NumI18NLocale configured for Indonesia (id-ID)
-var IDLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var IDLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Rupiah",
 		Plural:   "Rupiah",
 		Singular: "Rupiah",
 		Symbol:   "Rp",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Sen",
 			Plural:   "Sen",
 			Singular: "Sen",
 			Symbol:   "s",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Indonesia",
 		Currency:       "IDR",
 		ISO3166Alpha2:  "ID",
@@ -26,13 +24,13 @@ var IDLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Jakarta"},
 		Language:       "id",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Dan",
 		Minus: "Minus",
 		Only:  "Hanya",
 		Point: "Koma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Satu kuadrilun"},
 		{Number: 1000000000000, Value: "Satu trilun"},
 		{Number: 1000000000, Value: "Satu miliar"},
@@ -68,7 +66,7 @@ var IDLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Satu"},
 		{Number: 0, Value: "Nol"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Seratus"},
 	},
 }

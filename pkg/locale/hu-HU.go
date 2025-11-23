@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // HULocale is a NumI18NLocale configured for Hungary (hu-HU)
-var HULocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var HULocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Forint",
 		Plural:   "Forint",
 		Singular: "Forint",
 		Symbol:   "Ft",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Fillér",
 			Plural:   "Fillér",
 			Singular: "Fillér",
 			Symbol:   "f",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Hungary",
 		Currency:       "HUF",
 		ISO3166Alpha2:  "HU",
@@ -26,13 +24,13 @@ var HULocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Budapest"},
 		Language:       "hu",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "És",
 		Minus: "Mínusz",
 		Only:  "Csak",
 		Point: "Pont",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Egy billiárd"},
 		{Number: 1000000000000, Value: "Egy billió"},
 		{Number: 1000000000, Value: "Egy milliárd"},
@@ -68,7 +66,7 @@ var HULocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Egy"},
 		{Number: 0, Value: "Nulla"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Egy száz"},
 	},
 }

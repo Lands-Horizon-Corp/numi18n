@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // AROMLocale is a NumI18NLocale configured for Arabic (Oman) - ar-OM
-var AROMLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var AROMLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ريال عماني",
 		Plural:   "ريالات عمانية",
 		Singular: "ريال عماني",
 		Symbol:   "ر.ع.",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "بيسة",
 			Plural:   "بيسات",
 			Singular: "بيسة",
 			Symbol:   "ب",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Oman",
 		Currency:       "OMR",
 		ISO3166Alpha2:  "OM",
@@ -26,13 +24,13 @@ var AROMLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Muscat"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var AROMLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

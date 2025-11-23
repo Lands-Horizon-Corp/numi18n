@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARSYLocale is a NumI18NLocale configured for Arabic (Syria) - ar-SY
-var ARSYLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARSYLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ليرة سورية",
 		Plural:   "ليرات سورية",
 		Singular: "ليرة سورية",
 		Symbol:   "ل.س",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "قرش",
 			Plural:   "قروش",
 			Singular: "قرش",
 			Symbol:   "ق",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Syria",
 		Currency:       "SYP",
 		ISO3166Alpha2:  "SY",
@@ -26,13 +24,13 @@ var ARSYLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Damascus"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARSYLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

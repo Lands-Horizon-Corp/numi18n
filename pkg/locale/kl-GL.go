@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // GLLocale is a NumI18NLocale configured for Greenland (kl-GL)
-var GLLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var GLLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Dansk krone",
 		Plural:   "Danske kroner",
 		Singular: "Dansk krone",
 		Symbol:   "kr",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Øre",
 			Plural:   "Øre",
 			Singular: "Øre",
 			Symbol:   "ø",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Greenland",
 		Currency:       "DKK",
 		ISO3166Alpha2:  "GL",
@@ -26,13 +24,13 @@ var GLLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/Godthab"},
 		Language:       "kl",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Aamma",
 		Minus: "Minus",
 		Only:  "Kissaat",
 		Point: "Tikkuartoq",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Ataaseq quadrillion"},
 		{Number: 1000000000000, Value: "Ataaseq trillion"},
 		{Number: 1000000000, Value: "Ataaseq milliardi"},
@@ -68,7 +66,7 @@ var GLLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Ataaseq"},
 		{Number: 0, Value: "Nul"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Ataaseq hundrede"},
 	},
 }

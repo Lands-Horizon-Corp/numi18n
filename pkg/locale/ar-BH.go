@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARBHLocale is a NumI18NLocale configured for Arabic (Bahrain) - ar-BH
-var ARBHLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARBHLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "دينار",
 		Plural:   "دنانير",
 		Singular: "دينار",
 		Symbol:   "د.ب",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "فلس",
 			Plural:   "فلوس",
 			Singular: "فلس",
 			Symbol:   "ف",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Bahrain",
 		Currency:       "BHD",
 		ISO3166Alpha2:  "BH",
@@ -26,13 +24,13 @@ var ARBHLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Bahrain"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARBHLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

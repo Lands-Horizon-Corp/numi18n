@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // FOLocale is a NumI18NLocale configured for Faroe Islands (fo-FO)
-var FOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var FOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Króna",
 		Plural:   "Krónur",
 		Singular: "Króna",
 		Symbol:   "kr",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Oyra",
 			Plural:   "Oyrur",
 			Singular: "Oyra",
 			Symbol:   "ø",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Faroe Islands",
 		Currency:       "DKK",
 		ISO3166Alpha2:  "FO",
@@ -26,13 +24,13 @@ var FOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Atlantic/Faroe"},
 		Language:       "fo",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Og",
 		Minus: "Mínus",
 		Only:  "Bara",
 		Point: "Komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Eitt quadrillion"},
 		{Number: 1000000000000, Value: "Eitt trillion"},
 		{Number: 1000000000, Value: "Ein milliard"},
@@ -68,7 +66,7 @@ var FOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Eitt"},
 		{Number: 0, Value: "Null"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Eitt hundrað"},
 	},
 }

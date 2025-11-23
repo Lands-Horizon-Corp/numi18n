@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ORINLocale represents the Odia (India) locale
-var ORINLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ORINLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ଭାରତୀୟ ଟଙ୍କା",
 		Plural:   "ଭାରତୀୟ ଟଙ୍କା",
 		Singular: "ଭାରତୀୟ ଟଙ୍କା",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "ପଇସା",
 			Plural:   "ପଇସା",
 			Singular: "ପଇସା",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var ORINLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "or",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ଏବଂ",
 		Minus: "ମାଇନସ",
 		Only:  "କେବଳ",
 		Point: "ଦଶମିକ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 10000000000000, Value: "ଦଶ ଖରବ"},
 		{Number: 1000000000000, Value: "ଏକ ଖରବ"},
 		{Number: 100000000000, Value: "ଦଶ ନୀଳ"},
@@ -179,7 +177,7 @@ var ORINLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ଏକ"},
 		{Number: 0, Value: "ଶୂନ୍ୟ"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ଏକ ଶହ"},
 	},
 }

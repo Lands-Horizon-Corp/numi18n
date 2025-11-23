@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // NYMWLocale represents the Chichewa (Malawi) locale
-var NYMWLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var NYMWLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Malawi Kwacha",
 		Plural:   "Malawi Kwacha",
 		Singular: "Malawi Kwacha",
 		Symbol:   "MK",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Tambala",
 			Plural:   "Tambala",
 			Singular: "Tambala",
 			Symbol:   "t",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Malawi",
 		Currency:       "MWK",
 		ISO3166Alpha2:  "MW",
@@ -26,13 +24,13 @@ var NYMWLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Blantyre"},
 		Language:       "ny",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ndi",
 		Minus: "chotsitsa",
 		Only:  "kokha",
 		Point: "dothi",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "chikwi chambiri cha biliyoni"},
 		{Number: 1000000000000, Value: "chikwi cha biliyoni"},
 		{Number: 1000000000, Value: "biliyoni"},
@@ -175,7 +173,7 @@ var NYMWLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "chimodzi"},
 		{Number: 0, Value: "ziro"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Zana limodzi"},
 	},
 }

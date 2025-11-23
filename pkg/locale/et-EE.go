@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // EELocale is a NumI18NLocale configured for Estonia (et-EE)
-var EELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var EELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Eurot",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Sent",
 			Plural:   "Senti",
 			Singular: "Sent",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Estonia",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "EE",
@@ -26,13 +24,13 @@ var EELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Tallinn"},
 		Language:       "et",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Ja",
 		Minus: "Miinus",
 		Only:  "Ainult",
 		Point: "Koma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Biljard"},
 		{Number: 1000000000000, Value: "Biljon"},
 		{Number: 1000000000, Value: "Miljard"},
@@ -68,7 +66,7 @@ var EELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Üks"},
 		{Number: 0, Value: "Null"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Sada"},
 	},
 }

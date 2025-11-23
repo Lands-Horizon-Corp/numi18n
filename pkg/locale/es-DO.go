@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // DOLocale is a NumI18NLocale configured for Dominican Republic (es-DO)
-var DOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var DOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Peso Dominicano",
 		Plural:   "Pesos Dominicanos",
 		Singular: "Peso Dominicano",
 		Symbol:   "RD$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centavo",
 			Plural:   "Centavos",
 			Singular: "Centavo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Dominican Republic",
 		Currency:       "DOP",
 		ISO3166Alpha2:  "DO",
@@ -26,13 +24,13 @@ var DOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/Santo_Domingo"},
 		Language:       "es",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Y",
 		Minus: "Menos",
 		Only:  "Solo",
 		Point: "Punto",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Cuatrillón"},
 		{Number: 1000000000000, Value: "Trillón"},
 		{Number: 1000000000, Value: "Mil millones"},
@@ -68,7 +66,7 @@ var DOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Uno"},
 		{Number: 0, Value: "Cero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cien"},
 	},
 }

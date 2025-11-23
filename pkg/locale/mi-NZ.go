@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MINZLocale represents the Māori (New Zealand) locale
-var MINZLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MINZLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Tāra",
 		Plural:   "Tāra",
 		Singular: "Tāra",
 		Symbol:   "$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Hēneti",
 			Plural:   "Hēneti",
 			Singular: "Hēneti",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "New Zealand",
 		Currency:       "NZD",
 		ISO3166Alpha2:  "NZ",
@@ -26,13 +24,13 @@ var MINZLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Pacific/Auckland"},
 		Language:       "mi",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "me",
 		Minus: "rēhia",
 		Only:  "anake",
 		Point: "ira",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "kotahi rau miriona miriona"},
 		{Number: 1000000000000, Value: "kotahi miriona miriona"},
 		{Number: 1000000000, Value: "kotahi piriona"},
@@ -175,7 +173,7 @@ var MINZLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "kotahi"},
 		{Number: 0, Value: "kore"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Kotahi rau"},
 	},
 }

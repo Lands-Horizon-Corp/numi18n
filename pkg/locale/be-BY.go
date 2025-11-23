@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // BEBYLocale is a NumI18NLocale configured for Belarusian (Belarus) - be-BY
-var BEBYLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var BEBYLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Беларускі рубель",
 		Plural:   "Беларускія рублі",
 		Singular: "Беларускі рубель",
 		Symbol:   "BYN",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Капейка",
 			Plural:   "Капейкі",
 			Singular: "Капейка",
 			Symbol:   "к.",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Belarus",
 		Currency:       "BYN",
 		ISO3166Alpha2:  "BY",
@@ -26,13 +24,13 @@ var BEBYLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Minsk"},
 		Language:       "be",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "і",
 		Minus: "мінус",
 		Only:  "толькі",
 		Point: "кропка",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Квадрыльён"},
 		{Number: 1000000000000, Value: "Трыльён"},
 		{Number: 1000000000, Value: "Мільярд"},
@@ -68,7 +66,7 @@ var BEBYLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Адзін"},
 		{Number: 0, Value: "Нуль"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Адзін Сотня"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MNMNLocale represents the Mongolian (Mongolia) locale
-var MNMNLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MNMNLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Төгрөг",
 		Plural:   "Төгрөг",
 		Singular: "Төгрөг",
 		Symbol:   "₮",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Мөнгө",
 			Plural:   "Мөнгө",
 			Singular: "Мөнгө",
 			Symbol:   "м",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Mongolia",
 		Currency:       "MNT",
 		ISO3166Alpha2:  "MN",
@@ -26,13 +24,13 @@ var MNMNLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Ulaanbaatar"},
 		Language:       "mn",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ба",
 		Minus: "хасах",
 		Only:  "зөвхөн",
 		Point: "цэг",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "их наяд"},
 		{Number: 1000000000000, Value: "их тэрбум"},
 		{Number: 1000000000, Value: "тэрбум"},
@@ -175,7 +173,7 @@ var MNMNLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "нэгэн"},
 		{Number: 0, Value: "тэг"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Нэг зуу"},
 	},
 }

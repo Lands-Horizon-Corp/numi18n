@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // CSCZLocale is a NumI18NLocale configured for Czech (Czech Republic) - cs-CZ
-var CSCZLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var CSCZLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Koruna",
 		Plural:   "Koruny",
 		Singular: "Koruna",
 		Symbol:   "Kč",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Haléř",
 			Plural:   "Haléře",
 			Singular: "Haléř",
 			Symbol:   "h",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Czech Republic",
 		Currency:       "CZK",
 		ISO3166Alpha2:  "CZ",
@@ -26,13 +24,13 @@ var CSCZLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Prague"},
 		Language:       "cs",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "a",
 		Minus: "mínus",
 		Only:  "pouze",
 		Point: "tečka",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Kvadrilion"},
 		{Number: 1000000000000, Value: "Bilion"},
 		{Number: 1000000000, Value: "Miliarda"},
@@ -68,7 +66,7 @@ var CSCZLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Jedna"},
 		{Number: 0, Value: "Nula"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Sto"},
 	},
 }

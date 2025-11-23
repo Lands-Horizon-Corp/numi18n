@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // URINLocale represents the Urdu (India) locale
-var URINLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var URINLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Indian Rupee",
 		Plural:   "روپے",
 		Singular: "روپیہ",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Paisa",
 			Plural:   "پیسے",
 			Singular: "پیسہ",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var URINLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "ur",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "اور",
 		Minus: "منفی",
 		Only:  "صرف",
 		Point: "نقطہ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ایک کھرب"},
 		{Number: 1000000000000, Value: "ایک ارب"},
 		{Number: 1000000000, Value: "ایک کروڑ"},
@@ -176,7 +174,7 @@ var URINLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ایک"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "سو"},
 	},
 }

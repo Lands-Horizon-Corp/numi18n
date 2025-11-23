@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARYELocale is a NumI18NLocale configured for Arabic (Yemen) - ar-YE
-var ARYELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARYELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ريال يمني",
 		Plural:   "ريالات يمنية",
 		Singular: "ريال يمني",
 		Symbol:   "ر.ي",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "فلس",
 			Plural:   "فلوس",
 			Singular: "فلس",
 			Symbol:   "ف",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Yemen",
 		Currency:       "YER",
 		ISO3166Alpha2:  "YE",
@@ -26,13 +24,13 @@ var ARYELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Aden"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARYELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // DADKLocale is a NumI18NLocale configured for Danish (Denmark) - da-DK
-var DADKLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var DADKLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Krone",
 		Plural:   "Kroner",
 		Singular: "Krone",
 		Symbol:   "kr",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Øre",
 			Plural:   "Øre",
 			Singular: "Øre",
 			Symbol:   "ø",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Denmark",
 		Currency:       "DKK",
 		ISO3166Alpha2:  "DK",
@@ -26,13 +24,13 @@ var DADKLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Copenhagen"},
 		Language:       "da",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "og",
 		Minus: "minus",
 		Only:  "kun",
 		Point: "punktum",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Kvadrillion"},
 		{Number: 1000000000000, Value: "Billion"},
 		{Number: 1000000000, Value: "Milliard"},
@@ -68,7 +66,7 @@ var DADKLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "En"},
 		{Number: 0, Value: "Nul"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Hundrede"},
 	},
 }

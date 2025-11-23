@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // CHITLocale is a NumI18NLocale configured for Switzerland (it-CH)
-var CHITLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var CHITLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Franco svizzero",
 		Plural:   "Franchi svizzeri",
 		Singular: "Franco svizzero",
 		Symbol:   "CHF",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centesimo",
 			Plural:   "Centesimi",
 			Singular: "Centesimo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Switzerland",
 		Currency:       "CHF",
 		ISO3166Alpha2:  "CH",
@@ -26,13 +24,13 @@ var CHITLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "it",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "E",
 		Minus: "Meno",
 		Only:  "Solo",
 		Point: "Virgola",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Un biliardo"},
 		{Number: 1000000000000, Value: "Un bilione"},
 		{Number: 1000000000, Value: "Un miliardo"},
@@ -68,7 +66,7 @@ var CHITLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Uno"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cento"},
 	},
 }

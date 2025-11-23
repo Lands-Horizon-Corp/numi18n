@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // GHLocale is a NumI18NLocale configured for Ghana (en-GH)
-var GHLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var GHLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Ghanaian Cedi",
 		Plural:   "Ghanaian Cedis",
 		Singular: "Ghanaian Cedi",
 		Symbol:   "GH₵",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Pesewa",
 			Plural:   "Pesewas",
 			Singular: "Pesewa",
 			Symbol:   "Gp",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Ghana",
 		Currency:       "GHS",
 		ISO3166Alpha2:  "GH",
@@ -26,13 +24,13 @@ var GHLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Accra"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var GHLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

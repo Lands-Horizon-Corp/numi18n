@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // LBLULocale represents the Luxembourgish (Luxembourg) locale
-var LBLULocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var LBLULocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euroen",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Centen",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Luxembourg",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "LU",
@@ -26,13 +24,13 @@ var LBLULocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Luxembourg"},
 		Language:       "lb",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "an",
 		Minus: "minus",
 		Only:  "nëmmen",
 		Point: "Komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Billiard"},
 		{Number: 1000000000000, Value: "Billion"},
 		{Number: 1000000000, Value: "Milliard"},
@@ -158,7 +156,7 @@ var LBLULocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "een"},
 		{Number: 0, Value: "null"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Een Honnert"},
 	},
 }

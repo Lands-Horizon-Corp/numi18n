@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // KHLocale is a NumI18NLocale configured for Cambodia (km-KH)
-var KHLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var KHLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "រៀល",
 		Plural:   "រៀល",
 		Singular: "រៀល",
 		Symbol:   "៛",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "សេន",
 			Plural:   "សេន",
 			Singular: "សេន",
 			Symbol:   "សេន",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Cambodia",
 		Currency:       "KHR",
 		ISO3166Alpha2:  "KH",
@@ -26,13 +24,13 @@ var KHLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Phnom_Penh"},
 		Language:       "km",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "និង",
 		Minus: "ដក",
 		Only:  "តែប៉ុណ្ណោះ",
 		Point: "ចំណុច",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "មួយ\u200bខ្វាដ្រីលាន"},
 		{Number: 1000000000000, Value: "មួយ\u200bទ្រីលាន"},
 		{Number: 1000000000, Value: "មួយ\u200bពាន់\u200bលាន"},
@@ -68,7 +66,7 @@ var KHLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "មួយ"},
 		{Number: 0, Value: "សូន្យ"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "មួយ\\u200bរយ"},
 	},
 }

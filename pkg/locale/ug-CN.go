@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // UGCNLocale represents the Uyghur (China) locale
-var UGCNLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var UGCNLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Chinese Yuan",
 		Plural:   "يۈەن",
 		Singular: "يۈەن",
 		Symbol:   "¥",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Jiao",
 			Plural:   "جىياو",
 			Singular: "جىياو",
 			Symbol:   "角",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "China",
 		Currency:       "CNY",
 		ISO3166Alpha2:  "CN",
@@ -26,13 +24,13 @@ var UGCNLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Shanghai"},
 		Language:       "ug",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ۋە",
 		Minus: "مىنۇس",
 		Only:  "پەقەت",
 		Point: "چېكىت",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "بىر تىرىللىيون"},
 		{Number: 1000000000000, Value: "بىر تىرىللىيون"},
 		{Number: 1000000000, Value: "بىر مىليارد"},
@@ -175,7 +173,7 @@ var UGCNLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "بىر"},
 		{Number: 0, Value: "نۆل"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "بىر يۈز"},
 	},
 }

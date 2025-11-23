@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // NZLocale is a NumI18NLocale configured for New Zealand (en-NZ)
-var NZLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var NZLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "New Zealand Dollar",
 		Plural:   "New Zealand Dollars",
 		Singular: "New Zealand Dollar",
 		Symbol:   "NZ$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cents",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "New Zealand",
 		Currency:       "NZD",
 		ISO3166Alpha2:  "NZ",
@@ -26,13 +24,13 @@ var NZLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Pacific/Auckland"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var NZLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

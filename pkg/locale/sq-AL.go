@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SQALLocale represents the Albanian (Albania) locale
-var SQALLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SQALLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Lek",
 		Plural:   "Lekë",
 		Singular: "Lek",
 		Symbol:   "L",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Qindarkë",
 			Plural:   "Qindarka",
 			Singular: "Qindarkë",
 			Symbol:   "q",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Albania",
 		Currency:       "ALL",
 		ISO3166Alpha2:  "AL",
@@ -26,13 +24,13 @@ var SQALLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Tirane"},
 		Language:       "sq",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "dhe",
 		Minus: "minus",
 		Only:  "vetëm",
 		Point: "pikë",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "një katrilion"},
 		{Number: 1000000000000, Value: "një trilion"},
 		{Number: 1000000000, Value: "një miliard"},
@@ -175,7 +173,7 @@ var SQALLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "një"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Njëqind"},
 	},
 }

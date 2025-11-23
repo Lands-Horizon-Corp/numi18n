@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZHCNLocale represents the Chinese (China) locale
-var ZHCNLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZHCNLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Chinese Yuan",
 		Plural:   "元",
 		Singular: "元",
 		Symbol:   "¥",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Jiao",
 			Plural:   "角",
 			Singular: "角",
 			Symbol:   "角",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "China",
 		Currency:       "CNY",
 		ISO3166Alpha2:  "CN",
@@ -26,13 +24,13 @@ var ZHCNLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Shanghai"},
 		Language:       "zh",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "和",
 		Minus: "负",
 		Only:  "仅",
 		Point: "点",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "一千万亿"},
 		{Number: 1000000000000, Value: "一万亿"},
 		{Number: 1000000000, Value: "十亿"},
@@ -160,7 +158,7 @@ var ZHCNLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "一"},
 		{Number: 0, Value: "零"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "百"},
 	},
 }

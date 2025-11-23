@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // RU001Locale is a NumI18NLocale configured for Russian (World) - ru-001
-var RU001Locale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var RU001Locale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "рубль",
 		Plural:   "рублей",
 		Singular: "рубль",
 		Symbol:   "₽",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "копейка",
 			Plural:   "копеек",
 			Singular: "копейка",
 			Symbol:   "к",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "World",
 		Currency:       "USD",
 		ISO3166Alpha2:  "001",
@@ -26,13 +24,13 @@ var RU001Locale = pkg.NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "ru",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "и",
 		Minus: "минус",
 		Only:  "только",
 		Point: "точка",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "квадриллион"},
 		{Number: 1000000000000, Value: "триллион"},
 		{Number: 1000000000, Value: "миллиард"},
@@ -68,7 +66,7 @@ var RU001Locale = pkg.NumI18NLocale{
 		{Number: 1, Value: "один"},
 		{Number: 0, Value: "ноль"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "сто"},
 	},
 }

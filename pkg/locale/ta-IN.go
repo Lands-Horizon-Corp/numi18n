@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // TAINLocale represents the Tamil (India) locale
-var TAINLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var TAINLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Indian Rupee",
 		Plural:   "ரூபாய்கள்",
 		Singular: "ரூபாய்",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Paisa",
 			Plural:   "பைசாக்கள்",
 			Singular: "பைசா",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var TAINLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "ta",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "மற்றும்",
 		Minus: "கழித்தல்",
 		Only:  "மட்டும்",
 		Point: "புள்ளி",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ஒரு பத்து லட்சம் கோடி"},
 		{Number: 1000000000000, Value: "ஒரு லட்சம் கோடி"},
 		{Number: 1000000000, Value: "ஒரு ஆயிரம் கோடி"},
@@ -175,7 +173,7 @@ var TAINLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ஒன்று"},
 		{Number: 0, Value: "பூஜ்யம்"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "நூறு"},
 	},
 }

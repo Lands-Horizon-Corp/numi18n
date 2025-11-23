@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // RUBYLocale represents the Russian (Belarus) locale
-var RUBYLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var RUBYLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Белорусский рубль",
 		Plural:   "Белорусских рублей",
 		Singular: "Белорусский рубль",
 		Symbol:   "BYN",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Копейка",
 			Plural:   "Копеек",
 			Singular: "Копейка",
 			Symbol:   "к",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Belarus",
 		Currency:       "BYN",
 		ISO3166Alpha2:  "BY",
@@ -26,13 +24,13 @@ var RUBYLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Minsk"},
 		Language:       "ru",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "и",
 		Minus: "минус",
 		Only:  "только",
 		Point: "запятая",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "квадриллион"},
 		{Number: 1000000000000, Value: "триллион"},
 		{Number: 1000000000, Value: "миллиард"},
@@ -175,7 +173,7 @@ var RUBYLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "один"},
 		{Number: 0, Value: "ноль"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Сто"},
 	},
 }

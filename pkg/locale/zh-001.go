@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZH001Locale is a NumI18NLocale configured for Chinese (World) - zh-001
-var ZH001Locale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZH001Locale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "元",
 		Plural:   "元",
 		Singular: "元",
 		Symbol:   "¥",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "分",
 			Plural:   "分",
 			Singular: "分",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "World",
 		Currency:       "USD",
 		ISO3166Alpha2:  "001",
@@ -26,13 +24,13 @@ var ZH001Locale = pkg.NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "zh",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "和",
 		Minus: "负",
 		Only:  "仅",
 		Point: "点",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "千万亿"}, // Quadrillion
 		{Number: 1000000000000, Value: "万亿"},     // Trillion
 		{Number: 1000000000, Value: "十亿"},        // Billion
@@ -68,7 +66,7 @@ var ZH001Locale = pkg.NumI18NLocale{
 		{Number: 1, Value: "一"},
 		{Number: 0, Value: "零"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "一百"},
 	},
 }

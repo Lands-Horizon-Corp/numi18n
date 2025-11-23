@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PLPLLocale represents the Polish (Poland) locale
-var PLPLLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PLPLLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Złoty",
 		Plural:   "Złote",
 		Singular: "Złoty",
 		Symbol:   "zł",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Grosz",
 			Plural:   "Grosze",
 			Singular: "Grosz",
 			Symbol:   "gr",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Poland",
 		Currency:       "PLN",
 		ISO3166Alpha2:  "PL",
@@ -26,13 +24,13 @@ var PLPLLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Warsaw"},
 		Language:       "pl",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "i",
 		Minus: "minus",
 		Only:  "tylko",
 		Point: "przecinek",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "biliard"},
 		{Number: 1000000000000, Value: "bilion"},
 		{Number: 1000000000, Value: "miliard"},
@@ -175,7 +173,7 @@ var PLPLLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "jeden"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Sto"},
 	},
 }

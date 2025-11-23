@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARLYLocale is a NumI18NLocale configured for Arabic (Libya) - ar-LY
-var ARLYLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARLYLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "دينار",
 		Plural:   "دنانير",
 		Singular: "دينار",
 		Symbol:   "ل.د",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "قرش",
 			Plural:   "قروش",
 			Singular: "قرش",
 			Symbol:   "ق",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Libya",
 		Currency:       "LYD",
 		ISO3166Alpha2:  "LY",
@@ -26,13 +24,13 @@ var ARLYLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Tripoli"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARLYLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

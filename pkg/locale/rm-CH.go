@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // RMCHLocale represents the Romansh (Switzerland) locale
-var RMCHLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var RMCHLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Franc svizzer",
 		Plural:   "Francs svizzers",
 		Singular: "Franc svizzer",
 		Symbol:   "CHF",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centesim",
 			Plural:   "Centesims",
 			Singular: "Centesim",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Switzerland",
 		Currency:       "CHF",
 		ISO3166Alpha2:  "CH",
@@ -26,13 +24,13 @@ var RMCHLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "rm",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "e",
 		Minus: "minus",
 		Only:  "mo",
 		Point: "comma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "in biliun milliuns"},
 		{Number: 1000000000000, Value: "in biliun"},
 		{Number: 1000000000, Value: "in milliard"},
@@ -175,7 +173,7 @@ var RMCHLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "in"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Tschient"},
 	},
 }

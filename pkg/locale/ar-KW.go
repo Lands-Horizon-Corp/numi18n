@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARKWLocale is a NumI18NLocale configured for Arabic (Kuwait) - ar-KW
-var ARKWLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARKWLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "دينار",
 		Plural:   "دنانير",
 		Singular: "دينار",
 		Symbol:   "د.ك",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "فلس",
 			Plural:   "فلوس",
 			Singular: "فلس",
 			Symbol:   "ف",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Kuwait",
 		Currency:       "KWD",
 		ISO3166Alpha2:  "KW",
@@ -26,13 +24,13 @@ var ARKWLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kuwait"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARKWLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

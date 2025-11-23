@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // GELocale is a NumI18NLocale configured for Georgia (ka-GE)
-var GELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var GELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ლარი",
 		Plural:   "ლარი",
 		Singular: "ლარი",
 		Symbol:   "₾",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "თეთრი",
 			Plural:   "თეთრი",
 			Singular: "თეთრი",
 			Symbol:   "თ",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Georgia",
 		Currency:       "GEL",
 		ISO3166Alpha2:  "GE",
@@ -26,13 +24,13 @@ var GELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Tbilisi"},
 		Language:       "ka",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "და",
 		Minus: "მინუს",
 		Only:  "მხოლოდ",
 		Point: "წერტილი",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ერთი კვადრილიონი"},
 		{Number: 1000000000000, Value: "ერთი ტრილიონი"},
 		{Number: 1000000000, Value: "ერთი მილიარდი"},
@@ -68,7 +66,7 @@ var GELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ერთი"},
 		{Number: 0, Value: "ნული"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ერთი ასი"},
 	},
 }

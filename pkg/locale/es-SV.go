@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SVLocale is a NumI18NLocale configured for El Salvador (es-SV)
-var SVLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SVLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Dólar",
 		Plural:   "Dólares",
 		Singular: "Dólar",
 		Symbol:   "$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centavo",
 			Plural:   "Centavos",
 			Singular: "Centavo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "El Salvador",
 		Currency:       "USD",
 		ISO3166Alpha2:  "SV",
@@ -26,13 +24,13 @@ var SVLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/El_Salvador"},
 		Language:       "es",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Y",
 		Minus: "Menos",
 		Only:  "Solo",
 		Point: "Punto",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Cuatrillón"},
 		{Number: 1000000000000, Value: "Trillón"},
 		{Number: 1000000000, Value: "Mil millones"},
@@ -68,7 +66,7 @@ var SVLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Uno"},
 		{Number: 0, Value: "Cero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cien"},
 	},
 }

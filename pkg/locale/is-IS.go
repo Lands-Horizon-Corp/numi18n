@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ISLocale is a NumI18NLocale configured for Iceland (is-IS)
-var ISLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ISLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Króna",
 		Plural:   "Krónur",
 		Singular: "Króna",
 		Symbol:   "kr",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Eyrir",
 			Plural:   "Aurar",
 			Singular: "Eyrir",
 			Symbol:   "a",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Iceland",
 		Currency:       "ISK",
 		ISO3166Alpha2:  "IS",
@@ -26,13 +24,13 @@ var ISLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Atlantic/Reykjavik"},
 		Language:       "is",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Og",
 		Minus: "Mínus",
 		Only:  "Aðeins",
 		Point: "Komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Ein trilljón trilljóna"},
 		{Number: 1000000000000, Value: "Ein trilljón"},
 		{Number: 1000000000, Value: "Einn milljarður"},
@@ -68,7 +66,7 @@ var ISLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Eitt"},
 		{Number: 0, Value: "Núll"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Eitt hundrað"},
 	},
 }

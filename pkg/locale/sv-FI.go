@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SVFILocale represents the Swedish (Finland) locale
-var SVFILocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SVFILocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euro",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cent",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Finland",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "FI",
@@ -26,13 +24,13 @@ var SVFILocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Helsinki"},
 		Language:       "sv",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "och",
 		Minus: "minus",
 		Only:  "endast",
 		Point: "komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "en biljard"},
 		{Number: 1000000000000, Value: "en biljon"},
 		{Number: 1000000000, Value: "en miljard"},
@@ -175,7 +173,7 @@ var SVFILocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ett"},
 		{Number: 0, Value: "noll"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Etthundra"},
 	},
 }

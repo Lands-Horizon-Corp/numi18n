@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // CYGBLocale is a NumI18NLocale configured for Welsh (United Kingdom) - cy-GB
-var CYGBLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var CYGBLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Punt",
 		Plural:   "Puntiau",
 		Singular: "Punt",
 		Symbol:   "£",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Ceiniog",
 			Plural:   "Ceiniogau",
 			Singular: "Ceiniog",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "United Kingdom",
 		Currency:       "GBP",
 		ISO3166Alpha2:  "GB",
@@ -26,13 +24,13 @@ var CYGBLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/London"},
 		Language:       "cy",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "a",
 		Minus: "minus",
 		Only:  "yn unig",
 		Point: "pwynt",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadriliwn"},
 		{Number: 1000000000000, Value: "Triliwn"},
 		{Number: 1000000000, Value: "Biliwn"},
@@ -68,7 +66,7 @@ var CYGBLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Un"},
 		{Number: 0, Value: "Sero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Can"},
 	},
 }

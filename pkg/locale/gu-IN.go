@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // INGULocale is a NumI18NLocale configured for India (gu-IN)
-var INGULocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var INGULocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "રૂપિયો",
 		Plural:   "રૂપિયા",
 		Singular: "રૂપિયો",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "પૈસો",
 			Plural:   "પૈસા",
 			Singular: "પૈસો",
 			Symbol:   "પ",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var INGULocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "gu",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "અને",
 		Minus: "ઋણ",
 		Only:  "માત્ર",
 		Point: "બિંદુ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "એક પદમ"},
 		{Number: 1000000000000, Value: "એક નીલ"},
 		{Number: 1000000000, Value: "એક અબજ"},
@@ -69,7 +67,7 @@ var INGULocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "એક"},
 		{Number: 0, Value: "શૂન્ય"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "એક સો"},
 		{Number: 100000, Value: "એક લાખ"},
 	},

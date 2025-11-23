@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // YI001Locale represents the Yiddish (World) locale
-var YI001Locale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var YI001Locale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Dollar",
 		Plural:   "דאָלערס",
 		Singular: "דאָלער",
 		Symbol:   "$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "צענט",
 			Singular: "צענט",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "World",
 		Currency:       "USD",
 		ISO3166Alpha2:  "001",
@@ -26,13 +24,13 @@ var YI001Locale = pkg.NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "yi",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "און",
 		Minus: "מינוס",
 		Only:  "בלויז",
 		Point: "פּונקט",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "איין קוואַדריליאָן"},
 		{Number: 1000000000000, Value: "איין טריליאָן"},
 		{Number: 1000000000, Value: "איין ביליאָן"},
@@ -175,7 +173,7 @@ var YI001Locale = pkg.NumI18NLocale{
 		{Number: 1, Value: "איין"},
 		{Number: 0, Value: "נול"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "הונדערט"},
 	},
 }

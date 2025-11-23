@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // AFLocale is a NumI18NLocale configured for Afghanistan (fa-AF)
-var AFLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var AFLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "افغانی",
 		Plural:   "افغانی",
 		Singular: "افغانی",
 		Symbol:   "؋",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "پول",
 			Plural:   "پول",
 			Singular: "پول",
 			Symbol:   "پول",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Afghanistan",
 		Currency:       "AFN",
 		ISO3166Alpha2:  "AF",
@@ -26,13 +24,13 @@ var AFLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kabul"},
 		Language:       "fa",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "منفی",
 		Only:  "فقط",
 		Point: "نقطه",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "یک کوادریلیون"},
 		{Number: 1000000000000, Value: "یک تریلیون"},
 		{Number: 1000000000, Value: "یک میلیارد"},
@@ -68,7 +66,7 @@ var AFLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "یک"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "یک صد"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // AMLocale is a NumI18NLocale configured for Armenia (hy-AM)
-var AMLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var AMLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Դրամ",
 		Plural:   "Դրամ",
 		Singular: "Դրամ",
 		Symbol:   "֏",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Լումա",
 			Plural:   "Լումա",
 			Singular: "Լումա",
 			Symbol:   "լ",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Armenia",
 		Currency:       "AMD",
 		ISO3166Alpha2:  "AM",
@@ -26,13 +24,13 @@ var AMLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Yerevan"},
 		Language:       "hy",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Եվ",
 		Minus: "Մինուս",
 		Only:  "Միայն",
 		Point: "Կետ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Մեկ քվադրիլիոն"},
 		{Number: 1000000000000, Value: "Մեկ տրիլիոն"},
 		{Number: 1000000000, Value: "Մեկ միլիարդ"},
@@ -68,7 +66,7 @@ var AMLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Մեկ"},
 		{Number: 0, Value: "Զրո"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Մեկ հարյուր"},
 	},
 }

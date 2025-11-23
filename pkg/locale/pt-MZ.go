@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PTMZLocale represents the Portuguese (Mozambique) locale
-var PTMZLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PTMZLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Metical",
 		Plural:   "Meticais",
 		Singular: "Metical",
 		Symbol:   "MZN",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centavo",
 			Plural:   "Centavos",
 			Singular: "Centavo",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Mozambique",
 		Currency:       "MZN",
 		ISO3166Alpha2:  "MZ",
@@ -26,13 +24,13 @@ var PTMZLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Maputo"},
 		Language:       "pt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "e",
 		Minus: "menos",
 		Only:  "apenas",
 		Point: "vírgula",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "mil biliões"},
 		{Number: 1000000000000, Value: "bilião"},
 		{Number: 1000000000, Value: "mil milhões"},
@@ -175,7 +173,7 @@ var PTMZLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "um"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cem"},
 	},
 }

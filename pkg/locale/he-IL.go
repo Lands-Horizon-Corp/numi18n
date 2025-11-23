@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ILLocale is a NumI18NLocale configured for Israel (he-IL)
-var ILLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ILLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "שקל",
 		Plural:   "שקלים",
 		Singular: "שקל",
 		Symbol:   "₪",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "אגורה",
 			Plural:   "אגורות",
 			Singular: "אגורה",
 			Symbol:   "ע׳",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Israel",
 		Currency:       "ILS",
 		ISO3166Alpha2:  "IL",
@@ -26,13 +24,13 @@ var ILLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Jerusalem"},
 		Language:       "he",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ו",
 		Minus: "מינוס",
 		Only:  "בלבד",
 		Point: "נקודה",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "אחד קוודריליון"},
 		{Number: 1000000000000, Value: "אחד טריליון"},
 		{Number: 1000000000, Value: "אחד מיליארד"},
@@ -68,7 +66,7 @@ var ILLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "אחד"},
 		{Number: 0, Value: "אפס"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "מאה"},
 	},
 }

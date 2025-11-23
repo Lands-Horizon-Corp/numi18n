@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZHMOLocale represents the Chinese (Macau) locale
-var ZHMOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZHMOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Macanese Pataca",
 		Plural:   "澳門元",
 		Singular: "澳門元",
 		Symbol:   "MOP$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Avo",
 			Plural:   "仙",
 			Singular: "仙",
 			Symbol:   "avo",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Macau",
 		Currency:       "MOP",
 		ISO3166Alpha2:  "MO",
@@ -26,13 +24,13 @@ var ZHMOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Macau"},
 		Language:       "zh",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "同",
 		Minus: "負",
 		Only:  "只係",
 		Point: "點",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "一千萬億"},
 		{Number: 1000000000000, Value: "一萬億"},
 		{Number: 1000000000, Value: "十億"},
@@ -160,7 +158,7 @@ var ZHMOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "一"},
 		{Number: 0, Value: "零"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "百"},
 	},
 }

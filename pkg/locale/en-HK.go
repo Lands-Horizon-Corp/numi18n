@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // HKLocale is a NumI18NLocale configured for Hong Kong (en-HK)
-var HKLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var HKLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Hong Kong Dollar",
 		Plural:   "Hong Kong Dollars",
 		Singular: "Hong Kong Dollar",
 		Symbol:   "HK$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cents",
 			Singular: "Cent",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Hong Kong",
 		Currency:       "HKD",
 		ISO3166Alpha2:  "HK",
@@ -26,13 +24,13 @@ var HKLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Hong_Kong"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var HKLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

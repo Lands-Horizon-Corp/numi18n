@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // NONOLocale represents the Norwegian (Norway) locale
-var NONOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var NONOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Norsk krone",
 		Plural:   "Norske kroner",
 		Singular: "Norsk krone",
 		Symbol:   "kr",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Øre",
 			Plural:   "Øre",
 			Singular: "Øre",
 			Symbol:   "øre",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Norway",
 		Currency:       "NOK",
 		ISO3166Alpha2:  "NO",
@@ -26,13 +24,13 @@ var NONOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Oslo"},
 		Language:       "no",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "og",
 		Minus: "minus",
 		Only:  "bare",
 		Point: "komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "tusen billioner"},
 		{Number: 1000000000000, Value: "billion"},
 		{Number: 1000000000, Value: "milliard"},
@@ -175,7 +173,7 @@ var NONOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "en"},
 		{Number: 0, Value: "null"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Ett hundre"},
 	},
 }

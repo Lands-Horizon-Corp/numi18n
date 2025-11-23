@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PTMOLocale represents the Portuguese (Macao SAR) locale
-var PTMOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PTMOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Pataca de Macau",
 		Plural:   "Patacas de Macau",
 		Singular: "Pataca de Macau",
 		Symbol:   "MOP",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Avo",
 			Plural:   "Avos",
 			Singular: "Avo",
 			Symbol:   "a",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Macau",
 		Currency:       "MOP",
 		ISO3166Alpha2:  "MO",
@@ -26,13 +24,13 @@ var PTMOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Macau"},
 		Language:       "pt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "e",
 		Minus: "menos",
 		Only:  "apenas",
 		Point: "vírgula",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "mil biliões"},
 		{Number: 1000000000000, Value: "bilião"},
 		{Number: 1000000000, Value: "mil milhões"},
@@ -175,7 +173,7 @@ var PTMOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "um"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cem"},
 	},
 }

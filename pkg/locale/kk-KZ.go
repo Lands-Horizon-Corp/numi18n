@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // KZLocale is a NumI18NLocale configured for Kazakhstan (kk-KZ)
-var KZLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var KZLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Теңге",
 		Plural:   "Теңге",
 		Singular: "Теңге",
 		Symbol:   "₸",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Тиын",
 			Plural:   "Тиын",
 			Singular: "Тиын",
 			Symbol:   "т",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Kazakhstan",
 		Currency:       "KZT",
 		ISO3166Alpha2:  "KZ",
@@ -26,13 +24,13 @@ var KZLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Almaty"},
 		Language:       "kk",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Және",
 		Minus: "Минус",
 		Only:  "Тек",
 		Point: "Нүкте",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Бір квадрилион"},
 		{Number: 1000000000000, Value: "Бір трилион"},
 		{Number: 1000000000, Value: "Бір миллиард"},
@@ -68,7 +66,7 @@ var KZLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Бір"},
 		{Number: 0, Value: "Нөл"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Бір жүз"},
 	},
 }

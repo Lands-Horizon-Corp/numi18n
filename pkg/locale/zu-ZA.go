@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZUZALocale represents the Zulu (South Africa) locale
-var ZUZALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZUZALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "South African Rand",
 		Plural:   "amaRandi",
 		Singular: "iRandi",
 		Symbol:   "R",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "amacenti",
 			Singular: "icenti",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "South Africa",
 		Currency:       "ZAR",
 		ISO3166Alpha2:  "ZA",
@@ -26,13 +24,13 @@ var ZUZALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Johannesburg"},
 		Language:       "zu",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ne",
 		Minus: "minus",
 		Only:  "kuphela",
 		Point: "iphoyinti",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "isigidi sezigidi sezigidi"},
 		{Number: 1000000000000, Value: "isigidi sezigidi"},
 		{Number: 1000000000, Value: "isigidi semiliyoni"},
@@ -175,7 +173,7 @@ var ZUZALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "kunye"},
 		{Number: 0, Value: "iqanda"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Ikhulu"},
 	},
 }

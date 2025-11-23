@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // DZBTLocale is a NumI18NLocale configured for Dzongkha (Bhutan) - dz-BT
-var DZBTLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var DZBTLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Ngultrum",
 		Plural:   "Ngultrum",
 		Singular: "Ngultrum",
 		Symbol:   "Nu",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Chhertum",
 			Plural:   "Chhertum",
 			Singular: "Chhertum",
 			Symbol:   "Ch",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Bhutan",
 		Currency:       "BTN",
 		ISO3166Alpha2:  "BT",
@@ -26,13 +24,13 @@ var DZBTLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Thimphu"},
 		Language:       "dz",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "དང་",
 		Minus: "མིང་མེད་",
 		Only:  "ཡང་ན་",
 		Point: "ཐུང་",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ཀྱུར་དྲི་ལི་ཨན་"},
 		{Number: 1000000000000, Value: "ཊྲི་ལི་ཨན་"},
 		{Number: 1000000000, Value: "བི་ལི་ཨན་"},
@@ -68,7 +66,7 @@ var DZBTLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "གཅིག་"},
 		{Number: 0, Value: "སོ་རོ་"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "སུང་"},
 	},
 }

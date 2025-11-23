@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // KRLocale is a NumI18NLocale configured for South Korea (ko-KR)
-var KRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var KRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "원",
 		Plural:   "원",
 		Singular: "원",
 		Symbol:   "₩",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "전",
 			Plural:   "전",
 			Singular: "전",
 			Symbol:   "전",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "South Korea",
 		Currency:       "KRW",
 		ISO3166Alpha2:  "KR",
@@ -26,13 +24,13 @@ var KRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Seoul"},
 		Language:       "ko",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "그리고",
 		Minus: "마이너스",
 		Only:  "만",
 		Point: "점",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "천조"},
 		{Number: 1000000000000, Value: "일조"},
 		{Number: 100000000000, Value: "천억"},
@@ -74,7 +72,7 @@ var KRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "일"},
 		{Number: 0, Value: "영"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "일백"},
 		{Number: 10000, Value: "일만"},
 		{Number: 100000000, Value: "일억"},

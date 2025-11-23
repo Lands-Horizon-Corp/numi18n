@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // INHILocale is a NumI18NLocale configured for India (hi-IN)
-var INHILocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var INHILocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "रुपया",
 		Plural:   "रुपये",
 		Singular: "रुपया",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "पैसा",
 			Plural:   "पैसे",
 			Singular: "पैसा",
 			Symbol:   "प",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var INHILocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "hi",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "और",
 		Minus: "ऋण",
 		Only:  "केवल",
 		Point: "बिंदु",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "एक पद्म"},
 		{Number: 1000000000000, Value: "एक नील"},
 		{Number: 1000000000, Value: "एक अरब"},
@@ -70,7 +68,7 @@ var INHILocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "एक"},
 		{Number: 0, Value: "शून्य"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "एक सौ"},
 		{Number: 100000, Value: "एक लाख"},
 		{Number: 10000000, Value: "एक करोड़"},

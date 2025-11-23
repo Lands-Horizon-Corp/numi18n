@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // TRKULocale is a NumI18NLocale configured for Turkey (ku-TR)
-var TRKULocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var TRKULocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Lîre",
 		Plural:   "Lîre",
 		Singular: "Lîre",
 		Symbol:   "₺",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Kuruş",
 			Plural:   "Kuruş",
 			Singular: "Kuruş",
 			Symbol:   "kr",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Turkey",
 		Currency:       "TRY",
 		ISO3166Alpha2:  "TR",
@@ -26,13 +24,13 @@ var TRKULocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Istanbul"},
 		Language:       "ku",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Û",
 		Minus: "Kêm",
 		Only:  "Tenê",
 		Point: "Xal",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Yek kuadrîlyon"},
 		{Number: 1000000000000, Value: "Yek trîlyon"},
 		{Number: 1000000000, Value: "Yek mîlyar"},
@@ -68,7 +66,7 @@ var TRKULocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Yek"},
 		{Number: 0, Value: "Sifir"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Yek sed"},
 	},
 }

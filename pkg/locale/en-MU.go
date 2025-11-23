@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MULocale is a NumI18NLocale configured for Mauritius (en-MU)
-var MULocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MULocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Mauritian Rupee",
 		Plural:   "Mauritian Rupees",
 		Singular: "Mauritian Rupee",
 		Symbol:   "₨",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cents",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Mauritius",
 		Currency:       "MUR",
 		ISO3166Alpha2:  "MU",
@@ -26,13 +24,13 @@ var MULocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Indian/Mauritius"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var MULocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

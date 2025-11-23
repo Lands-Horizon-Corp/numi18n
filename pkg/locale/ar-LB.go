@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARLBLocale is a NumI18NLocale configured for Arabic (Lebanon) - ar-LB
-var ARLBLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARLBLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ليرة لبنانية",
 		Plural:   "ليرات لبنانية",
 		Singular: "ليرة لبنانية",
 		Symbol:   "ل.ل",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "قرش",
 			Plural:   "قروش",
 			Singular: "قرش",
 			Symbol:   "ق",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Lebanon",
 		Currency:       "LBP",
 		ISO3166Alpha2:  "LB",
@@ -26,13 +24,13 @@ var ARLBLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Beirut"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARLBLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

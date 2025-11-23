@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARTNLocale is a NumI18NLocale configured for Arabic (Tunisia) - ar-TN
-var ARTNLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARTNLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "دينار تونسي",
 		Plural:   "دنانير تونسية",
 		Singular: "دينار تونسي",
 		Symbol:   "د.ت",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "مليم",
 			Plural:   "مليمات",
 			Singular: "مليم",
 			Symbol:   "م",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Tunisia",
 		Currency:       "TND",
 		ISO3166Alpha2:  "TN",
@@ -26,13 +24,13 @@ var ARTNLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Tunis"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARTNLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

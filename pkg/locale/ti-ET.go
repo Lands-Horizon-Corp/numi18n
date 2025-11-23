@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // TIETLocale represents the Tigrinya (Ethiopia) locale
-var TIETLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var TIETLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Ethiopian Birr",
 		Plural:   "ብር",
 		Singular: "ብር",
 		Symbol:   "ETB",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Santim",
 			Plural:   "ሳንቲም",
 			Singular: "ሳንቲም",
 			Symbol:   "ሳ",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Ethiopia",
 		Currency:       "ETB",
 		ISO3166Alpha2:  "ET",
@@ -26,13 +24,13 @@ var TIETLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Addis_Ababa"},
 		Language:       "ti",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ከምኡ'ውን",
 		Minus: "ጉሓፍ",
 		Only:  "ጥራይ",
 		Point: "ነጥቢ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ሓደ ትሪልዮን"},
 		{Number: 1000000000000, Value: "ሓደ ትሪልዮን"},
 		{Number: 1000000000, Value: "ሓደ ቢልዮን"},
@@ -175,7 +173,7 @@ var TIETLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ሓደ"},
 		{Number: 0, Value: "ዜሮ"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ሓደ መቶ"},
 	},
 }

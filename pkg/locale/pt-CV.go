@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PTCVLocale represents the Portuguese (Cape Verde) locale
-var PTCVLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PTCVLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Escudo cabo-verdiano",
 		Plural:   "Escudos cabo-verdianos",
 		Singular: "Escudo cabo-verdiano",
 		Symbol:   "CVE",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centavo",
 			Plural:   "Centavos",
 			Singular: "Centavo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Cape Verde",
 		Currency:       "CVE",
 		ISO3166Alpha2:  "CV",
@@ -26,13 +24,13 @@ var PTCVLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Atlantic/Cape_Verde"},
 		Language:       "pt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "e",
 		Minus: "menos",
 		Only:  "apenas",
 		Point: "vírgula",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "mil biliões"},
 		{Number: 1000000000000, Value: "bilião"},
 		{Number: 1000000000, Value: "mil milhões"},
@@ -175,7 +173,7 @@ var PTCVLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "um"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cem"},
 	},
 }

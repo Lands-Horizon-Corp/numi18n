@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // AFZALocale is a NumI18NLocale configured for Afrikaans (South Africa) - af-ZA
-var AFZALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var AFZALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Rand",
 		Plural:   "Rande",
 		Singular: "Rand",
 		Symbol:   "R",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Sent",
 			Plural:   "Sente",
 			Singular: "Sent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "South Africa",
 		Currency:       "ZAR",
 		ISO3166Alpha2:  "ZA",
@@ -26,13 +24,13 @@ var AFZALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Johannesburg"},
 		Language:       "af",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "En",
 		Minus: "Min",
 		Only:  "Slegs",
 		Point: "Komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Kwadrieljoen"},
 		{Number: 1000000000000, Value: "Triljoen"},
 		{Number: 1000000000, Value: "Miljard"},
@@ -68,7 +66,7 @@ var AFZALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Een"},
 		{Number: 0, Value: "Nul"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Honderd"},
 	},
 }

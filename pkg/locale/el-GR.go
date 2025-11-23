@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ELGRLocale is a NumI18NLocale configured for Greek (Greece) - el-GR
-var ELGRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ELGRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Ευρώ",
 		Plural:   "Ευρώ",
 		Singular: "Ευρώ",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Λεπτό",
 			Plural:   "Λεπτά",
 			Singular: "Λεπτό",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Greece",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "GR",
@@ -26,13 +24,13 @@ var ELGRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Athens"},
 		Language:       "el",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "και",
 		Minus: "μείον",
 		Only:  "μόνο",
 		Point: "τελεία",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Τετράκις εκατομμύριο"},
 		{Number: 1000000000000, Value: "Τρισεκατομμύριο"},
 		{Number: 1000000000, Value: "Δισεκατομμύριο"},
@@ -68,7 +66,7 @@ var ELGRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Ένα"},
 		{Number: 0, Value: "Μηδέν"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Εκατό"},
 	},
 }

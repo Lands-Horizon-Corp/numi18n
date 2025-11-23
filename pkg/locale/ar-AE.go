@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARAELocale is a NumI18NLocale configured for Arabic (United Arab Emirates) - ar-AE
-var ARAELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARAELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "درهم",
 		Plural:   "درهم",
 		Singular: "درهم",
 		Symbol:   "د.إ",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "فلس",
 			Plural:   "فلوس",
 			Singular: "فلس",
 			Symbol:   "ف",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "United Arab Emirates",
 		Currency:       "AED",
 		ISO3166Alpha2:  "AE",
@@ -26,13 +24,13 @@ var ARAELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Dubai"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARAELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

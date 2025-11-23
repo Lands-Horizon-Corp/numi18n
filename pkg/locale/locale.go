@@ -2,16 +2,14 @@ package locale
 
 import (
 	"strings"
-
-	"github.com/Lands-Horizon-Corp/numi18n/pkg"
 )
 
-type NumI18NLocale struct {
-	Locale []pkg.NumI18NLocale
+type NumI18NLocales struct {
+	Locale []NumI18NLocale
 }
 
-func NewNumI18Locale() NumI18NLocale {
-	locales := []pkg.NumI18NLocale{
+func NewNumI18Locales() NumI18NLocales {
+	locales := []NumI18NLocale{
 		AEELocale,
 		AFLocale,
 		AFZALocale,
@@ -200,14 +198,14 @@ func NewNumI18Locale() NumI18NLocale {
 		ZUZALocale,
 		ZWLocale,
 	}
-	return NumI18NLocale{
+	return NumI18NLocales{
 		Locale: locales,
 	}
 }
 
 // FindByCountryName returns all locales for a specific country name
-func (n NumI18NLocale) FindByCountryName(countryName string) []pkg.NumI18NLocale {
-	var results []pkg.NumI18NLocale
+func (n NumI18NLocales) FindByCountryName(countryName string) []NumI18NLocale {
+	var results []NumI18NLocale
 	countryName = strings.TrimSpace(strings.ToLower(countryName))
 	for _, locale := range n.Locale {
 		if strings.ToLower(locale.NumI18Identifier.CountryName) == countryName {
@@ -218,8 +216,8 @@ func (n NumI18NLocale) FindByCountryName(countryName string) []pkg.NumI18NLocale
 }
 
 // FindByCurrency returns all locales that use a specific currency
-func (n NumI18NLocale) FindByCurrency(currency string) []pkg.NumI18NLocale {
-	var results []pkg.NumI18NLocale
+func (n NumI18NLocales) FindByCurrency(currency string) []NumI18NLocale {
+	var results []NumI18NLocale
 	currency = strings.TrimSpace(strings.ToUpper(currency))
 	for _, locale := range n.Locale {
 		if strings.ToUpper(locale.NumI18Identifier.Currency) == currency {
@@ -230,8 +228,8 @@ func (n NumI18NLocale) FindByCurrency(currency string) []pkg.NumI18NLocale {
 }
 
 // FindByISO3166Alpha2 returns the locale for a specific ISO 3166-1 alpha-2 code
-func (n NumI18NLocale) FindByISO3166Alpha2(iso2 string) []pkg.NumI18NLocale {
-	var results []pkg.NumI18NLocale
+func (n NumI18NLocales) FindByISO3166Alpha2(iso2 string) []NumI18NLocale {
+	var results []NumI18NLocale
 	iso2 = strings.TrimSpace(strings.ToUpper(iso2))
 	for _, locale := range n.Locale {
 		if strings.ToUpper(locale.NumI18Identifier.ISO3166Alpha2) == iso2 {
@@ -242,8 +240,8 @@ func (n NumI18NLocale) FindByISO3166Alpha2(iso2 string) []pkg.NumI18NLocale {
 }
 
 // FindByISO3166Alpha3 returns the locale for a specific ISO 3166-1 alpha-3 code
-func (n NumI18NLocale) FindByISO3166Alpha3(iso3 string) []pkg.NumI18NLocale {
-	var results []pkg.NumI18NLocale
+func (n NumI18NLocales) FindByISO3166Alpha3(iso3 string) []NumI18NLocale {
+	var results []NumI18NLocale
 	iso3 = strings.TrimSpace(strings.ToUpper(iso3))
 	for _, locale := range n.Locale {
 		if strings.ToUpper(locale.NumI18Identifier.ISO3166Alpha3) == iso3 {
@@ -254,8 +252,8 @@ func (n NumI18NLocale) FindByISO3166Alpha3(iso3 string) []pkg.NumI18NLocale {
 }
 
 // FindByISO3166Numeric returns the locale for a specific ISO 3166 numeric code
-func (n NumI18NLocale) FindByISO3166Numeric(numeric string) []pkg.NumI18NLocale {
-	var results []pkg.NumI18NLocale
+func (n NumI18NLocales) FindByISO3166Numeric(numeric string) []NumI18NLocale {
+	var results []NumI18NLocale
 	numeric = strings.TrimSpace(numeric)
 	for _, locale := range n.Locale {
 		if locale.NumI18Identifier.ISO3166Numeric == numeric {
@@ -266,8 +264,8 @@ func (n NumI18NLocale) FindByISO3166Numeric(numeric string) []pkg.NumI18NLocale 
 }
 
 // FindByLocale returns the locale for a specific locale string (e.g., "en-US", "fr-FR")
-func (n NumI18NLocale) FindByLocale(localeStr string) []pkg.NumI18NLocale {
-	var results []pkg.NumI18NLocale
+func (n NumI18NLocales) FindByLocale(localeStr string) []NumI18NLocale {
+	var results []NumI18NLocale
 	localeStr = strings.TrimSpace(strings.ToLower(localeStr))
 	for _, locale := range n.Locale {
 		if strings.ToLower(locale.NumI18Identifier.Locale) == localeStr {
@@ -278,8 +276,8 @@ func (n NumI18NLocale) FindByLocale(localeStr string) []pkg.NumI18NLocale {
 }
 
 // FindByTimezone returns all locales that use a specific timezone
-func (n NumI18NLocale) FindByTimezone(timezone string) []pkg.NumI18NLocale {
-	var results []pkg.NumI18NLocale
+func (n NumI18NLocales) FindByTimezone(timezone string) []NumI18NLocale {
+	var results []NumI18NLocale
 	timezone = strings.TrimSpace(timezone)
 	for _, locale := range n.Locale {
 		for _, tz := range locale.NumI18Identifier.Timezone {
@@ -293,8 +291,8 @@ func (n NumI18NLocale) FindByTimezone(timezone string) []pkg.NumI18NLocale {
 }
 
 // FindByLanguage returns all locales for a specific language code (e.g., "en", "fr")
-func (n NumI18NLocale) FindByLanguage(language string) []pkg.NumI18NLocale {
-	var results []pkg.NumI18NLocale
+func (n NumI18NLocales) FindByLanguage(language string) []NumI18NLocale {
+	var results []NumI18NLocale
 	language = strings.TrimSpace(strings.ToLower(language))
 	for _, locale := range n.Locale {
 		if strings.ToLower(locale.NumI18Identifier.Language) == language {
@@ -306,9 +304,9 @@ func (n NumI18NLocale) FindByLanguage(language string) []pkg.NumI18NLocale {
 
 // Find performs a flexible search across multiple fields and returns matching locales
 // It searches in: CountryName, Currency, ISO codes, Locale, Timezone, and Language
-func (n NumI18NLocale) Find(query string) []pkg.NumI18NLocale {
+func (n NumI18NLocales) Find(query string) []NumI18NLocale {
 	if query == "" {
-		return []pkg.NumI18NLocale{}
+		return []NumI18NLocale{}
 	}
 
 	query = strings.TrimSpace(query)
@@ -316,7 +314,7 @@ func (n NumI18NLocale) Find(query string) []pkg.NumI18NLocale {
 	queryUpper := strings.ToUpper(query)
 
 	// Use a map to avoid duplicates
-	resultMap := make(map[string]pkg.NumI18NLocale)
+	resultMap := make(map[string]NumI18NLocale)
 
 	for _, locale := range n.Locale {
 		identifier := locale.NumI18Identifier
@@ -358,7 +356,7 @@ func (n NumI18NLocale) Find(query string) []pkg.NumI18NLocale {
 	}
 
 	// Convert map to slice
-	var results []pkg.NumI18NLocale
+	var results []NumI18NLocale
 	for _, locale := range resultMap {
 		results = append(results, locale)
 	}
@@ -366,6 +364,6 @@ func (n NumI18NLocale) Find(query string) []pkg.NumI18NLocale {
 }
 
 // AllLocales returns all available locales
-func (n NumI18NLocale) AllLocales() []pkg.NumI18NLocale {
+func (n NumI18NLocales) AllLocales() []NumI18NLocale {
 	return n.Locale
 }

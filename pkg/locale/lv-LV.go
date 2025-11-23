@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // LVLVLocale represents the Latvian (Latvia) locale
-var LVLVLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var LVLVLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Eiro",
 		Singular: "Eiro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cents",
 			Plural:   "Centi",
 			Singular: "Cents",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Latvia",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "LV",
@@ -26,13 +24,13 @@ var LVLVLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Riga"},
 		Language:       "lv",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "un",
 		Minus: "mīnus",
 		Only:  "tikai",
 		Point: "komats",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "kvadriljons"},
 		{Number: 1000000000000, Value: "triljons"},
 		{Number: 1000000000, Value: "miljards"},
@@ -175,7 +173,7 @@ var LVLVLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "viens"},
 		{Number: 0, Value: "nulle"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Viens simts"},
 	},
 }

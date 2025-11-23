@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // THTHLocale represents the Thai (Thailand) locale
-var THTHLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var THTHLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Thai Baht",
 		Plural:   "บาท",
 		Singular: "บาท",
 		Symbol:   "฿",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Satang",
 			Plural:   "สตางค์",
 			Singular: "สตางค์",
 			Symbol:   "ส.",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Thailand",
 		Currency:       "THB",
 		ISO3166Alpha2:  "TH",
@@ -26,13 +24,13 @@ var THTHLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Bangkok"},
 		Language:       "th",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "และ",
 		Minus: "ลบ",
 		Only:  "เท่านั้น",
 		Point: "จุด",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "หนึ่งพันล้านล้าน"},
 		{Number: 1000000000000, Value: "หนึ่งล้านล้าน"},
 		{Number: 1000000000, Value: "หนึ่งพันล้าน"},
@@ -175,7 +173,7 @@ var THTHLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "หนึ่ง"},
 		{Number: 0, Value: "ศูนย์"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "หนึ่งร้อย"},
 	},
 }

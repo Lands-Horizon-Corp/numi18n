@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // NENPLocale represents the Nepali (Nepal) locale
-var NENPLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var NENPLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "रुपैया",
 		Plural:   "रुपैया",
 		Singular: "रुपैया",
 		Symbol:   "रु",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "पैसा",
 			Plural:   "पैसा",
 			Singular: "पैसा",
 			Symbol:   "प",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Nepal",
 		Currency:       "NPR",
 		ISO3166Alpha2:  "NP",
@@ -26,13 +24,13 @@ var NENPLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kathmandu"},
 		Language:       "ne",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "र",
 		Minus: "माइनस",
 		Only:  "मात्र",
 		Point: "बिन्दु",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 10000000000000000, Value: "दश खरब"},
 		{Number: 1000000000000000, Value: "एक खरब"},
 		{Number: 100000000000000, Value: "दश नील"},
@@ -182,7 +180,7 @@ var NENPLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "एक"},
 		{Number: 0, Value: "शून्य"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "एक सय"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARQALocale is a NumI18NLocale configured for Arabic (Qatar) - ar-QA
-var ARQALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARQALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ريال قطري",
 		Plural:   "ريالات قطرية",
 		Singular: "ريال قطري",
 		Symbol:   "ر.ق",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "فلس",
 			Plural:   "فلوس",
 			Singular: "فلس",
 			Symbol:   "ف",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Qatar",
 		Currency:       "QAR",
 		ISO3166Alpha2:  "QA",
@@ -26,13 +24,13 @@ var ARQALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Qatar"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARQALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

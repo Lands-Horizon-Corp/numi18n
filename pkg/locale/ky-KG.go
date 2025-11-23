@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // KGLocale is a NumI18NLocale configured for Kyrgyzstan (ky-KG)
-var KGLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var KGLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Сом",
 		Plural:   "Сом",
 		Singular: "Сом",
 		Symbol:   "с",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Тыйын",
 			Plural:   "Тыйын",
 			Singular: "Тыйын",
 			Symbol:   "т",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Kyrgyzstan",
 		Currency:       "KGS",
 		ISO3166Alpha2:  "KG",
@@ -26,13 +24,13 @@ var KGLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Bishkek"},
 		Language:       "ky",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Жана",
 		Minus: "Минус",
 		Only:  "Гана",
 		Point: "Чекит",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Бир квадриллион"},
 		{Number: 1000000000000, Value: "Бир триллион"},
 		{Number: 1000000000, Value: "Бир миллиард"},
@@ -68,7 +66,7 @@ var KGLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Бир"},
 		{Number: 0, Value: "Нөл"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Бир жүз"},
 	},
 }

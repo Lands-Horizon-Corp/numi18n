@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // BELocale is a NumI18NLocale configured for Belgium (fr-BE)
-var BELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var BELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euros",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centime",
 			Plural:   "Centimes",
 			Singular: "Centime",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Belgium",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "BE",
@@ -26,13 +24,13 @@ var BELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Brussels"},
 		Language:       "fr",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Et",
 		Minus: "Moins",
 		Only:  "Seulement",
 		Point: "Virgule",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Un billiard"},
 		{Number: 1000000000000, Value: "Un billion"},
 		{Number: 1000000000, Value: "Un milliard"},
@@ -68,7 +66,7 @@ var BELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Un"},
 		{Number: 0, Value: "Zéro"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cent"},
 	},
 }

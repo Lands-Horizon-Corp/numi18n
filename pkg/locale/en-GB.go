@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // GBLocale is a NumI18NLocale configured for United Kingdom (en-GB)
-var GBLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var GBLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Pound Sterling",
 		Plural:   "Pounds Sterling",
 		Singular: "Pound Sterling",
 		Symbol:   "£",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Pence",
 			Plural:   "Pence",
 			Singular: "Penny",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "United Kingdom",
 		Currency:       "GBP",
 		ISO3166Alpha2:  "GB",
@@ -26,13 +24,13 @@ var GBLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/London"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var GBLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

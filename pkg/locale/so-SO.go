@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SOSOLocale represents the Somali (Somalia) locale
-var SOSOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SOSOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Somali Shilling",
 		Plural:   "Shilin Soomaaliyeed",
 		Singular: "Shilin Soomaaliyeed",
 		Symbol:   "SOS",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Cent",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Somalia",
 		Currency:       "SOS",
 		ISO3166Alpha2:  "SO",
@@ -26,13 +24,13 @@ var SOSOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Mogadishu"},
 		Language:       "so",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "iyo",
 		Minus: "naqsi",
 		Only:  "kaliya",
 		Point: "dhibic",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "kun bilyan"},
 		{Number: 1000000000000, Value: "bilyan"},
 		{Number: 1000000000, Value: "bilyan"},
@@ -175,7 +173,7 @@ var SOSOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "kow"},
 		{Number: 0, Value: "eber"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Boqol"},
 	},
 }

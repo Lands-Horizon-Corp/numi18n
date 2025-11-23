@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SVSELocale represents the Swedish (Sweden) locale
-var SVSELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SVSELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Swedish Krona",
 		Plural:   "Kronor",
 		Singular: "Krona",
 		Symbol:   "kr",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Öre",
 			Plural:   "Öre",
 			Singular: "Öre",
 			Symbol:   "ö",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Sweden",
 		Currency:       "SEK",
 		ISO3166Alpha2:  "SE",
@@ -26,13 +24,13 @@ var SVSELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Stockholm"},
 		Language:       "sv",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "och",
 		Minus: "minus",
 		Only:  "endast",
 		Point: "komma",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "en biljard"},
 		{Number: 1000000000000, Value: "en biljon"},
 		{Number: 1000000000, Value: "en miljard"},
@@ -175,7 +173,7 @@ var SVSELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ett"},
 		{Number: 0, Value: "noll"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Etthundra"},
 	},
 }

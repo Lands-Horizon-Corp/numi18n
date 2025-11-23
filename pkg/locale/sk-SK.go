@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SKSKLocale represents the Slovak (Slovakia) locale
-var SKSKLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SKSKLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Eurá",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "Centy",
 			Singular: "Cent",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Slovakia",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "SK",
@@ -26,13 +24,13 @@ var SKSKLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Bratislava"},
 		Language:       "sk",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "a",
 		Minus: "mínus",
 		Only:  "len",
 		Point: "čiarka",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "biliarda"},
 		{Number: 1000000000000, Value: "bilión"},
 		{Number: 1000000000, Value: "miliarda"},
@@ -175,7 +173,7 @@ var SKSKLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "jeden"},
 		{Number: 0, Value: "nula"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Sto"},
 	},
 }

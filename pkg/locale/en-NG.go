@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // NGLocale is a NumI18NLocale configured for Nigeria (en-NG)
-var NGLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var NGLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Nigerian Naira",
 		Plural:   "Nigerian Naira",
 		Singular: "Naira",
 		Symbol:   "₦",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Kobo",
 			Plural:   "Kobo",
 			Singular: "Kobo",
 			Symbol:   "k",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Nigeria",
 		Currency:       "NGN",
 		ISO3166Alpha2:  "NG",
@@ -26,13 +24,13 @@ var NGLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Lagos"},
 		Language:       "en",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "And",
 		Minus: "Minus",
 		Only:  "Only",
 		Point: "Point",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion"},
 		{Number: 1000000000000, Value: "Trillion"},
 		{Number: 1000000000, Value: "Billion"},
@@ -68,7 +66,7 @@ var NGLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "One"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
 	},
 }

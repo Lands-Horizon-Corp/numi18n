@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ASINLocale is a NumI18NLocale configured for Assamese (India) - as-IN
-var ASINLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ASINLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ৰুপি",
 		Plural:   "ৰুপি",
 		Singular: "ৰুপি",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "পাইছা",
 			Plural:   "পাইছা",
 			Singular: "পাইছা",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var ASINLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "as",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "আৰু",
 		Minus: "মাইনাছ",
 		Only:  "মাত্ৰ",
 		Point: "ডট",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "কোয়াড্ৰিলিয়ন"},
 		{Number: 1000000000000, Value: "ট্ৰিলিয়ন"},
 		{Number: 1000000000, Value: "বিলিয়ন"},
@@ -68,7 +66,7 @@ var ASINLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "এটা"},
 		{Number: 0, Value: "শূন্য"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "এক শত"},
 	},
 }

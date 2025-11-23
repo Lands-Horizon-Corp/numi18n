@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MRINLocale represents the Marathi (India) locale
-var MRINLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MRINLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "रुपया",
 		Plural:   "रुपये",
 		Singular: "रुपया",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "पैसा",
 			Plural:   "पैसे",
 			Singular: "पैसा",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var MRINLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "mr",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "आणि",
 		Minus: "वजा",
 		Only:  "फक्त",
 		Point: "बिंदू",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 10000000000000000, Value: "दहा पद्म"},
 		{Number: 1000000000000000, Value: "एक पद्म"},
 		{Number: 100000000000000, Value: "दहा नील"},
@@ -182,7 +180,7 @@ var MRINLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "एक"},
 		{Number: 0, Value: "शून्य"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "एक शंभर"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PTGWLocale represents the Portuguese (Guinea-Bissau) locale
-var PTGWLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PTGWLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Franco CFA",
 		Plural:   "Francos CFA",
 		Singular: "Franco CFA",
 		Symbol:   "XOF",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cêntimo",
 			Plural:   "Cêntimos",
 			Singular: "Cêntimo",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Guinea-Bissau",
 		Currency:       "XOF",
 		ISO3166Alpha2:  "GW",
@@ -26,13 +24,13 @@ var PTGWLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Bissau"},
 		Language:       "pt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "e",
 		Minus: "menos",
 		Only:  "apenas",
 		Point: "vírgula",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "mil biliões"},
 		{Number: 1000000000000, Value: "bilião"},
 		{Number: 1000000000, Value: "mil milhões"},
@@ -175,7 +173,7 @@ var PTGWLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "um"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cem"},
 	},
 }

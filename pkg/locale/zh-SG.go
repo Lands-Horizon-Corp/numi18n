@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZHSGLocale represents the Chinese (Singapore) locale
-var ZHSGLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZHSGLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Singapore Dollar",
 		Plural:   "新元",
 		Singular: "新元",
 		Symbol:   "S$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "分",
 			Singular: "分",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Singapore",
 		Currency:       "SGD",
 		ISO3166Alpha2:  "SG",
@@ -26,13 +24,13 @@ var ZHSGLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Singapore"},
 		Language:       "zh",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "和",
 		Minus: "负",
 		Only:  "只",
 		Point: "点",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "一千万亿"},
 		{Number: 1000000000000, Value: "一万亿"},
 		{Number: 1000000000, Value: "十亿"},
@@ -160,7 +158,7 @@ var ZHSGLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "一"},
 		{Number: 0, Value: "零"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "百"},
 	},
 }

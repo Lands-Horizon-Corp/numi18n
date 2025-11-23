@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // LTLTLocale represents the Lithuanian (Lithuania) locale
-var LTLTLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var LTLTLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Eurai",
 		Singular: "Euras",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centas",
 			Plural:   "Centai",
 			Singular: "Centas",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Lithuania",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "LT",
@@ -26,13 +24,13 @@ var LTLTLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Vilnius"},
 		Language:       "lt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ir",
 		Minus: "minus",
 		Only:  "tik",
 		Point: "kablelis",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "kvadrilijonas"},
 		{Number: 1000000000000, Value: "trilijonas"},
 		{Number: 1000000000, Value: "milijardas"},
@@ -175,7 +173,7 @@ var LTLTLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "vienas"},
 		{Number: 0, Value: "nulis"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Vienas šimtas"},
 	},
 }

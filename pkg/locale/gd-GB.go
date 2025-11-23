@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // GBGDLocale is a NumI18NLocale configured for Great Britain (gd-GB)
-var GBGDLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var GBGDLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Punnd Sasannach",
 		Plural:   "Puinnd Sasannach",
 		Singular: "Punnd Sasannach",
 		Symbol:   "£",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Sgillinn",
 			Plural:   "Sgillinnean",
 			Singular: "Sgillinn",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "United Kingdom",
 		Currency:       "GBP",
 		ISO3166Alpha2:  "GB",
@@ -26,13 +24,13 @@ var GBGDLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/London"},
 		Language:       "gd",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Agus",
 		Minus: "As aonais",
 		Only:  "A-mhàin",
 		Point: "Puing",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Mìle billean billean"},
 		{Number: 1000000000000, Value: "Billean billean"},
 		{Number: 1000000000, Value: "Billean"},
@@ -68,7 +66,7 @@ var GBGDLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Aon"},
 		{Number: 0, Value: "Neoni"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Ceud"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SENOLocale represents the Northern Sami (Norway) locale
-var SENOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SENOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Norgga kruvdno",
 		Plural:   "Norgga kruvdnot",
 		Singular: "Norgga kruvdno",
 		Symbol:   "NOK",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Øre",
 			Plural:   "Øret",
 			Singular: "Øre",
 			Symbol:   "ø",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Norway",
 		Currency:       "NOK",
 		ISO3166Alpha2:  "NO",
@@ -26,13 +24,13 @@ var SENOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Oslo"},
 		Language:       "se",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ja",
 		Minus: "miinus",
 		Only:  "dušše",
 		Point: "čuokkis",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "tuhat biljonat"},
 		{Number: 1000000000000, Value: "biljovdna"},
 		{Number: 1000000000, Value: "miljarda"},
@@ -175,7 +173,7 @@ var SENOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "okta"},
 		{Number: 0, Value: "nolla"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Čuođi"},
 	},
 }

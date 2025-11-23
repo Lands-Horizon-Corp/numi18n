@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // CHFRLocale is a NumI18NLocale configured for Switzerland (fr-CH)
-var CHFRLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var CHFRLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Franc suisse",
 		Plural:   "Francs suisses",
 		Singular: "Franc suisse",
 		Symbol:   "CHF",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centime",
 			Plural:   "Centimes",
 			Singular: "Centime",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Switzerland",
 		Currency:       "CHF",
 		ISO3166Alpha2:  "CH",
@@ -26,13 +24,13 @@ var CHFRLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "fr",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Et",
 		Minus: "Moins",
 		Only:  "Seulement",
 		Point: "Virgule",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Un billiard"},
 		{Number: 1000000000000, Value: "Un billion"},
 		{Number: 1000000000, Value: "Un milliard"},
@@ -68,7 +66,7 @@ var CHFRLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Un"},
 		{Number: 0, Value: "Zéro"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cent"},
 	},
 }

@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MSMYLocale represents the Malay (Malaysia) locale
-var MSMYLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MSMYLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Ringgit",
 		Plural:   "Ringgit",
 		Singular: "Ringgit",
 		Symbol:   "RM",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Sen",
 			Plural:   "Sen",
 			Singular: "Sen",
 			Symbol:   "s",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Malaysia",
 		Currency:       "MYR",
 		ISO3166Alpha2:  "MY",
@@ -26,13 +24,13 @@ var MSMYLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kuala_Lumpur"},
 		Language:       "ms",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "dan",
 		Minus: "tolak",
 		Only:  "sahaja",
 		Point: "titik",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "satu kuadrilion"},
 		{Number: 1000000000000, Value: "satu trilion"},
 		{Number: 1000000000, Value: "satu bilion"},
@@ -175,7 +173,7 @@ var MSMYLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "satu"},
 		{Number: 0, Value: "sifar"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Seratus"},
 	},
 }

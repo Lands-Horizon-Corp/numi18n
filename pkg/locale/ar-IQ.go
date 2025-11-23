@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ARIQLocale is a NumI18NLocale configured for Arabic (Iraq) - ar-IQ
-var ARIQLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ARIQLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "دينار",
 		Plural:   "دنانير",
 		Singular: "دينار",
 		Symbol:   "ع.د",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "فلس",
 			Plural:   "فلوس",
 			Singular: "فلس",
 			Symbol:   "ف",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Iraq",
 		Currency:       "IQD",
 		ISO3166Alpha2:  "IQ",
@@ -26,13 +24,13 @@ var ARIQLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Baghdad"},
 		Language:       "ar",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "و",
 		Minus: "ناقص",
 		Only:  "فقط",
 		Point: "فاصل",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "كوادريليون"},
 		{Number: 1000000000000, Value: "تريليون"},
 		{Number: 1000000000, Value: "مليار"},
@@ -68,7 +66,7 @@ var ARIQLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "واحد"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "مئة"},
 	},
 }

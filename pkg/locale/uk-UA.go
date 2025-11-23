@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // UKUALocale represents the Ukrainian (Ukraine) locale
-var UKUALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var UKUALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Ukrainian Hryvnia",
 		Plural:   "Гривні",
 		Singular: "Гривня",
 		Symbol:   "₴",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Kopiyka",
 			Plural:   "Копійки",
 			Singular: "Копійка",
 			Symbol:   "к",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Ukraine",
 		Currency:       "UAH",
 		ISO3166Alpha2:  "UA",
@@ -26,13 +24,13 @@ var UKUALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Kiev"},
 		Language:       "uk",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "і",
 		Minus: "мінус",
 		Only:  "лише",
 		Point: "кома",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "один квадрільйон"},
 		{Number: 1000000000000, Value: "один трільйон"},
 		{Number: 1000000000, Value: "один мільярд"},
@@ -175,7 +173,7 @@ var UKUALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "один"},
 		{Number: 0, Value: "нуль"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Сто"},
 	},
 }

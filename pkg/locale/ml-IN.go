@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // MLINLocale represents the Malayalam (India) locale
-var MLINLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var MLINLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "രൂപ",
 		Plural:   "രൂപകൾ",
 		Singular: "രൂപ",
 		Symbol:   "₹",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "പൈസ",
 			Plural:   "പൈസകൾ",
 			Singular: "പൈസ",
 			Symbol:   "p",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "India",
 		Currency:       "INR",
 		ISO3166Alpha2:  "IN",
@@ -26,13 +24,13 @@ var MLINLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "ml",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ഉം",
 		Minus: "കുറച്ച്",
 		Only:  "മാത്രം",
 		Point: "ബിന്ദു",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 10000000000000000, Value: "പത്ത് ശതകോടി കോടി"},
 		{Number: 1000000000000000, Value: "ശതകോടി കോടി"},
 		{Number: 100000000000000, Value: "പത്ത് ലക്ഷം കോടി"},
@@ -182,7 +180,7 @@ var MLINLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ഒന്ന്"},
 		{Number: 0, Value: "പൂജ്യം"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ഒരു നൂറ്"},
 	},
 }

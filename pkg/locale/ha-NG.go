@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // NGHALocale is a NumI18NLocale configured for Nigeria (ha-NG)
-var NGHALocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var NGHALocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Naira",
 		Plural:   "Naira",
 		Singular: "Naira",
 		Symbol:   "₦",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Kobo",
 			Plural:   "Kobo",
 			Singular: "Kobo",
 			Symbol:   "k",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Nigeria",
 		Currency:       "NGN",
 		ISO3166Alpha2:  "NG",
@@ -26,13 +24,13 @@ var NGHALocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Lagos"},
 		Language:       "ha",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Da",
 		Minus: "Rashi",
 		Only:  "Kawai",
 		Point: "Aya",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Quadrillion daya"},
 		{Number: 1000000000000, Value: "Trillion daya"},
 		{Number: 1000000000, Value: "Billion daya"},
@@ -68,7 +66,7 @@ var NGHALocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Daya"},
 		{Number: 0, Value: "Sifiri"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Dari daya"},
 	},
 }

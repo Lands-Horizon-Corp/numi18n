@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // AMETLocale is a NumI18NLocale configured for Amharic (Ethiopia) - am-ET
-var AMETLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var AMETLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ብር",
 		Plural:   "ብር",
 		Singular: "ብር",
 		Symbol:   "Br",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "ሚልስ",
 			Plural:   "ሚልስ",
 			Singular: "ሚልስ",
 			Symbol:   "ms",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Ethiopia",
 		Currency:       "ETB",
 		ISO3166Alpha2:  "ET",
@@ -26,13 +24,13 @@ var AMETLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Addis_Ababa"},
 		Language:       "am",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "እና",
 		Minus: "አልፎ",
 		Only:  "ብቻ",
 		Point: "ነጥብ",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ኩዋድሪሊዮን"},
 		{Number: 1000000000000, Value: "ትሪሊዮን"},
 		{Number: 1000000000, Value: "ቢሊዮን"},
@@ -68,7 +66,7 @@ var AMETLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "አንድ"},
 		{Number: 0, Value: "ዜሮ"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "መቶ"},
 	},
 }

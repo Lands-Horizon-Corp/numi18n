@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // TKTMLocale represents the Turkmen (Turkmenistan) locale
-var TKTMLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var TKTMLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Turkmen Manat",
 		Plural:   "Manat",
 		Singular: "Manat",
 		Symbol:   "TMT",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Tenge",
 			Plural:   "Tenge",
 			Singular: "Tenge",
 			Symbol:   "t",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Turkmenistan",
 		Currency:       "TMT",
 		ISO3166Alpha2:  "TM",
@@ -26,13 +24,13 @@ var TKTMLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Ashgabat"},
 		Language:       "tk",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "we",
 		Minus: "minus",
 		Only:  "diňe",
 		Point: "nokat",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "bir trilliard"},
 		{Number: 1000000000000, Value: "bir trillion"},
 		{Number: 1000000000, Value: "bir milliard"},
@@ -175,7 +173,7 @@ var TKTMLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "bir"},
 		{Number: 0, Value: "nol"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Bir ýüz"},
 	},
 }

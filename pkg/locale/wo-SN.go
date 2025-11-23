@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // WOSNLocale represents the Wolof (Senegal) locale
-var WOSNLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var WOSNLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "West African CFA Franc",
 		Plural:   "franc CFA",
 		Singular: "franc CFA",
 		Symbol:   "F CFA",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Centime",
 			Plural:   "centime",
 			Singular: "centime",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Senegal",
 		Currency:       "XOF",
 		ISO3166Alpha2:  "SN",
@@ -26,13 +24,13 @@ var WOSNLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Dakar"},
 		Language:       "wo",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "ak",
 		Minus: "jiitu",
 		Only:  "rekk",
 		Point: "wax",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "benn kadralliyon"},
 		{Number: 1000000000000, Value: "benn trilliyon"},
 		{Number: 1000000000, Value: "benn milliyard"},
@@ -175,7 +173,7 @@ var WOSNLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "benn"},
 		{Number: 0, Value: "tus"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Teemer"},
 	},
 }

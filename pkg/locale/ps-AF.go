@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PSAFLocale represents the Pashto (Afghanistan) locale
-var PSAFLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PSAFLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "افغانۍ",
 		Plural:   "افغانۍ",
 		Singular: "افغانۍ",
 		Symbol:   "؋",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "پول",
 			Plural:   "پول",
 			Singular: "پول",
 			Symbol:   "پ",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Afghanistan",
 		Currency:       "AFN",
 		ISO3166Alpha2:  "AF",
@@ -26,13 +24,13 @@ var PSAFLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Kabul"},
 		Language:       "ps",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "او",
 		Minus: "منفي",
 		Only:  "یوازې",
 		Point: "ټکي",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "یو ترلیون"},
 		{Number: 1000000000000, Value: "یو بلیون"},
 		{Number: 1000000000, Value: "یو ملیون"},
@@ -175,7 +173,7 @@ var PSAFLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "یو"},
 		{Number: 0, Value: "صفر"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "یو سل"},
 	},
 }

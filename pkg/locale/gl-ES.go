@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ESGLLocale is a NumI18NLocale configured for Spain (gl-ES)
-var ESGLLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ESGLLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euros",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Céntimo",
 			Plural:   "Céntimos",
 			Singular: "Céntimo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Spain",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "ES",
@@ -26,13 +24,13 @@ var ESGLLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "gl",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "E",
 		Minus: "Menos",
 		Only:  "Só",
 		Point: "Punto",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Un billón de billóns"},
 		{Number: 1000000000000, Value: "Un billón"},
 		{Number: 1000000000, Value: "Mil millóns"},
@@ -68,7 +66,7 @@ var ESGLLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Un"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cen"},
 	},
 }

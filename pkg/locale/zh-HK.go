@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ZHHKLocale represents the Chinese (Hong Kong) locale
-var ZHHKLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ZHHKLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Hong Kong Dollar",
 		Plural:   "港元",
 		Singular: "港元",
 		Symbol:   "HK$",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cent",
 			Plural:   "仙",
 			Singular: "仙",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Hong Kong",
 		Currency:       "HKD",
 		ISO3166Alpha2:  "HK",
@@ -26,13 +24,13 @@ var ZHHKLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Hong_Kong"},
 		Language:       "zh",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "同",
 		Minus: "負",
 		Only:  "只係",
 		Point: "點",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "一千萬億"},
 		{Number: 1000000000000, Value: "一萬億"},
 		{Number: 1000000000, Value: "十億"},
@@ -160,7 +158,7 @@ var ZHHKLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "一"},
 		{Number: 0, Value: "零"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "百"},
 	},
 }

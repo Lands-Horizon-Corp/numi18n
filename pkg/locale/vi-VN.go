@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // VIVNLocale represents the Vietnamese (Vietnam) locale
-var VIVNLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var VIVNLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Vietnamese Dong",
 		Plural:   "đồng",
 		Singular: "đồng",
 		Symbol:   "₫",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Xu",
 			Plural:   "xu",
 			Singular: "xu",
 			Symbol:   "xu",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Vietnam",
 		Currency:       "VND",
 		ISO3166Alpha2:  "VN",
@@ -26,13 +24,13 @@ var VIVNLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Ho_Chi_Minh"},
 		Language:       "vi",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "và",
 		Minus: "âm",
 		Only:  "chỉ",
 		Point: "phẩy",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "một triệu tỷ"},
 		{Number: 1000000000000, Value: "một nghìn tỷ"},
 		{Number: 1000000000, Value: "một tỷ"},
@@ -175,7 +173,7 @@ var VIVNLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "một"},
 		{Number: 0, Value: "không"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Trăm"},
 	},
 }

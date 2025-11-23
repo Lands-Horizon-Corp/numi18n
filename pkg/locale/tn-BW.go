@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // TNBWLocale represents the Tswana (Botswana) locale
-var TNBWLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var TNBWLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Botswana Pula",
 		Plural:   "Dipula",
 		Singular: "Pula",
 		Symbol:   "P",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Thebe",
 			Plural:   "Dithebe",
 			Singular: "Thebe",
 			Symbol:   "t",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Botswana",
 		Currency:       "BWP",
 		ISO3166Alpha2:  "BW",
@@ -26,13 +24,13 @@ var TNBWLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Gaborone"},
 		Language:       "tn",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "le",
 		Minus: "tlosa",
 		Only:  "fela",
 		Point: "tshupo",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "sekete sa dibiliyone"},
 		{Number: 1000000000000, Value: "biliyone"},
 		{Number: 1000000000, Value: "sekete sa dimiliyone"},
@@ -175,7 +173,7 @@ var TNBWLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "nngwe"},
 		{Number: 0, Value: "lefela"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Lekgolo"},
 	},
 }

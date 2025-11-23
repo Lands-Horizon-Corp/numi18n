@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // DVMVLocale is a NumI18NLocale configured for Dhivehi (Maldives) - dv-MV
-var DVMVLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var DVMVLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Rufiyaa",
 		Plural:   "Rufiyaa",
 		Singular: "Rufiyaa",
 		Symbol:   "Rf",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Laari",
 			Plural:   "Laari",
 			Singular: "Laari",
 			Symbol:   "l",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Maldives",
 		Currency:       "MVR",
 		ISO3166Alpha2:  "MV",
@@ -26,13 +24,13 @@ var DVMVLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Indian/Maldives"},
 		Language:       "dv",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "އަންޑް",
 		Minus: "މިނަސް",
 		Only:  "ނުވަތަ",
 		Point: "ޕޮއިންޓް",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "ކްވަޑްރިލިއަން"},
 		{Number: 1000000000000, Value: "ޓްރިލިއަން"},
 		{Number: 1000000000, Value: "ބިލިއަން"},
@@ -68,7 +66,7 @@ var DVMVLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "އަން"},
 		{Number: 0, Value: "ސިރޯ"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ސްތޯ"},
 	},
 }

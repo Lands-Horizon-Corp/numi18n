@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // ESEULocale is a NumI18NLocale configured for Basque - Spain (eu-ES)
-var ESEULocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var ESEULocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euroak",
 		Singular: "Euro",
 		Symbol:   "€",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Zentimo",
 			Plural:   "Zentimoak",
 			Singular: "Zentimo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Spain",
 		Currency:       "EUR",
 		ISO3166Alpha2:  "ES",
@@ -26,13 +24,13 @@ var ESEULocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "eu",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Eta",
 		Minus: "Minus",
 		Only:  "Soilik",
 		Point: "Puntua",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Kualdrilioi"},
 		{Number: 1000000000000, Value: "Trilioi"},
 		{Number: 1000000000, Value: "Mila milioi"},
@@ -68,7 +66,7 @@ var ESEULocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Bat"},
 		{Number: 0, Value: "Zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Ehun"},
 	},
 }

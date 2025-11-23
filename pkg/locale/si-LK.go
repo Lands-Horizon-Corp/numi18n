@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // SILKLocale represents the Sinhala (Sri Lanka) locale
-var SILKLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var SILKLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "ශ්\u200dරී ලංකා රුපියල",
 		Plural:   "ශ්\u200dරී ලංකා රුපියල්",
 		Singular: "ශ්\u200dරී ලංකා රුපියල",
 		Symbol:   "Rs",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "සෙන්ට්",
 			Plural:   "සෙන්ට්",
 			Singular: "සෙන්ට්",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Sri Lanka",
 		Currency:       "LKR",
 		ISO3166Alpha2:  "LK",
@@ -26,13 +24,13 @@ var SILKLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Asia/Colombo"},
 		Language:       "si",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "සහ",
 		Minus: "අඩු",
 		Only:  "පමණක්",
 		Point: "ලක්ෂ්\u200dයය",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "බිලියන ලක්ෂ"},
 		{Number: 1000000000000, Value: "බිලියන"},
 		{Number: 1000000000, Value: "බිලියන"},
@@ -175,7 +173,7 @@ var SILKLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "ඒක"},
 		{Number: 0, Value: "ශුන්\u200dය"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "සියය"},
 	},
 }

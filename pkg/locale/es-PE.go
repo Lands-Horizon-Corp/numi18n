@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PELocale is a NumI18NLocale configured for Peru (es-PE)
-var PELocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PELocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Sol",
 		Plural:   "Soles",
 		Singular: "Sol",
 		Symbol:   "S/.",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Céntimo",
 			Plural:   "Céntimos",
 			Singular: "Céntimo",
 			Symbol:   "¢",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Peru",
 		Currency:       "PEN",
 		ISO3166Alpha2:  "PE",
@@ -26,13 +24,13 @@ var PELocale = pkg.NumI18NLocale{
 		Timezone:       []string{"America/Lima"},
 		Language:       "es",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "Y",
 		Minus: "Menos",
 		Only:  "Solo",
 		Point: "Punto",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Cuatrillón"},
 		{Number: 1000000000000, Value: "Trillón"},
 		{Number: 1000000000, Value: "Mil millones"},
@@ -68,7 +66,7 @@ var PELocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "Uno"},
 		{Number: 0, Value: "Cero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cien"},
 	},
 }

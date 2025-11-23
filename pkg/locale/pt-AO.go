@@ -1,22 +1,20 @@
 package locale
 
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
-
 // PTAOLocale represents the Portuguese (Angola) locale
-var PTAOLocale = pkg.NumI18NLocale{
-	Currency: pkg.Currency{
+var PTAOLocale = NumI18NLocale{
+	Currency: Currency{
 		Name:     "Kwanza",
 		Plural:   "Kwanzas",
 		Singular: "Kwanza",
 		Symbol:   "Kz",
-		FractionUnit: pkg.FractionUnit{
+		FractionUnit: FractionUnit{
 			Name:     "Cêntimo",
 			Plural:   "Cêntimos",
 			Singular: "Cêntimo",
 			Symbol:   "c",
 		},
 	},
-	NumI18Identifier: pkg.NumI18Identifier{
+	NumI18Identifier: NumI18Identifier{
 		CountryName:    "Angola",
 		Currency:       "AOA",
 		ISO3166Alpha2:  "AO",
@@ -26,13 +24,13 @@ var PTAOLocale = pkg.NumI18NLocale{
 		Timezone:       []string{"Africa/Luanda"},
 		Language:       "pt",
 	},
-	Texts: pkg.Texts{
+	Texts: Texts{
 		And:   "e",
 		Minus: "menos",
 		Only:  "apenas",
 		Point: "vírgula",
 	},
-	NumberWordsMapping: []pkg.NumberWordMapping{
+	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "mil biliões"},
 		{Number: 1000000000000, Value: "bilião"},
 		{Number: 1000000000, Value: "mil milhões"},
@@ -175,7 +173,7 @@ var PTAOLocale = pkg.NumI18NLocale{
 		{Number: 1, Value: "um"},
 		{Number: 0, Value: "zero"},
 	},
-	ExactWordsMapping: []pkg.ExactWordMapping{
+	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Cem"},
 	},
 }
