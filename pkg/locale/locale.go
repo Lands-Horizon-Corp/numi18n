@@ -133,6 +133,7 @@ func NewNumI18Locales() NumI18NLocales {
 		NZLocale,
 		ORINLocale,
 		PAINLocale,
+		PHPHLocale,
 		PALocale,
 		PELocale,
 		PHLocale,
