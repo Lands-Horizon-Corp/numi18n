@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// ILLocale is a NumI18NLocale configured for Israel (he-IL)
+var ILLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "שקל",
+		Plural:   "שקלים",
+		Singular: "שקל",
+		Symbol:   "₪",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "אגורה",
+			Plural:   "אגורות",
+			Singular: "אגורה",
+			Symbol:   "ע׳",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "ו",
+		Minus: "מינוס",
+		Only:  "בלבד",
+		Point: "נקודה",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "אחד קוודריליון"},
+		{Number: 1000000000000, Value: "אחד טריליון"},
+		{Number: 1000000000, Value: "אחד מיליארד"},
+		{Number: 1000000, Value: "אחד מיליון"},
+		{Number: 1000, Value: "אלף"},
+		{Number: 100, Value: "מאה"},
+		{Number: 90, Value: "תשעים"},
+		{Number: 80, Value: "שמונים"},
+		{Number: 70, Value: "שבעים"},
+		{Number: 60, Value: "שישים"},
+		{Number: 50, Value: "חמישים"},
+		{Number: 40, Value: "ארבעים"},
+		{Number: 30, Value: "שלושים"},
+		{Number: 20, Value: "עשרים"},
+		{Number: 19, Value: "תשע עשרה"},
+		{Number: 18, Value: "שמונה עשרה"},
+		{Number: 17, Value: "שבע עשרה"},
+		{Number: 16, Value: "שש עשרה"},
+		{Number: 15, Value: "חמש עשרה"},
+		{Number: 14, Value: "ארבע עשרה"},
+		{Number: 13, Value: "שלוש עשרה"},
+		{Number: 12, Value: "שתים עשרה"},
+		{Number: 11, Value: "אחת עשרה"},
+		{Number: 10, Value: "עשר"},
+		{Number: 9, Value: "תשע"},
+		{Number: 8, Value: "שמונה"},
+		{Number: 7, Value: "שבע"},
+		{Number: 6, Value: "שש"},
+		{Number: 5, Value: "חמש"},
+		{Number: 4, Value: "ארבע"},
+		{Number: 3, Value: "שלוש"},
+		{Number: 2, Value: "שתים"},
+		{Number: 1, Value: "אחד"},
+		{Number: 0, Value: "אפס"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "מאה"},
+	},
+}

@@ -1,0 +1,68 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// INHILocale is a NumI18NLocale configured for India (hi-IN)
+var INHILocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "रुपया",
+		Plural:   "रुपये",
+		Singular: "रुपया",
+		Symbol:   "₹",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "पैसा",
+			Plural:   "पैसे",
+			Singular: "पैसा",
+			Symbol:   "प",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "और",
+		Minus: "ऋण",
+		Only:  "केवल",
+		Point: "बिंदु",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "एक पद्म"},
+		{Number: 1000000000000, Value: "एक नील"},
+		{Number: 1000000000, Value: "एक अरब"},
+		{Number: 10000000, Value: "एक करोड़"},
+		{Number: 1000000, Value: "दस लाख"},
+		{Number: 100000, Value: "एक लाख"},
+		{Number: 1000, Value: "एक हजार"},
+		{Number: 100, Value: "एक सौ"},
+		{Number: 90, Value: "नब्बे"},
+		{Number: 80, Value: "अस्सी"},
+		{Number: 70, Value: "सत्तर"},
+		{Number: 60, Value: "साठ"},
+		{Number: 50, Value: "पचास"},
+		{Number: 40, Value: "चालीस"},
+		{Number: 30, Value: "तीस"},
+		{Number: 20, Value: "बीस"},
+		{Number: 19, Value: "उन्नीस"},
+		{Number: 18, Value: "अठारह"},
+		{Number: 17, Value: "सत्रह"},
+		{Number: 16, Value: "सोलह"},
+		{Number: 15, Value: "पंद्रह"},
+		{Number: 14, Value: "चौदह"},
+		{Number: 13, Value: "तेरह"},
+		{Number: 12, Value: "बारह"},
+		{Number: 11, Value: "ग्यारह"},
+		{Number: 10, Value: "दस"},
+		{Number: 9, Value: "नौ"},
+		{Number: 8, Value: "आठ"},
+		{Number: 7, Value: "सात"},
+		{Number: 6, Value: "छह"},
+		{Number: 5, Value: "पांच"},
+		{Number: 4, Value: "चार"},
+		{Number: 3, Value: "तीन"},
+		{Number: 2, Value: "दो"},
+		{Number: 1, Value: "एक"},
+		{Number: 0, Value: "शून्य"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "एक सौ"},
+		{Number: 100000, Value: "एक लाख"},
+		{Number: 10000000, Value: "एक करोड़"},
+	},
+}

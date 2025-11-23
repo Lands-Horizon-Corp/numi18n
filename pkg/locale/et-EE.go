@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// EELocale is a NumI18NLocale configured for Estonia (et-EE)
+var EELocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Euro",
+		Plural:   "Eurot",
+		Singular: "Euro",
+		Symbol:   "€",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Sent",
+			Plural:   "Senti",
+			Singular: "Sent",
+			Symbol:   "¢",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "Ja",
+		Minus: "Miinus",
+		Only:  "Ainult",
+		Point: "Koma",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Biljard"},
+		{Number: 1000000000000, Value: "Biljon"},
+		{Number: 1000000000, Value: "Miljard"},
+		{Number: 1000000, Value: "Miljon"},
+		{Number: 1000, Value: "Tuhat"},
+		{Number: 100, Value: "Sada"},
+		{Number: 90, Value: "Üheksakümmend"},
+		{Number: 80, Value: "Kaheksakümmend"},
+		{Number: 70, Value: "Seitsekümmend"},
+		{Number: 60, Value: "Kuuskümmend"},
+		{Number: 50, Value: "Viiskümmend"},
+		{Number: 40, Value: "Nelikümmend"},
+		{Number: 30, Value: "Kolmkümmend"},
+		{Number: 20, Value: "Kakskümmend"},
+		{Number: 19, Value: "Üheksateist"},
+		{Number: 18, Value: "Kaheksateist"},
+		{Number: 17, Value: "Seitseteist"},
+		{Number: 16, Value: "Kuusteist"},
+		{Number: 15, Value: "Viisteist"},
+		{Number: 14, Value: "Neliteist"},
+		{Number: 13, Value: "Kolmteist"},
+		{Number: 12, Value: "Kaksteist"},
+		{Number: 11, Value: "Üksteist"},
+		{Number: 10, Value: "Kümme"},
+		{Number: 9, Value: "Üheksa"},
+		{Number: 8, Value: "Kaheksa"},
+		{Number: 7, Value: "Seitse"},
+		{Number: 6, Value: "Kuus"},
+		{Number: 5, Value: "Viis"},
+		{Number: 4, Value: "Neli"},
+		{Number: 3, Value: "Kolm"},
+		{Number: 2, Value: "Kaks"},
+		{Number: 1, Value: "Üks"},
+		{Number: 0, Value: "Null"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Sada"},
+	},
+}

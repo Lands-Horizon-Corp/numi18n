@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// MAFRLocale is a NumI18NLocale configured for Morocco (fr-MA)
+var MAFRLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Dirham marocain",
+		Plural:   "Dirhams marocains",
+		Singular: "Dirham marocain",
+		Symbol:   "MAD",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Centime",
+			Plural:   "Centimes",
+			Singular: "Centime",
+			Symbol:   "¢",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "Et",
+		Minus: "Moins",
+		Only:  "Seulement",
+		Point: "Virgule",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Un billiard"},
+		{Number: 1000000000000, Value: "Un billion"},
+		{Number: 1000000000, Value: "Un milliard"},
+		{Number: 1000000, Value: "Un million"},
+		{Number: 1000, Value: "Mille"},
+		{Number: 100, Value: "Cent"},
+		{Number: 90, Value: "Quatre-vingt-dix"},
+		{Number: 80, Value: "Quatre-vingts"},
+		{Number: 70, Value: "Soixante-dix"},
+		{Number: 60, Value: "Soixante"},
+		{Number: 50, Value: "Cinquante"},
+		{Number: 40, Value: "Quarante"},
+		{Number: 30, Value: "Trente"},
+		{Number: 20, Value: "Vingt"},
+		{Number: 19, Value: "Dix-neuf"},
+		{Number: 18, Value: "Dix-huit"},
+		{Number: 17, Value: "Dix-sept"},
+		{Number: 16, Value: "Seize"},
+		{Number: 15, Value: "Quinze"},
+		{Number: 14, Value: "Quatorze"},
+		{Number: 13, Value: "Treize"},
+		{Number: 12, Value: "Douze"},
+		{Number: 11, Value: "Onze"},
+		{Number: 10, Value: "Dix"},
+		{Number: 9, Value: "Neuf"},
+		{Number: 8, Value: "Huit"},
+		{Number: 7, Value: "Sept"},
+		{Number: 6, Value: "Six"},
+		{Number: 5, Value: "Cinq"},
+		{Number: 4, Value: "Quatre"},
+		{Number: 3, Value: "Trois"},
+		{Number: 2, Value: "Deux"},
+		{Number: 1, Value: "Un"},
+		{Number: 0, Value: "Zéro"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Cent"},
+	},
+}

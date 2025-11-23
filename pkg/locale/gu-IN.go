@@ -1,0 +1,66 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// INGULocale is a NumI18NLocale configured for India (gu-IN)
+var INGULocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "રૂપિયો",
+		Plural:   "રૂપિયા",
+		Singular: "રૂપિયો",
+		Symbol:   "₹",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "પૈસો",
+			Plural:   "પૈસા",
+			Singular: "પૈસો",
+			Symbol:   "પ",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "અને",
+		Minus: "ઋણ",
+		Only:  "માત્ર",
+		Point: "બિંદુ",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "એક પદમ"},
+		{Number: 1000000000000, Value: "એક નીલ"},
+		{Number: 1000000000, Value: "એક અબજ"},
+		{Number: 1000000, Value: "એક લાખ"},
+		{Number: 100000, Value: "એક લાખ"},
+		{Number: 1000, Value: "એક હજાર"},
+		{Number: 100, Value: "એક સો"},
+		{Number: 90, Value: "નેવું"},
+		{Number: 80, Value: "એંસી"},
+		{Number: 70, Value: "સિત્તેર"},
+		{Number: 60, Value: "સાઠ"},
+		{Number: 50, Value: "પચાસ"},
+		{Number: 40, Value: "ચાલીસ"},
+		{Number: 30, Value: "ત્રીસ"},
+		{Number: 20, Value: "વીસ"},
+		{Number: 19, Value: "ઓગણીસ"},
+		{Number: 18, Value: "અઢાર"},
+		{Number: 17, Value: "સત્તર"},
+		{Number: 16, Value: "સોળ"},
+		{Number: 15, Value: "પંદર"},
+		{Number: 14, Value: "ચૌદ"},
+		{Number: 13, Value: "તેર"},
+		{Number: 12, Value: "બાર"},
+		{Number: 11, Value: "અગિયાર"},
+		{Number: 10, Value: "દસ"},
+		{Number: 9, Value: "નવ"},
+		{Number: 8, Value: "આઠ"},
+		{Number: 7, Value: "સાત"},
+		{Number: 6, Value: "છ"},
+		{Number: 5, Value: "પાંચ"},
+		{Number: 4, Value: "ચાર"},
+		{Number: 3, Value: "ત્રણ"},
+		{Number: 2, Value: "બે"},
+		{Number: 1, Value: "એક"},
+		{Number: 0, Value: "શૂન્ય"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "એક સો"},
+		{Number: 100000, Value: "એક લાખ"},
+	},
+}

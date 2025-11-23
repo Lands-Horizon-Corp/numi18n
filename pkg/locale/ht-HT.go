@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// HTLocale is a NumI18NLocale configured for Haiti (ht-HT)
+var HTLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Goud",
+		Plural:   "Goud",
+		Singular: "Goud",
+		Symbol:   "G",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Santim",
+			Plural:   "Santim",
+			Singular: "Santim",
+			Symbol:   "¢",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "ak",
+		Minus: "mwens",
+		Only:  "sèlman",
+		Point: "pwen",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "yon mil milya milya"},
+		{Number: 1000000000000, Value: "yon mil milya"},
+		{Number: 1000000000, Value: "yon milya"},
+		{Number: 1000000, Value: "yon milyon"},
+		{Number: 1000, Value: "yon mil"},
+		{Number: 100, Value: "yon san"},
+		{Number: 90, Value: "katre-ven-dis"},
+		{Number: 80, Value: "katre-ven"},
+		{Number: 70, Value: "swasann-dis"},
+		{Number: 60, Value: "swasann"},
+		{Number: 50, Value: "senkann"},
+		{Number: 40, Value: "karant"},
+		{Number: 30, Value: "trant"},
+		{Number: 20, Value: "ven"},
+		{Number: 19, Value: "dis-nèf"},
+		{Number: 18, Value: "dis-uit"},
+		{Number: 17, Value: "dis-sèt"},
+		{Number: 16, Value: "sèz"},
+		{Number: 15, Value: "kenz"},
+		{Number: 14, Value: "katòz"},
+		{Number: 13, Value: "trèz"},
+		{Number: 12, Value: "douz"},
+		{Number: 11, Value: "onz"},
+		{Number: 10, Value: "dis"},
+		{Number: 9, Value: "nèf"},
+		{Number: 8, Value: "uit"},
+		{Number: 7, Value: "sèt"},
+		{Number: 6, Value: "sis"},
+		{Number: 5, Value: "senk"},
+		{Number: 4, Value: "kat"},
+		{Number: 3, Value: "twa"},
+		{Number: 2, Value: "de"},
+		{Number: 1, Value: "yon"},
+		{Number: 0, Value: "zewo"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "yon san"},
+	},
+}

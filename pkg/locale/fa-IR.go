@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// IRLocale is a NumI18NLocale configured for Iran (fa-IR)
+var IRLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "ریال",
+		Plural:   "ریال",
+		Singular: "ریال",
+		Symbol:   "﷼",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "دینار",
+			Plural:   "دینار",
+			Singular: "دینار",
+			Symbol:   "دینار",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "و",
+		Minus: "منفی",
+		Only:  "فقط",
+		Point: "نقطه",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "یک کوادریلیون"},
+		{Number: 1000000000000, Value: "یک تریلیون"},
+		{Number: 1000000000, Value: "یک میلیارد"},
+		{Number: 1000000, Value: "یک میلیون"},
+		{Number: 1000, Value: "یک هزار"},
+		{Number: 100, Value: "یک صد"},
+		{Number: 90, Value: "نود"},
+		{Number: 80, Value: "هشتاد"},
+		{Number: 70, Value: "هفتاد"},
+		{Number: 60, Value: "شصت"},
+		{Number: 50, Value: "پنجاه"},
+		{Number: 40, Value: "چهل"},
+		{Number: 30, Value: "سی"},
+		{Number: 20, Value: "بیست"},
+		{Number: 19, Value: "نوزده"},
+		{Number: 18, Value: "هجده"},
+		{Number: 17, Value: "هفده"},
+		{Number: 16, Value: "شانزده"},
+		{Number: 15, Value: "پانزده"},
+		{Number: 14, Value: "چهارده"},
+		{Number: 13, Value: "سیزده"},
+		{Number: 12, Value: "دوازده"},
+		{Number: 11, Value: "یازده"},
+		{Number: 10, Value: "ده"},
+		{Number: 9, Value: "نه"},
+		{Number: 8, Value: "هشت"},
+		{Number: 7, Value: "هفت"},
+		{Number: 6, Value: "شش"},
+		{Number: 5, Value: "پنج"},
+		{Number: 4, Value: "چهار"},
+		{Number: 3, Value: "سه"},
+		{Number: 2, Value: "دو"},
+		{Number: 1, Value: "یک"},
+		{Number: 0, Value: "صفر"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "یک صد"},
+	},
+}

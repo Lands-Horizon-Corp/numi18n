@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// NGHALocale is a NumI18NLocale configured for Nigeria (ha-NG)
+var NGHALocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Naira",
+		Plural:   "Naira",
+		Singular: "Naira",
+		Symbol:   "₦",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Kobo",
+			Plural:   "Kobo",
+			Singular: "Kobo",
+			Symbol:   "k",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "Da",
+		Minus: "Rashi",
+		Only:  "Kawai",
+		Point: "Aya",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Quadrillion daya"},
+		{Number: 1000000000000, Value: "Trillion daya"},
+		{Number: 1000000000, Value: "Billion daya"},
+		{Number: 1000000, Value: "Miliyan daya"},
+		{Number: 1000, Value: "Dubu daya"},
+		{Number: 100, Value: "Dari daya"},
+		{Number: 90, Value: "Casa'in"},
+		{Number: 80, Value: "Tamanin"},
+		{Number: 70, Value: "Saba'in"},
+		{Number: 60, Value: "Sittin"},
+		{Number: 50, Value: "Hamsin"},
+		{Number: 40, Value: "Arba'in"},
+		{Number: 30, Value: "Talatin"},
+		{Number: 20, Value: "Ashirin"},
+		{Number: 19, Value: "Sha tara"},
+		{Number: 18, Value: "Sha takwas"},
+		{Number: 17, Value: "Sha bakwai"},
+		{Number: 16, Value: "Sha shida"},
+		{Number: 15, Value: "Sha biyar"},
+		{Number: 14, Value: "Sha hudu"},
+		{Number: 13, Value: "Sha uku"},
+		{Number: 12, Value: "Sha biyu"},
+		{Number: 11, Value: "Sha daya"},
+		{Number: 10, Value: "Goma"},
+		{Number: 9, Value: "Tara"},
+		{Number: 8, Value: "Takwas"},
+		{Number: 7, Value: "Bakwai"},
+		{Number: 6, Value: "Shida"},
+		{Number: 5, Value: "Biyar"},
+		{Number: 4, Value: "Hudu"},
+		{Number: 3, Value: "Uku"},
+		{Number: 2, Value: "Biyu"},
+		{Number: 1, Value: "Daya"},
+		{Number: 0, Value: "Sifiri"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Dari daya"},
+	},
+}

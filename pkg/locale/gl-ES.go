@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// ESGLLocale is a NumI18NLocale configured for Spain (gl-ES)
+var ESGLLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Euro",
+		Plural:   "Euros",
+		Singular: "Euro",
+		Symbol:   "€",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Céntimo",
+			Plural:   "Céntimos",
+			Singular: "Céntimo",
+			Symbol:   "¢",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "E",
+		Minus: "Menos",
+		Only:  "Só",
+		Point: "Punto",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Un billón de billóns"},
+		{Number: 1000000000000, Value: "Un billón"},
+		{Number: 1000000000, Value: "Mil millóns"},
+		{Number: 1000000, Value: "Un millón"},
+		{Number: 1000, Value: "Mil"},
+		{Number: 100, Value: "Cen"},
+		{Number: 90, Value: "Noventa"},
+		{Number: 80, Value: "Oitenta"},
+		{Number: 70, Value: "Setenta"},
+		{Number: 60, Value: "Sesenta"},
+		{Number: 50, Value: "Cincuenta"},
+		{Number: 40, Value: "Corenta"},
+		{Number: 30, Value: "Trinta"},
+		{Number: 20, Value: "Vinte"},
+		{Number: 19, Value: "Dezanove"},
+		{Number: 18, Value: "Dezaoito"},
+		{Number: 17, Value: "Dezasete"},
+		{Number: 16, Value: "Dezaseis"},
+		{Number: 15, Value: "Quince"},
+		{Number: 14, Value: "Catorce"},
+		{Number: 13, Value: "Trece"},
+		{Number: 12, Value: "Doce"},
+		{Number: 11, Value: "Once"},
+		{Number: 10, Value: "Dez"},
+		{Number: 9, Value: "Nove"},
+		{Number: 8, Value: "Oito"},
+		{Number: 7, Value: "Sete"},
+		{Number: 6, Value: "Seis"},
+		{Number: 5, Value: "Cinco"},
+		{Number: 4, Value: "Catro"},
+		{Number: 3, Value: "Tres"},
+		{Number: 2, Value: "Dous"},
+		{Number: 1, Value: "Un"},
+		{Number: 0, Value: "Zero"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Cen"},
+	},
+}

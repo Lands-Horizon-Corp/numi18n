@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// IEGALocale is a NumI18NLocale configured for Ireland (ga-IE)
+var IEGALocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "Euro",
+		Plural:   "Eorónna",
+		Singular: "Euro",
+		Symbol:   "€",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "Cent",
+			Plural:   "Ceinteannaí",
+			Singular: "Cent",
+			Symbol:   "c",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "Agus",
+		Minus: "Lúide",
+		Only:  "Amháin",
+		Point: "Pointe",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "Mil billiún billiún"},
+		{Number: 1000000000000, Value: "Billiún billiún"},
+		{Number: 1000000000, Value: "Billiún"},
+		{Number: 1000000, Value: "Milliún"},
+		{Number: 1000, Value: "Míle"},
+		{Number: 100, Value: "Céad"},
+		{Number: 90, Value: "Nócha"},
+		{Number: 80, Value: "Ochtó"},
+		{Number: 70, Value: "Seachtó"},
+		{Number: 60, Value: "Seasca"},
+		{Number: 50, Value: "Caoga"},
+		{Number: 40, Value: "Daichead"},
+		{Number: 30, Value: "Tríocha"},
+		{Number: 20, Value: "Fiche"},
+		{Number: 19, Value: "Naoi déag"},
+		{Number: 18, Value: "Ocht déag"},
+		{Number: 17, Value: "Seacht déag"},
+		{Number: 16, Value: "Sé déag"},
+		{Number: 15, Value: "Cúig déag"},
+		{Number: 14, Value: "Ceithre déag"},
+		{Number: 13, Value: "Trí déag"},
+		{Number: 12, Value: "Dó dhéag"},
+		{Number: 11, Value: "Aon déag"},
+		{Number: 10, Value: "Deich"},
+		{Number: 9, Value: "Naoi"},
+		{Number: 8, Value: "Ocht"},
+		{Number: 7, Value: "Seacht"},
+		{Number: 6, Value: "Sé"},
+		{Number: 5, Value: "Cúig"},
+		{Number: 4, Value: "Ceithre"},
+		{Number: 3, Value: "Trí"},
+		{Number: 2, Value: "Dó"},
+		{Number: 1, Value: "Aon"},
+		{Number: 0, Value: "Náid"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "Céad"},
+	},
+}
