@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // JPLocale is a NumI18NLocale configured for Japan (ja-JP)
 var JPLocale = NumI18NLocale{
 	Currency: Currency{
@@ -106,4 +108,106 @@ var JPLocale = NumI18NLocale{
 		{Number: 100, Word: "第百", Suffix: "番目", Masculine: "第百", Feminine: "第百", Neuter: "第百"},
 		{Number: 1000, Word: "第千", Suffix: "番目", Masculine: "第千", Feminine: "第千", Neuter: "第千"},
 	},
+}
+
+// JapaneseFormatter handles Japanese-specific formatting
+type JapaneseFormatter struct{}
+
+func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	decimalNumber := decimal.NewFromInt(number)
+	if decimalNumber.Equal(decimal.Zero) {
+		return GetWordForNumber(decimal.Zero, targetLocale)
+	}
+
+	result := ""
+	oku := decimal.NewFromInt(100000000) // 億 (oku)
+	man := decimal.NewFromInt(10000)     // 万 (man)
+	thousand := decimal.NewFromInt(1000) // 千 (sen)
+	hundred := decimal.NewFromInt(100)   // 百 (hyaku)
+	ten := decimal.NewFromInt(10)        // 十 (ju)
+
+	// Handle large numbers first
+	if decimalNumber.GreaterThanOrEqual(oku) {
+		okuPart := decimalNumber.Div(oku).Floor()
+		if okuPart.GreaterThan(decimal.Zero) {
+			result += f.FormatNumber(okuPart.IntPart(), targetLocale) + GetWordForNumber(oku, targetLocale)
+		}
+		decimalNumber = decimalNumber.Mod(oku)
+	}
+
+	if decimalNumber.GreaterThanOrEqual(man) {
+		manPart := decimalNumber.Div(man).Floor()
+		if manPart.GreaterThan(decimal.Zero) {
+			if manPart.Equal(decimal.NewFromInt(1)) {
+				result += GetWordForNumber(man, targetLocale) // Just "万" for 10000
+			} else {
+				result += f.FormatNumber(manPart.IntPart(), targetLocale) + GetWordForNumber(man, targetLocale)
+			}
+		}
+		decimalNumber = decimalNumber.Mod(man)
+	}
+
+	if decimalNumber.GreaterThanOrEqual(thousand) {
+		thousandsPart := decimalNumber.Div(thousand).Floor()
+		if thousandsPart.GreaterThan(decimal.Zero) {
+			if thousandsPart.Equal(decimal.NewFromInt(1)) {
+				result += GetWordForNumber(thousand, targetLocale) // Just "千" for 1000
+			} else {
+				result += f.FormatNumber(thousandsPart.IntPart(), targetLocale) + GetWordForNumber(thousand, targetLocale)
+			}
+		}
+		decimalNumber = decimalNumber.Mod(thousand)
+	}
+
+	if decimalNumber.GreaterThanOrEqual(hundred) {
+		hundredsPart := decimalNumber.Div(hundred).Floor()
+		if hundredsPart.GreaterThan(decimal.Zero) {
+			if hundredsPart.Equal(decimal.NewFromInt(1)) {
+				result += GetWordForNumber(hundred, targetLocale) // Just "百" for 100
+			} else {
+				result += f.FormatNumber(hundredsPart.IntPart(), targetLocale) + GetWordForNumber(hundred, targetLocale)
+			}
+		}
+		decimalNumber = decimalNumber.Mod(hundred)
+	}
+
+	if decimalNumber.GreaterThanOrEqual(ten) {
+		tensPart := decimalNumber.Div(ten).Floor()
+		if tensPart.GreaterThan(decimal.Zero) {
+			if tensPart.Equal(decimal.NewFromInt(1)) {
+				result += GetWordForNumber(ten, targetLocale) // Just "十" for 10
+			} else {
+				result += f.FormatNumber(tensPart.IntPart(), targetLocale) + GetWordForNumber(ten, targetLocale)
+			}
+		}
+		decimalNumber = decimalNumber.Mod(ten)
+	}
+
+	if decimalNumber.GreaterThan(decimal.Zero) {
+		result += GetWordForNumber(decimalNumber, targetLocale)
+	}
+
+	return result
+}
+
+func (f *JapaneseFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + currencyName
+	}
+	return result + currencyPlural
+}
+
+func (f *JapaneseFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + andText + fractionalWords
+}
+
+func (f *JapaneseFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + fractionName
+	}
+	return result + fractionPlural
+}
+
+func (f *JapaneseFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + result
 }

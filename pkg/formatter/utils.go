@@ -1,10 +1,18 @@
 package formatter
 
 import (
+	"math"
 	"strings"
 
 	"github.com/Lands-Horizon-Corp/numi18n/pkg/locale"
 )
+
+// ChopDecimal truncates decimal places for cleaner number processing
+// precision: number of decimal places to keep (0 = integer only)
+func ChopDecimal(number float64, precision int) float64 {
+	multiplier := math.Pow(10, float64(precision))
+	return math.Trunc(number*multiplier) / multiplier
+}
 
 // getWordForNumber finds the word representation for a number
 func GetWordForNumber(number int64, targetLocale locale.NumI18NLocale) string {

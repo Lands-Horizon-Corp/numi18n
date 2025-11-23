@@ -1,5 +1,11 @@
 package locale
 
+import (
+	"strings"
+
+	"github.com/shopspring/decimal"
+)
+
 // PHPHLocale is a NumI18NLocale configured for Filipino (Philippines) - ph-PH
 var PHPHLocale = NumI18NLocale{
 	Currency: Currency{
@@ -99,4 +105,142 @@ var PHPHLocale = NumI18NLocale{
 		{Number: 1000, Word: "Ikalibo", Suffix: "-ng", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000000, Word: "Ikamilyun", Suffix: "-ng", Masculine: "", Feminine: "", Neuter: ""},
 	},
+}
+
+// FilipinoFormatter handles Filipino-specific formatting
+type FilipinoFormatter struct{}
+
+func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	decimalNumber := decimal.NewFromInt(number)
+	if decimalNumber.Equal(decimal.Zero) {
+		return GetWordForNumber(decimal.Zero, targetLocale)
+	}
+
+	result := ""
+	billion := decimal.NewFromInt(1000000000)
+	million := decimal.NewFromInt(1000000)
+	thousand := decimal.NewFromInt(1000)
+	hundred := decimal.NewFromInt(100)
+	twenty := decimal.NewFromInt(20)
+	ten := decimal.NewFromInt(10)
+	one := decimal.NewFromInt(1)
+
+	// Handle billions
+	if decimalNumber.GreaterThanOrEqual(billion) {
+		billions := decimalNumber.Div(billion).Floor()
+		result += f.FormatNumber(billions.IntPart(), targetLocale) + " " + GetWordForNumber(billion, targetLocale)
+		decimalNumber = decimalNumber.Mod(billion)
+		if decimalNumber.GreaterThan(decimal.Zero) {
+			result += " "
+		}
+	}
+
+	// Handle millions
+	if decimalNumber.GreaterThanOrEqual(million) {
+		millions := decimalNumber.Div(million).Floor()
+		result += f.FormatNumber(millions.IntPart(), targetLocale) + " " + GetWordForNumber(million, targetLocale)
+		decimalNumber = decimalNumber.Mod(million)
+		if decimalNumber.GreaterThan(decimal.Zero) {
+			result += " "
+		}
+	}
+
+	// Handle thousands
+	if decimalNumber.GreaterThanOrEqual(thousand) {
+		thousands := decimalNumber.Div(thousand).Floor()
+		result += f.FormatNumber(thousands.IntPart(), targetLocale) + " " + GetWordForNumber(thousand, targetLocale)
+		decimalNumber = decimalNumber.Mod(thousand)
+		if decimalNumber.GreaterThan(decimal.Zero) {
+			result += " "
+		}
+	}
+
+	// Handle hundreds - check exact mapping first
+	if decimalNumber.GreaterThanOrEqual(hundred) {
+		hundreds := decimalNumber.Div(hundred).Floor()
+		if hundreds.Equal(one) {
+			// Use exact mapping for "Isang daan"
+			for _, mapping := range targetLocale.ExactWordsMapping {
+				if mapping.Number == 100 {
+					result += mapping.Value
+					break
+				}
+			}
+		} else {
+			result += f.FormatNumber(hundreds.IntPart(), targetLocale) + " " + GetWordForNumber(hundred, targetLocale)
+		}
+		decimalNumber = decimalNumber.Mod(hundred)
+		if decimalNumber.GreaterThan(decimal.Zero) {
+			result += " "
+		}
+	}
+
+	// Handle tens and ones
+	if decimalNumber.GreaterThanOrEqual(twenty) {
+		tens := decimalNumber.Div(ten).Floor()
+		tensNumber := tens.Mul(ten)
+		result += GetWordForNumber(tensNumber, targetLocale)
+		decimalNumber = decimalNumber.Mod(ten)
+		if decimalNumber.GreaterThan(decimal.Zero) {
+			// Special case for 1 when it's standalone
+			if decimalNumber.Equal(one) {
+				result += " Isa"
+			} else {
+				// Check for exact mapping first
+				found := false
+				for _, mapping := range targetLocale.ExactWordsMapping {
+					if decimal.NewFromInt(mapping.Number).Equal(decimalNumber) {
+						result += " " + mapping.Value
+						found = true
+						break
+					}
+				}
+				if !found {
+					result += " " + GetWordForNumber(decimalNumber, targetLocale)
+				}
+			}
+		}
+	} else if decimalNumber.GreaterThan(decimal.Zero) {
+		// Special case for 1 when it's standalone
+		if decimalNumber.Equal(one) {
+			result += "Isa"
+		} else {
+			// Check for exact mapping first
+			found := false
+			for _, mapping := range targetLocale.ExactWordsMapping {
+				if decimal.NewFromInt(mapping.Number).Equal(decimalNumber) {
+					result += mapping.Value
+					found = true
+					break
+				}
+			}
+			if !found {
+				result += GetWordForNumber(decimalNumber, targetLocale)
+			}
+		}
+	}
+
+	return strings.TrimSpace(result)
+}
+
+func (f *FilipinoFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *FilipinoFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *FilipinoFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *FilipinoFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
 }
