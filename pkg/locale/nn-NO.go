@@ -176,4 +176,23 @@ var NNNOLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Eitt hundre"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "første", Suffix: "-te", Masculine: "første", Feminine: "første", Neuter: "første"},
+		{Number: 2, Word: "andre", Suffix: "-te", Masculine: "andre", Feminine: "andre", Neuter: "andre"},
+		{Number: 3, Word: "tredje", Suffix: "-te", Masculine: "tredje", Feminine: "tredje", Neuter: "tredje"},
+		{Number: 4, Word: "fjerde", Suffix: "-te", Masculine: "fjerde", Feminine: "fjerde", Neuter: "fjerde"},
+		{Number: 5, Word: "femte", Suffix: "-te", Masculine: "femte", Feminine: "femte", Neuter: "femte"},
+		{Number: 6, Word: "sjette", Suffix: "-te", Masculine: "sjette", Feminine: "sjette", Neuter: "sjette"},
+		{Number: 7, Word: "sjuande", Suffix: "-ande", Masculine: "sjuande", Feminine: "sjuande", Neuter: "sjuande"},
+		{Number: 8, Word: "åttande", Suffix: "-ande", Masculine: "åttande", Feminine: "åttande", Neuter: "åttande"},
+		{Number: 9, Word: "niande", Suffix: "-ande", Masculine: "niande", Feminine: "niande", Neuter: "niande"},
+		{Number: 10, Word: "tiande", Suffix: "-ande", Masculine: "tiande", Feminine: "tiande", Neuter: "tiande"},
+		{Number: 11, Word: "ellevte", Suffix: "-te", Masculine: "ellevte", Feminine: "ellevte", Neuter: "ellevte"},
+		{Number: 12, Word: "tolvte", Suffix: "-te", Masculine: "tolvte", Feminine: "tolvte", Neuter: "tolvte"},
+		{Number: 20, Word: "tjuande", Suffix: "-ande", Masculine: "tjuande", Feminine: "tjuande", Neuter: "tjuande"},
+		{Number: 21, Word: "tjueførste", Suffix: "-te", Masculine: "tjueførste", Feminine: "tjueførste", Neuter: "tjueførste"},
+		{Number: 30, Word: "trettiande", Suffix: "-ande", Masculine: "trettiande", Feminine: "trettiande", Neuter: "trettiande"},
+		{Number: 100, Word: "hundrade", Suffix: "-de", Masculine: "hundrade", Feminine: "hundrade", Neuter: "hundrade"},
+		{Number: 1000, Word: "tusande", Suffix: "-ande", Masculine: "tusande", Feminine: "tusande", Neuter: "tusande"},
+	},
 }

@@ -176,4 +176,23 @@ var NLNLLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Eenhonderd"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "eerste", Suffix: "-ste", Masculine: "eerste", Feminine: "eerste", Neuter: "eerste"},
+		{Number: 2, Word: "tweede", Suffix: "-de", Masculine: "tweede", Feminine: "tweede", Neuter: "tweede"},
+		{Number: 3, Word: "derde", Suffix: "-de", Masculine: "derde", Feminine: "derde", Neuter: "derde"},
+		{Number: 4, Word: "vierde", Suffix: "-de", Masculine: "vierde", Feminine: "vierde", Neuter: "vierde"},
+		{Number: 5, Word: "vijfde", Suffix: "-de", Masculine: "vijfde", Feminine: "vijfde", Neuter: "vijfde"},
+		{Number: 6, Word: "zesde", Suffix: "-de", Masculine: "zesde", Feminine: "zesde", Neuter: "zesde"},
+		{Number: 7, Word: "zevende", Suffix: "-de", Masculine: "zevende", Feminine: "zevende", Neuter: "zevende"},
+		{Number: 8, Word: "achtste", Suffix: "-ste", Masculine: "achtste", Feminine: "achtste", Neuter: "achtste"},
+		{Number: 9, Word: "negende", Suffix: "-de", Masculine: "negende", Feminine: "negende", Neuter: "negende"},
+		{Number: 10, Word: "tiende", Suffix: "-de", Masculine: "tiende", Feminine: "tiende", Neuter: "tiende"},
+		{Number: 11, Word: "elfde", Suffix: "-de", Masculine: "elfde", Feminine: "elfde", Neuter: "elfde"},
+		{Number: 12, Word: "twaalfde", Suffix: "-de", Masculine: "twaalfde", Feminine: "twaalfde", Neuter: "twaalfde"},
+		{Number: 20, Word: "twintigste", Suffix: "-ste", Masculine: "twintigste", Feminine: "twintigste", Neuter: "twintigste"},
+		{Number: 21, Word: "eenentwintigste", Suffix: "-ste", Masculine: "eenentwintigste", Feminine: "eenentwintigste", Neuter: "eenentwintigste"},
+		{Number: 30, Word: "dertigste", Suffix: "-ste", Masculine: "dertigste", Feminine: "dertigste", Neuter: "dertigste"},
+		{Number: 100, Word: "honderdste", Suffix: "-ste", Masculine: "honderdste", Feminine: "honderdste", Neuter: "honderdste"},
+		{Number: 1000, Word: "duizendste", Suffix: "-ste", Masculine: "duizendste", Feminine: "duizendste", Neuter: "duizendste"},
+	},
 }

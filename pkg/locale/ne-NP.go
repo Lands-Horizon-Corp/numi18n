@@ -183,4 +183,23 @@ var NENPLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "एक सय"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "पहिलो", Suffix: "-औं", Masculine: "पहिलो", Feminine: "पहिली", Neuter: "पहिलो"},
+		{Number: 2, Word: "दोस्रो", Suffix: "-औं", Masculine: "दोस्रो", Feminine: "दोस्री", Neuter: "दोस्रो"},
+		{Number: 3, Word: "तेस्रो", Suffix: "-औं", Masculine: "तेस्रो", Feminine: "तेस्री", Neuter: "तेस्रो"},
+		{Number: 4, Word: "चौथो", Suffix: "-औं", Masculine: "चौथो", Feminine: "चौथी", Neuter: "चौथो"},
+		{Number: 5, Word: "पाँचौं", Suffix: "-औं", Masculine: "पाँचौं", Feminine: "पाँचौं", Neuter: "पाँचौं"},
+		{Number: 6, Word: "छैठौं", Suffix: "-औं", Masculine: "छैठौं", Feminine: "छैठौं", Neuter: "छैठौं"},
+		{Number: 7, Word: "सातौं", Suffix: "-औं", Masculine: "सातौं", Feminine: "सातौं", Neuter: "सातौं"},
+		{Number: 8, Word: "आठौं", Suffix: "-औं", Masculine: "आठौं", Feminine: "आठौं", Neuter: "आठौं"},
+		{Number: 9, Word: "नवौं", Suffix: "-औं", Masculine: "नवौं", Feminine: "नवौं", Neuter: "नवौं"},
+		{Number: 10, Word: "दशौं", Suffix: "-औं", Masculine: "दशौं", Feminine: "दशौं", Neuter: "दशौं"},
+		{Number: 11, Word: "एघारौं", Suffix: "-औं", Masculine: "एघारौं", Feminine: "एघारौं", Neuter: "एघारौं"},
+		{Number: 12, Word: "बाह्रौं", Suffix: "-औं", Masculine: "बाह्रौं", Feminine: "बाह्रौं", Neuter: "बाह्रौं"},
+		{Number: 20, Word: "बिसौं", Suffix: "-औं", Masculine: "बिसौं", Feminine: "बिसौं", Neuter: "बिसौं"},
+		{Number: 21, Word: "एकाइसौं", Suffix: "-औं", Masculine: "एकाइसौं", Feminine: "एकाइसौं", Neuter: "एकाइसौं"},
+		{Number: 30, Word: "तिसौं", Suffix: "-औं", Masculine: "तिसौं", Feminine: "तिसौं", Neuter: "तिसौं"},
+		{Number: 100, Word: "सयौं", Suffix: "-औं", Masculine: "सयौं", Feminine: "सयौं", Neuter: "सयौं"},
+		{Number: 1000, Word: "हजारौं", Suffix: "-औं", Masculine: "हजारौं", Feminine: "हजारौं", Neuter: "हजारौं"},
+	},
 }

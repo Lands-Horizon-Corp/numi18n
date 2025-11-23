@@ -180,4 +180,23 @@ var ORINLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ଏକ ଶହ"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "ପ୍ରଥମ", Suffix: "-ମ", Masculine: "ପ୍ରଥମ", Feminine: "ପ୍ରଥମ", Neuter: "ପ୍ରଥମ"},
+		{Number: 2, Word: "ଦ୍ୱିତୀୟ", Suffix: "-ୟ", Masculine: "ଦ୍ୱିତୀୟ", Feminine: "ଦ୍ୱିତୀୟ", Neuter: "ଦ୍ୱିତୀୟ"},
+		{Number: 3, Word: "ତୃତୀୟ", Suffix: "-ୟ", Masculine: "ତୃତୀୟ", Feminine: "ତୃତୀୟ", Neuter: "ତୃତୀୟ"},
+		{Number: 4, Word: "ଚତୁର୍ଥ", Suffix: "-ଥ", Masculine: "ଚତୁର୍ଥ", Feminine: "ଚତୁର୍ଥ", Neuter: "ଚତୁର୍ଥ"},
+		{Number: 5, Word: "ପଞ୍ଚମ", Suffix: "-ମ", Masculine: "ପଞ୍ଚମ", Feminine: "ପଞ୍ଚମ", Neuter: "ପଞ୍ଚମ"},
+		{Number: 6, Word: "ଷଷ୍ଠ", Suffix: "-ଷ୍ଠ", Masculine: "ଷଷ୍ଠ", Feminine: "ଷଷ୍ଠ", Neuter: "ଷଷ୍ଠ"},
+		{Number: 7, Word: "ସପ୍ତମ", Suffix: "-ମ", Masculine: "ସପ୍ତମ", Feminine: "ସପ୍ତମ", Neuter: "ସପ୍ତମ"},
+		{Number: 8, Word: "ଅଷ୍ଟମ", Suffix: "-ମ", Masculine: "ଅଷ୍ଟମ", Feminine: "ଅଷ୍ଟମ", Neuter: "ଅଷ୍ଟମ"},
+		{Number: 9, Word: "ନବମ", Suffix: "-ମ", Masculine: "ନବମ", Feminine: "ନବମ", Neuter: "ନବମ"},
+		{Number: 10, Word: "ଦଶମ", Suffix: "-ମ", Masculine: "ଦଶମ", Feminine: "ଦଶମ", Neuter: "ଦଶମ"},
+		{Number: 11, Word: "ଏକାଦଶ", Suffix: "-ଶ", Masculine: "ଏକାଦଶ", Feminine: "ଏକାଦଶ", Neuter: "ଏକାଦଶ"},
+		{Number: 12, Word: "ଦ୍ୱାଦଶ", Suffix: "-ଶ", Masculine: "ଦ୍ୱାଦଶ", Feminine: "ଦ୍ୱାଦଶ", Neuter: "ଦ୍ୱାଦଶ"},
+		{Number: 20, Word: "ବିଂଶତିତମ", Suffix: "-ତମ", Masculine: "ବିଂଶତିତମ", Feminine: "ବିଂଶତିତମ", Neuter: "ବିଂଶତିତମ"},
+		{Number: 21, Word: "ଏକବିଂଶତିତମ", Suffix: "-ତମ", Masculine: "ଏକବିଂଶତିତମ", Feminine: "ଏକବିଂଶତିତମ", Neuter: "ଏକବିଂଶତିତମ"},
+		{Number: 30, Word: "ତ୍ରିଂଶତିତମ", Suffix: "-ତମ", Masculine: "ତ୍ରିଂଶତିତମ", Feminine: "ତ୍ରିଂଶତିତମ", Neuter: "ତ୍ରିଂଶତିତମ"},
+		{Number: 100, Word: "ଶତତମ", Suffix: "-ତମ", Masculine: "ଶତତମ", Feminine: "ଶତତମ", Neuter: "ଶତତମ"},
+		{Number: 1000, Word: "ସହସ୍ରତମ", Suffix: "-ତମ", Masculine: "ସହସ୍ରତମ", Feminine: "ସହସ୍ରତମ", Neuter: "ସହସ୍ରତମ"},
+	},
 }

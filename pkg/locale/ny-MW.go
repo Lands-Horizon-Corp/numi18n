@@ -176,4 +176,23 @@ var NYMWLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Zana limodzi"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "choyamba", Suffix: "-oyamba", Masculine: "choyamba", Feminine: "choyamba", Neuter: "choyamba"},
+		{Number: 2, Word: "chachiwiri", Suffix: "-achiwiri", Masculine: "chachiwiri", Feminine: "chachiwiri", Neuter: "chachiwiri"},
+		{Number: 3, Word: "chachitatu", Suffix: "-achitatu", Masculine: "chachitatu", Feminine: "chachitatu", Neuter: "chachitatu"},
+		{Number: 4, Word: "chachinayi", Suffix: "-achinayi", Masculine: "chachinayi", Feminine: "chachinayi", Neuter: "chachinayi"},
+		{Number: 5, Word: "chachisanu", Suffix: "-achisanu", Masculine: "chachisanu", Feminine: "chachisanu", Neuter: "chachisanu"},
+		{Number: 6, Word: "chachisanu ndi chimodzi", Suffix: "-achisanu ndi chimodzi", Masculine: "chachisanu ndi chimodzi", Feminine: "chachisanu ndi chimodzi", Neuter: "chachisanu ndi chimodzi"},
+		{Number: 7, Word: "chachisanu ndi chiwiri", Suffix: "-achisanu ndi chiwiri", Masculine: "chachisanu ndi chiwiri", Feminine: "chachisanu ndi chiwiri", Neuter: "chachisanu ndi chiwiri"},
+		{Number: 8, Word: "chachisanu ndi chitatu", Suffix: "-achisanu ndi chitatu", Masculine: "chachisanu ndi chitatu", Feminine: "chachisanu ndi chitatu", Neuter: "chachisanu ndi chitatu"},
+		{Number: 9, Word: "chachisanu ndi chinayi", Suffix: "-achisanu ndi chinayi", Masculine: "chachisanu ndi chinayi", Feminine: "chachisanu ndi chinayi", Neuter: "chachisanu ndi chinayi"},
+		{Number: 10, Word: "chakhumi", Suffix: "-akhumi", Masculine: "chakhumi", Feminine: "chakhumi", Neuter: "chakhumi"},
+		{Number: 11, Word: "chakhumi ndi chimodzi", Suffix: "-akhumi ndi chimodzi", Masculine: "chakhumi ndi chimodzi", Feminine: "chakhumi ndi chimodzi", Neuter: "chakhumi ndi chimodzi"},
+		{Number: 12, Word: "chakhumi ndi chiwiri", Suffix: "-akhumi ndi chiwiri", Masculine: "chakhumi ndi chiwiri", Feminine: "chakhumi ndi chiwiri", Neuter: "chakhumi ndi chiwiri"},
+		{Number: 20, Word: "chamakumi awiri", Suffix: "-amakumi awiri", Masculine: "chamakumi awiri", Feminine: "chamakumi awiri", Neuter: "chamakumi awiri"},
+		{Number: 21, Word: "chamakumi awiri ndi chimodzi", Suffix: "-amakumi awiri ndi chimodzi", Masculine: "chamakumi awiri ndi chimodzi", Feminine: "chamakumi awiri ndi chimodzi", Neuter: "chamakumi awiri ndi chimodzi"},
+		{Number: 30, Word: "chamakumi atatu", Suffix: "-amakumi atatu", Masculine: "chamakumi atatu", Feminine: "chamakumi atatu", Neuter: "chamakumi atatu"},
+		{Number: 100, Word: "chazana", Suffix: "-azana", Masculine: "chazana", Feminine: "chazana", Neuter: "chazana"},
+		{Number: 1000, Word: "chachikwi", Suffix: "-achikwi", Masculine: "chachikwi", Feminine: "chachikwi", Neuter: "chachikwi"},
+	},
 }

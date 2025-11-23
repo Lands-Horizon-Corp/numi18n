@@ -178,4 +178,23 @@ var MYMMLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "တရာ"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "ပထမ", Suffix: "ပထမ", Masculine: "ပထမ", Feminine: "ပထမ", Neuter: "ပထမ"},
+		{Number: 2, Word: "ဒုတိယ", Suffix: "ဒုတိယ", Masculine: "ဒုတိယ", Feminine: "ဒုတိယ", Neuter: "ဒုတိယ"},
+		{Number: 3, Word: "တတိယ", Suffix: "တတိယ", Masculine: "တတိယ", Feminine: "တတိယ", Neuter: "တတိယ"},
+		{Number: 4, Word: "စတုတ္ထ", Suffix: "စတုတ္ထ", Masculine: "စတုတ္ထ", Feminine: "စတုတ္ထ", Neuter: "စတုတ္ထ"},
+		{Number: 5, Word: "ပဉ္စမ", Suffix: "ပဉ္စမ", Masculine: "ပဉ္စမ", Feminine: "ပဉ္စမ", Neuter: "ပဉ္စမ"},
+		{Number: 6, Word: "ဆဋ္ဌမ", Suffix: "ဆဋ္ဌမ", Masculine: "ဆဋ္ဌမ", Feminine: "ဆဋ္ဌမ", Neuter: "ဆဋ္ဌမ"},
+		{Number: 7, Word: "သတ္တမ", Suffix: "သတ္တမ", Masculine: "သတ္တမ", Feminine: "သတ္တမ", Neuter: "သတ္တမ"},
+		{Number: 8, Word: "အဋ္ဌမ", Suffix: "အဋ္ဌမ", Masculine: "အဋ္ဌမ", Feminine: "အဋ္ဌမ", Neuter: "အဋ္ဌမ"},
+		{Number: 9, Word: "နဝမ", Suffix: "နဝမ", Masculine: "နဝမ", Feminine: "နဝမ", Neuter: "နဝမ"},
+		{Number: 10, Word: "ဒသမ", Suffix: "ဒသမ", Masculine: "ဒသမ", Feminine: "ဒသမ", Neuter: "ဒသမ"},
+		{Number: 11, Word: "ဧကာဒသမ", Suffix: "ဧကာဒသမ", Masculine: "ဧကာဒသမ", Feminine: "ဧကာဒသမ", Neuter: "ဧကာဒသမ"},
+		{Number: 12, Word: "ဒွါဒသမ", Suffix: "ဒွါဒသမ", Masculine: "ဒွါဒသမ", Feminine: "ဒွါဒသမ", Neuter: "ဒွါဒသမ"},
+		{Number: 20, Word: "ဝိံသတိမ", Suffix: "ဝိံသတိမ", Masculine: "ဝိံသတိမ", Feminine: "ဝိံသတိမ", Neuter: "ဝိံသတိမ"},
+		{Number: 21, Word: "ဧကာဝိံသတိမ", Suffix: "ဧကာဝိံသတိမ", Masculine: "ဧကာဝိံသတိမ", Feminine: "ဧကာဝိံသတိမ", Neuter: "ဧကာဝိံသတိမ"},
+		{Number: 30, Word: "တိံသတိမ", Suffix: "တိံသတိမ", Masculine: "တိံသတိမ", Feminine: "တိံသတိမ", Neuter: "တိံသတိမ"},
+		{Number: 100, Word: "သတမ", Suffix: "သတမ", Masculine: "သတမ", Feminine: "သတမ", Neuter: "သတမ"},
+		{Number: 1000, Word: "သဟဿမ", Suffix: "သဟဿမ", Masculine: "သဟဿမ", Feminine: "သဟဿမ", Neuter: "သဟဿမ"},
+	},
 }
