@@ -74,7 +74,6 @@ var PHPHLocale = NumI18NLocale{
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Isang daan"},
-		{Number: 1, Value: "Isang"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "Una", Suffix: "-ng", Masculine: "", Feminine: "", Neuter: ""},
@@ -129,7 +128,11 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 	// Handle billions
 	if decimalNumber.GreaterThanOrEqual(billion) {
 		billions := decimalNumber.Div(billion).Floor()
-		result += f.FormatNumber(billions.IntPart(), targetLocale) + " " + GetWordForNumber(billion, targetLocale)
+		if billions.Equal(one) {
+			result += "Isang " + GetWordForNumber(billion, targetLocale)
+		} else {
+			result += f.FormatNumber(billions.IntPart(), targetLocale) + " " + GetWordForNumber(billion, targetLocale)
+		}
 		decimalNumber = decimalNumber.Mod(billion)
 		if decimalNumber.GreaterThan(decimal.Zero) {
 			result += " "
@@ -139,7 +142,11 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 	// Handle millions
 	if decimalNumber.GreaterThanOrEqual(million) {
 		millions := decimalNumber.Div(million).Floor()
-		result += f.FormatNumber(millions.IntPart(), targetLocale) + " " + GetWordForNumber(million, targetLocale)
+		if millions.Equal(one) {
+			result += "Isang " + GetWordForNumber(million, targetLocale)
+		} else {
+			result += f.FormatNumber(millions.IntPart(), targetLocale) + " " + GetWordForNumber(million, targetLocale)
+		}
 		decimalNumber = decimalNumber.Mod(million)
 		if decimalNumber.GreaterThan(decimal.Zero) {
 			result += " "
@@ -149,7 +156,11 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 	// Handle thousands
 	if decimalNumber.GreaterThanOrEqual(thousand) {
 		thousands := decimalNumber.Div(thousand).Floor()
-		result += f.FormatNumber(thousands.IntPart(), targetLocale) + " " + GetWordForNumber(thousand, targetLocale)
+		if thousands.Equal(one) {
+			result += "Isang " + GetWordForNumber(thousand, targetLocale)
+		} else {
+			result += f.FormatNumber(thousands.IntPart(), targetLocale) + " " + GetWordForNumber(thousand, targetLocale)
+		}
 		decimalNumber = decimalNumber.Mod(thousand)
 		if decimalNumber.GreaterThan(decimal.Zero) {
 			result += " "
@@ -183,7 +194,7 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 		result += GetWordForNumber(tensNumber, targetLocale)
 		decimalNumber = decimalNumber.Mod(ten)
 		if decimalNumber.GreaterThan(decimal.Zero) {
-			// Special case for 1 when it's standalone
+			// Special case for 1 when it's at the end (like "twenty one")
 			if decimalNumber.Equal(one) {
 				result += " Isa"
 			} else {
@@ -202,22 +213,17 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 			}
 		}
 	} else if decimalNumber.GreaterThan(decimal.Zero) {
-		// Special case for 1 when it's standalone
-		if decimalNumber.Equal(one) {
-			result += "Isa"
-		} else {
-			// Check for exact mapping first
-			found := false
-			for _, mapping := range targetLocale.ExactWordsMapping {
-				if decimal.NewFromInt(mapping.Number).Equal(decimalNumber) {
-					result += mapping.Value
-					found = true
-					break
-				}
+		// Check for exact mapping first (which includes "Isang" for 1)
+		found := false
+		for _, mapping := range targetLocale.ExactWordsMapping {
+			if decimal.NewFromInt(mapping.Number).Equal(decimalNumber) {
+				result += mapping.Value
+				found = true
+				break
 			}
-			if !found {
-				result += GetWordForNumber(decimalNumber, targetLocale)
-			}
+		}
+		if !found {
+			result += GetWordForNumber(decimalNumber, targetLocale)
 		}
 	}
 
@@ -244,4 +250,11 @@ func (f *FilipinoFormatter) FormatFractionalCurrency(result string, fractionalVa
 
 func (f *FilipinoFormatter) FormatNegative(result, negativeWord string) string {
 	return negativeWord + " " + result
+}
+
+func (f *FilipinoFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }

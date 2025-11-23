@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 type Currency struct {
 	Name         string // Currency name, e.g., "Dollar"
 	Plural       string // Currency plural, e.g., "Dollars"
@@ -69,4 +71,5 @@ type LocaleFormatter interface {
 	FormatFractional(result, fractionalWords string, andText string) string
 	FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string
 	FormatNegative(result, negativeWord string) string
+	ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal
 }

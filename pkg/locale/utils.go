@@ -108,12 +108,20 @@ func ConvertToWordsGenericInt64(number int64, targetLocale NumI18NLocale) string
 
 // convertToWordsWithExactMapping converts number to words using exact mapping when available
 func ConvertToWordsWithExactMapping(number decimal.Decimal, targetLocale NumI18NLocale) string {
-	// Check for exact mapping first (used by Filipino locale)
+	// Check for exact word mapping first (special cases like "One Hundred")
+	for _, mapping := range targetLocale.ExactWordsMapping {
+		if decimal.NewFromInt(mapping.Number).Equal(number) {
+			return mapping.Value
+		}
+	}
+
+	// Check for regular number mapping (thousands, millions, etc.)
 	for _, mapping := range targetLocale.NumberWordsMapping {
 		if decimal.NewFromInt(mapping.Number).Equal(number) {
 			return mapping.Value
 		}
 	}
+
 	return ConvertToWordsGeneric(number, targetLocale)
 }
 

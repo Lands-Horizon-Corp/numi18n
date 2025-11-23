@@ -72,9 +72,34 @@ var JPLocale = NumI18NLocale{
 		{Number: 0, Value: "零"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
-		{Number: 100, Value: "百"},
-		{Number: 10000, Value: "一万"},
 		{Number: 100000000, Value: "一億"},
+		{Number: 90000, Value: "九万"},
+		{Number: 80000, Value: "八万"},
+		{Number: 70000, Value: "七万"},
+		{Number: 60000, Value: "六万"},
+		{Number: 50000, Value: "五万"},
+		{Number: 40000, Value: "四万"},
+		{Number: 30000, Value: "三万"},
+		{Number: 20000, Value: "二万"},
+		{Number: 10000, Value: "一万"},
+		{Number: 9000, Value: "九千"},
+		{Number: 8000, Value: "八千"},
+		{Number: 7000, Value: "七千"},
+		{Number: 6000, Value: "六千"},
+		{Number: 5000, Value: "五千"},
+		{Number: 4000, Value: "四千"},
+		{Number: 3000, Value: "三千"},
+		{Number: 2000, Value: "二千"},
+		{Number: 1000, Value: "千"},
+		{Number: 900, Value: "九百"},
+		{Number: 800, Value: "八百"},
+		{Number: 700, Value: "七百"},
+		{Number: 600, Value: "六百"},
+		{Number: 500, Value: "五百"},
+		{Number: 400, Value: "四百"},
+		{Number: 300, Value: "三百"},
+		{Number: 200, Value: "二百"},
+		{Number: 100, Value: "百"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "第一", Suffix: "番目", Masculine: "第一", Feminine: "第一", Neuter: "第一"},
@@ -115,6 +140,13 @@ var JPLocale = NumI18NLocale{
 type JapaneseFormatter struct{}
 
 func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	// First check exact mappings
+	exactResult := ConvertToWordsWithExactMappingInt64(number, targetLocale)
+	if exactResult != ConvertToWordsGenericInt64(number, targetLocale) {
+		return exactResult // Found exact mapping
+	}
+
+	// If no exact mapping, use the custom Japanese logic
 	decimalNumber := decimal.NewFromInt(number)
 	if decimalNumber.Equal(decimal.Zero) {
 		return GetWordForNumber(decimal.Zero, targetLocale)
@@ -140,9 +172,11 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 		manPart := decimalNumber.Div(man).Floor()
 		if manPart.GreaterThan(decimal.Zero) {
 			if manPart.Equal(decimal.NewFromInt(1)) {
-				result += GetWordForNumber(man, targetLocale) // Just "万" for 10000
+				result += "万" // Just "万" for 10000
 			} else {
-				result += f.FormatNumber(manPart.IntPart(), targetLocale) + GetWordForNumber(man, targetLocale)
+				// For complex numbers like 123万, we should get "百二十三万", not "百二十三一万"
+				manWords := f.formatNumberRecursive(manPart.IntPart(), targetLocale)
+				result += manWords + "万"
 			}
 		}
 		decimalNumber = decimalNumber.Mod(man)
@@ -152,9 +186,9 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 		thousandsPart := decimalNumber.Div(thousand).Floor()
 		if thousandsPart.GreaterThan(decimal.Zero) {
 			if thousandsPart.Equal(decimal.NewFromInt(1)) {
-				result += GetWordForNumber(thousand, targetLocale) // Just "千" for 1000
+				result += "千" // Just "千" for 1000
 			} else {
-				result += f.FormatNumber(thousandsPart.IntPart(), targetLocale) + GetWordForNumber(thousand, targetLocale)
+				result += f.formatNumberRecursive(thousandsPart.IntPart(), targetLocale) + "千"
 			}
 		}
 		decimalNumber = decimalNumber.Mod(thousand)
@@ -164,9 +198,9 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 		hundredsPart := decimalNumber.Div(hundred).Floor()
 		if hundredsPart.GreaterThan(decimal.Zero) {
 			if hundredsPart.Equal(decimal.NewFromInt(1)) {
-				result += GetWordForNumber(hundred, targetLocale) // Just "百" for 100
+				result += "百" // Just "百" for 100
 			} else {
-				result += f.FormatNumber(hundredsPart.IntPart(), targetLocale) + GetWordForNumber(hundred, targetLocale)
+				result += f.formatNumberRecursive(hundredsPart.IntPart(), targetLocale) + "百"
 			}
 		}
 		decimalNumber = decimalNumber.Mod(hundred)
@@ -176,14 +210,73 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 		tensPart := decimalNumber.Div(ten).Floor()
 		if tensPart.GreaterThan(decimal.Zero) {
 			if tensPart.Equal(decimal.NewFromInt(1)) {
-				result += GetWordForNumber(ten, targetLocale) // Just "十" for 10
+				result += "十" // Just "十" for 10
 			} else {
-				result += f.FormatNumber(tensPart.IntPart(), targetLocale) + GetWordForNumber(ten, targetLocale)
+				result += f.formatNumberRecursive(tensPart.IntPart(), targetLocale) + "十"
 			}
 		}
 		decimalNumber = decimalNumber.Mod(ten)
 	}
 
+	if decimalNumber.GreaterThan(decimal.Zero) {
+		result += GetWordForNumber(decimalNumber, targetLocale)
+	}
+
+	return result
+}
+
+// formatNumberRecursive handles recursive formatting for Japanese numbers without causing infinite recursion
+func (f *JapaneseFormatter) formatNumberRecursive(number int64, targetLocale NumI18NLocale) string {
+	decimalNumber := decimal.NewFromInt(number)
+	if decimalNumber.Equal(decimal.Zero) {
+		return GetWordForNumber(decimal.Zero, targetLocale)
+	}
+
+	result := ""
+	thousand := decimal.NewFromInt(1000) // 千 (sen)
+	hundred := decimal.NewFromInt(100)   // 百 (hyaku)
+	ten := decimal.NewFromInt(10)        // 十 (ju)
+
+	// Handle thousands (1000-9999)
+	if decimalNumber.GreaterThanOrEqual(thousand) {
+		thousandsPart := decimalNumber.Div(thousand).Floor()
+		if thousandsPart.GreaterThan(decimal.Zero) {
+			if thousandsPart.Equal(decimal.NewFromInt(1)) {
+				result += "千" // Just "千" for 1000
+			} else {
+				result += GetWordForNumber(thousandsPart, targetLocale) + "千"
+			}
+		}
+		decimalNumber = decimalNumber.Mod(thousand)
+	}
+
+	// Handle hundreds (100-999)
+	if decimalNumber.GreaterThanOrEqual(hundred) {
+		hundredsPart := decimalNumber.Div(hundred).Floor()
+		if hundredsPart.GreaterThan(decimal.Zero) {
+			if hundredsPart.Equal(decimal.NewFromInt(1)) {
+				result += "百" // Just "百" for 100
+			} else {
+				result += GetWordForNumber(hundredsPart, targetLocale) + "百"
+			}
+		}
+		decimalNumber = decimalNumber.Mod(hundred)
+	}
+
+	// Handle tens (10-99)
+	if decimalNumber.GreaterThanOrEqual(ten) {
+		tensPart := decimalNumber.Div(ten).Floor()
+		if tensPart.GreaterThan(decimal.Zero) {
+			if tensPart.Equal(decimal.NewFromInt(1)) {
+				result += "十" // Just "十" for 10
+			} else {
+				result += GetWordForNumber(tensPart, targetLocale) + "十"
+			}
+		}
+		decimalNumber = decimalNumber.Mod(ten)
+	}
+
+	// Handle ones (1-9)
 	if decimalNumber.GreaterThan(decimal.Zero) {
 		result += GetWordForNumber(decimalNumber, targetLocale)
 	}
@@ -211,4 +304,11 @@ func (f *JapaneseFormatter) FormatFractionalCurrency(result string, fractionalVa
 
 func (f *JapaneseFormatter) FormatNegative(result, negativeWord string) string {
 	return negativeWord + result
+}
+
+func (f *JapaneseFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

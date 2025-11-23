@@ -387,34 +387,49 @@ func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI
 		priority := 0
 
 		// Count field matches and calculate priority based on order
+		// Locale gets the highest priority
 		if strings.EqualFold(
 			strings.TrimSpace(locale.NumI18Identifier.Locale),
 			strings.TrimSpace(identifier.Locale)) &&
 			strings.TrimSpace(identifier.Locale) != "" {
 			fieldMatches++
-			priority += 7 // Highest priority
+			priority += 10 // Highest priority for locale
 		}
 		if strings.EqualFold(
 			strings.TrimSpace(locale.NumI18Identifier.ISO3166Alpha2),
 			strings.TrimSpace(identifier.ISO3166Alpha2)) &&
 			strings.TrimSpace(identifier.ISO3166Alpha2) != "" {
 			fieldMatches++
-			priority += 6
+			priority += 8
 		}
 		if strings.EqualFold(
 			strings.TrimSpace(locale.NumI18Identifier.ISO3166Alpha3),
 			strings.TrimSpace(identifier.ISO3166Alpha3)) &&
 			strings.TrimSpace(identifier.ISO3166Alpha3) != "" {
 			fieldMatches++
-			priority += 5
+			priority += 7
+		}
+		if strings.EqualFold(
+			strings.TrimSpace(locale.NumI18Identifier.Language),
+			strings.TrimSpace(identifier.Language)) &&
+			strings.TrimSpace(identifier.Language) != "" {
+			fieldMatches++
+			priority += 6
 		}
 		if strings.EqualFold(
 			strings.TrimSpace(locale.NumI18Identifier.CountryName),
 			strings.TrimSpace(identifier.CountryName)) &&
 			strings.TrimSpace(identifier.CountryName) != "" {
 			fieldMatches++
-			priority += 4
+			priority += 5
 		}
+
+		// Currency gets lower priority than locale/language/country
+		if strings.EqualFold(strings.TrimSpace(locale.NumI18Identifier.Currency), strings.TrimSpace(identifier.Currency)) && strings.TrimSpace(identifier.Currency) != "" {
+			fieldMatches++
+			priority += 4 // Currency priority lowered
+		}
+
 		if identifier.Timezone != nil {
 			for _, searchTz := range identifier.Timezone {
 				for _, localeTz := range locale.NumI18Identifier.Timezone {
@@ -427,19 +442,9 @@ func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI
 			}
 		}
 	nextField1:
-		if strings.EqualFold(strings.TrimSpace(locale.NumI18Identifier.Language), strings.TrimSpace(identifier.Language)) && strings.TrimSpace(identifier.Language) != "" {
-			fieldMatches++
-			priority += 2
-		}
 		if strings.TrimSpace(locale.NumI18Identifier.ISO3166Numeric) == strings.TrimSpace(identifier.ISO3166Numeric) && strings.TrimSpace(identifier.ISO3166Numeric) != "" {
 			fieldMatches++
 			priority += 1 // Lowest priority
-		}
-
-		// Currency bonus - if currencies match, add extra weight
-		if strings.EqualFold(strings.TrimSpace(locale.NumI18Identifier.Currency), strings.TrimSpace(identifier.Currency)) && strings.TrimSpace(identifier.Currency) != "" {
-			fieldMatches++
-			priority += 8 // Currency gets highest bonus
 		}
 
 		if fieldMatches > 0 {
@@ -461,6 +466,23 @@ func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI
 		if candidate.fieldMatches > bestCandidate.fieldMatches ||
 			(candidate.fieldMatches == bestCandidate.fieldMatches && candidate.priority > bestCandidate.priority) {
 			bestCandidate = candidate
+		}
+	}
+
+	// Special case: If we have multiple candidates with the same score and only currency was provided,
+	// prefer en-US for USD currency (common case for international applications)
+	if strings.TrimSpace(identifier.Currency) == "USD" &&
+		strings.TrimSpace(identifier.Locale) == "" &&
+		strings.TrimSpace(identifier.Language) == "" &&
+		strings.TrimSpace(identifier.CountryName) == "" {
+
+		for _, candidate := range candidates {
+			if candidate.fieldMatches == bestCandidate.fieldMatches &&
+				candidate.priority == bestCandidate.priority &&
+				candidate.locale.NumI18Identifier.Locale == "en-US" {
+				bestCandidate = candidate
+				break
+			}
 		}
 	}
 

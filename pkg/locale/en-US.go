@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // USLocale is a NumI18NLocale configured for United States (en-US)
 var USLocale = NumI18NLocale{
 	Currency: Currency{
@@ -67,6 +69,8 @@ var USLocale = NumI18NLocale{
 		{Number: 0, Value: "Zero"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
+		{Number: 1000000, Value: "One Million"},
+		{Number: 1000, Value: "One Thousand"},
 		{Number: 100, Value: "One Hundred"},
 	},
 	OrdinalMapping: []OrdinalMapping{
@@ -134,4 +138,11 @@ func (f *EnglishFormatter) FormatFractionalCurrency(result string, fractionalVal
 
 func (f *EnglishFormatter) FormatNegative(result, negativeWord string) string {
 	return negativeWord + " " + result
+}
+
+func (f *EnglishFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }
