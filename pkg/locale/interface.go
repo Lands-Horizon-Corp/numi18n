@@ -33,9 +33,12 @@ type ExactWordMapping struct {
 }
 
 type OrdinalMapping struct {
-	Number int64  // Ordinal numeric value, e.g., 1, 2, 3
-	Word   string // Ordinal word, e.g., "first", "second", "third"
-	Suffix string // Ordinal suffix for numeric form, e.g., "st", "nd", "rd", "th"
+	Number    int64  // Ordinal numeric value, e.g., 1, 2, 3
+	Word      string // Ordinal word, e.g., "first", "second", "third"
+	Suffix    string // Ordinal suffix for numeric form, e.g., "st", "nd", "rd", "th"
+	Masculine string // Masculine form, e.g., "primer" (Spanish), "premier" (French)
+	Feminine  string // Feminine form, e.g., "primera" (Spanish), "première" (French)
+	Neuter    string // Neuter form, e.g., "erstes" (German)
 }
 
 type NumI18Identifier struct {
