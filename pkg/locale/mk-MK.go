@@ -176,4 +176,23 @@ var MKMKLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Едно сто"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "први", Suffix: "-ви", Masculine: "први", Feminine: "прва", Neuter: "прво"},
+		{Number: 2, Word: "втор", Suffix: "-ри", Masculine: "втор", Feminine: "втора", Neuter: "второ"},
+		{Number: 3, Word: "трет", Suffix: "-ти", Masculine: "трет", Feminine: "трета", Neuter: "трето"},
+		{Number: 4, Word: "четврт", Suffix: "-ти", Masculine: "четврт", Feminine: "четврта", Neuter: "четврто"},
+		{Number: 5, Word: "петт", Suffix: "-ти", Masculine: "петт", Feminine: "петта", Neuter: "петто"},
+		{Number: 6, Word: "шест", Suffix: "-ти", Masculine: "шест", Feminine: "шеста", Neuter: "шесто"},
+		{Number: 7, Word: "седми", Suffix: "-ми", Masculine: "седми", Feminine: "седма", Neuter: "седмо"},
+		{Number: 8, Word: "осми", Suffix: "-ми", Masculine: "осми", Feminine: "осма", Neuter: "осмо"},
+		{Number: 9, Word: "деветти", Suffix: "-ти", Masculine: "деветти", Feminine: "деветта", Neuter: "деветто"},
+		{Number: 10, Word: "десетти", Suffix: "-ти", Masculine: "десетти", Feminine: "десетта", Neuter: "десетто"},
+		{Number: 11, Word: "единаесетти", Suffix: "-ти", Masculine: "единаесетти", Feminine: "единаесетта", Neuter: "единаесетто"},
+		{Number: 12, Word: "дванаесетти", Suffix: "-ти", Masculine: "дванаесетти", Feminine: "дванаесетта", Neuter: "дванаесетто"},
+		{Number: 20, Word: "дваесетти", Suffix: "-ти", Masculine: "дваесетти", Feminine: "дваесетта", Neuter: "дваесетто"},
+		{Number: 21, Word: "дваесет и први", Suffix: "-ви", Masculine: "дваесет и први", Feminine: "дваесет и прва", Neuter: "дваесет и прво"},
+		{Number: 30, Word: "триесетти", Suffix: "-ти", Masculine: "триесетти", Feminine: "триесетта", Neuter: "триесетто"},
+		{Number: 100, Word: "стотти", Suffix: "-ти", Masculine: "стотти", Feminine: "стотта", Neuter: "стотто"},
+		{Number: 1000, Word: "илјадитти", Suffix: "-ти", Masculine: "илјадитти", Feminine: "илјадитта", Neuter: "илјадитто"},
+	},
 }

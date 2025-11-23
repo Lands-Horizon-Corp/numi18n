@@ -176,4 +176,23 @@ var MNMNLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Нэг зуу"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "нэгдүгээр", Suffix: "-дүгээр", Masculine: "нэгдүгээр", Feminine: "нэгдүгээр", Neuter: "нэгдүгээр"},
+		{Number: 2, Word: "хоёрдугаар", Suffix: "-дугаар", Masculine: "хоёрдугаар", Feminine: "хоёрдугаар", Neuter: "хоёрдугаар"},
+		{Number: 3, Word: "гуравдугаар", Suffix: "-дугаар", Masculine: "гуравдугаар", Feminine: "гуравдугаар", Neuter: "гуравдугаар"},
+		{Number: 4, Word: "дөрөвдүгээр", Suffix: "-дүгээр", Masculine: "дөрөвдүгээр", Feminine: "дөрөвдүгээр", Neuter: "дөрөвдүгээр"},
+		{Number: 5, Word: "тавдугаар", Suffix: "-дугаар", Masculine: "тавдугаар", Feminine: "тавдугаар", Neuter: "тавдугаар"},
+		{Number: 6, Word: "зургаадугаар", Suffix: "-дугаар", Masculine: "зургаадугаар", Feminine: "зургаадугаар", Neuter: "зургаадугаар"},
+		{Number: 7, Word: "долоодугаар", Suffix: "-дугаар", Masculine: "долоодугаар", Feminine: "долоодугаар", Neuter: "долоодугаар"},
+		{Number: 8, Word: "найдугаар", Suffix: "-дугаар", Masculine: "найдугаар", Feminine: "найдугаар", Neuter: "найдугаар"},
+		{Number: 9, Word: "есдүгээр", Suffix: "-дүгээр", Masculine: "есдүгээр", Feminine: "есдүгээр", Neuter: "есдүгээр"},
+		{Number: 10, Word: "аравдугаар", Suffix: "-дугаар", Masculine: "аравдугаар", Feminine: "аравдугаар", Neuter: "аравдугаар"},
+		{Number: 11, Word: "арван нэгдүгээр", Suffix: "-дүгээр", Masculine: "арван нэгдүгээр", Feminine: "арван нэгдүгээр", Neuter: "арван нэгдүгээр"},
+		{Number: 12, Word: "арван хоёрдугаар", Suffix: "-дугаар", Masculine: "арван хоёрдугаар", Feminine: "арван хоёрдугаар", Neuter: "арван хоёрдугаар"},
+		{Number: 20, Word: "хоридугаар", Suffix: "-дугаар", Masculine: "хоридугаар", Feminine: "хоридугаар", Neuter: "хоридугаар"},
+		{Number: 21, Word: "хорин нэгдүгээр", Suffix: "-дүгээр", Masculine: "хорин нэгдүгээр", Feminine: "хорин нэгдүгээр", Neuter: "хорин нэгдүгээр"},
+		{Number: 30, Word: "гучдугаар", Suffix: "-дугаар", Masculine: "гучдугаар", Feminine: "гучдугаар", Neuter: "гучдугаар"},
+		{Number: 100, Word: "зуудугаар", Suffix: "-дугаар", Masculine: "зуудугаар", Feminine: "зуудугаар", Neuter: "зуудугаар"},
+		{Number: 1000, Word: "мянгадугаар", Suffix: "-дугаар", Masculine: "мянгадугаар", Feminine: "мянгадугаар", Neuter: "мянгадугаар"},
+	},
 }

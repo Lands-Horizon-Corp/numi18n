@@ -183,4 +183,23 @@ var MLINLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "ഒരു നൂറ്"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "ഒന്നാം", Suffix: "-ാം", Masculine: "ഒന്നാം", Feminine: "ഒന്നാം", Neuter: "ഒന്നാം"},
+		{Number: 2, Word: "രണ്ടാം", Suffix: "-ാം", Masculine: "രണ്ടാം", Feminine: "രണ്ടാം", Neuter: "രണ്ടാം"},
+		{Number: 3, Word: "മൂന്നാം", Suffix: "-ാം", Masculine: "മൂന്നാം", Feminine: "മൂന്നാം", Neuter: "മൂന്നാം"},
+		{Number: 4, Word: "നാലാം", Suffix: "-ാം", Masculine: "നാലാം", Feminine: "നാലാം", Neuter: "നാലാം"},
+		{Number: 5, Word: "അഞ്ചാം", Suffix: "-ാം", Masculine: "അഞ്ചാം", Feminine: "അഞ്ചാം", Neuter: "അഞ്ചാം"},
+		{Number: 6, Word: "ആറാം", Suffix: "-ാം", Masculine: "ആറാം", Feminine: "ആറാം", Neuter: "ആറാം"},
+		{Number: 7, Word: "ഏഴാം", Suffix: "-ാം", Masculine: "ഏഴാം", Feminine: "ഏഴാം", Neuter: "ഏഴാം"},
+		{Number: 8, Word: "എട്ടാം", Suffix: "-ാം", Masculine: "എട്ടാം", Feminine: "എട്ടാം", Neuter: "എട്ടാം"},
+		{Number: 9, Word: "ഒമ്പതാം", Suffix: "-ാം", Masculine: "ഒമ്പതാം", Feminine: "ഒമ്പതാം", Neuter: "ഒമ്പതാം"},
+		{Number: 10, Word: "പത്താം", Suffix: "-ാം", Masculine: "പത്താം", Feminine: "പത്താം", Neuter: "പത്താം"},
+		{Number: 11, Word: "പതിനൊന്നാം", Suffix: "-ാം", Masculine: "പതിനൊന്നാം", Feminine: "പതിനൊന്നാം", Neuter: "പതിനൊന്നാം"},
+		{Number: 12, Word: "പന്ത്രണ്ടാം", Suffix: "-ാം", Masculine: "പന്ത്രണ്ടാം", Feminine: "പന്ത്രണ്ടാം", Neuter: "പന്ത്രണ്ടാം"},
+		{Number: 20, Word: "ഇരുപതാം", Suffix: "-ാം", Masculine: "ഇരുപതാം", Feminine: "ഇരുപതാം", Neuter: "ഇരുപതാം"},
+		{Number: 21, Word: "ഇരുപത്തൊന്നാം", Suffix: "-ാം", Masculine: "ഇരുപത്തൊന്നാം", Feminine: "ഇരുപത്തൊന്നാം", Neuter: "ഇരുപത്തൊന്നാം"},
+		{Number: 30, Word: "മുപ്പതാം", Suffix: "-ാം", Masculine: "മുപ്പതാം", Feminine: "മുപ്പതാം", Neuter: "മുപ്പതാം"},
+		{Number: 100, Word: "നൂറാം", Suffix: "-ാം", Masculine: "നൂറാം", Feminine: "നൂറാം", Neuter: "നൂറാം"},
+		{Number: 1000, Word: "ആയിരാം", Suffix: "-ാം", Masculine: "ആയിരാം", Feminine: "ആയിരാം", Neuter: "ആയിരാം"},
+	},
 }

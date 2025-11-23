@@ -176,4 +176,23 @@ var LTLTLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Vienas šimtas"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "pirmas", Suffix: "-as", Masculine: "pirmas", Feminine: "pirma", Neuter: "pirma"},
+		{Number: 2, Word: "antras", Suffix: "-as", Masculine: "antras", Feminine: "antra", Neuter: "antra"},
+		{Number: 3, Word: "trečias", Suffix: "-ias", Masculine: "trečias", Feminine: "trečia", Neuter: "trečia"},
+		{Number: 4, Word: "ketvirtas", Suffix: "-as", Masculine: "ketvirtas", Feminine: "ketvirta", Neuter: "ketvirta"},
+		{Number: 5, Word: "penktas", Suffix: "-as", Masculine: "penktas", Feminine: "penkta", Neuter: "penkta"},
+		{Number: 6, Word: "šeštas", Suffix: "-as", Masculine: "šeštas", Feminine: "šešta", Neuter: "šešta"},
+		{Number: 7, Word: "septintas", Suffix: "-as", Masculine: "septintas", Feminine: "septinta", Neuter: "septinta"},
+		{Number: 8, Word: "aštuntas", Suffix: "-as", Masculine: "aštuntas", Feminine: "aštunta", Neuter: "aštunta"},
+		{Number: 9, Word: "devintas", Suffix: "-as", Masculine: "devintas", Feminine: "devinta", Neuter: "devinta"},
+		{Number: 10, Word: "dešimtas", Suffix: "-as", Masculine: "dešimtas", Feminine: "dešimta", Neuter: "dešimta"},
+		{Number: 11, Word: "vienuoliktas", Suffix: "-as", Masculine: "vienuoliktas", Feminine: "vienuolikta", Neuter: "vienuolikta"},
+		{Number: 12, Word: "dvyliktas", Suffix: "-as", Masculine: "dvyliktas", Feminine: "dvylikta", Neuter: "dvylikta"},
+		{Number: 20, Word: "dvidešimtas", Suffix: "-as", Masculine: "dvidešimtas", Feminine: "dvidešimta", Neuter: "dvidešimta"},
+		{Number: 21, Word: "dvidešimt pirmas", Suffix: "-as", Masculine: "dvidešimt pirmas", Feminine: "dvidešimt pirma", Neuter: "dvidešimt pirma"},
+		{Number: 30, Word: "trisdešimtas", Suffix: "-as", Masculine: "trisdešimtas", Feminine: "trisdešimta", Neuter: "trisdešimta"},
+		{Number: 100, Word: "šimtasis", Suffix: "-asis", Masculine: "šimtasis", Feminine: "šimtoji", Neuter: "šimtasis"},
+		{Number: 1000, Word: "tūkstantasis", Suffix: "-asis", Masculine: "tūkstantasis", Feminine: "tūkstantoji", Neuter: "tūkstantasis"},
+	},
 }

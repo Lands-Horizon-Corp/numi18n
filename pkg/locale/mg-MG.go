@@ -176,4 +176,23 @@ var MGMGLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Zato iray"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "voalohany", Suffix: "-ny", Masculine: "voalohany", Feminine: "voalohany", Neuter: "voalohany"},
+		{Number: 2, Word: "faharoa", Suffix: "-ny", Masculine: "faharoa", Feminine: "faharoa", Neuter: "faharoa"},
+		{Number: 3, Word: "fahatelo", Suffix: "-ny", Masculine: "fahatelo", Feminine: "fahatelo", Neuter: "fahatelo"},
+		{Number: 4, Word: "fahefatra", Suffix: "-ny", Masculine: "fahefatra", Feminine: "fahefatra", Neuter: "fahefatra"},
+		{Number: 5, Word: "fahadimy", Suffix: "-ny", Masculine: "fahadimy", Feminine: "fahadimy", Neuter: "fahadimy"},
+		{Number: 6, Word: "fahenina", Suffix: "-ny", Masculine: "fahenina", Feminine: "fahenina", Neuter: "fahenina"},
+		{Number: 7, Word: "fahafito", Suffix: "-ny", Masculine: "fahafito", Feminine: "fahafito", Neuter: "fahafito"},
+		{Number: 8, Word: "fahavalo", Suffix: "-ny", Masculine: "fahavalo", Feminine: "fahavalo", Neuter: "fahavalo"},
+		{Number: 9, Word: "fahasivy", Suffix: "-ny", Masculine: "fahasivy", Feminine: "fahasivy", Neuter: "fahasivy"},
+		{Number: 10, Word: "fahafolo", Suffix: "-ny", Masculine: "fahafolo", Feminine: "fahafolo", Neuter: "fahafolo"},
+		{Number: 11, Word: "faha-iraika ambin'ny folo", Suffix: "-ny", Masculine: "faha-iraika ambin'ny folo", Feminine: "faha-iraika ambin'ny folo", Neuter: "faha-iraika ambin'ny folo"},
+		{Number: 12, Word: "faha-roa ambin'ny folo", Suffix: "-ny", Masculine: "faha-roa ambin'ny folo", Feminine: "faha-roa ambin'ny folo", Neuter: "faha-roa ambin'ny folo"},
+		{Number: 20, Word: "faha-roapolo", Suffix: "-ny", Masculine: "faha-roapolo", Feminine: "faha-roapolo", Neuter: "faha-roapolo"},
+		{Number: 21, Word: "faha-iraika ambin'ny roapolo", Suffix: "-ny", Masculine: "faha-iraika ambin'ny roapolo", Feminine: "faha-iraika ambin'ny roapolo", Neuter: "faha-iraika ambin'ny roapolo"},
+		{Number: 30, Word: "faha-telopolo", Suffix: "-ny", Masculine: "faha-telopolo", Feminine: "faha-telopolo", Neuter: "faha-telopolo"},
+		{Number: 100, Word: "faha-zato", Suffix: "-ny", Masculine: "faha-zato", Feminine: "faha-zato", Neuter: "faha-zato"},
+		{Number: 1000, Word: "faha-arivo", Suffix: "-ny", Masculine: "faha-arivo", Feminine: "faha-arivo", Neuter: "faha-arivo"},
+	},
 }

@@ -176,4 +176,23 @@ var MSMYLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Seratus"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "pertama", Suffix: "ke-", Masculine: "pertama", Feminine: "pertama", Neuter: "pertama"},
+		{Number: 2, Word: "kedua", Suffix: "ke-", Masculine: "kedua", Feminine: "kedua", Neuter: "kedua"},
+		{Number: 3, Word: "ketiga", Suffix: "ke-", Masculine: "ketiga", Feminine: "ketiga", Neuter: "ketiga"},
+		{Number: 4, Word: "keempat", Suffix: "ke-", Masculine: "keempat", Feminine: "keempat", Neuter: "keempat"},
+		{Number: 5, Word: "kelima", Suffix: "ke-", Masculine: "kelima", Feminine: "kelima", Neuter: "kelima"},
+		{Number: 6, Word: "keenam", Suffix: "ke-", Masculine: "keenam", Feminine: "keenam", Neuter: "keenam"},
+		{Number: 7, Word: "ketujuh", Suffix: "ke-", Masculine: "ketujuh", Feminine: "ketujuh", Neuter: "ketujuh"},
+		{Number: 8, Word: "kelapan", Suffix: "ke-", Masculine: "kelapan", Feminine: "kelapan", Neuter: "kelapan"},
+		{Number: 9, Word: "kesembilan", Suffix: "ke-", Masculine: "kesembilan", Feminine: "kesembilan", Neuter: "kesembilan"},
+		{Number: 10, Word: "kesepuluh", Suffix: "ke-", Masculine: "kesepuluh", Feminine: "kesepuluh", Neuter: "kesepuluh"},
+		{Number: 11, Word: "kesebelas", Suffix: "ke-", Masculine: "kesebelas", Feminine: "kesebelas", Neuter: "kesebelas"},
+		{Number: 12, Word: "kedua belas", Suffix: "ke-", Masculine: "kedua belas", Feminine: "kedua belas", Neuter: "kedua belas"},
+		{Number: 20, Word: "kedua puluh", Suffix: "ke-", Masculine: "kedua puluh", Feminine: "kedua puluh", Neuter: "kedua puluh"},
+		{Number: 21, Word: "kedua puluh satu", Suffix: "ke-", Masculine: "kedua puluh satu", Feminine: "kedua puluh satu", Neuter: "kedua puluh satu"},
+		{Number: 30, Word: "ketiga puluh", Suffix: "ke-", Masculine: "ketiga puluh", Feminine: "ketiga puluh", Neuter: "ketiga puluh"},
+		{Number: 100, Word: "keseratus", Suffix: "ke-", Masculine: "keseratus", Feminine: "keseratus", Neuter: "keseratus"},
+		{Number: 1000, Word: "keseribu", Suffix: "ke-", Masculine: "keseribu", Feminine: "keseribu", Neuter: "keseribu"},
+	},
 }

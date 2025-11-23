@@ -183,4 +183,23 @@ var MRINLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "एक शंभर"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "पहिला", Suffix: "-वा", Masculine: "पहिला", Feminine: "पहिली", Neuter: "पहिले"},
+		{Number: 2, Word: "दुसरा", Suffix: "-रा", Masculine: "दुसरा", Feminine: "दुसरी", Neuter: "दुसरे"},
+		{Number: 3, Word: "तिसरा", Suffix: "-रा", Masculine: "तिसरा", Feminine: "तिसरी", Neuter: "तिसरे"},
+		{Number: 4, Word: "चौथा", Suffix: "-वा", Masculine: "चौथा", Feminine: "चौथी", Neuter: "चौथे"},
+		{Number: 5, Word: "पाचवा", Suffix: "-वा", Masculine: "पाचवा", Feminine: "पाचवी", Neuter: "पाचवे"},
+		{Number: 6, Word: "सहावा", Suffix: "-वा", Masculine: "सहावा", Feminine: "सहावी", Neuter: "सहावे"},
+		{Number: 7, Word: "सातवा", Suffix: "-वा", Masculine: "सातवा", Feminine: "सातवी", Neuter: "सातवे"},
+		{Number: 8, Word: "आठवा", Suffix: "-वा", Masculine: "आठवा", Feminine: "आठवी", Neuter: "आठवे"},
+		{Number: 9, Word: "नववा", Suffix: "-वा", Masculine: "नववा", Feminine: "नववी", Neuter: "नववे"},
+		{Number: 10, Word: "दहावा", Suffix: "-वा", Masculine: "दहावा", Feminine: "दहावी", Neuter: "दहावे"},
+		{Number: 11, Word: "अकरावा", Suffix: "-वा", Masculine: "अकरावा", Feminine: "अकरावी", Neuter: "अकरावे"},
+		{Number: 12, Word: "बारावा", Suffix: "-वा", Masculine: "बारावा", Feminine: "बारावी", Neuter: "बारावे"},
+		{Number: 20, Word: "वीसावा", Suffix: "-वा", Masculine: "वीसावा", Feminine: "वीसावी", Neuter: "वीसावे"},
+		{Number: 21, Word: "एकविसावा", Suffix: "-वा", Masculine: "एकविसावा", Feminine: "एकविसावी", Neuter: "एकविसावे"},
+		{Number: 30, Word: "तीसावा", Suffix: "-वा", Masculine: "तीसावा", Feminine: "तीसावी", Neuter: "तीसावे"},
+		{Number: 100, Word: "शंभरावा", Suffix: "-वा", Masculine: "शंभरावा", Feminine: "शंभरावी", Neuter: "शंभरावे"},
+		{Number: 1000, Word: "हजारावा", Suffix: "-वा", Masculine: "हजारावा", Feminine: "हजारावी", Neuter: "हजारावे"},
+	},
 }

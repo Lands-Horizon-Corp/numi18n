@@ -176,4 +176,23 @@ var MINZLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Kotahi rau"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "tuatahi", Suffix: "o", Masculine: "tuatahi", Feminine: "tuatahi", Neuter: "tuatahi"},
+		{Number: 2, Word: "tuarua", Suffix: "o", Masculine: "tuarua", Feminine: "tuarua", Neuter: "tuarua"},
+		{Number: 3, Word: "tuatoru", Suffix: "o", Masculine: "tuatoru", Feminine: "tuatoru", Neuter: "tuatoru"},
+		{Number: 4, Word: "tuawhā", Suffix: "o", Masculine: "tuawhā", Feminine: "tuawhā", Neuter: "tuawhā"},
+		{Number: 5, Word: "tuarima", Suffix: "o", Masculine: "tuarima", Feminine: "tuarima", Neuter: "tuarima"},
+		{Number: 6, Word: "tuaono", Suffix: "o", Masculine: "tuaono", Feminine: "tuaono", Neuter: "tuaono"},
+		{Number: 7, Word: "tuawhitu", Suffix: "o", Masculine: "tuawhitu", Feminine: "tuawhitu", Neuter: "tuawhitu"},
+		{Number: 8, Word: "tuawaru", Suffix: "o", Masculine: "tuawaru", Feminine: "tuawaru", Neuter: "tuawaru"},
+		{Number: 9, Word: "tuaiwa", Suffix: "o", Masculine: "tuaiwa", Feminine: "tuaiwa", Neuter: "tuaiwa"},
+		{Number: 10, Word: "tuatekau", Suffix: "o", Masculine: "tuatekau", Feminine: "tuatekau", Neuter: "tuatekau"},
+		{Number: 11, Word: "tua tekau mā kotahi", Suffix: "o", Masculine: "tua tekau mā kotahi", Feminine: "tua tekau mā kotahi", Neuter: "tua tekau mā kotahi"},
+		{Number: 12, Word: "tua tekau mā rua", Suffix: "o", Masculine: "tua tekau mā rua", Feminine: "tua tekau mā rua", Neuter: "tua tekau mā rua"},
+		{Number: 20, Word: "tua rua tekau", Suffix: "o", Masculine: "tua rua tekau", Feminine: "tua rua tekau", Neuter: "tua rua tekau"},
+		{Number: 21, Word: "tua rua tekau mā kotahi", Suffix: "o", Masculine: "tua rua tekau mā kotahi", Feminine: "tua rua tekau mā kotahi", Neuter: "tua rua tekau mā kotahi"},
+		{Number: 30, Word: "tua toru tekau", Suffix: "o", Masculine: "tua toru tekau", Feminine: "tua toru tekau", Neuter: "tua toru tekau"},
+		{Number: 100, Word: "tua kotahi rau", Suffix: "o", Masculine: "tua kotahi rau", Feminine: "tua kotahi rau", Neuter: "tua kotahi rau"},
+		{Number: 1000, Word: "tua kotahi mano", Suffix: "o", Masculine: "tua kotahi mano", Feminine: "tua kotahi mano", Neuter: "tua kotahi mano"},
+	},
 }

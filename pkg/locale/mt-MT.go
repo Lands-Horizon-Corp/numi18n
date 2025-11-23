@@ -176,4 +176,23 @@ var MTMTLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Mija waħda"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "l-ewwel", Suffix: "-ewwel", Masculine: "l-ewwel", Feminine: "l-ewwel", Neuter: "l-ewwel"},
+		{Number: 2, Word: "it-tieni", Suffix: "-tieni", Masculine: "it-tieni", Feminine: "it-tieni", Neuter: "it-tieni"},
+		{Number: 3, Word: "it-tielet", Suffix: "-tielet", Masculine: "it-tielet", Feminine: "it-tielet", Neuter: "it-tielet"},
+		{Number: 4, Word: "ir-raba'", Suffix: "-raba'", Masculine: "ir-raba'", Feminine: "ir-raba'", Neuter: "ir-raba'"},
+		{Number: 5, Word: "il-ħames", Suffix: "-ħames", Masculine: "il-ħames", Feminine: "il-ħames", Neuter: "il-ħames"},
+		{Number: 6, Word: "is-sitt", Suffix: "-sitt", Masculine: "is-sitt", Feminine: "is-sitt", Neuter: "is-sitt"},
+		{Number: 7, Word: "is-seba'", Suffix: "-seba'", Masculine: "is-seba'", Feminine: "is-seba'", Neuter: "is-seba'"},
+		{Number: 8, Word: "it-tmien", Suffix: "-tmien", Masculine: "it-tmien", Feminine: "it-tmien", Neuter: "it-tmien"},
+		{Number: 9, Word: "id-disgħa", Suffix: "-disgħa", Masculine: "id-disgħa", Feminine: "id-disgħa", Neuter: "id-disgħa"},
+		{Number: 10, Word: "l-għaxar", Suffix: "-għaxar", Masculine: "l-għaxar", Feminine: "l-għaxar", Neuter: "l-għaxar"},
+		{Number: 11, Word: "il-ħdax", Suffix: "-ħdax", Masculine: "il-ħdax", Feminine: "il-ħdax", Neuter: "il-ħdax"},
+		{Number: 12, Word: "it-tnax", Suffix: "-tnax", Masculine: "it-tnax", Feminine: "it-tnax", Neuter: "it-tnax"},
+		{Number: 20, Word: "l-għoxrin", Suffix: "-għoxrin", Masculine: "l-għoxrin", Feminine: "l-għoxrin", Neuter: "l-għoxrin"},
+		{Number: 21, Word: "l-wieħed u għoxrin", Suffix: "-wieħed u għoxrin", Masculine: "l-wieħed u għoxrin", Feminine: "l-wieħed u għoxrin", Neuter: "l-wieħed u għoxrin"},
+		{Number: 30, Word: "it-tletin", Suffix: "-tletin", Masculine: "it-tletin", Feminine: "it-tletin", Neuter: "it-tletin"},
+		{Number: 100, Word: "il-mija", Suffix: "-mija", Masculine: "il-mija", Feminine: "il-mija", Neuter: "il-mija"},
+		{Number: 1000, Word: "l-elf", Suffix: "-elf", Masculine: "l-elf", Feminine: "l-elf", Neuter: "l-elf"},
+	},
 }

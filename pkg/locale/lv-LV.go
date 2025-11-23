@@ -176,4 +176,23 @@ var LVLVLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Viens simts"},
 	},
+	OrdinalMapping: []OrdinalMapping{
+		{Number: 1, Word: "pirmais", Suffix: "-ais", Masculine: "pirmais", Feminine: "pirmā", Neuter: "pirmais"},
+		{Number: 2, Word: "otrais", Suffix: "-ais", Masculine: "otrais", Feminine: "otrā", Neuter: "otrais"},
+		{Number: 3, Word: "trešais", Suffix: "-ais", Masculine: "trešais", Feminine: "trešā", Neuter: "trešais"},
+		{Number: 4, Word: "ceturtais", Suffix: "-ais", Masculine: "ceturtais", Feminine: "ceturtā", Neuter: "ceturtais"},
+		{Number: 5, Word: "piektais", Suffix: "-ais", Masculine: "piektais", Feminine: "piektā", Neuter: "piektais"},
+		{Number: 6, Word: "sestais", Suffix: "-ais", Masculine: "sestais", Feminine: "sestā", Neuter: "sestais"},
+		{Number: 7, Word: "septītais", Suffix: "-ais", Masculine: "septītais", Feminine: "septītā", Neuter: "septītais"},
+		{Number: 8, Word: "astotais", Suffix: "-ais", Masculine: "astotais", Feminine: "astotā", Neuter: "astotais"},
+		{Number: 9, Word: "devītais", Suffix: "-ais", Masculine: "devītais", Feminine: "devītā", Neuter: "devītais"},
+		{Number: 10, Word: "desmitais", Suffix: "-ais", Masculine: "desmitais", Feminine: "desmitā", Neuter: "desmitais"},
+		{Number: 11, Word: "vienpadsmitais", Suffix: "-ais", Masculine: "vienpadsmitais", Feminine: "vienpadsmitā", Neuter: "vienpadsmitais"},
+		{Number: 12, Word: "divpadsmitais", Suffix: "-ais", Masculine: "divpadsmitais", Feminine: "divpadsmitā", Neuter: "divpadsmitais"},
+		{Number: 20, Word: "divdesmitais", Suffix: "-ais", Masculine: "divdesmitais", Feminine: "divdesmitā", Neuter: "divdesmitais"},
+		{Number: 21, Word: "divdesmit pirmais", Suffix: "-ais", Masculine: "divdesmit pirmais", Feminine: "divdesmit pirmā", Neuter: "divdesmit pirmais"},
+		{Number: 30, Word: "trīsdesmitais", Suffix: "-ais", Masculine: "trīsdesmitais", Feminine: "trīsdesmitā", Neuter: "trīsdesmitais"},
+		{Number: 100, Word: "simtais", Suffix: "-ais", Masculine: "simtais", Feminine: "simtā", Neuter: "simtais"},
+		{Number: 1000, Word: "tūkstošais", Suffix: "-ais", Masculine: "tūkstošais", Feminine: "tūkstošā", Neuter: "tūkstošais"},
+	},
 }
