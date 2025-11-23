@@ -1,0 +1,68 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// INKNLocale is a NumI18NLocale configured for India (kn-IN)
+var INKNLocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "ರೂಪಾಯಿ",
+		Plural:   "ರೂಪಾಯಿಗಳು",
+		Singular: "ರೂಪಾಯಿ",
+		Symbol:   "₹",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "ಪೈಸೆ",
+			Plural:   "ಪೈಸೆಗಳು",
+			Singular: "ಪೈಸೆ",
+			Symbol:   "ಪ",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "ಮತ್ತು",
+		Minus: "ಮೈನಸ್",
+		Only:  "ಮಾತ್ರ",
+		Point: "ಬಿಂದು",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "ಒಂದು ಪದ್ಮ"},
+		{Number: 1000000000000, Value: "ಒಂದು ನೀಲ"},
+		{Number: 1000000000, Value: "ಒಂದು ಅಬ್ಜ"},
+		{Number: 10000000, Value: "ಒಂದು ಕೋಟಿ"},
+		{Number: 1000000, Value: "ಹತ್ತು ಲಕ್ಷ"},
+		{Number: 100000, Value: "ಒಂದು ಲಕ್ಷ"},
+		{Number: 1000, Value: "ಒಂದು ಸಾವಿರ"},
+		{Number: 100, Value: "ಒಂದು ನೂರು"},
+		{Number: 90, Value: "ತೊಂಬತ್ತು"},
+		{Number: 80, Value: "ಎಂಬತ್ತು"},
+		{Number: 70, Value: "ಎಪ್ಪತ್ತು"},
+		{Number: 60, Value: "ಅರುವತ್ತು"},
+		{Number: 50, Value: "ಐವತ್ತು"},
+		{Number: 40, Value: "ನಲವತ್ತು"},
+		{Number: 30, Value: "ಮೂವತ್ತು"},
+		{Number: 20, Value: "ಇಪ್ಪತ್ತು"},
+		{Number: 19, Value: "ಹತ್ತೊಂಬತ್ತು"},
+		{Number: 18, Value: "ಹದಿನೆಂಟು"},
+		{Number: 17, Value: "ಹದಿನೇಳು"},
+		{Number: 16, Value: "ಹದಿನಾರು"},
+		{Number: 15, Value: "ಹದಿನೈದು"},
+		{Number: 14, Value: "ಹದಿನಾಲ್ಕು"},
+		{Number: 13, Value: "ಹದಿಮೂರು"},
+		{Number: 12, Value: "ಹನ್ನೆರಡು"},
+		{Number: 11, Value: "ಹನ್ನೊಂದು"},
+		{Number: 10, Value: "ಹತ್ತು"},
+		{Number: 9, Value: "ಒಂಬತ್ತು"},
+		{Number: 8, Value: "ಎಂಟು"},
+		{Number: 7, Value: "ಏಳು"},
+		{Number: 6, Value: "ಆರು"},
+		{Number: 5, Value: "ಐದು"},
+		{Number: 4, Value: "ನಾಲ್ಕು"},
+		{Number: 3, Value: "ಮೂರು"},
+		{Number: 2, Value: "ಎರಡು"},
+		{Number: 1, Value: "ಒಂದು"},
+		{Number: 0, Value: "ಶೂನ್ಯ"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "ಒಂದು ನೂರು"},
+		{Number: 100000, Value: "ಒಂದು ಲಕ್ಷ"},
+		{Number: 10000000, Value: "ಒಂದು ಕೋಟಿ"},
+	},
+}

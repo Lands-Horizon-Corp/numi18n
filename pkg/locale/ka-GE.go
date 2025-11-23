@@ -1,0 +1,64 @@
+package locale
+
+import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+
+// GELocale is a NumI18NLocale configured for Georgia (ka-GE)
+var GELocale = pkg.NumI18NLocale{
+	Currency: pkg.Currency{
+		Name:     "ლარი",
+		Plural:   "ლარი",
+		Singular: "ლარი",
+		Symbol:   "₾",
+		FractionUnit: pkg.FractionUnit{
+			Name:     "თეთრი",
+			Plural:   "თეთრი",
+			Singular: "თეთრი",
+			Symbol:   "თ",
+		},
+	},
+	Texts: pkg.Texts{
+		And:   "და",
+		Minus: "მინუს",
+		Only:  "მხოლოდ",
+		Point: "წერტილი",
+	},
+	NumberWordsMapping: []pkg.NumberWordMapping{
+		{Number: 1000000000000000, Value: "ერთი კვადრილიონი"},
+		{Number: 1000000000000, Value: "ერთი ტრილიონი"},
+		{Number: 1000000000, Value: "ერთი მილიარდი"},
+		{Number: 1000000, Value: "ერთი მილიონი"},
+		{Number: 1000, Value: "ერთი ათასი"},
+		{Number: 100, Value: "ერთი ასი"},
+		{Number: 90, Value: "ოთხმოცდაათი"},
+		{Number: 80, Value: "ოთხმოცი"},
+		{Number: 70, Value: "სამოცდაათი"},
+		{Number: 60, Value: "სამოცი"},
+		{Number: 50, Value: "ორმოცდაათი"},
+		{Number: 40, Value: "ორმოცი"},
+		{Number: 30, Value: "ოცდაათი"},
+		{Number: 20, Value: "ოცი"},
+		{Number: 19, Value: "ცხრამეტი"},
+		{Number: 18, Value: "თვრამეტი"},
+		{Number: 17, Value: "ჩვიდმეტი"},
+		{Number: 16, Value: "თექვსმეტი"},
+		{Number: 15, Value: "თხუთმეტი"},
+		{Number: 14, Value: "თოთხმეტი"},
+		{Number: 13, Value: "ცამეტი"},
+		{Number: 12, Value: "თორმეტი"},
+		{Number: 11, Value: "თერთმეტი"},
+		{Number: 10, Value: "ათი"},
+		{Number: 9, Value: "ცხრა"},
+		{Number: 8, Value: "რვა"},
+		{Number: 7, Value: "შვიდი"},
+		{Number: 6, Value: "ექვსი"},
+		{Number: 5, Value: "ხუთი"},
+		{Number: 4, Value: "ოთხი"},
+		{Number: 3, Value: "სამი"},
+		{Number: 2, Value: "ორი"},
+		{Number: 1, Value: "ერთი"},
+		{Number: 0, Value: "ნული"},
+	},
+	ExactWordsMapping: []pkg.ExactWordMapping{
+		{Number: 100, Value: "ერთი ასი"},
+	},
+}
