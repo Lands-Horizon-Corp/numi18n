@@ -104,6 +104,7 @@ var USLocale = NumI18NLocale{
 		{Number: 1000, Word: "One Thousandth", Suffix: "th"},
 		{Number: 1000000, Word: "One Millionth", Suffix: "th"},
 	},
+	LocaleFormatter: &EnglishFormatter{},
 }
 
 // EnglishFormatter handles English (and default) formatting

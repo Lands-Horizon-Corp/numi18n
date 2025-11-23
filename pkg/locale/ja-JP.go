@@ -108,6 +108,7 @@ var JPLocale = NumI18NLocale{
 		{Number: 100, Word: "第百", Suffix: "番目", Masculine: "第百", Feminine: "第百", Neuter: "第百"},
 		{Number: 1000, Word: "第千", Suffix: "番目", Masculine: "第千", Feminine: "第千", Neuter: "第千"},
 	},
+	LocaleFormatter: &JapaneseFormatter{},
 }
 
 // JapaneseFormatter handles Japanese-specific formatting

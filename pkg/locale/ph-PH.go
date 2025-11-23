@@ -105,6 +105,7 @@ var PHPHLocale = NumI18NLocale{
 		{Number: 1000, Word: "Ikalibo", Suffix: "-ng", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000000, Word: "Ikamilyun", Suffix: "-ng", Masculine: "", Feminine: "", Neuter: ""},
 	},
+	LocaleFormatter: &FilipinoFormatter{},
 }
 
 // FilipinoFormatter handles Filipino-specific formatting

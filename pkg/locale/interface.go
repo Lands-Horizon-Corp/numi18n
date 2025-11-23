@@ -59,6 +59,7 @@ type NumI18NLocale struct {
 	NumberWordsMapping []NumberWordMapping
 	ExactWordsMapping  []ExactWordMapping
 	OrdinalMapping     []OrdinalMapping
+	LocaleFormatter    LocaleFormatter
 }
 
 // LocaleFormatter defines the interface for locale-specific formatting
