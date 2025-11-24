@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // AMETLocale is a NumI18NLocale configured for Amharic (Ethiopia) - am-ET
 var AMETLocale = NumI18NLocale{
 	Currency: Currency{
@@ -37,27 +39,27 @@ var AMETLocale = NumI18NLocale{
 		{Number: 1000000, Value: "ሚሊዮን"},
 		{Number: 1000, Value: "ሺህ"},
 		{Number: 100, Value: "መቶ"},
-		{Number: 90, Value: "ሰባ ዓሥር"},
+		{Number: 90, Value: "ዘጠና"},
 		{Number: 80, Value: "ሰማንያ"},
 		{Number: 70, Value: "ሰባ"},
-		{Number: 60, Value: "ስስት ዐሥር"},
+		{Number: 60, Value: "ስድስት ዐሥር"},
 		{Number: 50, Value: "ሃምሳ"},
 		{Number: 40, Value: "አርባ"},
 		{Number: 30, Value: "ሰላሳ"},
 		{Number: 20, Value: "ሃያ"},
-		{Number: 19, Value: "ታያ አምስት"},
+		{Number: 19, Value: "አስራ ዘጠኝ"},
 		{Number: 18, Value: "አስራ ስምንት"},
-		{Number: 17, Value: "አስራ ሰባ"},
-		{Number: 16, Value: "አስራ ስስት"},
-		{Number: 15, Value: "አስራ ሃምሳ"},
-		{Number: 14, Value: "አስራ አርባ"},
+		{Number: 17, Value: "አስራ ሰባት"},
+		{Number: 16, Value: "አስራ ስድስት"},
+		{Number: 15, Value: "አስራ አምስት"},
+		{Number: 14, Value: "አስራ አራት"},
 		{Number: 13, Value: "አስራ ሶስት"},
 		{Number: 12, Value: "አስራ ሁለት"},
 		{Number: 11, Value: "አስራ አንድ"},
 		{Number: 10, Value: "አስር"},
 		{Number: 9, Value: "ዘጠኝ"},
 		{Number: 8, Value: "ስምንት"},
-		{Number: 7, Value: "ሰባ"},
+		{Number: 7, Value: "ሰባት"},
 		{Number: 6, Value: "ስድስት"},
 		{Number: 5, Value: "አምስት"},
 		{Number: 4, Value: "አራት"},
@@ -101,4 +103,40 @@ var AMETLocale = NumI18NLocale{
 		{Number: 100, Word: "መቶኛ", Suffix: "ኛ", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000, Word: "ሺህኛ", Suffix: "ኛ", Masculine: "", Feminine: "", Neuter: ""},
 	},
+	LocaleFormatter: &AmharicFormatter{},
+}
+
+// AmharicFormatter handles Amharic (am-ET) formatting
+type AmharicFormatter struct{}
+
+func (f *AmharicFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *AmharicFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// In Amharic, currency name typically comes after the number
+	// The currency name is the same for singular and plural (ብር)
+	return result + " " + currencyName
+}
+
+func (f *AmharicFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	// In Amharic, "and" (እና) connects the whole and fractional parts
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *AmharicFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// In Amharic, fraction name is the same for singular and plural (ሚልስ)
+	return result + " " + fractionName
+}
+
+func (f *AmharicFormatter) FormatNegative(result, negativeWord string) string {
+	// In Amharic, negative word (አልፎ) comes before the number
+	return negativeWord + " " + result
+}
+
+func (f *AmharicFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }

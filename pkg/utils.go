@@ -135,5 +135,15 @@ func (op *NumI18NOptions) capitalizeFirst(s string) string {
 	if len(s) == 0 {
 		return s
 	}
-	return strings.ToUpper(s[:1]) + s[1:]
+	// Handle UTF-8 characters properly
+	runes := []rune(s)
+	if len(runes) == 0 {
+		return s
+	}
+	upperFirst := strings.ToUpper(string(runes[0]))
+	upperRunes := []rune(upperFirst)
+	if len(upperRunes) > 0 {
+		runes[0] = upperRunes[0]
+	}
+	return string(runes)
 }
