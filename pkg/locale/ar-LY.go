@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ARLYLocale is a NumI18NLocale configured for Arabic (Libya) - ar-LY
 var ARLYLocale = NumI18NLocale{
+	LocaleFormatter: &ArabicLibyaFormatter{},
 	Currency: Currency{
 		Name:     "دينار",
 		Plural:   "دنانير",
@@ -101,4 +104,37 @@ var ARLYLocale = NumI18NLocale{
 		{Number: 100, Word: "المئة", Suffix: "", Masculine: "المئة", Feminine: "المئة", Neuter: ""},
 		{Number: 1000, Word: "الألف", Suffix: "", Masculine: "الألف", Feminine: "الألف", Neuter: ""},
 	},
+}
+
+// ArabicLibyaFormatter handles Arabic (Libya) formatting
+type ArabicLibyaFormatter struct{}
+
+func (f *ArabicLibyaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ArabicLibyaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *ArabicLibyaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ArabicLibyaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ArabicLibyaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *ArabicLibyaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Round(int32(precision))
 }
