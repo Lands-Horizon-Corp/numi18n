@@ -121,7 +121,7 @@ func TestToWords_Arabic001_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "واحد مليون اثنان مئة ثلاثة ثلاثون أربعة ألف خمسة مئة ستون سبعة",
+			expected: "واحد مليون اثنان مئة ثلاثون أربعة ألف خمسة مئة ستون سبعة",
 		},
 	}
 
@@ -259,7 +259,7 @@ func TestToWords_Arabic001_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "واحد ألف اثنان مئة ثلاثة ثلاثون أربعة دولارات و خمسون ستة سنتات",
+			expected: "واحد ألف اثنان مئة ثلاثون أربعة دولارات و خمسون ستة سنتات",
 		},
 		{
 			name:   "Decimal without currency",
