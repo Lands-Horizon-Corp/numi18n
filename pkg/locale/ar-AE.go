@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ARAELocale is a NumI18NLocale configured for Arabic (United Arab Emirates) - ar-AE
 var ARAELocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,43 @@ var ARAELocale = NumI18NLocale{
 		{Number: 100, Word: "المئة", Suffix: "", Masculine: "المئة", Feminine: "المئة", Neuter: ""},
 		{Number: 1000, Word: "الألف", Suffix: "", Masculine: "الألف", Feminine: "الألف", Neuter: ""},
 	},
+	LocaleFormatter: &ArabicUAEFormatter{},
+}
+
+// ArabicUAEFormatter handles Arabic (ar-AE) formatting specific to UAE
+type ArabicUAEFormatter struct{}
+
+func (f *ArabicUAEFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ArabicUAEFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// In Arabic UAE, currency name typically comes after the number
+	// The currency name is the same for singular and plural (درهم)
+	return result + " " + currencyName
+}
+
+func (f *ArabicUAEFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	// In Arabic, "and" (و) connects the whole and fractional parts
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ArabicUAEFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// In Arabic, use plural form for numbers other than 1
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ArabicUAEFormatter) FormatNegative(result, negativeWord string) string {
+	// In Arabic, negative word (ناقص) comes before the number
+	return negativeWord + " " + result
+}
+
+func (f *ArabicUAEFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }

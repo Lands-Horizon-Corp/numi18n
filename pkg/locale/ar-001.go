@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // AR001Locale is a NumI18NLocale configured for Arabic (World) - ar-001
 var AR001Locale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,54 @@ var AR001Locale = NumI18NLocale{
 		{Number: 100, Word: "المئة", Suffix: "", Masculine: "المئة", Feminine: "المئة", Neuter: ""},
 		{Number: 1000, Word: "الألف", Suffix: "", Masculine: "الألف", Feminine: "الألف", Neuter: ""},
 	},
+	LocaleFormatter: &ArabicFormatter{},
+}
+
+// ArabicFormatter handles Arabic (ar-001) formatting
+type ArabicFormatter struct{}
+
+func (f *ArabicFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ArabicFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// In Arabic, currency formatting depends on the number
+	// 1: واحد دولار (one dollar)
+	// 2: دولاران (two dollars - dual form)
+	// 3-10: ثلاثة دولارات (three dollars - plural)
+	// 11+: أحد عشر دولارًا (eleven dollars - accusative plural)
+	switch wholePart {
+	case 1:
+		return result + " " + currencyName
+	case 2:
+		// Arabic dual form - but we'll use plural for simplicity
+		return result + " " + currencyPlural
+	default:
+		return result + " " + currencyPlural
+	}
+}
+
+func (f *ArabicFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	// In Arabic, "و" (and) connects the whole and fractional parts
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ArabicFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// Similar to currency formatting
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ArabicFormatter) FormatNegative(result, negativeWord string) string {
+	// In Arabic, negative word (ناقص) comes before the number
+	return negativeWord + " " + result
+}
+
+func (f *ArabicFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }
