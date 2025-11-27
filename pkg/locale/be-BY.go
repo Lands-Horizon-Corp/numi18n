@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // BEBYLocale is a NumI18NLocale configured for Belarusian (Belarus) - be-BY
 var BEBYLocale = NumI18NLocale{
+	LocaleFormatter: &BelarusianFormatter{},
 	Currency: Currency{
 		Name:     "Беларускі рубель",
 		Plural:   "Беларускія рублі",
@@ -101,4 +104,37 @@ var BEBYLocale = NumI18NLocale{
 		{Number: 100, Word: "соты", Suffix: "", Masculine: "соты", Feminine: "сотая", Neuter: "сотае"},
 		{Number: 1000, Word: "тысячны", Suffix: "", Masculine: "тысячны", Feminine: "тысячная", Neuter: "тысячнае"},
 	},
+}
+
+// BelarusianFormatter handles Belarusian formatting
+type BelarusianFormatter struct{}
+
+func (f *BelarusianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *BelarusianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *BelarusianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *BelarusianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *BelarusianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *BelarusianFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

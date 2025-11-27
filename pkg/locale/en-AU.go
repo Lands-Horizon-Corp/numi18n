@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // AUALocale is a NumI18NLocale configured for Australia (en-AU)
 var AUALocale = NumI18NLocale{
+	LocaleFormatter: &EnglishAustraliaFormatter{},
 	Currency: Currency{
 		Name:     "Australian Dollar",
 		Plural:   "Australian Dollars",
@@ -100,4 +103,37 @@ var AUALocale = NumI18NLocale{
 		{Number: 1000, Word: "Thousandth", Suffix: "th", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000000, Word: "Millionth", Suffix: "th", Masculine: "", Feminine: "", Neuter: ""},
 	},
+}
+
+// EnglishAustraliaFormatter handles English (Australia) formatting
+type EnglishAustraliaFormatter struct{}
+
+func (f *EnglishAustraliaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *EnglishAustraliaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *EnglishAustraliaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *EnglishAustraliaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *EnglishAustraliaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *EnglishAustraliaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

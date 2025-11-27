@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ELGRLocale is a NumI18NLocale configured for Greek (Greece) - el-GR
 var ELGRLocale = NumI18NLocale{
+	LocaleFormatter: &GreekFormatter{},
 	Currency: Currency{
 		Name:     "Ευρώ",
 		Plural:   "Ευρώ",
@@ -98,4 +101,37 @@ var ELGRLocale = NumI18NLocale{
 		{Number: 1000, Word: "χιλιοστή", Suffix: "ος/η/ο", Masculine: "χιλιοστός", Feminine: "χιλιοστή", Neuter: "χιλιοστό"},
 		{Number: 1000000, Word: "εκατομμυριοστή", Suffix: "ος/η/ο", Masculine: "εκατομμυριοστός", Feminine: "εκατομμυριοστή", Neuter: "εκατομμυριοστό"},
 	},
+}
+
+// GreekFormatter handles Greek (Greece) formatting
+type GreekFormatter struct{}
+
+func (f *GreekFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *GreekFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *GreekFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *GreekFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *GreekFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *GreekFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }

@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // BGBGLocale is a NumI18NLocale configured for Bulgarian (Bulgaria) - bg-BG
 var BGBGLocale = NumI18NLocale{
+	LocaleFormatter: &BulgarianFormatter{},
 	Currency: Currency{
 		Name:     "лев",
 		Plural:   "лева",
@@ -101,4 +104,37 @@ var BGBGLocale = NumI18NLocale{
 		{Number: 100, Word: "стогодишен", Suffix: "", Masculine: "стогодишен", Feminine: "стогодишна", Neuter: "стогодишно"},
 		{Number: 1000, Word: "хилядни", Suffix: "", Masculine: "хилядни", Feminine: "хилядна", Neuter: "хилядно"},
 	},
+}
+
+// BulgarianFormatter handles Bulgarian formatting
+type BulgarianFormatter struct{}
+
+func (f *BulgarianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *BulgarianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *BulgarianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *BulgarianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *BulgarianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *BulgarianFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

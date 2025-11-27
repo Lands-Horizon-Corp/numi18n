@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // CSCZLocale is a NumI18NLocale configured for Czech (Czech Republic) - cs-CZ
 var CSCZLocale = NumI18NLocale{
+	LocaleFormatter: &CzechFormatter{},
 	Currency: Currency{
 		Name:     "Koruna",
 		Plural:   "Koruny",
@@ -101,4 +104,40 @@ var CSCZLocale = NumI18NLocale{
 		{Number: 100, Word: "stý", Suffix: ".", Masculine: "stý", Feminine: "stá", Neuter: "sté"},
 		{Number: 1000, Word: "tisící", Suffix: ".", Masculine: "tisící", Feminine: "tisící", Neuter: "tisící"},
 	},
+}
+
+// CzechFormatter handles Czech formatting
+type CzechFormatter struct{}
+
+func (f *CzechFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *CzechFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *CzechFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *CzechFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *CzechFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *CzechFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return value.Truncate(int32(precision))
 }

@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // DEDELocale is a NumI18NLocale configured for German (Germany) - de-DE
 var DEDELocale = NumI18NLocale{
+	LocaleFormatter: &GermanFormatter{},
 	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euro",
@@ -98,4 +101,37 @@ var DEDELocale = NumI18NLocale{
 		{Number: 1000, Word: "tausendste", Suffix: ".", Masculine: "tausendster", Feminine: "tausendste", Neuter: "tausendstes"},
 		{Number: 1000000, Word: "millionste", Suffix: ".", Masculine: "millionster", Feminine: "millionste", Neuter: "millionstes"},
 	},
+}
+
+// GermanFormatter handles German (Germany) formatting
+type GermanFormatter struct{}
+
+func (f *GermanFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *GermanFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *GermanFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *GermanFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *GermanFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *GermanFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Round(int32(precision))
 }

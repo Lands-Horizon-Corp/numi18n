@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // AEELocale is a NumI18NLocale configured for United Arab Emirates (en-AE)
 var AEELocale = NumI18NLocale{
+	LocaleFormatter: &EnglishUAEFormatter{},
 	Currency: Currency{
 		Name:     "Dirham",
 		Plural:   "Dirhams",
@@ -100,4 +103,37 @@ var AEELocale = NumI18NLocale{
 		{Number: 1000, Word: "Thousandth", Suffix: "th", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000000, Word: "Millionth", Suffix: "th", Masculine: "", Feminine: "", Neuter: ""},
 	},
+}
+
+// EnglishUAEFormatter handles English (UAE) formatting
+type EnglishUAEFormatter struct{}
+
+func (f *EnglishUAEFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *EnglishUAEFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *EnglishUAEFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *EnglishUAEFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *EnglishUAEFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *EnglishUAEFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

@@ -1,7 +1,12 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // BNBDLocale is a NumI18NLocale configured for Bengali (Bangladesh) - bn-BD
 var BNBDLocale = NumI18NLocale{
+	LocaleFormatter: &BengaliFormatter{},
 	Currency: Currency{
 		Name:     "টাকা",
 		Plural:   "টাকা",
@@ -101,4 +106,33 @@ var BNBDLocale = NumI18NLocale{
 		{Number: 100, Word: "শততম", Suffix: "", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000, Word: "সহস্রত্তম", Suffix: "", Masculine: "", Feminine: "", Neuter: ""},
 	},
+}
+
+// BengaliFormatter handles Bengali (Bangladesh) formatting
+type BengaliFormatter struct{}
+
+func (f *BengaliFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *BengaliFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// Bengali taka doesn't change for singular/plural
+	return result + " " + currencyName
+}
+
+func (f *BengaliFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *BengaliFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// Bengali paisa doesn't change for singular/plural
+	return result + " " + fractionName
+}
+
+func (f *BengaliFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *BengaliFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Round(int32(precision))
 }

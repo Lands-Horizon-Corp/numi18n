@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // DADKLocale is a NumI18NLocale configured for Danish (Denmark) - da-DK
 var DADKLocale = NumI18NLocale{
+	LocaleFormatter: &DanishFormatter{},
 	Currency: Currency{
 		Name:     "Krone",
 		Plural:   "Kroner",
@@ -101,4 +104,40 @@ var DADKLocale = NumI18NLocale{
 		{Number: 100, Word: "hundredende", Suffix: ".", Masculine: "hundredende", Feminine: "hundredende", Neuter: "hundredende"},
 		{Number: 1000, Word: "tusindende", Suffix: ".", Masculine: "tusindende", Feminine: "tusindende", Neuter: "tusindende"},
 	},
+}
+
+// DanishFormatter handles Danish formatting
+type DanishFormatter struct{}
+
+func (f *DanishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *DanishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *DanishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *DanishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *DanishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *DanishFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return value.Truncate(int32(precision))
 }

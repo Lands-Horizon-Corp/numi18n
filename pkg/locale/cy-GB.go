@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // CYGBLocale is a NumI18NLocale configured for Welsh (United Kingdom) - cy-GB
 var CYGBLocale = NumI18NLocale{
+	LocaleFormatter: &WelshFormatter{},
 	Currency: Currency{
 		Name:     "Punt",
 		Plural:   "Puntiau",
@@ -101,4 +104,40 @@ var CYGBLocale = NumI18NLocale{
 		{Number: 100, Word: "canfed", Suffix: "fed", Masculine: "canfed", Feminine: "canfed", Neuter: ""},
 		{Number: 1000, Word: "milfed", Suffix: "fed", Masculine: "milfed", Feminine: "milfed", Neuter: ""},
 	},
+}
+
+// WelshFormatter handles Welsh formatting
+type WelshFormatter struct{}
+
+func (f *WelshFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *WelshFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *WelshFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *WelshFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *WelshFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *WelshFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return value.Truncate(int32(precision))
 }

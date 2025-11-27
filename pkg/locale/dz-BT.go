@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // DZBTLocale is a NumI18NLocale configured for Dzongkha (Bhutan) - dz-BT
 var DZBTLocale = NumI18NLocale{
+	LocaleFormatter: &DzongkhaFormatter{},
 	Currency: Currency{
 		Name:     "Ngultrum",
 		Plural:   "Ngultrum",
@@ -98,4 +101,37 @@ var DZBTLocale = NumI18NLocale{
 		{Number: 1000, Word: "མི་ལ་པ་", Suffix: "པ་", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000000, Word: "མི་ལི་ཨན་པ་", Suffix: "པ་", Masculine: "", Feminine: "", Neuter: ""},
 	},
+}
+
+// DzongkhaFormatter handles Dzongkha (Bhutan) formatting
+type DzongkhaFormatter struct{}
+
+func (f *DzongkhaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *DzongkhaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *DzongkhaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *DzongkhaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *DzongkhaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *DzongkhaFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }

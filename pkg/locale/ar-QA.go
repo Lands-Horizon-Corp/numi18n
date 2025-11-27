@@ -101,4 +101,5 @@ var ARQALocale = NumI18NLocale{
 		{Number: 100, Word: "المئة", Suffix: "", Masculine: "المئة", Feminine: "المئة", Neuter: ""},
 		{Number: 1000, Word: "الألف", Suffix: "", Masculine: "الألف", Feminine: "الألف", Neuter: ""},
 	},
+	LocaleFormatter: &ArabicFormatter{},
 }

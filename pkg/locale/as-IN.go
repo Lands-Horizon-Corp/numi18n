@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ASINLocale is a NumI18NLocale configured for Assamese (India) - as-IN
 var ASINLocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,41 @@ var ASINLocale = NumI18NLocale{
 		{Number: 100, Word: "শততম", Suffix: "", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000, Word: "সহস্ৰত্তম", Suffix: "", Masculine: "", Feminine: "", Neuter: ""},
 	},
+	LocaleFormatter: &AssameseFormatter{},
+}
+
+// AssameseFormatter handles Assamese (as-IN) formatting
+type AssameseFormatter struct{}
+
+func (f *AssameseFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *AssameseFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *AssameseFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *AssameseFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *AssameseFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *AssameseFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }

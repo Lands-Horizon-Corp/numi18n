@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // BSBALocale is a NumI18NLocale configured for Bosnian (Bosnia and Herzegovina) - bs-BA
 var BSBALocale = NumI18NLocale{
+	LocaleFormatter: &BosnianFormatter{},
 	Currency: Currency{
 		Name:     "Konvertibilna marka",
 		Plural:   "Konvertibilne marke",
@@ -101,4 +104,37 @@ var BSBALocale = NumI18NLocale{
 		{Number: 100, Word: "stoti", Suffix: "", Masculine: "stoti", Feminine: "stota", Neuter: "stoto"},
 		{Number: 1000, Word: "hiljaditi", Suffix: "", Masculine: "hiljaditi", Feminine: "hiljadita", Neuter: "hiljadito"},
 	},
+}
+
+// BosnianFormatter handles Bosnian formatting
+type BosnianFormatter struct{}
+
+func (f *BosnianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *BosnianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *BosnianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *BosnianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *BosnianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *BosnianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Round(int32(precision))
 }

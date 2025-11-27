@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // DVMVLocale is a NumI18NLocale configured for Dhivehi (Maldives) - dv-MV
 var DVMVLocale = NumI18NLocale{
+	LocaleFormatter: &DhivehiFormatter{},
 	Currency: Currency{
 		Name:     "Rufiyaa",
 		Plural:   "Rufiyaa",
@@ -98,4 +101,37 @@ var DVMVLocale = NumI18NLocale{
 		{Number: 1000, Word: "ހާސްވަނަ", Suffix: "ވަނަ", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000000, Word: "މިލިއަންވަނަ", Suffix: "ވަނަ", Masculine: "", Feminine: "", Neuter: ""},
 	},
+}
+
+// DhivehiFormatter handles Dhivehi (Maldives) formatting
+type DhivehiFormatter struct{}
+
+func (f *DhivehiFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *DhivehiFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *DhivehiFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *DhivehiFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *DhivehiFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *DhivehiFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Round(int32(precision))
 }

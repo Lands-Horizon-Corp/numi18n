@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // CAESLocale is a NumI18NLocale configured for Catalan (Spain) - ca-ES
 var CAESLocale = NumI18NLocale{
+	LocaleFormatter: &CatalanFormatter{},
 	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Euros",
@@ -101,4 +104,37 @@ var CAESLocale = NumI18NLocale{
 		{Number: 100, Word: "centè", Suffix: "è", Masculine: "centè", Feminine: "centena", Neuter: ""},
 		{Number: 1000, Word: "mil·lè", Suffix: "è", Masculine: "mil·lè", Feminine: "mil·lena", Neuter: ""},
 	},
+}
+
+// CatalanFormatter handles Catalan formatting
+type CatalanFormatter struct{}
+
+func (f *CatalanFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *CatalanFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *CatalanFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *CatalanFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *CatalanFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *CatalanFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Round(int32(precision))
 }
