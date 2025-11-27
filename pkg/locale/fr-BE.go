@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // BELocale is a NumI18NLocale configured for Belgium (fr-BE)
 var BELocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,38 @@ var BELocale = NumI18NLocale{
 		{Number: 100, Word: "Centième", Suffix: "e", Masculine: "Centième", Feminine: "Centième", Neuter: "Centième"},
 		{Number: 1000, Word: "Millième", Suffix: "e", Masculine: "Millième", Feminine: "Millième", Neuter: "Millième"},
 	},
+	LocaleFormatter: &FrenchBelgiumFormatter{},
+}
+
+// FrenchBelgiumFormatter handles French Belgium formatting
+type FrenchBelgiumFormatter struct{}
+
+func (f *FrenchBelgiumFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *FrenchBelgiumFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *FrenchBelgiumFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *FrenchBelgiumFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *FrenchBelgiumFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *FrenchBelgiumFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Round(int32(precision))
 }

@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // FOLocale is a NumI18NLocale configured for Faroe Islands (fo-FO)
 var FOLocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,38 @@ var FOLocale = NumI18NLocale{
 		{Number: 100, Word: "Hundrađi", Suffix: ".", Masculine: "Hundrađi", Feminine: "Hundrađa", Neuter: "Hundrađa"},
 		{Number: 1000, Word: "Túsundti", Suffix: ".", Masculine: "Túsundti", Feminine: "Túsundta", Neuter: "Túsundta"},
 	},
+	LocaleFormatter: &FaroeseFormatter{},
+}
+
+// FaroeseFormatter handles Faroese formatting
+type FaroeseFormatter struct{}
+
+func (f *FaroeseFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *FaroeseFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *FaroeseFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *FaroeseFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *FaroeseFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *FaroeseFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Round(int32(precision))
 }

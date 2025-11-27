@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // GBGDLocale is a NumI18NLocale configured for Great Britain (gd-GB)
 var GBGDLocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +105,38 @@ var GBGDLocale = NumI18NLocale{
 		{Number: 100, Word: "Ceudamh", Suffix: "mh", Masculine: "Ceudamh", Feminine: "Cheudamh", Neuter: "Ceudamh"},
 		{Number: 1000, Word: "Mìleamh", Suffix: "mh", Masculine: "Mìleamh", Feminine: "Mhìleamh", Neuter: "Mìleamh"},
 	},
+	LocaleFormatter: &ScottishGaelicFormatter{},
+}
+
+// ScottishGaelicFormatter handles Scottish Gaelic (gd-GB) formatting
+type ScottishGaelicFormatter struct{}
+
+func (f *ScottishGaelicFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ScottishGaelicFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *ScottishGaelicFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ScottishGaelicFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ScottishGaelicFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *ScottishGaelicFormatter) ChopDecimal(num decimal.Decimal, precision int) decimal.Decimal {
+	return num.Truncate(int32(precision))
 }

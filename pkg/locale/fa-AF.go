@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // AFLocale is a NumI18NLocale configured for Afghanistan (fa-AF)
 var AFLocale = NumI18NLocale{
 	Currency: Currency{
@@ -31,12 +33,12 @@ var AFLocale = NumI18NLocale{
 		Point: "نقطه",
 	},
 	NumberWordsMapping: []NumberWordMapping{
-		{Number: 1000000000000000, Value: "یک کوادریلیون"},
-		{Number: 1000000000000, Value: "یک تریلیون"},
-		{Number: 1000000000, Value: "یک میلیارد"},
-		{Number: 1000000, Value: "یک میلیون"},
-		{Number: 1000, Value: "یک هزار"},
-		{Number: 100, Value: "یک صد"},
+		{Number: 1000000000000000, Value: "کوادریلیون"},
+		{Number: 1000000000000, Value: "تریلیون"},
+		{Number: 1000000000, Value: "میلیارد"},
+		{Number: 1000000, Value: "میلیون"},
+		{Number: 1000, Value: "هزار"},
+		{Number: 100, Value: "صد"},
 		{Number: 90, Value: "نود"},
 		{Number: 80, Value: "هشتاد"},
 		{Number: 70, Value: "هفتاد"},
@@ -68,6 +70,11 @@ var AFLocale = NumI18NLocale{
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "یک صد"},
+		{Number: 1000, Value: "یک هزار"},
+		{Number: 1000000, Value: "یک میلیون"},
+		{Number: 1000000000, Value: "یک میلیارد"},
+		{Number: 1000000000000, Value: "یک تریلیون"},
+		{Number: 1000000000000000, Value: "یک کوادریلیون"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "اول", Suffix: "م", Masculine: "اول", Feminine: "اول", Neuter: "اول"},
@@ -101,4 +108,34 @@ var AFLocale = NumI18NLocale{
 		{Number: 100, Word: "صدم", Suffix: "م", Masculine: "صدم", Feminine: "صدم", Neuter: "صدم"},
 		{Number: 1000, Word: "هزارم", Suffix: "م", Masculine: "هزارم", Feminine: "هزارم", Neuter: "هزارم"},
 	},
+	LocaleFormatter: &PersianAfghanistanFormatter{},
+}
+
+// PersianAfghanistanFormatter handles Persian (Afghanistan) formatting
+type PersianAfghanistanFormatter struct{}
+
+func (f *PersianAfghanistanFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *PersianAfghanistanFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// In Persian, currency name comes after the number
+	return result + " " + currencyPlural
+}
+
+func (f *PersianAfghanistanFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *PersianAfghanistanFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// In Persian, fraction unit name comes after the number
+	return result + " " + fractionPlural
+}
+
+func (f *PersianAfghanistanFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *PersianAfghanistanFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Round(int32(precision))
 }

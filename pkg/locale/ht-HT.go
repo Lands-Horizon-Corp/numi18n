@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // HTLocale is a NumI18NLocale configured for Haiti (ht-HT)
 var HTLocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,38 @@ var HTLocale = NumI18NLocale{
 		{Number: 100, Word: "san-tyèm", Suffix: "èm", Masculine: "san-tyèm", Feminine: "san-tyèm", Neuter: "san-tyèm"},
 		{Number: 1000, Word: "mil-tyèm", Suffix: "èm", Masculine: "mil-tyèm", Feminine: "mil-tyèm", Neuter: "mil-tyèm"},
 	},
+	LocaleFormatter: &HaitianCreoleFormatter{},
+}
+
+// HaitianCreoleFormatter handles Haitian Creole formatting
+type HaitianCreoleFormatter struct{}
+
+func (f *HaitianCreoleFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *HaitianCreoleFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *HaitianCreoleFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *HaitianCreoleFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *HaitianCreoleFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *HaitianCreoleFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

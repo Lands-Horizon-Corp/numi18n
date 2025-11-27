@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // INHILocale is a NumI18NLocale configured for India (hi-IN)
 var INHILocale = NumI18NLocale{
 	Currency: Currency{
@@ -105,4 +107,39 @@ var INHILocale = NumI18NLocale{
 		{Number: 100, Word: "सौवाँ", Suffix: "वाँ", Masculine: "सौवाँ", Feminine: "सौवीं", Neuter: "सौवाँ"},
 		{Number: 1000, Word: "हजारवाँ", Suffix: "वाँ", Masculine: "हजारवाँ", Feminine: "हजारवीं", Neuter: "हजारवाँ"},
 	},
+	LocaleFormatter: &HindiFormatter{},
+}
+
+// HindiFormatter handles Hindi (hi-IN) formatting
+type HindiFormatter struct{}
+
+func (f *HindiFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *HindiFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *HindiFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *HindiFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *HindiFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *HindiFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	// Standard decimal chopping - round to specified precision
+	return amount.Round(int32(precision))
 }

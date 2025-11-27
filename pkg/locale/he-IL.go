@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ILLocale is a NumI18NLocale configured for Israel (he-IL)
 var ILLocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,39 @@ var ILLocale = NumI18NLocale{
 		{Number: 100, Word: "מאה", Suffix: "׳", Masculine: "מאה", Feminine: "מאה", Neuter: "מאה"},
 		{Number: 1000, Word: "אלף", Suffix: "׳", Masculine: "אלף", Feminine: "אלף", Neuter: "אלף"},
 	},
+	LocaleFormatter: &HebrewFormatter{},
+}
+
+// HebrewFormatter handles Hebrew (he-IL) formatting
+type HebrewFormatter struct{}
+
+func (f *HebrewFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *HebrewFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *HebrewFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *HebrewFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *HebrewFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *HebrewFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	// Standard decimal chopping - round to specified precision
+	return amount.Round(int32(precision))
 }

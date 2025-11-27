@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // IEGALocale is a NumI18NLocale configured for Ireland (ga-IE)
 var IEGALocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +105,38 @@ var IEGALocale = NumI18NLocale{
 		{Number: 100, Word: "Céadú", Suffix: "ú", Masculine: "Céadú", Feminine: "Chéadú", Neuter: "Céadú"},
 		{Number: 1000, Word: "Míliú", Suffix: "ú", Masculine: "Míliú", Feminine: "Míliú", Neuter: "Míliú"},
 	},
+	LocaleFormatter: &IrishFormatter{},
+}
+
+// IrishFormatter handles Irish Gaelic (ga-IE) formatting
+type IrishFormatter struct{}
+
+func (f *IrishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *IrishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *IrishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *IrishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *IrishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *IrishFormatter) ChopDecimal(num decimal.Decimal, precision int) decimal.Decimal {
+	return num.Truncate(int32(precision))
 }

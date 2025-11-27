@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // LUFRLocale is a NumI18NLocale configured for Luxembourg (fr-LU)
 var LUFRLocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,38 @@ var LUFRLocale = NumI18NLocale{
 		{Number: 100, Word: "Centième", Suffix: "e", Masculine: "Centième", Feminine: "Centième", Neuter: "Centième"},
 		{Number: 1000, Word: "Millième", Suffix: "e", Masculine: "Millième", Feminine: "Millième", Neuter: "Millième"},
 	},
+	LocaleFormatter: &FrenchLuxembourgFormatter{},
+}
+
+// FrenchLuxembourgFormatter handles French Luxembourg formatting
+type FrenchLuxembourgFormatter struct{}
+
+func (f *FrenchLuxembourgFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *FrenchLuxembourgFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *FrenchLuxembourgFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *FrenchLuxembourgFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *FrenchLuxembourgFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *FrenchLuxembourgFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Round(int32(precision))
 }

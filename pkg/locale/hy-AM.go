@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // AMLocale is a NumI18NLocale configured for Armenia (hy-AM)
 var AMLocale = NumI18NLocale{
 	Currency: Currency{
@@ -31,12 +33,12 @@ var AMLocale = NumI18NLocale{
 		Point: "Կետ",
 	},
 	NumberWordsMapping: []NumberWordMapping{
-		{Number: 1000000000000000, Value: "Մեկ քվադրիլիոն"},
-		{Number: 1000000000000, Value: "Մեկ տրիլիոն"},
-		{Number: 1000000000, Value: "Մեկ միլիարդ"},
-		{Number: 1000000, Value: "Մեկ միլիոն"},
-		{Number: 1000, Value: "Մեկ հազար"},
-		{Number: 100, Value: "Մեկ հարյուր"},
+		{Number: 1000000000000000, Value: "Քվադրիլիոն"},
+		{Number: 1000000000000, Value: "Տրիլիոն"},
+		{Number: 1000000000, Value: "Միլիարդ"},
+		{Number: 1000000, Value: "Միլիոն"},
+		{Number: 1000, Value: "Հազար"},
+		{Number: 100, Value: "Հարյուր"},
 		{Number: 90, Value: "Իննսուն"},
 		{Number: 80, Value: "Ութսուն"},
 		{Number: 70, Value: "Յոթանասուն"},
@@ -67,7 +69,9 @@ var AMLocale = NumI18NLocale{
 		{Number: 0, Value: "Զրո"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
-		{Number: 100, Value: "Մեկ հարյուր"},
+		{Number: 100, Value: "Մեկ Հարյուր"},
+		{Number: 1000, Value: "Մեկ Հազար"},
+		{Number: 1000000, Value: "Մեկ Միլիոն"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "առաջին", Suffix: "-րդ", Masculine: "առաջին", Feminine: "առաջին", Neuter: "առաջին"},
@@ -101,4 +105,38 @@ var AMLocale = NumI18NLocale{
 		{Number: 100, Word: "հարյուրերորդ", Suffix: "-րդ", Masculine: "հարյուրերորդ", Feminine: "հարյուրերորդ", Neuter: "հարյուրերորդ"},
 		{Number: 1000, Word: "հազարերորդ", Suffix: "-րդ", Masculine: "հազարերորդ", Feminine: "հազարերորդ", Neuter: "հազարերորդ"},
 	},
+	LocaleFormatter: &ArmenianFormatter{},
+}
+
+// ArmenianFormatter handles Armenian (hy-AM) formatting
+type ArmenianFormatter struct{}
+
+func (f *ArmenianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ArmenianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *ArmenianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ArmenianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ArmenianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *ArmenianFormatter) ChopDecimal(number decimal.Decimal, places int) decimal.Decimal {
+	return number.Truncate(int32(places))
 }

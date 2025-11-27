@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // EELocale is a NumI18NLocale configured for Estonia (et-EE)
 var EELocale = NumI18NLocale{
 	Currency: Currency{
@@ -67,7 +69,10 @@ var EELocale = NumI18NLocale{
 		{Number: 0, Value: "Null"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
-		{Number: 100, Value: "Sada"},
+		{100, "Üks Sada"},
+		{1000, "Üks Tuhat"},
+		{1000000, "Üks Miljon"},
+		{1000000000, "Üks Miljard"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "Esimene", Suffix: ".", Masculine: "Esimene", Feminine: "Esimene", Neuter: "Esimene"},
@@ -101,4 +106,41 @@ var EELocale = NumI18NLocale{
 		{Number: 100, Word: "Sajas", Suffix: ".", Masculine: "Sajas", Feminine: "Sajas", Neuter: "Sajas"},
 		{Number: 1000, Word: "Tuhandes", Suffix: ".", Masculine: "Tuhandes", Feminine: "Tuhandes", Neuter: "Tuhandes"},
 	},
+	LocaleFormatter: &EstonianFormatter{},
+}
+
+// EstonianFormatter handles Estonian formatting
+type EstonianFormatter struct{}
+
+func (f *EstonianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *EstonianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *EstonianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *EstonianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *EstonianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *EstonianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // IDLocale is a NumI18NLocale configured for Indonesia (id-ID)
 var IDLocale = NumI18NLocale{
 	Currency: Currency{
@@ -31,28 +33,28 @@ var IDLocale = NumI18NLocale{
 		Point: "Koma",
 	},
 	NumberWordsMapping: []NumberWordMapping{
-		{Number: 1000000000000000, Value: "Satu kuadrilun"},
-		{Number: 1000000000000, Value: "Satu trilun"},
-		{Number: 1000000000, Value: "Satu miliar"},
-		{Number: 1000000, Value: "Satu juta"},
-		{Number: 1000, Value: "Satu ribu"},
-		{Number: 100, Value: "Seratus"},
-		{Number: 90, Value: "Sembilan puluh"},
-		{Number: 80, Value: "Delapan puluh"},
-		{Number: 70, Value: "Tujuh puluh"},
-		{Number: 60, Value: "Enam puluh"},
-		{Number: 50, Value: "Lima puluh"},
-		{Number: 40, Value: "Empat puluh"},
-		{Number: 30, Value: "Tiga puluh"},
-		{Number: 20, Value: "Dua puluh"},
-		{Number: 19, Value: "Sembilan belas"},
-		{Number: 18, Value: "Delapan belas"},
-		{Number: 17, Value: "Tujuh belas"},
-		{Number: 16, Value: "Enam belas"},
-		{Number: 15, Value: "Lima belas"},
-		{Number: 14, Value: "Empat belas"},
-		{Number: 13, Value: "Tiga belas"},
-		{Number: 12, Value: "Dua belas"},
+		{Number: 1000000000000000, Value: "Kuadrilun"},
+		{Number: 1000000000000, Value: "Trilun"},
+		{Number: 1000000000, Value: "Miliar"},
+		{Number: 1000000, Value: "Juta"},
+		{Number: 1000, Value: "Ribu"},
+		{Number: 100, Value: "Ratus"},
+		{Number: 90, Value: "Sembilan Puluh"},
+		{Number: 80, Value: "Delapan Puluh"},
+		{Number: 70, Value: "Tujuh Puluh"},
+		{Number: 60, Value: "Enam Puluh"},
+		{Number: 50, Value: "Lima Puluh"},
+		{Number: 40, Value: "Empat Puluh"},
+		{Number: 30, Value: "Tiga Puluh"},
+		{Number: 20, Value: "Dua Puluh"},
+		{Number: 19, Value: "Sembilan Belas"},
+		{Number: 18, Value: "Delapan Belas"},
+		{Number: 17, Value: "Tujuh Belas"},
+		{Number: 16, Value: "Enam Belas"},
+		{Number: 15, Value: "Lima Belas"},
+		{Number: 14, Value: "Empat Belas"},
+		{Number: 13, Value: "Tiga Belas"},
+		{Number: 12, Value: "Dua Belas"},
 		{Number: 11, Value: "Sebelas"},
 		{Number: 10, Value: "Sepuluh"},
 		{Number: 9, Value: "Sembilan"},
@@ -68,6 +70,13 @@ var IDLocale = NumI18NLocale{
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Seratus"},
+		{Number: 1000, Value: "Seribu"},
+		{Number: 1000000, Value: "Satu Juta"},
+		{Number: 1000000000, Value: "Satu Miliar"},
+		{Number: 101, Value: "Seratus Satu"},
+		{Number: 1001, Value: "Seribu Satu"},
+		{Number: 123, Value: "Seratus Dua Puluh Tiga"},
+		{Number: 1234, Value: "Seribu Dua Ratus Tiga Puluh Empat"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "pertama", Suffix: ".", Masculine: "pertama", Feminine: "pertama", Neuter: "pertama"},
@@ -101,4 +110,38 @@ var IDLocale = NumI18NLocale{
 		{Number: 100, Word: "keseratus", Suffix: ".", Masculine: "keseratus", Feminine: "keseratus", Neuter: "keseratus"},
 		{Number: 1000, Word: "keseribu", Suffix: ".", Masculine: "keseribu", Feminine: "keseribu", Neuter: "keseribu"},
 	},
+	LocaleFormatter: &IndonesianFormatter{},
+}
+
+// IndonesianFormatter handles Indonesian (id-ID) formatting
+type IndonesianFormatter struct{}
+
+func (f *IndonesianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *IndonesianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *IndonesianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *IndonesianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *IndonesianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *IndonesianFormatter) ChopDecimal(number decimal.Decimal, places int) decimal.Decimal {
+	return number.Truncate(int32(places))
 }

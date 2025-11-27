@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // HULocale is a NumI18NLocale configured for Hungary (hu-HU)
 var HULocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,38 @@ var HULocale = NumI18NLocale{
 		{Number: 100, Word: "századik", Suffix: ".", Masculine: "századik", Feminine: "századik", Neuter: "századik"},
 		{Number: 1000, Word: "ezredik", Suffix: ".", Masculine: "ezredik", Feminine: "ezredik", Neuter: "ezredik"},
 	},
+	LocaleFormatter: &HungarianFormatter{},
+}
+
+// HungarianFormatter handles Hungarian formatting
+type HungarianFormatter struct{}
+
+func (f *HungarianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *HungarianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *HungarianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *HungarianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *HungarianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *HungarianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

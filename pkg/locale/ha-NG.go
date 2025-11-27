@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // NGHALocale is a NumI18NLocale configured for Nigeria (ha-NG)
 var NGHALocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,35 @@ var NGHALocale = NumI18NLocale{
 		{Number: 100, Word: "Na dari", Suffix: ".", Masculine: "Na dari", Feminine: "Ta dari", Neuter: "Na dari"},
 		{Number: 1000, Word: "Na dubu", Suffix: ".", Masculine: "Na dubu", Feminine: "Ta dubu", Neuter: "Na dubu"},
 	},
+	LocaleFormatter: &HausaFormatter{},
+}
+
+// HausaFormatter handles Hausa (ha-NG) formatting
+type HausaFormatter struct{}
+
+func (f *HausaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *HausaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// Naira is the same for both singular and plural in Hausa
+	return result + " " + currencyName
+}
+
+func (f *HausaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *HausaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// Kobo is the same for both singular and plural in Hausa
+	return result + " " + fractionName
+}
+
+func (f *HausaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *HausaFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	// Standard decimal chopping - round to specified precision
+	return amount.Round(int32(precision))
 }

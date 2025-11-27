@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // FILocale is a NumI18NLocale configured for Finland (fi-FI)
 var FILocale = NumI18NLocale{
 	Currency: Currency{
@@ -68,6 +70,11 @@ var FILocale = NumI18NLocale{
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Sata"},
+		{Number: 1000, Value: "Tuhat"},
+		{Number: 1000000, Value: "Miljoona"},
+		{Number: 1000000000, Value: "Miljardi"},
+		{Number: 1000000000000, Value: "Triljoona"},
+		{Number: 1000000000000000, Value: "Kvadriljoona"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "Ensimmäinen", Suffix: ".", Masculine: "Ensimmäinen", Feminine: "Ensimmäinen", Neuter: "Ensimmäinen"},
@@ -101,4 +108,38 @@ var FILocale = NumI18NLocale{
 		{Number: 100, Word: "Sadas", Suffix: ".", Masculine: "Sadas", Feminine: "Sadas", Neuter: "Sadas"},
 		{Number: 1000, Word: "Tuhannes", Suffix: ".", Masculine: "Tuhannes", Feminine: "Tuhannes", Neuter: "Tuhannes"},
 	},
+	LocaleFormatter: &FinnishFormatter{},
+}
+
+// FinnishFormatter handles Finnish formatting
+type FinnishFormatter struct{}
+
+func (f *FinnishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *FinnishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *FinnishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *FinnishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *FinnishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *FinnishFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Round(int32(precision))
 }

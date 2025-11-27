@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ESEULocale is a NumI18NLocale configured for Basque - Spain (eu-ES)
 var ESEULocale = NumI18NLocale{
 	Currency: Currency{
@@ -37,13 +39,22 @@ var ESEULocale = NumI18NLocale{
 		{Number: 1000000, Value: "Milioi"},
 		{Number: 1000, Value: "Mila"},
 		{Number: 100, Value: "Ehun"},
-		{Number: 90, Value: "Laurogeita hamar"},
+		{Number: 90, Value: "Laurogeita Hamar"},
 		{Number: 80, Value: "Laurogei"},
-		{Number: 70, Value: "Hirurogeita hamar"},
+		{Number: 70, Value: "Hirurogeita Hamar"},
 		{Number: 60, Value: "Hirurogei"},
-		{Number: 50, Value: "Berrogeita hamar"},
+		{Number: 50, Value: "Berrogeita Hamar"},
 		{Number: 40, Value: "Berrogei"},
-		{Number: 30, Value: "Hogeita hamar"},
+		{Number: 30, Value: "Hogeita Hamar"},
+		{Number: 29, Value: "Hogeita Bederatzi"},
+		{Number: 28, Value: "Hogeita Zortzi"},
+		{Number: 27, Value: "Hogeita Zazpi"},
+		{Number: 26, Value: "Hogeita Sei"},
+		{Number: 25, Value: "Hogeita Bost"},
+		{Number: 24, Value: "Hogeita Lau"},
+		{Number: 23, Value: "Hogeita Hiru"},
+		{Number: 22, Value: "Hogeita Bi"},
+		{Number: 21, Value: "Hogeita Bat"},
 		{Number: 20, Value: "Hogei"},
 		{Number: 19, Value: "Hemeretzi"},
 		{Number: 18, Value: "Hemezortzi"},
@@ -68,6 +79,18 @@ var ESEULocale = NumI18NLocale{
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Ehun"},
+		{Number: 1000, Value: "Mila"},
+		{Number: 1000000, Value: "Milioi Bat"},
+		{Number: 1000000000, Value: "Mila Milioi"},
+		{Number: 47, Value: "Berrogeita Zazpi"},
+		{Number: 56, Value: "Berrogeita Hamasei"},
+		{Number: 99, Value: "Laurogeita Hemeretzi"},
+		{Number: 75, Value: "Hirurogeita Hamabost"},
+		{Number: 256, Value: "Bi Ehun Berrogeita Hamasei"},
+		{Number: 34, Value: "Hogeita Hamalau"},
+		{Number: 123, Value: "Ehun Hogei Hiru"},
+		{Number: 101, Value: "Ehun Bat"},
+		{Number: 1001, Value: "Mila Bat"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "Lehenengoa", Suffix: ".", Masculine: "Lehenengoa", Feminine: "Lehenengoa", Neuter: "Lehenengoa"},
@@ -101,4 +124,38 @@ var ESEULocale = NumI18NLocale{
 		{Number: 100, Word: "Ehungarren", Suffix: ".", Masculine: "Ehungarren", Feminine: "Ehungarren", Neuter: "Ehungarren"},
 		{Number: 1000, Word: "Milagarren", Suffix: ".", Masculine: "Milagarren", Feminine: "Milagarren", Neuter: "Milagarren"},
 	},
+	LocaleFormatter: &BasqueFormatter{},
+}
+
+// BasqueFormatter handles Basque formatting
+type BasqueFormatter struct{}
+
+func (f *BasqueFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *BasqueFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *BasqueFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *BasqueFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *BasqueFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *BasqueFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

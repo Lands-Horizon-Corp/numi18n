@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // FR001Locale is a NumI18NLocale configured for French (World) - fr-001
 var FR001Locale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,38 @@ var FR001Locale = NumI18NLocale{
 		{Number: 100, Word: "Centième", Suffix: "e", Masculine: "Centième", Feminine: "Centième", Neuter: "Centième"},
 		{Number: 1000, Word: "Millième", Suffix: "e", Masculine: "Millième", Feminine: "Millième", Neuter: "Millième"},
 	},
+	LocaleFormatter: &FrenchFormatter{},
+}
+
+// FrenchFormatter handles French formatting
+type FrenchFormatter struct{}
+
+func (f *FrenchFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *FrenchFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *FrenchFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *FrenchFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *FrenchFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *FrenchFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Round(int32(precision))
 }
