@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // HKLocale is a NumI18NLocale configured for Hong Kong (en-HK)
 var HKLocale = NumI18NLocale{
+	LocaleFormatter: &EnglishHongKongFormatter{},
 	Currency: Currency{
 		Name:     "Hong Kong Dollar",
 		Plural:   "Hong Kong Dollars",
@@ -100,4 +103,37 @@ var HKLocale = NumI18NLocale{
 		{Number: 1000, Word: "Thousandth", Suffix: "th", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000000, Word: "Millionth", Suffix: "th", Masculine: "", Feminine: "", Neuter: ""},
 	},
+}
+
+// EnglishHongKongFormatter handles English (Hong Kong) formatting
+type EnglishHongKongFormatter struct{}
+
+func (f *EnglishHongKongFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *EnglishHongKongFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *EnglishHongKongFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *EnglishHongKongFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *EnglishHongKongFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *EnglishHongKongFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // GHLocale is a NumI18NLocale configured for Ghana (en-GH)
 var GHLocale = NumI18NLocale{
+	LocaleFormatter: &EnglishGhanaFormatter{},
 	Currency: Currency{
 		Name:     "Ghanaian Cedi",
 		Plural:   "Ghanaian Cedis",
@@ -100,4 +103,37 @@ var GHLocale = NumI18NLocale{
 		{Number: 1000, Word: "Thousandth", Suffix: "th", Masculine: "", Feminine: "", Neuter: ""},
 		{Number: 1000000, Word: "Millionth", Suffix: "th", Masculine: "", Feminine: "", Neuter: ""},
 	},
+}
+
+// EnglishGhanaFormatter handles English (Ghana) formatting
+type EnglishGhanaFormatter struct{}
+
+func (f *EnglishGhanaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *EnglishGhanaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *EnglishGhanaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *EnglishGhanaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *EnglishGhanaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *EnglishGhanaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

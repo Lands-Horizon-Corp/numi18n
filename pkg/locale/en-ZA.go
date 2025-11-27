@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ZALocale is a NumI18NLocale configured for South Africa (en-ZA)
 var ZALocale = NumI18NLocale{
+	LocaleFormatter: &EnglishSouthAfricaFormatter{},
 	Currency: Currency{
 		Name:     "South African Rand",
 		Plural:   "South African Rand",
@@ -68,6 +71,8 @@ var ZALocale = NumI18NLocale{
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
+		{Number: 1000, Value: "One Thousand"},
+		{Number: 1000000, Value: "One Million"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "First", Suffix: "st"},
@@ -104,4 +109,37 @@ var ZALocale = NumI18NLocale{
 		{Number: 1000, Word: "One Thousandth", Suffix: "th"},
 		{Number: 1000000, Word: "One Millionth", Suffix: "th"},
 	},
+}
+
+// EnglishSouthAfricaFormatter handles English (South Africa) formatting
+type EnglishSouthAfricaFormatter struct{}
+
+func (f *EnglishSouthAfricaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *EnglishSouthAfricaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *EnglishSouthAfricaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *EnglishSouthAfricaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *EnglishSouthAfricaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *EnglishSouthAfricaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

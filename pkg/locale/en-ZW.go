@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ZWLocale is a NumI18NLocale configured for Zimbabwe (en-ZW)
 var ZWLocale = NumI18NLocale{
+	LocaleFormatter: &EnglishZimbabweFormatter{},
 	Currency: Currency{
 		Name:     "Zimbabwean Dollar",
 		Plural:   "Zimbabwean Dollars",
@@ -68,6 +71,8 @@ var ZWLocale = NumI18NLocale{
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "One Hundred"},
+		{Number: 1000, Value: "One Thousand"},
+		{Number: 1000000, Value: "One Million"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "First", Suffix: "st"},
@@ -104,4 +109,37 @@ var ZWLocale = NumI18NLocale{
 		{Number: 1000, Word: "One Thousandth", Suffix: "th"},
 		{Number: 1000000, Word: "One Millionth", Suffix: "th"},
 	},
+}
+
+// EnglishZimbabweFormatter handles English (Zimbabwe) formatting
+type EnglishZimbabweFormatter struct{}
+
+func (f *EnglishZimbabweFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *EnglishZimbabweFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *EnglishZimbabweFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *EnglishZimbabweFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *EnglishZimbabweFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *EnglishZimbabweFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }
