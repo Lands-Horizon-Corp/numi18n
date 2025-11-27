@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // KHLocale is a NumI18NLocale configured for Cambodia (km-KH)
 var KHLocale = NumI18NLocale{
 	Currency: Currency{
@@ -67,7 +69,7 @@ var KHLocale = NumI18NLocale{
 		{Number: 0, Value: "សូន្យ"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
-		{Number: 100, Value: "មួយ\\u200bរយ"},
+		{Number: 100, Value: "មួយ\u200bរយ"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "ទីមួយ", Suffix: ".", Masculine: "ទីមួយ", Feminine: "ទីមួយ", Neuter: "ទីមួយ"},
@@ -101,4 +103,42 @@ var KHLocale = NumI18NLocale{
 		{Number: 100, Word: "ទីមួយរយ", Suffix: ".", Masculine: "ទីមួយរយ", Feminine: "ទីមួយរយ", Neuter: "ទីមួយរយ"},
 		{Number: 1000, Word: "ទីមួយពាន់", Suffix: ".", Masculine: "ទីមួយពាន់", Feminine: "ទីមួយពាន់", Neuter: "ទីមួយពាន់"},
 	},
+	LocaleFormatter: &KhmerFormatter{},
+}
+
+// KhmerFormatter handles Khmer formatting
+type KhmerFormatter struct{}
+
+func (f *KhmerFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *KhmerFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *KhmerFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *KhmerFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *KhmerFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *KhmerFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(1)
+	for range places {
+		multiplier = multiplier.Mul(decimal.NewFromInt(10))
+	}
+	return value.Mul(multiplier).Truncate(0).Div(multiplier)
 }

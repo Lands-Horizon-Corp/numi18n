@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // IDJVLocale is a NumI18NLocale configured for Indonesia (jv-ID)
 var IDJVLocale = NumI18NLocale{
 	Currency: Currency{
@@ -34,16 +36,16 @@ var IDJVLocale = NumI18NLocale{
 		{Number: 1000000000000000, Value: "Siji kuadriliyun"},
 		{Number: 1000000000000, Value: "Siji triliyun"},
 		{Number: 1000000000, Value: "Siji milyar"},
-		{Number: 1000000, Value: "Siji yuta"},
-		{Number: 1000, Value: "Siji ewu"},
+		{Number: 1000000, Value: "Siji Yuta"},
+		{Number: 1000, Value: "Siji Ewu"},
 		{Number: 100, Value: "Satus"},
-		{Number: 90, Value: "Sangang puluh"},
-		{Number: 80, Value: "Wolung puluh"},
-		{Number: 70, Value: "Pitung puluh"},
+		{Number: 90, Value: "Sangang Puluh"},
+		{Number: 80, Value: "Wolung Puluh"},
+		{Number: 70, Value: "Pitung Puluh"},
 		{Number: 60, Value: "Sewidak"},
 		{Number: 50, Value: "Seket"},
-		{Number: 40, Value: "Patang puluh"},
-		{Number: 30, Value: "Telung puluh"},
+		{Number: 40, Value: "Patang Puluh"},
+		{Number: 30, Value: "Telung Puluh"},
 		{Number: 20, Value: "Rongpuluh"},
 		{Number: 19, Value: "Sangalas"},
 		{Number: 18, Value: "Wolulas"},
@@ -101,4 +103,42 @@ var IDJVLocale = NumI18NLocale{
 		{Number: 100, Word: "kaping satus", Suffix: ".", Masculine: "kaping satus", Feminine: "kaping satus", Neuter: "kaping satus"},
 		{Number: 1000, Word: "kaping sewu", Suffix: ".", Masculine: "kaping sewu", Feminine: "kaping sewu", Neuter: "kaping sewu"},
 	},
+	LocaleFormatter: &JavaneseFormatter{},
+}
+
+// JavaneseFormatter handles Javanese formatting
+type JavaneseFormatter struct{}
+
+func (f *JavaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *JavaneseFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *JavaneseFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *JavaneseFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *JavaneseFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *JavaneseFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(1)
+	for range places {
+		multiplier = multiplier.Mul(decimal.NewFromInt(10))
+	}
+	return value.Mul(multiplier).Truncate(0).Div(multiplier)
 }

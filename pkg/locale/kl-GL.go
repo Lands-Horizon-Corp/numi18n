@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // GLLocale is a NumI18NLocale configured for Greenland (kl-GL)
 var GLLocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,42 @@ var GLLocale = NumI18NLocale{
 		{Number: 100, Word: "hundredeunniit", Suffix: ".", Masculine: "hundredeunniit", Feminine: "hundredeunniit", Neuter: "hundredeunniit"},
 		{Number: 1000, Word: "tusindiunniit", Suffix: ".", Masculine: "tusindiunniit", Feminine: "tusindiunniit", Neuter: "tusindiunniit"},
 	},
+	LocaleFormatter: &GreenlandicFormatter{},
+}
+
+// GreenlandicFormatter handles Greenlandic formatting
+type GreenlandicFormatter struct{}
+
+func (f *GreenlandicFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *GreenlandicFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *GreenlandicFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *GreenlandicFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *GreenlandicFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *GreenlandicFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(1)
+	for i := 0; i < places; i++ {
+		multiplier = multiplier.Mul(decimal.NewFromInt(10))
+	}
+	return value.Mul(multiplier).Truncate(0).Div(multiplier)
 }

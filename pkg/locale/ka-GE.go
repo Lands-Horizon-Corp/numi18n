@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // GELocale is a NumI18NLocale configured for Georgia (ka-GE)
 var GELocale = NumI18NLocale{
 	Currency: Currency{
@@ -31,12 +33,12 @@ var GELocale = NumI18NLocale{
 		Point: "წერტილი",
 	},
 	NumberWordsMapping: []NumberWordMapping{
-		{Number: 1000000000000000, Value: "ერთი კვადრილიონი"},
-		{Number: 1000000000000, Value: "ერთი ტრილიონი"},
-		{Number: 1000000000, Value: "ერთი მილიარდი"},
-		{Number: 1000000, Value: "ერთი მილიონი"},
-		{Number: 1000, Value: "ერთი ათასი"},
-		{Number: 100, Value: "ერთი ასი"},
+		{Number: 1000000000000000, Value: "Ერთი Კვადრილიონი"},
+		{Number: 1000000000000, Value: "Ერთი Ტრილიონი"},
+		{Number: 1000000000, Value: "Ერთი Მილიარდი"},
+		{Number: 1000000, Value: "Ერთი Მილიონი"},
+		{Number: 1000, Value: "Ერთი Ათასი"},
+		{Number: 100, Value: "Ერთი Ასი"},
 		{Number: 90, Value: "ოთხმოცდაათი"},
 		{Number: 80, Value: "ოთხმოცი"},
 		{Number: 70, Value: "სამოცდაათი"},
@@ -67,7 +69,7 @@ var GELocale = NumI18NLocale{
 		{Number: 0, Value: "ნული"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
-		{Number: 100, Value: "ერთი ასი"},
+		{Number: 100, Value: "Ერთი Ასი"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "პირველი", Suffix: "-ე", Masculine: "პირველი", Feminine: "პირველი", Neuter: "პირველი"},
@@ -101,4 +103,42 @@ var GELocale = NumI18NLocale{
 		{Number: 100, Word: "მეასე", Suffix: "-ე", Masculine: "მეასე", Feminine: "მეასე", Neuter: "მეასე"},
 		{Number: 1000, Word: "მეათასე", Suffix: "-ე", Masculine: "მეათასე", Feminine: "მეათასე", Neuter: "მეათასე"},
 	},
+	LocaleFormatter: &GeorgianFormatter{},
+}
+
+// GeorgianFormatter handles Georgian formatting
+type GeorgianFormatter struct{}
+
+func (f *GeorgianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *GeorgianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *GeorgianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *GeorgianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *GeorgianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *GeorgianFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(1)
+	for range places {
+		multiplier = multiplier.Mul(decimal.NewFromInt(10))
+	}
+	return value.Mul(multiplier).Truncate(0).Div(multiplier)
 }

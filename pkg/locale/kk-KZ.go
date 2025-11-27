@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // KZLocale is a NumI18NLocale configured for Kazakhstan (kk-KZ)
 var KZLocale = NumI18NLocale{
 	Currency: Currency{
@@ -35,8 +37,8 @@ var KZLocale = NumI18NLocale{
 		{Number: 1000000000000, Value: "Бір трилион"},
 		{Number: 1000000000, Value: "Бір миллиард"},
 		{Number: 1000000, Value: "Бір миллион"},
-		{Number: 1000, Value: "Бір мың"},
-		{Number: 100, Value: "Бір жүз"},
+		{Number: 1000, Value: "Бір Мың"},
+		{Number: 100, Value: "Бір Жүз"},
 		{Number: 90, Value: "Тоқсан"},
 		{Number: 80, Value: "Сексен"},
 		{Number: 70, Value: "Жетпіс"},
@@ -45,15 +47,15 @@ var KZLocale = NumI18NLocale{
 		{Number: 40, Value: "Қырық"},
 		{Number: 30, Value: "Отыз"},
 		{Number: 20, Value: "Жиырма"},
-		{Number: 19, Value: "Он тоғыз"},
-		{Number: 18, Value: "Он сегіз"},
-		{Number: 17, Value: "Он жеті"},
-		{Number: 16, Value: "Он алты"},
-		{Number: 15, Value: "Он бес"},
-		{Number: 14, Value: "Он төрт"},
-		{Number: 13, Value: "Он үш"},
-		{Number: 12, Value: "Он екі"},
-		{Number: 11, Value: "Он бір"},
+		{Number: 19, Value: "Он Тоғыз"},
+		{Number: 18, Value: "Он Сегіз"},
+		{Number: 17, Value: "Он Жеті"},
+		{Number: 16, Value: "Он Алты"},
+		{Number: 15, Value: "Он Бес"},
+		{Number: 14, Value: "Он Төрт"},
+		{Number: 13, Value: "Он Үш"},
+		{Number: 12, Value: "Он Екі"},
+		{Number: 11, Value: "Он Бір"},
 		{Number: 10, Value: "Он"},
 		{Number: 9, Value: "Тоғыз"},
 		{Number: 8, Value: "Сегіз"},
@@ -67,7 +69,7 @@ var KZLocale = NumI18NLocale{
 		{Number: 0, Value: "Нөл"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
-		{Number: 100, Value: "Бір жүз"},
+		{Number: 100, Value: "Бір Жүз"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "бірінші", Suffix: "-ші", Masculine: "бірінші", Feminine: "бірінші", Neuter: "бірінші"},
@@ -101,4 +103,42 @@ var KZLocale = NumI18NLocale{
 		{Number: 100, Word: "жүзінші", Suffix: "-ші", Masculine: "жүзінші", Feminine: "жүзінші", Neuter: "жүзінші"},
 		{Number: 1000, Word: "мыңыншы", Suffix: "-шы", Masculine: "мыңыншы", Feminine: "мыңыншы", Neuter: "мыңыншы"},
 	},
+	LocaleFormatter: &KazakhFormatter{},
+}
+
+// KazakhFormatter handles Kazakh formatting
+type KazakhFormatter struct{}
+
+func (f *KazakhFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *KazakhFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *KazakhFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *KazakhFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *KazakhFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *KazakhFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(1)
+	for range places {
+		multiplier = multiplier.Mul(decimal.NewFromInt(10))
+	}
+	return value.Mul(multiplier).Truncate(0).Div(multiplier)
 }
