@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // KGLocale is a NumI18NLocale configured for Kyrgyzstan (ky-KG)
 var KGLocale = NumI18NLocale{
 	Currency: Currency{
@@ -69,6 +71,7 @@ var KGLocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Бир жүз"},
 	},
+	LocaleFormatter: &KyrgyzFormatter{},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "биринчи", Suffix: "-нчи", Masculine: "биринчи", Feminine: "биринчи", Neuter: "биринчи"},
 		{Number: 2, Word: "экинчи", Suffix: "-нчи", Masculine: "экинчи", Feminine: "экинчи", Neuter: "экинчи"},
@@ -101,4 +104,33 @@ var KGLocale = NumI18NLocale{
 		{Number: 100, Word: "жүзүнчү", Suffix: "-нчү", Masculine: "жүзүнчү", Feminine: "жүзүнчү", Neuter: "жүзүнчү"},
 		{Number: 1000, Word: "миңинчи", Suffix: "-нчи", Masculine: "миңинчи", Feminine: "миңинчи", Neuter: "миңинчи"},
 	},
+}
+
+// KyrgyzFormatter handles Kyrgyz formatting
+type KyrgyzFormatter struct{}
+
+func (f *KyrgyzFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *KyrgyzFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// In Kyrgyz, Som doesn't change form for singular/plural
+	return result + " " + currencyName
+}
+
+func (f *KyrgyzFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *KyrgyzFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// In Kyrgyz, Tyiyn doesn't change form for singular/plural
+	return result + " " + fractionName
+}
+
+func (f *KyrgyzFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *KyrgyzFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

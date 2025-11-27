@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // KRLocale is a NumI18NLocale configured for South Korea (ko-KR)
 var KRLocale = NumI18NLocale{
 	Currency: Currency{
@@ -109,4 +111,37 @@ var KRLocale = NumI18NLocale{
 		{Number: 100, Word: "백째", Suffix: "번째", Masculine: "백째", Feminine: "백째", Neuter: "백째"},
 		{Number: 1000, Word: "천째", Suffix: "번째", Masculine: "천째", Feminine: "천째", Neuter: "천째"},
 	},
+	LocaleFormatter: &KoreanFormatter{},
+}
+
+// KoreanFormatter handles Korean (ko-KR) formatting
+type KoreanFormatter struct{}
+
+func (f *KoreanFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *KoreanFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// Korean doesn't distinguish between singular and plural for currency
+	return result + " " + currencyName
+}
+
+func (f *KoreanFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *KoreanFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// Korean doesn't distinguish between singular and plural for fraction units
+	return result + " " + fractionName
+}
+
+func (f *KoreanFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *KoreanFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }

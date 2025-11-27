@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // LOLALocale represents the Lao (Laos) locale
 var LOLALocale = NumI18NLocale{
 	Currency: Currency{
@@ -24,6 +26,7 @@ var LOLALocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Vientiane"},
 		Language:       "lo",
 	},
+	LocaleFormatter: &LaoFormatter{},
 	Texts: Texts{
 		And:   "ແລະ",
 		Minus: "ລົບ",
@@ -189,6 +192,35 @@ var LOLALocale = NumI18NLocale{
 		{Number: 80, Word: "ທີແປດສິບ", Suffix: ".", Masculine: "ທີແປດສິບ", Feminine: "ທີແປດສິບ", Neuter: "ທີແປດສິບ"},
 		{Number: 90, Word: "ທີເກົ້າສິບ", Suffix: ".", Masculine: "ທີເກົ້າສິບ", Feminine: "ທີເກົ້າສິບ", Neuter: "ທີເກົ້າສິບ"},
 		{Number: 100, Word: "ທີຮ້ອຍ", Suffix: ".", Masculine: "ທີຮ້ອຍ", Feminine: "ທີຮ້ອຍ", Neuter: "ທີຮ້ອຍ"},
-		{Number: 1000, Word: "ທີພັນ", Suffix: ".", Masculine: "ທີພັນ", Feminine: "ທີພັນ", Neuter: "ທີພັນ"},
+		{Number: 1000, Word: "ທีພັນ", Suffix: ".", Masculine: "ທีພັນ", Feminine: "ທีພັນ", Neuter: "ທีພັນ"},
 	},
+}
+
+// LaoFormatter handles Lao formatting
+type LaoFormatter struct{}
+
+func (f *LaoFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *LaoFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// In Lao, Kip doesn't change form for singular/plural
+	return result + " " + currencyName
+}
+
+func (f *LaoFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *LaoFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// In Lao, Att doesn't change form for singular/plural
+	return result + " " + fractionName
+}
+
+func (f *LaoFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *LaoFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

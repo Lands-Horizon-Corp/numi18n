@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // LBLULocale represents the Luxembourgish (Luxembourg) locale
 var LBLULocale = NumI18NLocale{
 	Currency: Currency{
@@ -159,6 +161,7 @@ var LBLULocale = NumI18NLocale{
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 100, Value: "Een Honnert"},
 	},
+	LocaleFormatter: &LuxembourgishFormatter{},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "éischten", Suffix: ".", Masculine: "éischten", Feminine: "éischt", Neuter: "éischt"},
 		{Number: 2, Word: "zweeten", Suffix: ".", Masculine: "zweeten", Feminine: "zweet", Neuter: "zweet"},
@@ -191,4 +194,37 @@ var LBLULocale = NumI18NLocale{
 		{Number: 100, Word: "honnertsten", Suffix: ".", Masculine: "honnertsten", Feminine: "honnertst", Neuter: "honnertst"},
 		{Number: 1000, Word: "dausendsten", Suffix: ".", Masculine: "dausendsten", Feminine: "dausendst", Neuter: "dausendst"},
 	},
+}
+
+// LuxembourgishFormatter handles Luxembourgish formatting
+type LuxembourgishFormatter struct{}
+
+func (f *LuxembourgishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *LuxembourgishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *LuxembourgishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *LuxembourgishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *LuxembourgishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *LuxembourgishFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // TRKULocale is a NumI18NLocale configured for Turkey (ku-TR)
 var TRKULocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,37 @@ var TRKULocale = NumI18NLocale{
 		{Number: 100, Word: "sedem", Suffix: "-em", Masculine: "sedem", Feminine: "sedem", Neuter: "sedem"},
 		{Number: 1000, Word: "hezarem", Suffix: "-em", Masculine: "hezarem", Feminine: "hezarem", Neuter: "hezarem"},
 	},
+	LocaleFormatter: &KurdishFormatter{},
+}
+
+// KurdishFormatter handles Kurdish (ku-TR) formatting
+type KurdishFormatter struct{}
+
+func (f *KurdishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *KurdishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// Kurdish doesn't distinguish between singular and plural for currency in this context
+	return result + " " + currencyName
+}
+
+func (f *KurdishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *KurdishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// Kurdish doesn't distinguish between singular and plural for fraction units in this context
+	return result + " " + fractionName
+}
+
+func (f *KurdishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *KurdishFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }
