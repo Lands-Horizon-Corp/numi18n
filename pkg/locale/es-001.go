@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ES001Locale is a NumI18NLocale configured for Spanish (World) - es-001
 var ES001Locale = NumI18NLocale{
 	Currency: Currency{
@@ -36,7 +38,16 @@ var ES001Locale = NumI18NLocale{
 		{Number: 1000000000, Value: "Mil millones"},
 		{Number: 1000000, Value: "Millón"},
 		{Number: 1000, Value: "Mil"},
-		{Number: 100, Value: "Cien"},
+		{Number: 900, Value: "Novecientos"},
+		{Number: 800, Value: "Ochocientos"},
+		{Number: 700, Value: "Setecientos"},
+		{Number: 600, Value: "Seiscientos"},
+		{Number: 500, Value: "Quinientos"},
+		{Number: 400, Value: "Cuatrocientos"},
+		{Number: 300, Value: "Trescientos"},
+		{Number: 200, Value: "Doscientos"},
+		{Number: 101, Value: "Ciento uno"},
+		{Number: 100, Value: "Ciento"},
 		{Number: 90, Value: "Noventa"},
 		{Number: 80, Value: "Ochenta"},
 		{Number: 70, Value: "Setenta"},
@@ -44,6 +55,15 @@ var ES001Locale = NumI18NLocale{
 		{Number: 50, Value: "Cincuenta"},
 		{Number: 40, Value: "Cuarenta"},
 		{Number: 30, Value: "Treinta"},
+		{Number: 29, Value: "Veintinueve"},
+		{Number: 28, Value: "Veintiocho"},
+		{Number: 27, Value: "Veintisiete"},
+		{Number: 26, Value: "Veintiséis"},
+		{Number: 25, Value: "Veinticinco"},
+		{Number: 24, Value: "Veinticuatro"},
+		{Number: 23, Value: "Veintitrés"},
+		{Number: 22, Value: "Veintidós"},
+		{Number: 21, Value: "Veintiuno"},
 		{Number: 20, Value: "Veinte"},
 		{Number: 19, Value: "Diecinueve"},
 		{Number: 18, Value: "Dieciocho"},
@@ -67,7 +87,26 @@ var ES001Locale = NumI18NLocale{
 		{Number: 0, Value: "Cero"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
+		{Number: 1000000, Value: "Un Millón"},
+		{Number: 1000, Value: "Mil"},
+		{Number: 900, Value: "Novecientos"},
+		{Number: 800, Value: "Ochocientos"},
+		{Number: 700, Value: "Setecientos"},
+		{Number: 600, Value: "Seiscientos"},
+		{Number: 500, Value: "Quinientos"},
+		{Number: 400, Value: "Cuatrocientos"},
+		{Number: 300, Value: "Trescientos"},
+		{Number: 200, Value: "Doscientos"},
 		{Number: 100, Value: "Cien"},
+		{Number: 29, Value: "Veintinueve"},
+		{Number: 28, Value: "Veintiocho"},
+		{Number: 27, Value: "Veintisiete"},
+		{Number: 26, Value: "Veintiséis"},
+		{Number: 25, Value: "Veinticinco"},
+		{Number: 24, Value: "Veinticuatro"},
+		{Number: 23, Value: "Veintitrés"},
+		{Number: 22, Value: "Veintidós"},
+		{Number: 21, Value: "Veintiuno"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "Primero", Suffix: "°", Masculine: "Primer", Feminine: "Primera"},
@@ -104,4 +143,48 @@ var ES001Locale = NumI18NLocale{
 		{Number: 1000, Word: "Milésimo", Suffix: "°", Masculine: "Milésimo", Feminine: "Milésima"},
 		{Number: 1000000, Word: "Millonésimo", Suffix: "°", Masculine: "Millonésimo", Feminine: "Millonésima"},
 	},
+	LocaleFormatter: &SpanishFormatter{},
+}
+
+// SpanishFormatter handles Spanish formatting with proper compound number rules
+type SpanishFormatter struct{}
+
+func (f *SpanishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	// First check exact mappings for compound and special numbers
+	exactResult := ConvertToWordsWithExactMappingInt64(number, targetLocale)
+	if exactResult != ConvertToWordsGenericInt64(number, targetLocale) {
+		return exactResult // Found exact mapping
+	}
+
+	// Use default conversion for most numbers
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SpanishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SpanishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SpanishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SpanishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SpanishFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

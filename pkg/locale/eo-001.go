@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // EOLocale is a NumI18NLocale configured for Esperanto (eo-001)
 var EOLocale = NumI18NLocale{
+	LocaleFormatter: &EsperantoFormatter{},
 	Currency: Currency{
 		Name:     "Euro",
 		Plural:   "Eŭroj",
@@ -37,7 +40,7 @@ var EOLocale = NumI18NLocale{
 		{Number: 1000000, Value: "Miliono"},
 		{Number: 1000, Value: "Mil"},
 		{Number: 100, Value: "Cent"},
-		{Number: 90, Value: "Kudek"},
+		{Number: 90, Value: "Naŭdek"},
 		{Number: 80, Value: "Okdek"},
 		{Number: 70, Value: "Sepdek"},
 		{Number: 60, Value: "Sesdek"},
@@ -45,7 +48,7 @@ var EOLocale = NumI18NLocale{
 		{Number: 40, Value: "Kvardek"},
 		{Number: 30, Value: "Tridek"},
 		{Number: 20, Value: "Dudek"},
-		{Number: 19, Value: "Dek na naŭ"},
+		{Number: 19, Value: "Dek naŭ"},
 		{Number: 18, Value: "Dek ok"},
 		{Number: 17, Value: "Dek sep"},
 		{Number: 16, Value: "Dek ses"},
@@ -55,7 +58,7 @@ var EOLocale = NumI18NLocale{
 		{Number: 12, Value: "Dek du"},
 		{Number: 11, Value: "Dek unu"},
 		{Number: 10, Value: "Dek"},
-		{Number: 9, Value: "Nau"},
+		{Number: 9, Value: "Naŭ"},
 		{Number: 8, Value: "Ok"},
 		{Number: 7, Value: "Sep"},
 		{Number: 6, Value: "Ses"},
@@ -67,7 +70,9 @@ var EOLocale = NumI18NLocale{
 		{Number: 0, Value: "Nulo"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
-		{Number: 100, Value: "Unu Cento"},
+		{Number: 100, Value: "Unu Cent"},
+		{Number: 1000, Value: "Unu Mil"},
+		{Number: 1000000, Value: "Unu Miliono"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "Unua", Suffix: "-a"},
@@ -104,4 +109,37 @@ var EOLocale = NumI18NLocale{
 		{Number: 1000, Word: "Mila", Suffix: "-a"},
 		{Number: 1000000, Word: "Miliona", Suffix: "-a"},
 	},
+}
+
+// EsperantoFormatter handles Esperanto formatting
+type EsperantoFormatter struct{}
+
+func (f *EsperantoFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *EsperantoFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *EsperantoFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *EsperantoFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *EsperantoFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *EsperantoFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

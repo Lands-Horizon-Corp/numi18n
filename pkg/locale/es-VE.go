@@ -104,4 +104,5 @@ var VELocale = NumI18NLocale{
 		{Number: 1000, Word: "Milésimo", Suffix: "°", Masculine: "Milésimo", Feminine: "Milésima"},
 		{Number: 1000000, Word: "Millonésimo", Suffix: "°", Masculine: "Millonésimo", Feminine: "Millonésima"},
 	},
+	LocaleFormatter: &SpanishFormatter{},
 }
