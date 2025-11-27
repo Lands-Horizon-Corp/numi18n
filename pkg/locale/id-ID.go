@@ -1,6 +1,10 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+
+	"github.com/shopspring/decimal"
+)
 
 // IDLocale is a NumI18NLocale configured for Indonesia (id-ID)
 var IDLocale = NumI18NLocale{
@@ -73,10 +77,6 @@ var IDLocale = NumI18NLocale{
 		{Number: 1000, Value: "Seribu"},
 		{Number: 1000000, Value: "Satu Juta"},
 		{Number: 1000000000, Value: "Satu Miliar"},
-		{Number: 101, Value: "Seratus Satu"},
-		{Number: 1001, Value: "Seribu Satu"},
-		{Number: 123, Value: "Seratus Dua Puluh Tiga"},
-		{Number: 1234, Value: "Seribu Dua Ratus Tiga Puluh Empat"},
 	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "pertama", Suffix: ".", Masculine: "pertama", Feminine: "pertama", Neuter: "pertama"},
@@ -117,7 +117,31 @@ var IDLocale = NumI18NLocale{
 type IndonesianFormatter struct{}
 
 func (f *IndonesianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
-	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+	// First check exact mappings
+	exactResult := ConvertToWordsWithExactMappingInt64(number, targetLocale)
+	if exactResult != ConvertToWordsGenericInt64(number, targetLocale) {
+		return exactResult // Found exact mapping
+	}
+
+	// Handle Indonesian special forms by replacing the generic forms
+	genericResult := ConvertToWordsGenericInt64(number, targetLocale)
+
+	// Replace "Satu Ratus" with "Seratus" (one hundred)
+	if genericResult == "Satu Ratus" {
+		return "Seratus"
+	}
+
+	// Replace "Satu Ribu" with "Seribu" (one thousand)
+	if genericResult == "Satu Ribu" {
+		return "Seribu"
+	}
+
+	// For compound numbers, replace the patterns
+	result := genericResult
+	result = strings.ReplaceAll(result, "Satu Ratus", "Seratus")
+	result = strings.ReplaceAll(result, "Satu Ribu", "Seribu")
+
+	return result
 }
 
 func (f *IndonesianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {

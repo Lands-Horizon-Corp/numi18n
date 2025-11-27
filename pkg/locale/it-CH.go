@@ -1,7 +1,45 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
+// ItalianFormatter handles Italian formatting
+type ItalianFormatter struct{}
+
+func (f *ItalianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ItalianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *ItalianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ItalianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ItalianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *ItalianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
+}
+
 // CHITLocale is a NumI18NLocale configured for Switzerland (it-CH)
 var CHITLocale = NumI18NLocale{
+	LocaleFormatter: &ItalianFormatter{},
 	Currency: Currency{
 		Name:     "Franco svizzero",
 		Plural:   "Franchi svizzeri",

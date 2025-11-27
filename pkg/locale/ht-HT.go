@@ -28,7 +28,7 @@ var HTLocale = NumI18NLocale{
 	},
 	Texts: Texts{
 		And:   "ak",
-		Minus: "mwens",
+		Minus: "Mwens",
 		Only:  "sèlman",
 		Point: "pwen",
 	},

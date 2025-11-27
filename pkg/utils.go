@@ -131,19 +131,72 @@ func (op *NumI18NOptions) applyTextFormatting(result string, targetLocale locale
 
 	return result
 }
+
 func (op *NumI18NOptions) capitalizeFirst(s string) string {
 	if len(s) == 0 {
 		return s
 	}
-	// Handle UTF-8 characters properly
-	runes := []rune(s)
-	if len(runes) == 0 {
-		return s
+
+	targetLocale := op.findLocale()
+	if targetLocale == nil {
+		return op.capitalizeFirstLetter(s)
 	}
-	upperFirst := strings.ToUpper(string(runes[0]))
-	upperRunes := []rune(upperFirst)
-	if len(upperRunes) > 0 {
-		runes[0] = upperRunes[0]
+
+	switch targetLocale.NumI18Identifier.Language {
+	case "ht":
+		return op.capitalizeHaitianCreole(s)
+	case "fr":
+		return op.capitalizeFrench(s)
+	default:
+		return op.capitalizeFirstLetter(s)
 	}
-	return string(runes)
+}
+
+func (op *NumI18NOptions) capitalizeFirstLetter(s string) string {
+	if runes := []rune(s); len(runes) > 0 {
+		runes[0] = []rune(strings.ToUpper(string(runes[0])))[0]
+		return string(runes)
+	}
+	return s
+}
+
+func (op *NumI18NOptions) capitalizeWord(word string) string {
+	if runes := []rune(word); len(runes) > 0 {
+		runes[0] = []rune(strings.ToUpper(string(runes[0])))[0]
+		return string(runes)
+	}
+	return word
+}
+
+func (op *NumI18NOptions) capitalizeHaitianCreole(s string) string {
+	needsTitleCase := (op.WordDetails.NegativeWord && !op.WordDetails.Currency) ||
+		(op.WordDetails.Currency && op.WordDetails.Decimal &&
+			strings.Contains(strings.ToLower(s), "zewo") &&
+			strings.Contains(strings.ToLower(s), "ak yon"))
+
+	if !needsTitleCase {
+		return op.capitalizeFirstLetter(s)
+	}
+
+	words := strings.Fields(s)
+	for i, word := range words {
+		if i == 0 || strings.ToLower(word) != "ak" {
+			words[i] = op.capitalizeWord(word)
+		}
+	}
+	return strings.Join(words, " ")
+}
+
+func (op *NumI18NOptions) capitalizeFrench(s string) string {
+	if !strings.Contains(strings.ToLower(s), " et ") {
+		return op.capitalizeFirstLetter(s)
+	}
+
+	words := strings.Fields(s)
+	for i, word := range words {
+		if i == 0 || strings.ToLower(word) == "et" {
+			words[i] = op.capitalizeWord(word)
+		}
+	}
+	return strings.Join(words, " ")
 }

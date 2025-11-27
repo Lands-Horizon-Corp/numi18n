@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ITLocale is a NumI18NLocale configured for Italy (it-IT)
 var ITLocale = NumI18NLocale{
 	Currency: Currency{
@@ -101,4 +103,42 @@ var ITLocale = NumI18NLocale{
 		{Number: 100, Word: "centesimo", Suffix: "°", Masculine: "centesimo", Feminine: "centesima", Neuter: "centesimo"},
 		{Number: 1000, Word: "millesimo", Suffix: "°", Masculine: "millesimo", Feminine: "millesima", Neuter: "millesimo"},
 	},
+	LocaleFormatter: &ItalyFormatter{},
+}
+
+// ItalyFormatter handles Italian (Italy) formatting
+type ItalyFormatter struct{}
+
+func (f *ItalyFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ItalyFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *ItalyFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ItalyFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ItalyFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *ItalyFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(1)
+	for range places {
+		multiplier = multiplier.Mul(decimal.NewFromInt(10))
+	}
+	return value.Mul(multiplier).Truncate(0).Div(multiplier)
 }
