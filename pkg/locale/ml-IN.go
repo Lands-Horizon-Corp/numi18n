@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // MLINLocale represents the Malayalam (India) locale
 var MLINLocale = NumI18NLocale{
 	Currency: Currency{
@@ -202,4 +204,41 @@ var MLINLocale = NumI18NLocale{
 		{Number: 100, Word: "നൂറാം", Suffix: "-ാം", Masculine: "നൂറാം", Feminine: "നൂറാം", Neuter: "നൂറാം"},
 		{Number: 1000, Word: "ആയിരാം", Suffix: "-ാം", Masculine: "ആയിരാം", Feminine: "ആയിരാം", Neuter: "ആയിരാം"},
 	},
+	LocaleFormatter: &MalayalamFormatter{},
+}
+
+// MalayalamFormatter handles Malayalam formatting
+type MalayalamFormatter struct{}
+
+func (f *MalayalamFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *MalayalamFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *MalayalamFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *MalayalamFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *MalayalamFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *MalayalamFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

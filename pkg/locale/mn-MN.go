@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // MNMNLocale represents the Mongolian (Mongolia) locale
 var MNMNLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,41 @@ var MNMNLocale = NumI18NLocale{
 		{Number: 100, Word: "зуудугаар", Suffix: "-дугаар", Masculine: "зуудугаар", Feminine: "зуудугаар", Neuter: "зуудугаар"},
 		{Number: 1000, Word: "мянгадугаар", Suffix: "-дугаар", Masculine: "мянгадугаар", Feminine: "мянгадугаар", Neuter: "мянгадугаар"},
 	},
+	LocaleFormatter: &MongolianFormatter{},
+}
+
+// MongolianFormatter handles Mongolian-specific formatting
+type MongolianFormatter struct{}
+
+func (f *MongolianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *MongolianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *MongolianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *MongolianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *MongolianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *MongolianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

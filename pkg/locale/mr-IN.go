@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // MRINLocale represents the Marathi (India) locale
 var MRINLocale = NumI18NLocale{
 	Currency: Currency{
@@ -202,4 +204,41 @@ var MRINLocale = NumI18NLocale{
 		{Number: 100, Word: "शंभरावा", Suffix: "-वा", Masculine: "शंभरावा", Feminine: "शंभरावी", Neuter: "शंभरावे"},
 		{Number: 1000, Word: "हजारावा", Suffix: "-वा", Masculine: "हजारावा", Feminine: "हजारावी", Neuter: "हजारावे"},
 	},
+	LocaleFormatter: &MarathiFormatter{},
+}
+
+// MarathiFormatter handles Marathi-specific formatting
+type MarathiFormatter struct{}
+
+func (f *MarathiFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *MarathiFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *MarathiFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *MarathiFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *MarathiFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *MarathiFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

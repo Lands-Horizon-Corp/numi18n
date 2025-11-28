@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // MTMTLocale represents the Maltese (Malta) locale
 var MTMTLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,41 @@ var MTMTLocale = NumI18NLocale{
 		{Number: 100, Word: "il-mija", Suffix: "-mija", Masculine: "il-mija", Feminine: "il-mija", Neuter: "il-mija"},
 		{Number: 1000, Word: "l-elf", Suffix: "-elf", Masculine: "l-elf", Feminine: "l-elf", Neuter: "l-elf"},
 	},
+	LocaleFormatter: &MalteseFormatter{},
+}
+
+// MalteseFormatter handles Maltese-specific formatting
+type MalteseFormatter struct{}
+
+func (f *MalteseFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *MalteseFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *MalteseFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *MalteseFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *MalteseFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *MalteseFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }
