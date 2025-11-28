@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // NENPLocale represents the Nepali (Nepal) locale
 var NENPLocale = NumI18NLocale{
+
 	Currency: Currency{
 		Name:     "रुपैया",
 		Plural:   "रुपैया",
@@ -202,4 +205,41 @@ var NENPLocale = NumI18NLocale{
 		{Number: 100, Word: "सयौं", Suffix: "-औं", Masculine: "सयौं", Feminine: "सयौं", Neuter: "सयौं"},
 		{Number: 1000, Word: "हजारौं", Suffix: "-औं", Masculine: "हजारौं", Feminine: "हजारौं", Neuter: "हजारौं"},
 	},
+	LocaleFormatter: &NepaliFormatter{},
+}
+
+// NepaliFormatter handles Nepali-specific formatting
+type NepaliFormatter struct{}
+
+func (f *NepaliFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *NepaliFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *NepaliFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *NepaliFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *NepaliFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *NepaliFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

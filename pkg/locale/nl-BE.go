@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // NLBELocale represents the Dutch (Belgium) locale
 var NLBELocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,41 @@ var NLBELocale = NumI18NLocale{
 		{Number: 100, Word: "honderdste", Suffix: "-ste", Masculine: "honderdste", Feminine: "honderdste", Neuter: "honderdste"},
 		{Number: 1000, Word: "duizendste", Suffix: "-ste", Masculine: "duizendste", Feminine: "duizendste", Neuter: "duizendste"},
 	},
+	LocaleFormatter: &DutchBelgianFormatter{},
+}
+
+// DutchBelgianFormatter handles Dutch (Belgium)-specific formatting
+type DutchBelgianFormatter struct{}
+
+func (f *DutchBelgianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *DutchBelgianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *DutchBelgianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *DutchBelgianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *DutchBelgianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *DutchBelgianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }
