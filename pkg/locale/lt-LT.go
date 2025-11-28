@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // LTLTLocale represents the Lithuanian (Lithuania) locale
 var LTLTLocale = NumI18NLocale{
 	Currency: Currency{
@@ -24,6 +26,7 @@ var LTLTLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Vilnius"},
 		Language:       "lt",
 	},
+	LocaleFormatter: &LithuanianFormatter{},
 	Texts: Texts{
 		And:   "ir",
 		Minus: "minus",
@@ -195,4 +198,37 @@ var LTLTLocale = NumI18NLocale{
 		{Number: 100, Word: "šimtasis", Suffix: "-asis", Masculine: "šimtasis", Feminine: "šimtoji", Neuter: "šimtasis"},
 		{Number: 1000, Word: "tūkstantasis", Suffix: "-asis", Masculine: "tūkstantasis", Feminine: "tūkstantoji", Neuter: "tūkstantasis"},
 	},
+}
+
+// LithuanianFormatter handles Lithuanian formatting
+type LithuanianFormatter struct{}
+
+func (f *LithuanianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *LithuanianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *LithuanianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *LithuanianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *LithuanianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *LithuanianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

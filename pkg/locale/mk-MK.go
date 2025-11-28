@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // MKMKLocale represents the Macedonian (North Macedonia) locale
 var MKMKLocale = NumI18NLocale{
 	Currency: Currency{
@@ -173,9 +175,6 @@ var MKMKLocale = NumI18NLocale{
 		{Number: 1, Value: "еден"},
 		{Number: 0, Value: "нула"},
 	},
-	ExactWordsMapping: []ExactWordMapping{
-		{Number: 100, Value: "Едно сто"},
-	},
 	OrdinalMapping: []OrdinalMapping{
 		{Number: 1, Word: "први", Suffix: "-ви", Masculine: "први", Feminine: "прва", Neuter: "прво"},
 		{Number: 2, Word: "втор", Suffix: "-ри", Masculine: "втор", Feminine: "втора", Neuter: "второ"},
@@ -195,4 +194,41 @@ var MKMKLocale = NumI18NLocale{
 		{Number: 100, Word: "стотти", Suffix: "-ти", Masculine: "стотти", Feminine: "стотта", Neuter: "стотто"},
 		{Number: 1000, Word: "илјадитти", Suffix: "-ти", Masculine: "илјадитти", Feminine: "илјадитта", Neuter: "илјадитто"},
 	},
+	LocaleFormatter: &MacedonianFormatter{},
+}
+
+// MacedonianFormatter handles Macedonian formatting
+type MacedonianFormatter struct{}
+
+func (f *MacedonianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *MacedonianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *MacedonianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *MacedonianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *MacedonianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *MacedonianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

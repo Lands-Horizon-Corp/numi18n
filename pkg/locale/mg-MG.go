@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // MGMGLocale represents the Malagasy (Madagascar) locale
 var MGMGLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,41 @@ var MGMGLocale = NumI18NLocale{
 		{Number: 100, Word: "faha-zato", Suffix: "-ny", Masculine: "faha-zato", Feminine: "faha-zato", Neuter: "faha-zato"},
 		{Number: 1000, Word: "faha-arivo", Suffix: "-ny", Masculine: "faha-arivo", Feminine: "faha-arivo", Neuter: "faha-arivo"},
 	},
+	LocaleFormatter: &MalagasyFormatter{},
+}
+
+// MalagasyFormatter handles Malagasy-specific formatting
+type MalagasyFormatter struct{}
+
+func (f *MalagasyFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *MalagasyFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *MalagasyFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *MalagasyFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *MalagasyFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *MalagasyFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

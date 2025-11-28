@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // LVLVLocale represents the Latvian (Latvia) locale
 var LVLVLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,41 @@ var LVLVLocale = NumI18NLocale{
 		{Number: 100, Word: "simtais", Suffix: "-ais", Masculine: "simtais", Feminine: "simtā", Neuter: "simtais"},
 		{Number: 1000, Word: "tūkstošais", Suffix: "-ais", Masculine: "tūkstošais", Feminine: "tūkstošā", Neuter: "tūkstošais"},
 	},
+	LocaleFormatter: &LatvianFormatter{},
+}
+
+// LatvianFormatter handles Latvian-specific formatting
+type LatvianFormatter struct{}
+
+func (f *LatvianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *LatvianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *LatvianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *LatvianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *LatvianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *LatvianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }

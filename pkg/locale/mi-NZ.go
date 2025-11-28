@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // MINZLocale represents the Māori (New Zealand) locale
 var MINZLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,41 @@ var MINZLocale = NumI18NLocale{
 		{Number: 100, Word: "tua kotahi rau", Suffix: "o", Masculine: "tua kotahi rau", Feminine: "tua kotahi rau", Neuter: "tua kotahi rau"},
 		{Number: 1000, Word: "tua kotahi mano", Suffix: "o", Masculine: "tua kotahi mano", Feminine: "tua kotahi mano", Neuter: "tua kotahi mano"},
 	},
+	LocaleFormatter: &MāoriFormatter{},
+}
+
+// MāoriFormatter handles Māori-specific formatting
+type MāoriFormatter struct{}
+
+func (f *MāoriFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *MāoriFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *MāoriFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *MāoriFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *MāoriFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *MāoriFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 0
+	}
+	return amount.Truncate(int32(precision))
 }
