@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // NYMWLocale represents the Chichewa (Malawi) locale
 var NYMWLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,41 @@ var NYMWLocale = NumI18NLocale{
 		{Number: 100, Word: "chazana", Suffix: "-azana", Masculine: "chazana", Feminine: "chazana", Neuter: "chazana"},
 		{Number: 1000, Word: "chachikwi", Suffix: "-achikwi", Masculine: "chachikwi", Feminine: "chachikwi", Neuter: "chachikwi"},
 	},
+	LocaleFormatter: &ChichewaFormatter{},
+}
+
+// ChichewaFormatter handles Chichewa (ny-MW) formatting
+type ChichewaFormatter struct{}
+
+func (f *ChichewaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ChichewaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *ChichewaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ChichewaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ChichewaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *ChichewaFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }

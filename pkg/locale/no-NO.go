@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // NONOLocale represents the Norwegian (Norway) locale
 var NONOLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,41 @@ var NONOLocale = NumI18NLocale{
 		{Number: 100, Word: "hundrede", Suffix: "-de", Masculine: "hundrede", Feminine: "hundrede", Neuter: "hundrede"},
 		{Number: 1000, Word: "tusende", Suffix: "-ende", Masculine: "tusende", Feminine: "tusende", Neuter: "tusende"},
 	},
+	LocaleFormatter: &NorwegianBokmålFormatter{},
+}
+
+// NorwegianBokmålFormatter handles Norwegian Bokmål (no-NO) formatting
+type NorwegianBokmålFormatter struct{}
+
+func (f *NorwegianBokmålFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *NorwegianBokmålFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *NorwegianBokmålFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *NorwegianBokmålFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *NorwegianBokmålFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *NorwegianBokmålFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }
