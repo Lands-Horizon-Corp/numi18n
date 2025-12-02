@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // TIETLocale represents the Tigrinya (Ethiopia) locale
 var TIETLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,35 @@ var TIETLocale = NumI18NLocale{
 		{Number: 100, Word: "መቶይ", Suffix: ".", Masculine: "መቶይ", Feminine: "መቶይቲ", Neuter: "መቶይ"},
 		{Number: 1000, Word: "ሽሕይ", Suffix: ".", Masculine: "ሽሕይ", Feminine: "ሽሕይቲ", Neuter: "ሽሕይ"},
 	},
+	LocaleFormatter: &TigrayEthiopiaFormatter{},
+}
+
+// TigrayEthiopiaFormatter handles Tigrinya (Ethiopia) formatting
+type TigrayEthiopiaFormatter struct{}
+
+func (f *TigrayEthiopiaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *TigrayEthiopiaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	return result + " " + currencyName
+}
+
+func (f *TigrayEthiopiaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *TigrayEthiopiaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	return result + " " + fractionName
+}
+
+func (f *TigrayEthiopiaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *TigrayEthiopiaFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }

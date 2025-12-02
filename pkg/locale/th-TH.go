@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // THTHLocale represents the Thai (Thailand) locale
 var THTHLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,35 @@ var THTHLocale = NumI18NLocale{
 		{Number: 100, Word: "ที่หนึ่งร้อย", Suffix: ".", Masculine: "ที่หนึ่งร้อย", Feminine: "ที่หนึ่งร้อย", Neuter: "ที่หนึ่งร้อย"},
 		{Number: 1000, Word: "ที่หนึ่งพัน", Suffix: ".", Masculine: "ที่หนึ่งพัน", Feminine: "ที่หนึ่งพัน", Neuter: "ที่หนึ่งพัน"},
 	},
+	LocaleFormatter: &ThaiFormatter{},
+}
+
+// ThaiFormatter handles Thai (Thailand) formatting
+type ThaiFormatter struct{}
+
+func (f *ThaiFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ThaiFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	return result + currencyName
+}
+
+func (f *ThaiFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + andText + fractionalWords
+}
+
+func (f *ThaiFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	return result + fractionName
+}
+
+func (f *ThaiFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + result
+}
+
+func (f *ThaiFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	if precision < 0 {
+		precision = 2
+	}
+	return amount.Truncate(int32(precision))
 }
