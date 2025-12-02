@@ -575,7 +575,7 @@ func TestToFormat_Philippines_Currency(t *testing.T) {
 					Currency: true,
 				},
 			},
-			expected: "₱1,234",
+			expected: "₱1,234.00",
 		},
 		{
 			name:   "Large peso amount with separators",
@@ -586,7 +586,7 @@ func TestToFormat_Philippines_Currency(t *testing.T) {
 					Currency: true,
 				},
 			},
-			expected: "₱1,234,567",
+			expected: "₱1,234,567.00",
 		},
 		{
 			name:   "Negative peso",
@@ -597,7 +597,7 @@ func TestToFormat_Philippines_Currency(t *testing.T) {
 					Currency: true,
 				},
 			},
-			expected: "-₱1,000",
+			expected: "-₱1,000.00",
 		},
 		{
 			name:   "Override currency symbol",
@@ -611,7 +611,7 @@ func TestToFormat_Philippines_Currency(t *testing.T) {
 					},
 				},
 			},
-			expected: "$5,000",
+			expected: "$5,000.00",
 		},
 		{
 			name:   "Zero peso",
@@ -622,7 +622,7 @@ func TestToFormat_Philippines_Currency(t *testing.T) {
 					Currency: true,
 				},
 			},
-			expected: "₱0",
+			expected: "₱0.00",
 		},
 		{
 			name:   "Peso with decimals",
