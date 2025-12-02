@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // KHLocale is a NumI18NLocale configured for Cambodia (km-KH)
 var KHLocale = NumI18NLocale{
@@ -141,4 +144,25 @@ func (f *KhmerFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.
 		multiplier = multiplier.Mul(decimal.NewFromInt(10))
 	}
 	return value.Mul(multiplier).Truncate(0).Div(multiplier)
+}
+
+
+func (f *KhmerFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *KhmerFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // IRLocale is a NumI18NLocale configured for Iran (fa-IR)
 var IRLocale = NumI18NLocale{
@@ -138,4 +141,25 @@ func (f *PersianIranFormatter) FormatNegative(result, negativeWord string) strin
 
 func (f *PersianIranFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
 	return amount.Round(int32(precision))
+}
+
+
+func (f *PersianIranFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *PersianIranFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

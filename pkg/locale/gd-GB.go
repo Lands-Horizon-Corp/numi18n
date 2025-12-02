@@ -1,6 +1,7 @@
 package locale
 
 import (
+	"strings"
 	"github.com/shopspring/decimal"
 )
 
@@ -139,4 +140,25 @@ func (f *ScottishGaelicFormatter) FormatNegative(result, negativeWord string) st
 
 func (f *ScottishGaelicFormatter) ChopDecimal(num decimal.Decimal, precision int) decimal.Decimal {
 	return num.Truncate(int32(precision))
+}
+
+
+func (f *ScottishGaelicFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *ScottishGaelicFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

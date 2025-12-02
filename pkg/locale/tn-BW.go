@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // TNBWLocale represents the Tswana (Botswana) locale
 var TNBWLocale = NumI18NLocale{
@@ -232,4 +235,25 @@ func (f *TswanaFormatter) FormatNegative(result, negativeWord string) string {
 
 func (f *TswanaFormatter) ChopDecimal(value decimal.Decimal, decimalPlaces int) decimal.Decimal {
 	return value.Truncate(int32(decimalPlaces))
+}
+
+
+func (f *TswanaFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *TswanaFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

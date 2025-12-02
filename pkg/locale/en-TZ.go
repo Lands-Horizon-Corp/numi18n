@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // TZLocale is a NumI18NLocale configured for Tanzania (en-TZ)
 var TZLocale = NumI18NLocale{
@@ -136,4 +139,25 @@ func (f *EnglishTanzaniaFormatter) FormatNegative(result, negativeWord string) s
 
 func (f *EnglishTanzaniaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
 	return d.Truncate(int32(precision))
+}
+
+
+func (f *EnglishTanzaniaFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *EnglishTanzaniaFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

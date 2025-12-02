@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // SNFRLocale is a NumI18NLocale configured for Senegal (fr-SN)
 var SNFRLocale = NumI18NLocale{
@@ -137,4 +140,25 @@ func (f *FrenchSenegalFormatter) FormatNegative(result, negativeWord string) str
 
 func (f *FrenchSenegalFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
 	return value.Round(int32(precision))
+}
+
+
+func (f *FrenchSenegalFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, " ", ",")
+}
+func (f *FrenchSenegalFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

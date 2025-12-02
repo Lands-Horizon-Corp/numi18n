@@ -1,6 +1,7 @@
 package locale
 
 import (
+	"strings"
 	"github.com/shopspring/decimal"
 )
 
@@ -135,4 +136,25 @@ func (f *BengaliFormatter) FormatNegative(result, negativeWord string) string {
 
 func (f *BengaliFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
 	return amount.Round(int32(precision))
+}
+
+
+func (f *BengaliFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *BengaliFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

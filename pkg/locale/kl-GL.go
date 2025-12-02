@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // GLLocale is a NumI18NLocale configured for Greenland (kl-GL)
 var GLLocale = NumI18NLocale{
@@ -141,4 +144,25 @@ func (f *GreenlandicFormatter) ChopDecimal(value decimal.Decimal, places int) de
 		multiplier = multiplier.Mul(decimal.NewFromInt(10))
 	}
 	return value.Mul(multiplier).Truncate(0).Div(multiplier)
+}
+
+
+func (f *GreenlandicFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *GreenlandicFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

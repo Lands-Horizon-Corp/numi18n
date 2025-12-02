@@ -2,6 +2,17 @@ package locale
 
 import "github.com/shopspring/decimal"
 
+// OverrideOptions represents currency override options
+type OverrideOptions struct {
+	Name             string // Currency name override, e.g., "peso"
+	Plural           string // Currency plural, e.g., "pesos"
+	Symbol           string // Currency symbol, e.g., "₱"
+	FractionUnitName string // Fractional unit name, e.g., "centavo"
+	FractionPlural   string // Fractional plural, e.g., "centavos"
+	FractionSymbol   string // Fraction symbol, e.g., "¢"
+	NegativeWord     string // Custom negative word, e.g., "minus"
+}
+
 type Currency struct {
 	Name         string // Currency name, e.g., "Dollar"
 	Plural       string // Currency plural, e.g., "Dollars"
@@ -72,4 +83,6 @@ type LocaleFormatter interface {
 	FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string
 	FormatNegative(result, negativeWord string) string
 	ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal
+	FormatDecimalNumber(amount float64) string
+	FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string
 }

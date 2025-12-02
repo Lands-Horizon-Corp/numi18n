@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // DVMVLocale is a NumI18NLocale configured for Dhivehi (Maldives) - dv-MV
 var DVMVLocale = NumI18NLocale{
@@ -134,4 +137,25 @@ func (f *DhivehiFormatter) FormatNegative(result, negativeWord string) string {
 
 func (f *DhivehiFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
 	return amount.Round(int32(precision))
+}
+
+
+func (f *DhivehiFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *DhivehiFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

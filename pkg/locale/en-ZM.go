@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // ZMLocale is a NumI18NLocale configured for Zambia (en-ZM)
 var ZMLocale = NumI18NLocale{
@@ -142,4 +145,25 @@ func (f *EnglishZambiaFormatter) FormatNegative(result, negativeWord string) str
 
 func (f *EnglishZambiaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
 	return d.Truncate(int32(precision))
+}
+
+
+func (f *EnglishZambiaFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *EnglishZambiaFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

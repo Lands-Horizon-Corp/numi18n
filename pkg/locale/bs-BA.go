@@ -1,6 +1,9 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"strings"
+	"github.com/shopspring/decimal"
+)
 
 // BSBALocale is a NumI18NLocale configured for Bosnian (Bosnia and Herzegovina) - bs-BA
 var BSBALocale = NumI18NLocale{
@@ -137,4 +140,25 @@ func (f *BosnianFormatter) FormatNegative(result, negativeWord string) string {
 
 func (f *BosnianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
 	return amount.Round(int32(precision))
+}
+
+
+func (f *BosnianFormatter) FormatDecimalNumber(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+func (f *BosnianFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	formattedNumber := f.FormatDecimalNumber(amount)
+	
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+	
+	// Default currency placement for this locale (prefix with symbol)
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+	
+	return currencySymbol + formattedNumber
 }

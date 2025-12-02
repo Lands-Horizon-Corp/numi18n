@@ -1,6 +1,11 @@
 package locale
 
-import "github.com/shopspring/decimal"
+import (
+	"fmt"
+	"strings"
+
+	"github.com/shopspring/decimal"
+)
 
 // JPLocale is a NumI18NLocale configured for Japan (ja-JP)
 var JPLocale = NumI18NLocale{
@@ -311,4 +316,58 @@ func (f *JapaneseFormatter) ChopDecimal(amount decimal.Decimal, precision int) d
 		precision = 0
 	}
 	return amount.Truncate(int32(precision))
+}
+
+func (f *JapaneseFormatter) FormatDecimalNumber(amount float64) string {
+	decAmount := decimal.NewFromFloat(amount)
+
+	// Handle negative numbers
+	isNegative := decAmount.IsNegative()
+	if isNegative {
+		decAmount = decAmount.Abs()
+	}
+
+	// Separate whole and fractional parts
+	wholePart := decAmount.Floor()
+	fractionalPart := decAmount.Sub(wholePart)
+
+	// Format whole part (no thousand separators in Japanese)
+	result := wholePart.String()
+
+	// Format fractional part if it exists
+	if !fractionalPart.IsZero() {
+		// Get fractional part as string (remove "0." prefix)
+		fractionalStr := fractionalPart.String()
+		if len(fractionalStr) > 2 {
+			fractionalStr = fractionalStr[2:] // Remove "0."
+			result += "." + fractionalStr
+		}
+	}
+
+	// Add negative sign if needed
+	if isNegative {
+		result = "-" + result
+	}
+
+	return result
+}
+
+func (f *JapaneseFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
+	// Format number without decimals for Japanese Yen (no fractional currency)
+	formattedNumber := fmt.Sprintf("%.0f", amount)
+
+	// Get currency symbol
+	currencySymbol := targetLocale.Currency.Symbol
+	if overrideOptions != nil && overrideOptions.Symbol != "" {
+		currencySymbol = overrideOptions.Symbol
+	}
+
+	// For Japanese: currency symbol comes before the number, no space
+	// Handle negative numbers - move negative sign before currency symbol
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+
+	return currencySymbol + formattedNumber
 }

@@ -129,3 +129,58 @@ func ConvertToWordsWithExactMapping(number decimal.Decimal, targetLocale NumI18N
 func ConvertToWordsWithExactMappingInt64(number int64, targetLocale NumI18NLocale) string {
 	return ConvertToWordsWithExactMapping(decimal.NewFromInt(number), targetLocale)
 }
+
+// DefaultFormatDecimalNumber provides a basic implementation that can be used by any formatter
+func DefaultFormatDecimalNumber(amount float64, thousandSeparator string, decimalSeparator string) string {
+	decAmount := decimal.NewFromFloat(amount)
+
+	// Handle negative numbers
+	isNegative := decAmount.IsNegative()
+	if isNegative {
+		decAmount = decAmount.Abs()
+	}
+
+	// Separate whole and fractional parts
+	wholePart := decAmount.Floor()
+	fractionalPart := decAmount.Sub(wholePart)
+
+	// Format whole part with separators if provided
+	wholeStr := wholePart.String()
+	if thousandSeparator != "" && len(wholeStr) > 3 {
+		wholeStr = formatWithSeparators(wholeStr, thousandSeparator)
+	}
+
+	// Format fractional part if it exists
+	result := wholeStr
+	if !fractionalPart.IsZero() {
+		// Get fractional part as string (remove "0." prefix)
+		fractionalStr := fractionalPart.String()
+		if len(fractionalStr) > 2 {
+			fractionalStr = fractionalStr[2:] // Remove "0."
+			result += decimalSeparator + fractionalStr
+		}
+	}
+
+	// Add negative sign if needed
+	if isNegative {
+		result = "-" + result
+	}
+	return result
+}
+
+// formatWithSeparators adds separators every three digits from right to left
+func formatWithSeparators(numStr string, separator string) string {
+	if len(numStr) <= 3 {
+		return numStr
+	}
+
+	var result string
+	for i, digit := range numStr {
+		if i > 0 && (len(numStr)-i)%3 == 0 {
+			result += separator
+		}
+		result += string(digit)
+	}
+
+	return result
+}
