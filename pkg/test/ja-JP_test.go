@@ -599,3 +599,353 @@ func TestToWords_Japanese_EdgeCases(t *testing.T) {
 		})
 	}
 }
+
+// ========== ToFormat Tests ==========
+
+func TestToFormat_Japanese_Numbers(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Zero",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "0",
+		},
+		{
+			name:   "Single digit",
+			amount: 5,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "5",
+		},
+		{
+			name:   "Two digits",
+			amount: 25,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "25",
+		},
+		{
+			name:   "Three digits",
+			amount: 100,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "100",
+		},
+		{
+			name:   "Four digits (no separators in Japanese)",
+			amount: 1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "1000",
+		},
+		{
+			name:   "Five digits (no separators)",
+			amount: 12345,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "12345",
+		},
+		{
+			name:   "Six digits (no separators)",
+			amount: 123456,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "123456",
+		},
+		{
+			name:   "Seven digits (no separators)",
+			amount: 1234567,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "1234567",
+		},
+		{
+			name:   "One million (no separators)",
+			amount: 1000000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "1000000",
+		},
+		{
+			name:   "Large number (no separators)",
+			amount: 1234567890,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "1234567890",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_Japanese_Decimals(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Decimal with one place",
+			amount: 5.5,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "5.5",
+		},
+		{
+			name:   "Decimal with two places",
+			amount: 5.25,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "5.25",
+		},
+		{
+			name:   "Decimal with multiple places",
+			amount: 123.456789,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "123.456789",
+		},
+		{
+			name:   "Large number with decimals (no separators)",
+			amount: 1234567.89,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "1234567.89",
+		},
+		{
+			name:   "Small decimal",
+			amount: 0.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "0.99",
+		},
+		{
+			name:   "Complex decimal (no separators)",
+			amount: 12345678.123456,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "12345678.123456",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_Japanese_Currency(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Simple yen amount",
+			amount: 1234,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "¥1234",
+		},
+		{
+			name:   "Large yen amount (no separators)",
+			amount: 1234567,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "¥1234567",
+		},
+		{
+			name:   "Negative yen",
+			amount: -1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "-¥1000",
+		},
+		{
+			name:   "Override currency symbol",
+			amount: 5000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "$",
+					},
+				},
+			},
+			expected: "$5000",
+		},
+		{
+			name:   "Zero yen",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "¥0",
+		},
+		{
+			name:   "Yen with decimals",
+			amount: 1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "¥1235",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_Japanese_Negative(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Negative single digit",
+			amount: -5,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "-5",
+		},
+		{
+			name:   "Negative large number (no separators)",
+			amount: -1234567,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "-1234567",
+		},
+		{
+			name:   "Negative with decimals",
+			amount: -1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "-1234.56",
+		},
+		{
+			name:   "Negative decimal only",
+			amount: -0.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "-0.99",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_Japanese_EdgeCases(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Very small positive number",
+			amount: 0.001,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "0.001",
+		},
+		{
+			name:   "Very small negative number",
+			amount: -0.001,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "-0.001",
+		},
+		{
+			name:   "Very large number (no separators)",
+			amount: 999999999999.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "999999999999.99",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}

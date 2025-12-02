@@ -570,3 +570,342 @@ func TestToWords_EnglishUS_EdgeCases(t *testing.T) {
 		})
 	}
 }
+
+// ========== ToFormat Tests ==========
+
+func TestToFormat_EnglishUS_Numbers(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Zero",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "0",
+		},
+		{
+			name:   "Single digit",
+			amount: 5,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "5",
+		},
+		{
+			name:   "Two digits",
+			amount: 25,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "25",
+		},
+		{
+			name:   "Three digits",
+			amount: 100,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "100",
+		},
+		{
+			name:   "Four digits with comma",
+			amount: 1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "1,000",
+		},
+		{
+			name:   "Five digits with comma",
+			amount: 12345,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "12,345",
+		},
+		{
+			name:   "Six digits with commas",
+			amount: 123456,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "123,456",
+		},
+		{
+			name:   "Seven digits with commas",
+			amount: 1234567,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "1,234,567",
+		},
+		{
+			name:   "One million",
+			amount: 1000000,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "1,000,000",
+		},
+		{
+			name:   "Large number with commas",
+			amount: 1234567890,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "1,234,567,890",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_EnglishUS_Decimals(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Decimal with one place",
+			amount: 5.5,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "5.5",
+		},
+		{
+			name:   "Decimal with two places",
+			amount: 5.25,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "5.25",
+		},
+		{
+			name:   "Decimal with multiple places",
+			amount: 123.456789,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "123.456789",
+		},
+		{
+			name:   "Large number with decimals",
+			amount: 1234567.89,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "1,234,567.89",
+		},
+		{
+			name:   "Small decimal",
+			amount: 0.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "0.99",
+		},
+		{
+			name:   "Complex decimal with commas",
+			amount: 12345678.123456,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "12,345,678.123456",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_EnglishUS_Currency(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Simple currency",
+			amount: 1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "$1,234.56",
+		},
+		{
+			name:   "Large currency amount",
+			amount: 1234567.89,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "$1,234,567.89",
+		},
+		{
+			name:   "Negative currency",
+			amount: -987.65,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "-$987.65",
+		},
+		{
+			name:   "Override currency symbol",
+			amount: 1000.50,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "€",
+					},
+				},
+			},
+			expected: "€1,000.50",
+		},
+		{
+			name:   "Zero with currency",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "$0.00",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_EnglishUS_Negative(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Negative single digit",
+			amount: -5,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "-5",
+		},
+		{
+			name:   "Negative with commas",
+			amount: -1234567,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "-1,234,567",
+		},
+		{
+			name:   "Negative with decimals",
+			amount: -1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "-1,234.56",
+		},
+		{
+			name:   "Negative decimal only",
+			amount: -0.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "-0.99",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_EnglishUS_EdgeCases(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Very small positive number",
+			amount: 0.001,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "0.001",
+		},
+		{
+			name:   "Very small negative number",
+			amount: -0.001,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "-0.001",
+		},
+		{
+			name:   "Very large number",
+			amount: 999999999999.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "999,999,999,999.99",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
