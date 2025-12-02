@@ -1,7 +1,6 @@
 package locale
 
 import (
-	"fmt"
 	"strings"
 
 	"github.com/shopspring/decimal"
@@ -261,100 +260,19 @@ func (f *FilipinoFormatter) ChopDecimal(amount decimal.Decimal, precision int) d
 }
 
 func (f *FilipinoFormatter) FormatDecimalNumber(amount float64) string {
-	decAmount := decimal.NewFromFloat(amount)
-
-	// Handle negative numbers
-	isNegative := decAmount.IsNegative()
-	if isNegative {
-		decAmount = decAmount.Abs()
-	}
-
-	// Separate whole and fractional parts
-	wholePart := decAmount.Floor()
-	fractionalPart := decAmount.Sub(wholePart)
-
-	// Format whole part with thousand separators (Philippines uses commas like US)
-	wholeStr := f.formatWithThousandSeparators(wholePart.String())
-
-	// Format fractional part if it exists
-	result := wholeStr
-	if !fractionalPart.IsZero() {
-		// Get fractional part as string (remove "0." prefix)
-		fractionalStr := fractionalPart.String()
-		if len(fractionalStr) > 2 {
-			fractionalStr = fractionalStr[2:] // Remove "0."
-			result += "." + fractionalStr
-		}
-	}
-
-	// Add negative sign if needed
-	if isNegative {
-		result = "-" + result
-	}
-
-	return result
+	return FormatDecimalWithSeparators(amount, ",")
 }
 
 func (f *FilipinoFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
-	// Get the formatted number first (always 2 decimals for currency)
-	formattedNumber := fmt.Sprintf("%.2f", amount)
-
-	// Apply thousands separators only if needed (>=1000 or <=-1000)
-	if amount >= 1000 || amount <= -1000 {
-		// Apply locale-specific number formatting with commas
-		formattedNumber = strings.ReplaceAll(formattedNumber, ".", "DECIMAL_PLACEHOLDER")
-		parts := strings.Split(formattedNumber, "DECIMAL_PLACEHOLDER")
-		if len(parts) == 2 {
-			// Add thousands separators to integer part
-			integerPart := parts[0]
-			// Handle negative sign
-			negative := strings.HasPrefix(integerPart, "-")
-			if negative {
-				integerPart = strings.TrimPrefix(integerPart, "-")
-			}
-
-			formattedInteger := ""
-			for i, char := range integerPart {
-				if i > 0 && (len(integerPart)-i)%3 == 0 {
-					formattedInteger += ","
-				}
-				formattedInteger += string(char)
-			}
-
-			if negative {
-				formattedInteger = "-" + formattedInteger
-			}
-			formattedNumber = formattedInteger + "." + parts[1]
-		}
-	}
-
 	// Get currency symbol
 	currencySymbol := targetLocale.Currency.Symbol
 	if overrideOptions != nil && overrideOptions.Symbol != "" {
 		currencySymbol = overrideOptions.Symbol
 	}
 
-	// For Filipino: currency symbol comes before the number, no space
-	// Handle negative numbers - move negative sign before currency symbol
-	if strings.HasPrefix(formattedNumber, "-") {
-		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
-		return "-" + currencySymbol + formattedNumber
-	}
-
-	return currencySymbol + formattedNumber
+	// Format with thousand separators, currency symbol, and symbol prefix (true for Philippines)
+	return FormatCurrencyWithSeparators(amount, ",", currencySymbol, true)
 } // formatWithThousandSeparators adds commas every three digits from right to left
 func (f *FilipinoFormatter) formatWithThousandSeparators(numStr string) string {
-	if len(numStr) <= 3 {
-		return numStr
-	}
-
-	var result string
-	for i, digit := range numStr {
-		if i > 0 && (len(numStr)-i)%3 == 0 {
-			result += ","
-		}
-		result += string(digit)
-	}
-
-	return result
+	return formatWithSeparators(numStr, ",")
 }

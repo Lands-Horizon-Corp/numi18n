@@ -1,6 +1,7 @@
 package locale
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/shopspring/decimal"
@@ -183,4 +184,107 @@ func formatWithSeparators(numStr string, separator string) string {
 	}
 
 	return result
+}
+
+// FormatDecimalWithSeparators formats a decimal number with thousand separators
+func FormatDecimalWithSeparators(amount float64, thousandSeparator string) string {
+	decAmount := decimal.NewFromFloat(amount)
+
+	// Handle negative numbers
+	isNegative := decAmount.IsNegative()
+	if isNegative {
+		decAmount = decAmount.Abs()
+	}
+
+	// Separate whole and fractional parts
+	wholePart := decAmount.Floor()
+	fractionalPart := decAmount.Sub(wholePart)
+
+	// Format whole part with thousand separators
+	wholeStr := formatWithSeparators(wholePart.String(), thousandSeparator)
+
+	// Format fractional part if it exists
+	result := wholeStr
+	if !fractionalPart.IsZero() {
+		// Get fractional part as string (remove "0." prefix)
+		fractionalStr := fractionalPart.String()
+		if len(fractionalStr) > 2 {
+			fractionalStr = fractionalStr[2:] // Remove "0."
+			result += "." + fractionalStr
+		}
+	}
+
+	// Add negative sign if needed
+	if isNegative {
+		result = "-" + result
+	}
+
+	return result
+}
+
+// FormatCurrencyWithSeparators formats currency with thousand separators and 2 decimal places
+func FormatCurrencyWithSeparators(amount float64, thousandSeparator string, symbol string, symbolPrefix bool) string {
+	// Format number with 2 decimal places
+	formattedNumber := fmt.Sprintf("%.2f", amount)
+
+	// Apply thousands separators if needed (>=1000 or <=-1000)
+	if amount >= 1000 || amount <= -1000 {
+		formattedNumber = addThousandSeparatorsToFormattedNumber(formattedNumber, thousandSeparator)
+	}
+
+	// Handle negative numbers - move negative sign before currency symbol
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		if symbolPrefix {
+			return "-" + symbol + formattedNumber
+		}
+		return "-" + formattedNumber + symbol
+	}
+
+	if symbolPrefix {
+		return symbol + formattedNumber
+	}
+	return formattedNumber + symbol
+}
+
+// addThousandSeparatorsToFormattedNumber adds thousand separators to a formatted number string
+func addThousandSeparatorsToFormattedNumber(formattedNumber string, separator string) string {
+	// Replace decimal point temporarily
+	parts := strings.Split(formattedNumber, ".")
+	if len(parts) == 2 {
+		// Add thousands separators to integer part
+		integerPart := parts[0]
+		// Handle negative sign
+		negative := strings.HasPrefix(integerPart, "-")
+		if negative {
+			integerPart = strings.TrimPrefix(integerPart, "-")
+		}
+
+		formattedInteger := formatWithSeparators(integerPart, separator)
+
+		if negative {
+			formattedInteger = "-" + formattedInteger
+		}
+		return formattedInteger + "." + parts[1]
+	}
+	return formattedNumber
+}
+
+// FormatJapaneseCurrency formats currency for Japanese locale (no separators, no decimals)
+func FormatJapaneseCurrency(amount float64, symbol string) string {
+	// Format number without decimals for Japanese Yen (no fractional currency)
+	formattedNumber := fmt.Sprintf("%.0f", amount)
+
+	// Handle negative numbers - move negative sign before currency symbol
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + symbol + formattedNumber
+	}
+
+	return symbol + formattedNumber
+}
+
+// FormatDecimalWithoutSeparators formats a decimal number without thousand separators (for Japanese)
+func FormatDecimalWithoutSeparators(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, "", ".")
 }
