@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // QUPELocale represents the Quechua (Peru) locale
 var QUPELocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +200,38 @@ var QUPELocale = NumI18NLocale{
 		{Number: 100, Word: "pachakñiq", Suffix: "ñiq", Masculine: "pachakñiq", Feminine: "pachakñiq", Neuter: "pachakñiq"},
 		{Number: 1000, Word: "waranqañiq", Suffix: "ñiq", Masculine: "waranqañiq", Feminine: "waranqañiq", Neuter: "waranqañiq"},
 	},
+	LocaleFormatter: &QuechuaPeruFormatter{},
+}
+
+// QuechuaPeruFormatter handles Quechua (Peru) formatting
+type QuechuaPeruFormatter struct{}
+
+func (f *QuechuaPeruFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *QuechuaPeruFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *QuechuaPeruFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *QuechuaPeruFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *QuechuaPeruFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *QuechuaPeruFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }
