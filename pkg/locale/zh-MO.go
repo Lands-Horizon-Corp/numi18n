@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ZHMOLocale represents the Chinese (Macau) locale
 var ZHMOLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,34 @@ var ZHMOLocale = NumI18NLocale{
 		{Number: 10000, Word: "第一萬", Suffix: "第", Masculine: "第一萬", Feminine: "第一萬", Neuter: ""},
 		{Number: 100000000, Word: "第一億", Suffix: "第", Masculine: "第一億", Feminine: "第一億", Neuter: ""},
 	},
+	LocaleFormatter: &ChineseMacauFormatter{},
+}
+
+// ChineseMacauFormatter handles Chinese (Macau) formatting
+type ChineseMacauFormatter struct{}
+
+func (f *ChineseMacauFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ChineseMacauFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// Chinese doesn't have plural forms for currency, always use the same form
+	return result + currencyPlural
+}
+
+func (f *ChineseMacauFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + andText + fractionalWords
+}
+
+func (f *ChineseMacauFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// Chinese doesn't have plural forms for fractions, always use the same form
+	return result + fractionPlural
+}
+
+func (f *ChineseMacauFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + result
+}
+
+func (f *ChineseMacauFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.Decimal {
+	return value.Truncate(int32(places))
 }

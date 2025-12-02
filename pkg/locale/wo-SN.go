@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // WOSNLocale represents the Wolof (Senegal) locale
 var WOSNLocale = NumI18NLocale{
+	LocaleFormatter: &WolofFormatter{},
 	Currency: Currency{
 		Name:     "West African CFA Franc",
 		Plural:   "franc CFA",
@@ -210,4 +213,38 @@ var WOSNLocale = NumI18NLocale{
 		{Number: 1000000, Word: "bu milliyoneel", Suffix: "-ëem", Masculine: "bu milliyoneel", Feminine: "bu milliyoneel", Neuter: ""},
 		{Number: 1000000000, Word: "bu milliyard", Suffix: "-ëem", Masculine: "bu milliyardeel", Feminine: "bu milliyardeel", Neuter: ""},
 	},
+}
+
+// WolofFormatter handles Wolof (Senegal) formatting
+type WolofFormatter struct{}
+
+func (f *WolofFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *WolofFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *WolofFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *WolofFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *WolofFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *WolofFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(10).Pow(decimal.NewFromInt(int64(precision)))
+	return amount.Mul(multiplier).Truncate(0).Div(multiplier)
 }

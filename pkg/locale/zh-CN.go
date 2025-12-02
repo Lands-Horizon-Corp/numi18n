@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ZHCNLocale represents the Chinese (China) locale
 var ZHCNLocale = NumI18NLocale{
 	Currency: Currency{
@@ -195,4 +197,34 @@ var ZHCNLocale = NumI18NLocale{
 		{Number: 10000, Word: "第一万", Suffix: "第", Masculine: "第一万", Feminine: "第一万", Neuter: ""},
 		{Number: 100000000, Word: "第一亿", Suffix: "第", Masculine: "第一亿", Feminine: "第一亿", Neuter: ""},
 	},
+	LocaleFormatter: &ChineseChinaFormatter{},
+}
+
+// ChineseChinaFormatter handles Chinese (China) formatting
+type ChineseChinaFormatter struct{}
+
+func (f *ChineseChinaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ChineseChinaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	// Chinese doesn't have plural forms for currency, always use the same form
+	return result + currencyPlural
+}
+
+func (f *ChineseChinaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + andText + fractionalWords
+}
+
+func (f *ChineseChinaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	// Chinese doesn't have plural forms for fractions, always use the same form
+	return result + fractionPlural
+}
+
+func (f *ChineseChinaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + result
+}
+
+func (f *ChineseChinaFormatter) ChopDecimal(value decimal.Decimal, places int) decimal.Decimal {
+	return value.Truncate(int32(places))
 }

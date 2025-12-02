@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // YI001Locale represents the Yiddish (World) locale
 var YI001Locale = NumI18NLocale{
+	LocaleFormatter: &YiddishFormatter{},
 	Currency: Currency{
 		Name:     "Dollar",
 		Plural:   "דאָלערס",
@@ -210,4 +213,38 @@ var YI001Locale = NumI18NLocale{
 		{Number: 1000000, Word: "מיליאָנסטער", Suffix: "-טער", Masculine: "מיליאָנסטער", Feminine: "מיליאָנסטע", Neuter: "מיליאָנסטע"},
 		{Number: 1000000000, Word: "ביליאָנסטער", Suffix: "-טער", Masculine: "ביליאָנסטער", Feminine: "ביליאָנסטע", Neuter: "ביליאָנסטע"},
 	},
+}
+
+// YiddishFormatter handles Yiddish (World) formatting
+type YiddishFormatter struct{}
+
+func (f *YiddishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *YiddishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *YiddishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *YiddishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *YiddishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *YiddishFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(10).Pow(decimal.NewFromInt(int64(precision)))
+	return amount.Mul(multiplier).Truncate(0).Div(multiplier)
 }

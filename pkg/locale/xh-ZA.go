@@ -1,7 +1,10 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // XHZALocale represents the Xhosa (South Africa) locale
 var XHZALocale = NumI18NLocale{
+	LocaleFormatter: &XhosaFormatter{},
 	Currency: Currency{
 		Name:     "South African Rand",
 		Plural:   "iiRandi",
@@ -210,4 +213,38 @@ var XHZALocale = NumI18NLocale{
 		{Number: 1000000, Word: "okwesigidi", Suffix: "-ava", Masculine: "okwesigidi", Feminine: "okwesigidi", Neuter: ""},
 		{Number: 1000000000, Word: "okwesigidi semilliyone", Suffix: "-ava", Masculine: "okwesigidi semilliyone", Feminine: "okwesigidi semilliyone", Neuter: ""},
 	},
+}
+
+// XhosaFormatter handles Xhosa (South Africa) formatting
+type XhosaFormatter struct{}
+
+func (f *XhosaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *XhosaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *XhosaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *XhosaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *XhosaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *XhosaFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(10).Pow(decimal.NewFromInt(int64(precision)))
+	return amount.Mul(multiplier).Truncate(0).Div(multiplier)
 }
