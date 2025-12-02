@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // ROROLocale represents the Romanian (Romania) locale
 var ROROLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +200,38 @@ var ROROLocale = NumI18NLocale{
 		{Number: 100, Word: "al o sutelea", Suffix: "-lea", Masculine: "al o sutelea", Feminine: "a o suta", Neuter: "al o sutelea"},
 		{Number: 1000, Word: "al o miilea", Suffix: "-lea", Masculine: "al o miilea", Feminine: "a o mia", Neuter: "al o miilea"},
 	},
+	LocaleFormatter: &RomanianRomaniaFormatter{},
+}
+
+// RomanianRomaniaFormatter handles Romanian (Romania) formatting
+type RomanianRomaniaFormatter struct{}
+
+func (f *RomanianRomaniaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *RomanianRomaniaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *RomanianRomaniaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *RomanianRomaniaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *RomanianRomaniaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *RomanianRomaniaFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }

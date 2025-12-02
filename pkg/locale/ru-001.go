@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // RU001Locale is a NumI18NLocale configured for Russian (World) - ru-001
 var RU001Locale = NumI18NLocale{
 	Currency: Currency{
@@ -89,4 +93,38 @@ var RU001Locale = NumI18NLocale{
 		{Number: 100, Word: "сотый", Suffix: "-й", Masculine: "сотый", Feminine: "сотая", Neuter: "сотое"},
 		{Number: 1000, Word: "тысячный", Suffix: "-й", Masculine: "тысячный", Feminine: "тысячная", Neuter: "тысячное"},
 	},
+	LocaleFormatter: &RussianFormatter{},
+}
+
+// RussianFormatter handles Russian formatting
+type RussianFormatter struct{}
+
+func (f *RussianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *RussianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *RussianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *RussianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *RussianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *RussianFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }

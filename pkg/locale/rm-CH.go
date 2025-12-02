@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // RMCHLocale represents the Romansh (Switzerland) locale
 var RMCHLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +200,38 @@ var RMCHLocale = NumI18NLocale{
 		{Number: 100, Word: "tschientavel", Suffix: ".", Masculine: "tschientavel", Feminine: "tschientavla", Neuter: "tschientavel"},
 		{Number: 1000, Word: "milliavel", Suffix: ".", Masculine: "milliavel", Feminine: "milliavla", Neuter: "milliavel"},
 	},
+	LocaleFormatter: &RomanshSwitzerlandFormatter{},
+}
+
+// RomanshSwitzerlandFormatter handles Romansh (Switzerland) formatting
+type RomanshSwitzerlandFormatter struct{}
+
+func (f *RomanshSwitzerlandFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *RomanshSwitzerlandFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *RomanshSwitzerlandFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *RomanshSwitzerlandFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *RomanshSwitzerlandFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *RomanshSwitzerlandFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }

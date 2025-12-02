@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // RUBYLocale represents the Russian (Belarus) locale
 var RUBYLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var RUBYLocale = NumI18NLocale{
 		{Number: 100, Word: "сотый", Suffix: "-й", Masculine: "сотый", Feminine: "сотая", Neuter: "сотое"},
 		{Number: 1000, Word: "тысячный", Suffix: "-й", Masculine: "тысячный", Feminine: "тысячная", Neuter: "тысячное"},
 	},
+	LocaleFormatter: &RussianBelarusFormatter{},
+}
+
+// RussianBelarusFormatter implements LocaleFormatter for Russian (Belarus)
+type RussianBelarusFormatter struct{}
+
+func (f *RussianBelarusFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *RussianBelarusFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *RussianBelarusFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *RussianBelarusFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return " " + fractionName
+	}
+	return " " + fractionPlural
+}
+
+func (f *RussianBelarusFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *RussianBelarusFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }
