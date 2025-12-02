@@ -1,7 +1,12 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // TAINLocale represents the Tamil (India) locale
 var TAINLocale = NumI18NLocale{
+	LocaleFormatter: &TamilIndiaFormatter{},
 	Currency: Currency{
 		Name:     "Indian Rupee",
 		Plural:   "ரூபாய்கள்",
@@ -196,4 +201,37 @@ var TAINLocale = NumI18NLocale{
 		{Number: 100, Word: "நூறாவது", Suffix: "-ஆம்", Masculine: "நூறாவது", Feminine: "நூறாவது", Neuter: "நூறாவது"},
 		{Number: 1000, Word: "ஆயிரமாவது", Suffix: "-ஆம்", Masculine: "ஆயிரமாவது", Feminine: "ஆயிரமாவது", Neuter: "ஆயிரமாவது"},
 	},
+}
+
+// TamilIndiaFormatter handles Tamil (India) formatting
+type TamilIndiaFormatter struct{}
+
+func (f *TamilIndiaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *TamilIndiaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *TamilIndiaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *TamilIndiaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *TamilIndiaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *TamilIndiaFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }
