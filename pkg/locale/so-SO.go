@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // SOSOLocale represents the Somali (Somalia) locale
 var SOSOLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var SOSOLocale = NumI18NLocale{
 		{Number: 100, Word: "boqolaad", Suffix: "aad", Masculine: "boqolaad", Feminine: "boqolaad", Neuter: "boqolaad"},
 		{Number: 1000, Word: "kunaad", Suffix: "aad", Masculine: "kunaad", Feminine: "kunaad", Neuter: "kunaad"},
 	},
+	LocaleFormatter: &SomaliSomaliaFormatter{},
+}
+
+// SomaliSomaliaFormatter handles Somali (Somalia) formatting
+type SomaliSomaliaFormatter struct{}
+
+func (f *SomaliSomaliaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SomaliSomaliaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SomaliSomaliaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SomaliSomaliaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SomaliSomaliaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SomaliSomaliaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

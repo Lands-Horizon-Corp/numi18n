@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // SQALLocale represents the Albanian (Albania) locale
 var SQALLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var SQALLocale = NumI18NLocale{
 		{Number: 100, Word: "i njëqindtë", Suffix: "-të", Masculine: "i njëqindtë", Feminine: "e njëqindta", Neuter: "e njëqindtë"},
 		{Number: 1000, Word: "i mijëtë", Suffix: "-të", Masculine: "i mijëtë", Feminine: "e mijëta", Neuter: "e mijëtë"},
 	},
+	LocaleFormatter: &AlbanianAlbaniaFormatter{},
+}
+
+// AlbanianAlbaniaFormatter handles Albanian (Albania) formatting
+type AlbanianAlbaniaFormatter struct{}
+
+func (f *AlbanianAlbaniaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *AlbanianAlbaniaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *AlbanianAlbaniaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *AlbanianAlbaniaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *AlbanianAlbaniaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *AlbanianAlbaniaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }
