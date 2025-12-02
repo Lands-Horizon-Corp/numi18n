@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // PT001Locale is a NumI18NLocale configured for Portuguese (World) - pt-001
 var PT001Locale = NumI18NLocale{
 	Currency: Currency{
@@ -89,4 +93,38 @@ var PT001Locale = NumI18NLocale{
 		{Number: 100, Word: "centésimo", Suffix: "º", Masculine: "centésimo", Feminine: "centésima", Neuter: "centésimo"},
 		{Number: 1000, Word: "milésimo", Suffix: "º", Masculine: "milésimo", Feminine: "milésima", Neuter: "milésimo"},
 	},
+	LocaleFormatter: &PortugueseFormatter{},
+}
+
+// PortugueseFormatter handles Portuguese formatting
+type PortugueseFormatter struct{}
+
+func (f *PortugueseFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *PortugueseFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *PortugueseFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *PortugueseFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *PortugueseFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *PortugueseFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }

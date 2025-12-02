@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // PSAFLocale represents the Pashto (Afghanistan) locale
 var PSAFLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var PSAFLocale = NumI18NLocale{
 		{Number: 100, Word: "سلم", Suffix: "م", Masculine: "سلم", Feminine: "سلمه", Neuter: "سلم"},
 		{Number: 1000, Word: "زرم", Suffix: "م", Masculine: "زرم", Feminine: "زرمه", Neuter: "زرم"},
 	},
+	LocaleFormatter: &PashtoFormatter{},
+}
+
+// PashtoFormatter handles Pashto formatting
+type PashtoFormatter struct{}
+
+func (f *PashtoFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *PashtoFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *PashtoFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *PashtoFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *PashtoFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *PashtoFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }

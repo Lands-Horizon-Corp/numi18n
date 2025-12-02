@@ -6,7 +6,7 @@ import (
 	"github.com/Lands-Horizon-Corp/numi18n/pkg"
 )
 
-func TestToWords_Polish_Numbers(t *testing.T) {
+func TestToWords_Portuguese_Numbers(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -17,7 +17,7 @@ func TestToWords_Polish_Numbers(t *testing.T) {
 			name:   "Zero",
 			amount: 0,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
@@ -28,100 +28,100 @@ func TestToWords_Polish_Numbers(t *testing.T) {
 			name:   "Single digit",
 			amount: 5,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Pięć",
+			expected: "Cinco",
 		},
 		{
 			name:   "Teens",
 			amount: 15,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Piętnaście",
+			expected: "Quinze",
 		},
 		{
 			name:   "Tens",
 			amount: 30,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Trzydzieści",
+			expected: "Trinta",
 		},
 		{
 			name:   "Compound number",
 			amount: 47,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Czterdzieści siedem",
+			expected: "Quarenta Sete",
 		},
 		{
 			name:   "One hundred (exact mapping)",
 			amount: 100,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Sto",
+			expected: "Cento",
 		},
 		{
 			name:   "Hundreds with remainder",
 			amount: 256,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Dwa sto pięćdziesiąt sześć",
+			expected: "Dois Cento Cinquenta Seis",
 		},
 		{
 			name:   "One thousand",
 			amount: 1000,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Tysiąc",
+			expected: "Mil",
 		},
 		{
 			name:   "One million (exact mapping)",
 			amount: 1000000,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Milion",
+			expected: "Milhão",
 		},
 		{
 			name:   "Large complex number",
 			amount: 1234567,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden milion dwa sto trzydzieści cztery tysiąc pięć sto sześćdziesiąt siedem",
+			expected: "Um Milhão Dois Cento Trinta Quatro Mil Cinco Cento Sessenta Sete",
 		},
 	}
 
@@ -135,7 +135,7 @@ func TestToWords_Polish_Numbers(t *testing.T) {
 	}
 }
 
-func TestToWords_Polish_Currency(t *testing.T) {
+func TestToWords_Portuguese_Currency(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -143,52 +143,52 @@ func TestToWords_Polish_Currency(t *testing.T) {
 		expected string
 	}{
 		{
-			name:   "One zloty",
+			name:   "One euro",
 			amount: 1,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden Złoty",
+			expected: "Um Euro",
 		},
 		{
-			name:   "Multiple zloty",
+			name:   "Multiple euros",
 			amount: 5,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Pięć Złote",
+			expected: "Cinco Euros",
 		},
 		{
-			name:   "Zero zloty",
+			name:   "Zero euros",
 			amount: 0,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Zero Złote",
+			expected: "Zero Euros",
 		},
 		{
 			name:   "Large amount",
 			amount: 1000000,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Milion Złote",
+			expected: "Milhão Euros",
 		},
 	}
 
@@ -202,7 +202,7 @@ func TestToWords_Polish_Currency(t *testing.T) {
 	}
 }
 
-func TestToWords_Polish_Decimals(t *testing.T) {
+func TestToWords_Portuguese_Decimals(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -210,55 +210,68 @@ func TestToWords_Polish_Decimals(t *testing.T) {
 		expected string
 	}{
 		{
-			name:   "Zloty and one grosz",
+			name:   "Euros and one centimo",
 			amount: 5.01,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Pięć Złote i jeden Grosz",
+			expected: "Cinco Euros E Um Cêntimo",
 		},
 		{
-			name:   "Zloty and multiple grosze",
+			name:   "Euros and multiple centimos",
 			amount: 5.25,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Pięć Złote i dwadzieścia pięć Grosze",
+			expected: "Cinco Euros E Vinte Cinco Cêntimos",
+		},
+		{
+			name:   "Only centimos",
+			amount: 0.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "pt-001",
+				WordDetails: &pkg.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Zero Euros E Noventa Nove Cêntimos",
 		},
 		{
 			name:   "Complex amount",
 			amount: 1234.56,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden tysiąc dwa sto trzydzieści cztery Złote i pięćdziesiąt sześć Grosze",
+			expected: "Um Mil Dois Cento Trinta Quatro Euros E Cinquenta Seis Cêntimos",
 		},
 		{
 			name:   "Decimal without currency",
 			amount: 123.45,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden sto dwadzieścia trzy i czterdzieści pięć",
+			expected: "Um Cento Vinte Três E Quarenta Cinco",
 		},
 	}
 
@@ -272,7 +285,7 @@ func TestToWords_Polish_Decimals(t *testing.T) {
 	}
 }
 
-func TestToWords_Polish_Negative(t *testing.T) {
+func TestToWords_Portuguese_Negative(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -283,19 +296,19 @@ func TestToWords_Polish_Negative(t *testing.T) {
 			name:   "Negative number basic",
 			amount: -50,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					NegativeWord: true,
 					Capitalize:   true,
 				},
 			},
-			expected: "Minus pięćdziesiąt",
+			expected: "Menos Cinquenta",
 		},
 		{
 			name:   "Negative currency",
 			amount: -25.75,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:     true,
 					Decimal:      true,
@@ -303,7 +316,23 @@ func TestToWords_Polish_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Minus dwadzieścia pięć Złote i siedemdziesiąt pięć Grosze",
+			expected: "Menos Vinte Cinco Euros E Setenta Cinco Cêntimos",
+		},
+		{
+			name:   "Negative with custom word",
+			amount: -100,
+			options: &pkg.NumI18NOptions{
+				Locale: "pt-001",
+				WordDetails: &pkg.WordDetails{
+					Currency:     true,
+					NegativeWord: true,
+					Capitalize:   true,
+					OverrideOptions: &pkg.OverrideOptions{
+						NegativeWord: "Negativo",
+					},
+				},
+			},
+			expected: "Negativo Cento Euros",
 		},
 	}
 
@@ -317,7 +346,7 @@ func TestToWords_Polish_Negative(t *testing.T) {
 	}
 }
 
-func TestToWords_Polish_Formatting(t *testing.T) {
+func TestToWords_Portuguese_Formatting(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -328,38 +357,50 @@ func TestToWords_Polish_Formatting(t *testing.T) {
 			name:   "Uppercase",
 			amount: 123,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:  true,
 					Uppercase: true,
 				},
 			},
-			expected: "JEDEN STO DWADZIEŚCIA TRZY ZŁOTE",
+			expected: "UM CENTO VINTE TRÊS EUROS",
+		},
+		{
+			name:   "Lowercase",
+			amount: 123,
+			options: &pkg.NumI18NOptions{
+				Locale: "pt-001",
+				WordDetails: &pkg.WordDetails{
+					Currency:  true,
+					Lowercase: true,
+				},
+			},
+			expected: "um cento vinte três euros",
 		},
 		{
 			name:   "Only flag",
 			amount: 999,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Only:       true,
 					Capitalize: true,
 				},
 			},
-			expected: "Dziewięć sto dziewięćdziesiąt dziewięć tylko",
+			expected: "Nove Cento Noventa Nove Apenas",
 		},
 		{
 			name:   "Only flag with currency",
 			amount: 500,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Only:       true,
 					Capitalize: true,
 				},
 			},
-			expected: "Pięćset Złote tylko",
+			expected: "Cinco Cento Euros Apenas",
 		},
 	}
 
@@ -373,7 +414,7 @@ func TestToWords_Polish_Formatting(t *testing.T) {
 	}
 }
 
-func TestToWords_Polish_CustomCurrency(t *testing.T) {
+func TestToWords_Portuguese_CustomCurrency(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -384,36 +425,52 @@ func TestToWords_Polish_CustomCurrency(t *testing.T) {
 			name:   "Custom currency name",
 			amount: 100,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:   "peso",
-						Plural: "pesos",
+						Name:   "real",
+						Plural: "reais",
 					},
 				},
 			},
-			expected: "Sto pesos",
+			expected: "Cento reais",
 		},
 		{
 			name:   "Custom currency with decimals",
 			amount: 50.25,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:             "euro",
-						Plural:           "euros",
-						FractionUnitName: "cent",
-						FractionPlural:   "cents",
+						Name:             "dólar",
+						Plural:           "dólares",
+						FractionUnitName: "centavo",
+						FractionPlural:   "centavos",
 					},
 				},
 			},
-			expected: "Pięćdziesiąt euros i dwadzieścia pięć cents",
+			expected: "Cinquenta dólares E Vinte Cinco centavos",
+		},
+		{
+			name:   "Single custom currency",
+			amount: 1,
+			options: &pkg.NumI18NOptions{
+				Locale: "pt-001",
+				WordDetails: &pkg.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Name:   "libra",
+						Plural: "libras",
+					},
+				},
+			},
+			expected: "Um libra",
 		},
 	}
 
@@ -427,7 +484,7 @@ func TestToWords_Polish_CustomCurrency(t *testing.T) {
 	}
 }
 
-func TestToWords_Polish_EdgeCases(t *testing.T) {
+func TestToWords_Portuguese_EdgeCases(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -438,69 +495,69 @@ func TestToWords_Polish_EdgeCases(t *testing.T) {
 			name:   "Very small decimal",
 			amount: 0.01,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Zero Złote i jeden Grosz",
+			expected: "Zero Euros E Um Cêntimo",
 		},
 		{
 			name:   "Eleven (special case)",
 			amount: 11,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Jedenaście",
+			expected: "Onze",
 		},
 		{
 			name:   "Twelve (special case)",
 			amount: 12,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Dwanaście",
+			expected: "Doze",
 		},
 		{
 			name:   "Twenty one",
 			amount: 21,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Dwadzieścia jeden",
+			expected: "Vinte Um",
 		},
 		{
 			name:   "One hundred one",
 			amount: 101,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden sto jeden",
+			expected: "Um Cento Um",
 		},
 		{
 			name:   "One thousand one",
 			amount: 1001,
 			options: &pkg.NumI18NOptions{
-				Locale: "pl-PL",
+				Locale: "pt-001",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden tysiąc jeden",
+			expected: "Um Mil Um",
 		},
 	}
 

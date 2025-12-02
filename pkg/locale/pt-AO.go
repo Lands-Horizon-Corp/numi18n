@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // PTAOLocale represents the Portuguese (Angola) locale
 var PTAOLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +200,38 @@ var PTAOLocale = NumI18NLocale{
 		{Number: 100, Word: "centésimo", Suffix: "º", Masculine: "centésimo", Feminine: "centésima", Neuter: "centésimo"},
 		{Number: 1000, Word: "milésimo", Suffix: "º", Masculine: "milésimo", Feminine: "milésima", Neuter: "milésimo"},
 	},
+	LocaleFormatter: &PortugueseAngolaFormatter{},
+}
+
+// PortugueseAngolaFormatter handles Portuguese (Angola) formatting
+type PortugueseAngolaFormatter struct{}
+
+func (f *PortugueseAngolaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *PortugueseAngolaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *PortugueseAngolaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *PortugueseAngolaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *PortugueseAngolaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *PortugueseAngolaFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }
