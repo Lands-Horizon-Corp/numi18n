@@ -6,7 +6,7 @@ import (
 	"github.com/Lands-Horizon-Corp/numi18n/pkg"
 )
 
-func TestToWords_SinhalaSriLanka_Numbers(t *testing.T) {
+func TestToWords_SlovakSlovakia_Numbers(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -17,111 +17,111 @@ func TestToWords_SinhalaSriLanka_Numbers(t *testing.T) {
 			name:   "Zero",
 			amount: 0,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "ශුන\u200dය",
+			expected: "Nula",
 		},
 		{
 			name:   "Single digit",
 			amount: 5,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "පන්ච",
+			expected: "Päť",
 		},
 		{
 			name:   "Teens",
 			amount: 15,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "පන්චදශ",
+			expected: "Pätnásť",
 		},
 		{
 			name:   "Tens",
 			amount: 30,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "ත්\u200dරිංශ",
+			expected: "Tridsať",
 		},
 		{
 			name:   "Compound number",
 			amount: 47,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "චත්වාරිංශ සහ සප්ත",
+			expected: "Štyridsať sedem",
 		},
 		{
 			name:   "One hundred",
 			amount: 100,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "සියය",
+			expected: "Sto",
 		},
 		{
 			name:   "Hundreds with remainder",
 			amount: 256,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "ද්වි සියය පන්චාශ ෂට්",
+			expected: "Dva sto päťdesiat šesť",
 		},
 		{
 			name:   "One thousand",
 			amount: 1000,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "දහස",
+			expected: "Tisíc",
 		},
 		{
 			name:   "One million",
 			amount: 1000000,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "මිලියන",
+			expected: "Milión",
 		},
 		{
 			name:   "Large complex number",
 			amount: 1234567,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "ඒක මිලියන ද්වි සියය ත්\u200dරිංශ චතුර් දහස පන්ච සියය ෂෂ්ටිය සප්ත",
+			expected: "Jeden milión dva sto tridsať štyri tisíc päť sto šesťdesiat sedem",
 		},
 	}
 
@@ -135,7 +135,7 @@ func TestToWords_SinhalaSriLanka_Numbers(t *testing.T) {
 	}
 }
 
-func TestToWords_SinhalaSriLanka_Currency(t *testing.T) {
+func TestToWords_SlovakSlovakia_Currency(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -143,52 +143,52 @@ func TestToWords_SinhalaSriLanka_Currency(t *testing.T) {
 		expected string
 	}{
 		{
-			name:   "One Sri Lankan rupee",
+			name:   "One euro",
 			amount: 1,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "ඒක ශ්\u200dරී ලංකා රුපියල",
+			expected: "Jeden Euro",
 		},
 		{
-			name:   "Multiple Sri Lankan rupees",
+			name:   "Multiple euros",
 			amount: 5,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "පන්ච ශ්\u200dරී ලංකා රුපියල්",
+			expected: "Päť Eurá",
 		},
 		{
-			name:   "Zero Sri Lankan rupees",
+			name:   "Zero euros",
 			amount: 0,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "ශුන්\u200dය ශ්\u200dරී ලංකා රුපියල්",
+			expected: "Nula Eurá",
 		},
 		{
 			name:   "Large amount",
 			amount: 1000000,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "මිලියන ශ්\u200dරී ලංකා රුපියල්",
+			expected: "Milión Eurá",
 		},
 	}
 
@@ -202,7 +202,7 @@ func TestToWords_SinhalaSriLanka_Currency(t *testing.T) {
 	}
 }
 
-func TestToWords_SinhalaSriLanka_Decimals(t *testing.T) {
+func TestToWords_SlovakSlovakia_Decimals(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -210,68 +210,68 @@ func TestToWords_SinhalaSriLanka_Decimals(t *testing.T) {
 		expected string
 	}{
 		{
-			name:   "Rupees and one cent",
+			name:   "Euros and one cent",
 			amount: 5.01,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "පන්ච ශ්\u200dරී ලංකා රුපියල් සහ ඒක සෙන්ට්",
+			expected: "Päť Eurá a jeden Cent",
 		},
 		{
-			name:   "Rupees and multiple cents",
+			name:   "Euros and multiple cents",
 			amount: 5.25,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "පන්ච ශ්\u200dරී ලංකා රුපියල් සහ විංශ සහ පන්ච සෙන්ට්",
+			expected: "Päť Eurá a dvadsať päť Centy",
 		},
 		{
 			name:   "Only cents",
 			amount: 0.99,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "ශුන්\u200dය ශ්\u200dරී ලංකා රුපියල් සහ අනූව සහ නව සෙන්ට්",
+			expected: "Nula Eurá a deväťdesiat deväť Centy",,
 		},
 		{
 			name:   "Complex amount",
 			amount: 1234.56,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "ඒක දහස ද්වි සියය ත්\u200dරිංශ චතුර් ශ්\u200dරී ලංකා රුපියල් සහ පන්චාශ සහ ෂට් සෙන්ට්",
+			expected: "Jeden tisíc dva sto tridsať štyri Eurá a päťdesiat šesť Centy",
 		},
 		{
 			name:   "Decimal without currency",
 			amount: 123.45,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "ඒක සියය විංශ ත්\u200dරි සහ චත්වාරිංශ සහ පන්ච",
+			expected: "Jeden sto dvadsať tri a štyridsať päť",,
 		},
 	}
 
@@ -285,7 +285,7 @@ func TestToWords_SinhalaSriLanka_Decimals(t *testing.T) {
 	}
 }
 
-func TestToWords_SinhalaSriLanka_Negative(t *testing.T) {
+func TestToWords_SlovakSlovakia_Negative(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -296,19 +296,19 @@ func TestToWords_SinhalaSriLanka_Negative(t *testing.T) {
 			name:   "Negative number basic",
 			amount: -50,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					NegativeWord: true,
 					Capitalize:   true,
 				},
 			},
-			expected: "අඩු පන්චාශ",
+			expected: "Mínus päťdesiat",
 		},
 		{
 			name:   "Negative currency",
 			amount: -25.75,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:     true,
 					Decimal:      true,
@@ -316,23 +316,23 @@ func TestToWords_SinhalaSriLanka_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "අඩු විංශ සහ පන්ච ශ්\u200dරී ලංකා රුපියල් සහ සප්තතිය සහ පන්ච සෙන්ට්",
+			expected: "Mínus dvadsať päť Eurá a sedemdesiat päť Centy",
 		},
 		{
 			name:   "Negative with custom word",
 			amount: -100,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:     true,
 					NegativeWord: true,
 					Capitalize:   true,
 					OverrideOptions: &pkg.OverrideOptions{
-						NegativeWord: "ඍණ",
+						NegativeWord: "Záporné",
 					},
 				},
 			},
-			expected: "ඍණ සියය ශ්\u200dරී ලංකා රුපියල්",
+			expected: "Záporné Sto Eurá",
 		},
 	}
 
@@ -346,7 +346,7 @@ func TestToWords_SinhalaSriLanka_Negative(t *testing.T) {
 	}
 }
 
-func TestToWords_SinhalaSriLanka_Formatting(t *testing.T) {
+func TestToWords_SlovakSlovakia_Formatting(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -357,50 +357,50 @@ func TestToWords_SinhalaSriLanka_Formatting(t *testing.T) {
 			name:   "Uppercase",
 			amount: 123,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:  true,
 					Uppercase: true,
 				},
 			},
-			expected: "ඒක සියය විංශ ත්\u200dරි ශ්\u200dරී ලංකා රුපියල්",
+			expected: "JEDEN STO DVADSAŤ TRI EURÁ",
 		},
 		{
 			name:   "Lowercase",
 			amount: 123,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:  true,
 					Lowercase: true,
 				},
 			},
-			expected: "ඒක සියය විංශ ත්\u200dරි ශ්\u200dරී ලංකා රුපියල්",
+			expected: "jeden sto dvadsať tri eurá",
 		},
 		{
 			name:   "Only flag",
 			amount: 999,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Only:       true,
 					Capitalize: true,
 				},
 			},
-			expected: "නව සියය අනූව නව පමණක්",
+			expected: "Deväť Sto Deväťdesiat Deväť Len",
 		},
 		{
 			name:   "Only flag with currency",
 			amount: 500,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Only:       true,
 					Capitalize: true,
 				},
 			},
-			expected: "පන්ච සියය ශ්\u200dරී ලංකා රුපියල් පමණක්",
+			expected: "Päťsto Eurá Len",
 		},
 	}
 
@@ -414,7 +414,7 @@ func TestToWords_SinhalaSriLanka_Formatting(t *testing.T) {
 	}
 }
 
-func TestToWords_SinhalaSriLanka_CustomCurrency(t *testing.T) {
+func TestToWords_SlovakSlovakia_CustomCurrency(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -425,52 +425,52 @@ func TestToWords_SinhalaSriLanka_CustomCurrency(t *testing.T) {
 			name:   "Custom currency name",
 			amount: 100,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:   "ඩොලර්",
-						Plural: "ඩොලර්",
+						Name:   "koruna",
+						Plural: "koruny",
 					},
 				},
 			},
-			expected: "සියය ඩොලර්",
+			expected: "Sto Koruny",
 		},
 		{
 			name:   "Custom currency with decimals",
 			amount: 50.25,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:             "යුරෝ",
-						Plural:           "යුරෝ",
-						FractionUnitName: "සෙන්ට්",
-						FractionPlural:   "සෙන්ට්",
+						Name:             "dolár",
+						Plural:           "dolárov",
+						FractionUnitName: "cent",
+						FractionPlural:   "centov",
 					},
 				},
 			},
-			expected: "පන්චාශ යුරෝ සහ විංශ සහ පන්ච සෙන්ට්",
+			expected: "Päťdesiat dolárov a dvadsať päť centov",
 		},
 		{
 			name:   "Single custom currency",
 			amount: 1,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:   "පවුන්ඩ්",
-						Plural: "පවුන්ඩ්",
+						Name:   "libra",
+						Plural: "libier",
 					},
 				},
 			},
-			expected: "ඒක පවුන්ඩ්",
+			expected: "Jeden Libra",
 		},
 	}
 
@@ -484,7 +484,7 @@ func TestToWords_SinhalaSriLanka_CustomCurrency(t *testing.T) {
 	}
 }
 
-func TestToWords_SinhalaSriLanka_EdgeCases(t *testing.T) {
+func TestToWords_SlovakSlovakia_EdgeCases(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -495,69 +495,69 @@ func TestToWords_SinhalaSriLanka_EdgeCases(t *testing.T) {
 			name:   "Very small decimal",
 			amount: 0.01,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "ශුන්\u200dය ශ්\u200dරී ලංකා රුපියල් සහ ඒක සෙන්ට්",
+			expected: "Nula Eurá a jeden Cent",
 		},
 		{
 			name:   "Eleven (special case)",
 			amount: 11,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "ඒකාදශ",
+			expected: "Jedenásť",
 		},
 		{
 			name:   "Twelve (special case)",
 			amount: 12,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "ද්වාදශ",
+			expected: "Dvanásť",
 		},
 		{
 			name:   "Twenty one",
 			amount: 21,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "විංශ සහ ඒක",
+			expected: "Dvadsať Jeden",
 		},
 		{
 			name:   "One hundred one",
 			amount: 101,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "ඒක සියය ඒක",
+			expected: "Jeden Sto Jeden",
 		},
 		{
 			name:   "One thousand one",
 			amount: 1001,
 			options: &pkg.NumI18NOptions{
-				Locale: "si-LK",
+				Locale: "sk-SK",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "ඒක දහස ඒක",
+			expected: "Jeden Tisíc Jeden",
 		},
 	}
 

@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // SKSKLocale represents the Slovak (Slovakia) locale
 var SKSKLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var SKSKLocale = NumI18NLocale{
 		{Number: 100, Word: "stý", Suffix: ".", Masculine: "stý", Feminine: "stá", Neuter: "sté"},
 		{Number: 1000, Word: "tisíci", Suffix: ".", Masculine: "tisíci", Feminine: "tisíca", Neuter: "tisíce"},
 	},
+	LocaleFormatter: &SlovakSlovakiaFormatter{},
+}
+
+// SlovakSlovakiaFormatter handles Slovak (Slovakia) formatting
+type SlovakSlovakiaFormatter struct{}
+
+func (f *SlovakSlovakiaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SlovakSlovakiaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SlovakSlovakiaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SlovakSlovakiaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SlovakSlovakiaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SlovakSlovakiaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }
