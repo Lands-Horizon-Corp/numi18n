@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // URINLocale represents the Urdu (India) locale
 var URINLocale = NumI18NLocale{
 	Currency: Currency{
@@ -211,4 +213,38 @@ var URINLocale = NumI18NLocale{
 		{Number: 100000, Word: "لاکھواں", Suffix: "ویں", Masculine: "لاکھواں", Feminine: "لاکھویں", Neuter: ""},
 		{Number: 10000000, Word: "کروڑواں", Suffix: "ویں", Masculine: "کروڑواں", Feminine: "کروڑویں", Neuter: ""},
 	},
+	LocaleFormatter: &UrduFormatter{},
+}
+
+// UrduFormatter handles Urdu (India) formatting
+type UrduFormatter struct{}
+
+func (f *UrduFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *UrduFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *UrduFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *UrduFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *UrduFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *UrduFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

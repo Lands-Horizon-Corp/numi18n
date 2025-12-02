@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // URPKLocale represents the Urdu (Pakistan) locale
 var URPKLocale = NumI18NLocale{
 	Currency: Currency{
@@ -210,4 +212,38 @@ var URPKLocale = NumI18NLocale{
 		{Number: 100000, Word: "لاکھواں", Suffix: "ویں", Masculine: "لاکھواں", Feminine: "لاکھویں", Neuter: ""},
 		{Number: 1000000000, Word: "اربواں", Suffix: "ویں", Masculine: "اربواں", Feminine: "اربویں", Neuter: ""},
 	},
+	LocaleFormatter: &UrduPakistanFormatter{},
+}
+
+// UrduPakistanFormatter handles Urdu (Pakistan) formatting
+type UrduPakistanFormatter struct{}
+
+func (f *UrduPakistanFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *UrduPakistanFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *UrduPakistanFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *UrduPakistanFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *UrduPakistanFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *UrduPakistanFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

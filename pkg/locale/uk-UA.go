@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // UKUALocale represents the Ukrainian (Ukraine) locale
 var UKUALocale = NumI18NLocale{
 	Currency: Currency{
@@ -209,4 +211,38 @@ var UKUALocale = NumI18NLocale{
 		{Number: 1000, Word: "тисячний", Suffix: "-й", Masculine: "тисячний", Feminine: "тисячна", Neuter: "тисячне"},
 		{Number: 1000000, Word: "мільйонний", Suffix: "-й", Masculine: "мільйонний", Feminine: "мільйонна", Neuter: "мільйонне"},
 	},
+	LocaleFormatter: &UkrainianFormatter{},
+}
+
+// UkrainianFormatter handles Ukrainian (Ukraine) formatting
+type UkrainianFormatter struct{}
+
+func (f *UkrainianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *UkrainianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *UkrainianFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *UkrainianFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *UkrainianFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *UkrainianFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }
