@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // UZUZLocale represents the Uzbek (Uzbekistan) locale
 var UZUZLocale = NumI18NLocale{
 	Currency: Currency{
@@ -210,4 +212,38 @@ var UZUZLocale = NumI18NLocale{
 		{Number: 1000000, Word: "millioninchi", Suffix: "-inchi", Masculine: "millioninchi", Feminine: "millioninchi", Neuter: ""},
 		{Number: 1000000000, Word: "milliardinchi", Suffix: "-inchi", Masculine: "milliardinchi", Feminine: "milliardinchi", Neuter: ""},
 	},
+	LocaleFormatter: &UzbekFormatter{},
+}
+
+// UzbekFormatter handles Uzbek (Uzbekistan) formatting
+type UzbekFormatter struct{}
+
+func (f *UzbekFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *UzbekFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *UzbekFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *UzbekFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *UzbekFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *UzbekFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }
