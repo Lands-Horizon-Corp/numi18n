@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // UGCNLocale represents the Uyghur (China) locale
 var UGCNLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var UGCNLocale = NumI18NLocale{
 		{Number: 100, Word: "يۈزىنچى", Suffix: ".", Masculine: "يۈزىنچى", Feminine: "يۈزىنچى", Neuter: "يۈزىنچى"},
 		{Number: 1000, Word: "مىڭىنچى", Suffix: ".", Masculine: "مىڭىنچى", Feminine: "مىڭىنچى", Neuter: "مىڭىنچى"},
 	},
+	LocaleFormatter: &UyghurFormatter{},
+}
+
+// UyghurFormatter handles Uyghur (China) formatting
+type UyghurFormatter struct{}
+
+func (f *UyghurFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *UyghurFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *UyghurFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *UyghurFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *UyghurFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *UyghurFormatter) ChopDecimal(value decimal.Decimal, decimalPlaces int) decimal.Decimal {
+	return value.Truncate(int32(decimalPlaces))
 }

@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // TRTRLocale represents the Turkish (Turkey) locale
 var TRTRLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var TRTRLocale = NumI18NLocale{
 		{Number: 100, Word: "yüzüncü", Suffix: ".", Masculine: "yüzüncü", Feminine: "yüzüncü", Neuter: "yüzüncü"},
 		{Number: 1000, Word: "bininci", Suffix: ".", Masculine: "bininci", Feminine: "bininci", Neuter: "bininci"},
 	},
+	LocaleFormatter: &TurkishFormatter{},
+}
+
+// TurkishFormatter handles Turkish (Turkey) formatting
+type TurkishFormatter struct{}
+
+func (f *TurkishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *TurkishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *TurkishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *TurkishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *TurkishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *TurkishFormatter) ChopDecimal(value decimal.Decimal, decimalPlaces int) decimal.Decimal {
+	return value.Truncate(int32(decimalPlaces))
 }
