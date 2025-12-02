@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // SRRSLocale represents the Serbian (Serbia) locale
 var SRRSLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var SRRSLocale = NumI18NLocale{
 		{Number: 100, Word: "стоти", Suffix: ".", Masculine: "стоти", Feminine: "стота", Neuter: "сто"},
 		{Number: 1000, Word: "хиљадити", Suffix: ".", Masculine: "хиљадити", Feminine: "хиљадита", Neuter: "хиљадито"},
 	},
+	LocaleFormatter: &SerbianSerbiaFormatter{},
+}
+
+// SerbianSerbiaFormatter handles Serbian (Serbia) formatting
+type SerbianSerbiaFormatter struct{}
+
+func (f *SerbianSerbiaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SerbianSerbiaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SerbianSerbiaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SerbianSerbiaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SerbianSerbiaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SerbianSerbiaFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }
