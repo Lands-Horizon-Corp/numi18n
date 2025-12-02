@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // PAINLocale represents the Punjabi (India) locale
 var PAINLocale = NumI18NLocale{
 	Currency: Currency{
@@ -200,4 +202,38 @@ var PAINLocale = NumI18NLocale{
 		{Number: 100, Word: "ਸੌਵਾਂ", Suffix: "-ਵਾਂ", Masculine: "ਸੌਵਾਂ", Feminine: "ਸੌਵੀਂ", Neuter: "ਸੌਵਾਂ"},
 		{Number: 1000, Word: "ਹਜ਼ਾਰਵਾਂ", Suffix: "-ਵਾਂ", Masculine: "ਹਜ਼ਾਰਵਾਂ", Feminine: "ਹਜ਼ਾਰਵੀਂ", Neuter: "ਹਜ਼ਾਰਵਾਂ"},
 	},
+	LocaleFormatter: &PunjabiFormatter{},
+}
+
+// PunjabiFormatter handles Punjabi (India) formatting
+type PunjabiFormatter struct{}
+
+func (f *PunjabiFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *PunjabiFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *PunjabiFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *PunjabiFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *PunjabiFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *PunjabiFormatter) ChopDecimal(decimal decimal.Decimal, precision int) decimal.Decimal {
+	return decimal.Truncate(int32(precision))
 }

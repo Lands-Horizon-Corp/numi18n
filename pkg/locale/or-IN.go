@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // ORINLocale represents the Odia (India) locale
 var ORINLocale = NumI18NLocale{
 	Currency: Currency{
@@ -199,4 +201,38 @@ var ORINLocale = NumI18NLocale{
 		{Number: 100, Word: "ଶତତମ", Suffix: "-ତମ", Masculine: "ଶତତମ", Feminine: "ଶତତମ", Neuter: "ଶତତମ"},
 		{Number: 1000, Word: "ସହସ୍ରତମ", Suffix: "-ତମ", Masculine: "ସହସ୍ରତମ", Feminine: "ସହସ୍ରତମ", Neuter: "ସହସ୍ରତମ"},
 	},
+	LocaleFormatter: &OdiaFormatter{},
+}
+
+// OdiaFormatter handles Odia (India) formatting
+type OdiaFormatter struct{}
+
+func (f *OdiaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *OdiaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *OdiaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *OdiaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *OdiaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *OdiaFormatter) ChopDecimal(decimal decimal.Decimal, precision int) decimal.Decimal {
+	return decimal.Truncate(int32(precision))
 }

@@ -6,7 +6,7 @@ import (
 	"github.com/Lands-Horizon-Corp/numi18n/pkg"
 )
 
-func TestToWords_DutchNetherlands_Numbers(t *testing.T) {
+func TestToWords_Punjabi_Numbers(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -17,111 +17,111 @@ func TestToWords_DutchNetherlands_Numbers(t *testing.T) {
 			name:   "Zero",
 			amount: 0,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Zero",
+			expected: "ਸਿਫ਼ਰ",
 		},
 		{
 			name:   "Single digit",
 			amount: 5,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Five",
+			expected: "ਪੰਜ",
 		},
 		{
 			name:   "Teens",
 			amount: 15,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Fifteen",
+			expected: "ਪੰਦਰਾਂ",
 		},
 		{
 			name:   "Tens",
 			amount: 30,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Thirty",
+			expected: "ਤੀਹ",
 		},
 		{
 			name:   "Compound number",
 			amount: 47,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Forty Seven",
+			expected: "ਸਤਤਾਲੀ",
 		},
 		{
 			name:   "One hundred (exact mapping)",
 			amount: 100,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "One Hundred",
+			expected: "ਇੱਕ ਸੌ",
 		},
 		{
 			name:   "Hundreds with remainder",
 			amount: 256,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Two Hundred Fifty Six",
+			expected: "ਦੋ ਇੱਕ ਸੌ ਪੰਜਾਹ ਛੇ",
 		},
 		{
 			name:   "One thousand",
 			amount: 1000,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "One Thousand",
+			expected: "ਇੱਕ ਹਜ਼ਾਰ",
 		},
 		{
-			name:   "One million",
-			amount: 1000000,
+			name:   "One hundred thousand (exact mapping)",
+			amount: 100000,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "One Million",
+			expected: "ਇੱਕ ਲੱਖ",
 		},
 		{
 			name:   "Large complex number",
 			amount: 1234567,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven",
+			expected: "ਇੱਕ ਦਸ ਲੱਖ ਦੋ ਇੱਕ ਸੌ ਤੀਹ ਚਾਰ ਇੱਕ ਹਜ਼ਾਰ ਪੰਜ ਇੱਕ ਸੌ ਸੱਠ ਸੱਤ",
 		},
 	}
 
@@ -135,7 +135,7 @@ func TestToWords_DutchNetherlands_Numbers(t *testing.T) {
 	}
 }
 
-func TestToWords_DutchNetherlands_Currency(t *testing.T) {
+func TestToWords_Punjabi_Currency(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -143,52 +143,52 @@ func TestToWords_DutchNetherlands_Currency(t *testing.T) {
 		expected string
 	}{
 		{
-			name:   "One euro",
+			name:   "One rupee",
 			amount: 1,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "One Euro",
+			expected: "ਇੱਕ ਭਾਰਤੀ ਰੁਪਇਆ",
 		},
 		{
-			name:   "Multiple euros",
+			name:   "Multiple rupees",
 			amount: 5,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Five Euro",
+			expected: "ਪੰਜ ਭਾਰਤੀ ਰੁਪਏ",
 		},
 		{
-			name:   "Zero euros",
+			name:   "Zero rupees",
 			amount: 0,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Zero Euro",
+			expected: "ਸਿਫ਼ਰ ਭਾਰਤੀ ਰੁਪਏ",
 		},
 		{
 			name:   "Large amount",
-			amount: 1000000,
+			amount: 100000,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "One Million Euro",
+			expected: "ਇੱਕ ਲੱਖ ਭਾਰਤੀ ਰੁਪਏ",
 		},
 	}
 
@@ -202,7 +202,7 @@ func TestToWords_DutchNetherlands_Currency(t *testing.T) {
 	}
 }
 
-func TestToWords_DutchNetherlands_Decimals(t *testing.T) {
+func TestToWords_Punjabi_Decimals(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -210,68 +210,68 @@ func TestToWords_DutchNetherlands_Decimals(t *testing.T) {
 		expected string
 	}{
 		{
-			name:   "Euros and one cent",
+			name:   "Rupees and one paisa",
 			amount: 5.01,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Vijf Euro En Een Cent",
+			expected: "ਪੰਜ ਭਾਰਤੀ ਰੁਪਏ ਅਤੇ ਇੱਕ ਪੈਸਾ",
 		},
 		{
-			name:   "Euros and multiple cents",
+			name:   "Rupees and multiple paisa",
 			amount: 5.25,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Vijf Euro En Vijfentwintig Cent",
+			expected: "ਪੰਜ ਭਾਰਤੀ ਰੁਪਏ ਅਤੇ ਪੱਚੀਸ ਪੈਸੇ",
 		},
 		{
-			name:   "Only cents",
+			name:   "Only paisa",
 			amount: 0.99,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Nul Euro En Negenennegentig Cent",
+			expected: "ਸਿਫ਼ਰ ਭਾਰਤੀ ਰੁਪਏ ਅਤੇ ਨਿੰਨਾਣਵੇਂ ਪੈਸੇ",
 		},
 		{
 			name:   "Complex amount",
 			amount: 1234.56,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Duizend Tweehonderd Vierendertig Euro En Zesenvijftig Cent",
+			expected: "ਇੱਕ ਇੱਕ ਹਜ਼ਾਰ ਦੋ ਇੱਕ ਸੌ ਤੀਹ ਚਾਰ ਭਾਰਤੀ ਰੁਪਏ ਅਤੇ ਛਪਨ ਪੈਸੇ",
 		},
 		{
 			name:   "Decimal without currency",
 			amount: 123.45,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Honderd Drieëntwintig En Vijfenveertig",
+			expected: "ਇੱਕ ਇੱਕ ਸੌ ਵੀਹ ਤਿੰਨ ਅਤੇ ਪੰਤਾਲੀ",
 		},
 	}
 
@@ -285,7 +285,7 @@ func TestToWords_DutchNetherlands_Decimals(t *testing.T) {
 	}
 }
 
-func TestToWords_DutchNetherlands_Negative(t *testing.T) {
+func TestToWords_Punjabi_Negative(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -296,19 +296,19 @@ func TestToWords_DutchNetherlands_Negative(t *testing.T) {
 			name:   "Negative number basic",
 			amount: -50,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					NegativeWord: true,
 					Capitalize:   true,
 				},
 			},
-			expected: "Min Vijftig",
+			expected: "ਮਾਇਨਸ ਪੰਜਾਹ",
 		},
 		{
 			name:   "Negative currency",
 			amount: -25.75,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:     true,
 					Decimal:      true,
@@ -316,23 +316,23 @@ func TestToWords_DutchNetherlands_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Min Vijfentwintig Euro En Vijfenzeventig Cent",
+			expected: "ਮਾਇਨਸ ਪੱਚੀਸ ਭਾਰਤੀ ਰੁਪਏ ਅਤੇ ਪਚਿਹੱਤਰ ਪੈਸੇ",
 		},
 		{
 			name:   "Negative with custom word",
 			amount: -100,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:     true,
 					NegativeWord: true,
 					Capitalize:   true,
 					OverrideOptions: &pkg.OverrideOptions{
-						NegativeWord: "Negatief",
+						NegativeWord: "ਰਿਣ",
 					},
 				},
 			},
-			expected: "Negatief Eenhonderd Euro",
+			expected: "ਰਿਣ ਇੱਕ ਸੌ ਭਾਰਤੀ ਰੁਪਏ",
 		},
 	}
 
@@ -346,7 +346,7 @@ func TestToWords_DutchNetherlands_Negative(t *testing.T) {
 	}
 }
 
-func TestToWords_DutchNetherlands_Formatting(t *testing.T) {
+func TestToWords_Punjabi_Formatting(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -357,50 +357,50 @@ func TestToWords_DutchNetherlands_Formatting(t *testing.T) {
 			name:   "Uppercase",
 			amount: 123,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:  true,
 					Uppercase: true,
 				},
 			},
-			expected: "HONDERD DRIEËNTWINTIG EURO",
+			expected: "ਇੱਕ ਇੱਕ ਸੌ ਵੀਹ ਤਿੰਨ ਭਾਰਤੀ ਰੁਪਏ",
 		},
 		{
 			name:   "Lowercase",
 			amount: 123,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:  true,
 					Lowercase: true,
 				},
 			},
-			expected: "honderd drieëntwintig euro",
+			expected: "ਇੱਕ ਇੱਕ ਸੌ ਵੀਹ ਤਿੰਨ ਭਾਰਤੀ ਰੁਪਏ",
 		},
 		{
 			name:   "Only flag",
 			amount: 999,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Only:       true,
 					Capitalize: true,
 				},
 			},
-			expected: "Negenhonderd Negenennegentig Alleen",
+			expected: "ਨੌ ਇੱਕ ਸੌ ਨੱਬੇ ਨੌ ਸਿਰਫ਼",
 		},
 		{
 			name:   "Only flag with currency",
 			amount: 500,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Only:       true,
 					Capitalize: true,
 				},
 			},
-			expected: "Vijfhonderd Euro Alleen",
+			expected: "ਪੰਜ ਸੌ ਭਾਰਤੀ ਰੁਪਏ ਸਿਰਫ਼",
 		},
 	}
 
@@ -414,7 +414,7 @@ func TestToWords_DutchNetherlands_Formatting(t *testing.T) {
 	}
 }
 
-func TestToWords_DutchNetherlands_CustomCurrency(t *testing.T) {
+func TestToWords_Punjabi_CustomCurrency(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -425,52 +425,52 @@ func TestToWords_DutchNetherlands_CustomCurrency(t *testing.T) {
 			name:   "Custom currency name",
 			amount: 100,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:   "gulden",
-						Plural: "gulden",
+						Name:   "ਡਾਲਰ",
+						Plural: "ਡਾਲਰ",
 					},
 				},
 			},
-			expected: "Eenhonderd gulden",
+			expected: "ਇੱਕ ਸੌ ਡਾਲਰ",
 		},
 		{
 			name:   "Custom currency with decimals",
 			amount: 50.25,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:             "dollar",
-						Plural:           "dollars",
-						FractionUnitName: "cent",
-						FractionPlural:   "cent",
+						Name:             "ਯੂਰੋ",
+						Plural:           "ਯੂਰੋ",
+						FractionUnitName: "ਸੈਂਟ",
+						FractionPlural:   "ਸੈਂਟ",
 					},
 				},
 			},
-			expected: "Vijftig dollars En Vijfentwintig cent",
+			expected: "ਪੰਜਾਹ ਯੂਰੋ ਅਤੇ ਪੱਚੀਸ ਸੈਂਟ",
 		},
 		{
 			name:   "Single custom currency",
 			amount: 1,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:   "pond",
-						Plural: "pond",
+						Name:   "ਪਾਊਂਡ",
+						Plural: "ਪਾਊਂਡ",
 					},
 				},
 			},
-			expected: "Een pond",
+			expected: "ਇੱਕ ਪਾਊਂਡ",
 		},
 	}
 
@@ -484,7 +484,7 @@ func TestToWords_DutchNetherlands_CustomCurrency(t *testing.T) {
 	}
 }
 
-func TestToWords_DutchNetherlands_EdgeCases(t *testing.T) {
+func TestToWords_Punjabi_EdgeCases(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -495,69 +495,69 @@ func TestToWords_DutchNetherlands_EdgeCases(t *testing.T) {
 			name:   "Very small decimal",
 			amount: 0.01,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Nul Euro En Een Cent",
+			expected: "ਸਿਫ਼ਰ ਭਾਰਤੀ ਰੁਪਏ ਅਤੇ ਇੱਕ ਪੈਸਾ",
 		},
 		{
 			name:   "Eleven (special case)",
 			amount: 11,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Elf",
+			expected: "ਗਿਆਰਾਂ",
 		},
 		{
 			name:   "Twelve (special case)",
 			amount: 12,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Twaalf",
+			expected: "ਬਾਰਾਂ",
 		},
 		{
 			name:   "Twenty one",
 			amount: 21,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Eenentwintig",
+			expected: "ਇੱਕੀਸ",
 		},
 		{
 			name:   "One hundred one",
 			amount: 101,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Honderd Een",
+			expected: "ਇੱਕ ਇੱਕ ਸੌ ਇੱਕ",
 		},
 		{
 			name:   "One thousand one",
 			amount: 1001,
 			options: &pkg.NumI18NOptions{
-				Locale: "nl-NL",
+				Locale: "pa-IN",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Duizend Een",
+			expected: "ਇੱਕ ਇੱਕ ਹਜ਼ਾਰ ਇੱਕ",
 		},
 	}
 
