@@ -6,7 +6,7 @@ import (
 	"github.com/Lands-Horizon-Corp/numi18n/pkg"
 )
 
-func TestToWords_SlovakSlovakia_Numbers(t *testing.T) {
+func TestToWords_SlovenianSlovenia_Numbers(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -17,62 +17,62 @@ func TestToWords_SlovakSlovakia_Numbers(t *testing.T) {
 			name:   "Zero",
 			amount: 0,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Nula",
+			expected: "Nič",
 		},
 		{
 			name:   "Single digit",
 			amount: 5,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Päť",
+			expected: "Pet",
 		},
 		{
 			name:   "Teens",
 			amount: 15,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Pätnásť",
+			expected: "Petnajst",
 		},
 		{
 			name:   "Tens",
 			amount: 30,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Tridsať",
+			expected: "Trideset",
 		},
 		{
 			name:   "Compound number",
 			amount: 47,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Štyridsať sedem",
+			expected: "Štirideset sedem",
 		},
 		{
 			name:   "One hundred",
 			amount: 100,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
@@ -83,45 +83,45 @@ func TestToWords_SlovakSlovakia_Numbers(t *testing.T) {
 			name:   "Hundreds with remainder",
 			amount: 256,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Dva sto päťdesiat šesť",
+			expected: "Dva sto petdeset šest",
 		},
 		{
 			name:   "One thousand",
 			amount: 1000,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Tisíc",
+			expected: "Tisoč",
 		},
 		{
 			name:   "One million",
 			amount: 1000000,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Milión",
+			expected: "Milijon",
 		},
 		{
 			name:   "Large complex number",
 			amount: 1234567,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden milión dva sto tridsať štyri tisíc päť sto šesťdesiat sedem",
+			expected: "Ena milijon dva sto trideset štiri tisoč pet sto šestdeset sedem",
 		},
 	}
 
@@ -135,7 +135,7 @@ func TestToWords_SlovakSlovakia_Numbers(t *testing.T) {
 	}
 }
 
-func TestToWords_SlovakSlovakia_Currency(t *testing.T) {
+func TestToWords_SlovenianSlovenia_Currency(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -146,49 +146,49 @@ func TestToWords_SlovakSlovakia_Currency(t *testing.T) {
 			name:   "One euro",
 			amount: 1,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden Euro",
+			expected: "Ena Evro",
 		},
 		{
 			name:   "Multiple euros",
 			amount: 5,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Päť Eurá",
+			expected: "Pet Evri",
 		},
 		{
 			name:   "Zero euros",
 			amount: 0,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Nula Eurá",
+			expected: "Nič Evri",
 		},
 		{
 			name:   "Large amount",
 			amount: 1000000,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 				},
 			},
-			expected: "Milión Eurá",
+			expected: "Milijon Evri",
 		},
 	}
 
@@ -202,7 +202,7 @@ func TestToWords_SlovakSlovakia_Currency(t *testing.T) {
 	}
 }
 
-func TestToWords_SlovakSlovakia_Decimals(t *testing.T) {
+func TestToWords_SlovenianSlovenia_Decimals(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -213,65 +213,65 @@ func TestToWords_SlovakSlovakia_Decimals(t *testing.T) {
 			name:   "Euros and one cent",
 			amount: 5.01,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Päť Eurá a jeden Cent",
+			expected: "Pet Evri in ena Cent",
 		},
 		{
 			name:   "Euros and multiple cents",
 			amount: 5.25,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Päť Eurá a dvadsať päť Centy",
+			expected: "Pet Evri in dvajset pet Centi",
 		},
 		{
 			name:   "Only cents",
 			amount: 0.99,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Nula Eurá a deväťdesiat deväť Centy",
+			expected: "Nič Evri in devetdeset devet Centi",
 		},
 		{
 			name:   "Complex amount",
 			amount: 1234.56,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden tisíc dva sto tridsať štyri Eurá a päťdesiat šesť Centy",
+			expected: "Ena tisoč dva sto trideset štiri Evri in petdeset šest Centi",
 		},
 		{
 			name:   "Decimal without currency",
 			amount: 123.45,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden sto dvadsať tri a štyridsať päť",
+			expected: "Ena sto dvajset tri in štirideset pet",
 		},
 	}
 
@@ -285,7 +285,7 @@ func TestToWords_SlovakSlovakia_Decimals(t *testing.T) {
 	}
 }
 
-func TestToWords_SlovakSlovakia_Negative(t *testing.T) {
+func TestToWords_SlovenianSlovenia_Negative(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -296,19 +296,19 @@ func TestToWords_SlovakSlovakia_Negative(t *testing.T) {
 			name:   "Negative number basic",
 			amount: -50,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					NegativeWord: true,
 					Capitalize:   true,
 				},
 			},
-			expected: "Mínus päťdesiat",
+			expected: "Minus petdeset",
 		},
 		{
 			name:   "Negative currency",
 			amount: -25.75,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:     true,
 					Decimal:      true,
@@ -316,23 +316,23 @@ func TestToWords_SlovakSlovakia_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Mínus dvadsať päť Eurá a sedemdesiat päť Centy",
+			expected: "Minus dvajset pet Evri in sedemdeset pet Centi",
 		},
 		{
 			name:   "Negative with custom word",
 			amount: -100,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:     true,
 					NegativeWord: true,
 					Capitalize:   true,
 					OverrideOptions: &pkg.OverrideOptions{
-						NegativeWord: "Záporné",
+						NegativeWord: "Negativen",
 					},
 				},
 			},
-			expected: "Záporné Sto Eurá",
+			expected: "Negativen Sto Evri",
 		},
 	}
 
@@ -346,7 +346,7 @@ func TestToWords_SlovakSlovakia_Negative(t *testing.T) {
 	}
 }
 
-func TestToWords_SlovakSlovakia_Formatting(t *testing.T) {
+func TestToWords_SlovenianSlovenia_Formatting(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -357,50 +357,50 @@ func TestToWords_SlovakSlovakia_Formatting(t *testing.T) {
 			name:   "Uppercase",
 			amount: 123,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:  true,
 					Uppercase: true,
 				},
 			},
-			expected: "JEDEN STO DVADSAŤ TRI EURÁ",
+			expected: "ENA STO DVAJSET TRI EVRI",
 		},
 		{
 			name:   "Lowercase",
 			amount: 123,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:  true,
 					Lowercase: true,
 				},
 			},
-			expected: "jeden sto dvadsať tri eurá",
+			expected: "ena sto dvajset tri evri",
 		},
 		{
 			name:   "Only flag",
 			amount: 999,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Only:       true,
 					Capitalize: true,
 				},
 			},
-			expected: "Deväť sto deväťdesiat deväť len",
+			expected: "Devet sto devetdeset devet samo",
 		},
 		{
 			name:   "Only flag with currency",
 			amount: 500,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Only:       true,
 					Capitalize: true,
 				},
 			},
-			expected: "Päťsto Eurá len",
+			expected: "Petsto Evri samo",
 		},
 	}
 
@@ -414,7 +414,7 @@ func TestToWords_SlovakSlovakia_Formatting(t *testing.T) {
 	}
 }
 
-func TestToWords_SlovakSlovakia_CustomCurrency(t *testing.T) {
+func TestToWords_SlovenianSlovenia_CustomCurrency(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -425,52 +425,52 @@ func TestToWords_SlovakSlovakia_CustomCurrency(t *testing.T) {
 			name:   "Custom currency name",
 			amount: 100,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:   "koruna",
-						Plural: "koruny",
+						Name:   "tolar",
+						Plural: "tolarji",
 					},
 				},
 			},
-			expected: "Sto koruny",
+			expected: "Sto tolarji",
 		},
 		{
 			name:   "Custom currency with decimals",
 			amount: 50.25,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:             "dolár",
-						Plural:           "dolárov",
+						Name:             "dolar",
+						Plural:           "dolarji",
 						FractionUnitName: "cent",
 						FractionPlural:   "centov",
 					},
 				},
 			},
-			expected: "Päťdesiat dolárov a dvadsať päť centov",
+			expected: "Petdeset dolarji in dvajset pet centov",
 		},
 		{
 			name:   "Single custom currency",
 			amount: 1,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Capitalize: true,
 					OverrideOptions: &pkg.OverrideOptions{
-						Name:   "libra",
-						Plural: "libier",
+						Name:   "funt",
+						Plural: "funti",
 					},
 				},
 			},
-			expected: "Jeden libra",
+			expected: "Ena funt",
 		},
 	}
 
@@ -484,7 +484,7 @@ func TestToWords_SlovakSlovakia_CustomCurrency(t *testing.T) {
 	}
 }
 
-func TestToWords_SlovakSlovakia_EdgeCases(t *testing.T) {
+func TestToWords_SlovenianSlovenia_EdgeCases(t *testing.T) {
 	tests := []struct {
 		name     string
 		amount   float64
@@ -495,69 +495,69 @@ func TestToWords_SlovakSlovakia_EdgeCases(t *testing.T) {
 			name:   "Very small decimal",
 			amount: 0.01,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Currency:   true,
 					Decimal:    true,
 					Capitalize: true,
 				},
 			},
-			expected: "Nula Eurá a jeden Cent",
+			expected: "Nič Evri in ena Cent",
 		},
 		{
 			name:   "Eleven (special case)",
 			amount: 11,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Jedenásť",
+			expected: "Enajst",
 		},
 		{
 			name:   "Twelve (special case)",
 			amount: 12,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Dvanásť",
+			expected: "Dvanajst",
 		},
 		{
 			name:   "Twenty one",
 			amount: 21,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Dvadsať jeden",
+			expected: "Dvajset ena",
 		},
 		{
 			name:   "One hundred one",
 			amount: 101,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden sto jeden",
+			expected: "Ena sto ena",
 		},
 		{
 			name:   "One thousand one",
 			amount: 1001,
 			options: &pkg.NumI18NOptions{
-				Locale: "sk-SK",
+				Locale: "sl-SI",
 				WordDetails: &pkg.WordDetails{
 					Capitalize: true,
 				},
 			},
-			expected: "Jeden tisíc jeden",
+			expected: "Ena tisoč ena",
 		},
 	}
 

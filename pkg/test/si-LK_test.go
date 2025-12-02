@@ -22,7 +22,7 @@ func TestToWords_SinhalaSriLanka_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "ශුන\u200dය",
+			expected: "ශුන්\u200dය",
 		},
 		{
 			name:   "Single digit",

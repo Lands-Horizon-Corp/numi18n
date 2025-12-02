@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // SLSILocale represents the Slovenian (Slovenia) locale
 var SLSILocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var SLSILocale = NumI18NLocale{
 		{Number: 100, Word: "stoti", Suffix: ".", Masculine: "stoti", Feminine: "stota", Neuter: "stoto"},
 		{Number: 1000, Word: "tisoči", Suffix: ".", Masculine: "tisoči", Feminine: "tisoča", Neuter: "tisoče"},
 	},
+	LocaleFormatter: &SlovenianSloveniaFormatter{},
+}
+
+// SlovenianSloveniaFormatter handles Slovenian (Slovenia) formatting
+type SlovenianSloveniaFormatter struct{}
+
+func (f *SlovenianSloveniaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SlovenianSloveniaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SlovenianSloveniaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SlovenianSloveniaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SlovenianSloveniaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SlovenianSloveniaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }
