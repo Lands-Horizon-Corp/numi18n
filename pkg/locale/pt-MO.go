@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // PTMOLocale represents the Portuguese (Macao SAR) locale
 var PTMOLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +200,38 @@ var PTMOLocale = NumI18NLocale{
 		{Number: 100, Word: "centésimo", Suffix: "º", Masculine: "centésimo", Feminine: "centésima", Neuter: "centésimo"},
 		{Number: 1000, Word: "milésimo", Suffix: "º", Masculine: "milésimo", Feminine: "milésima", Neuter: "milésimo"},
 	},
+	LocaleFormatter: &PortugueseMacauFormatter{},
+}
+
+// PortugueseMacauFormatter handles Portuguese (Macau) formatting
+type PortugueseMacauFormatter struct{}
+
+func (f *PortugueseMacauFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *PortugueseMacauFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *PortugueseMacauFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *PortugueseMacauFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *PortugueseMacauFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *PortugueseMacauFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }
