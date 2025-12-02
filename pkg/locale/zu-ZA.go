@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // ZUZALocale represents the Zulu (South Africa) locale
 var ZUZALocale = NumI18NLocale{
 	Currency: Currency{
@@ -210,4 +214,42 @@ var ZUZALocale = NumI18NLocale{
 		{Number: 1000000, Word: "okwesigidi", Suffix: "-okuqala", Masculine: "okwesigidi", Feminine: "okwesigidi", Neuter: ""},
 		{Number: 1000000000, Word: "okwesigidi semiliyoni", Suffix: "-okuqala", Masculine: "okwesigidi semiliyoni", Feminine: "okwesigidi semiliyoni", Neuter: ""},
 	},
+	LocaleFormatter: &ZuluFormatter{},
+}
+
+// ZuluFormatter handles Zulu (South African) formatting
+type ZuluFormatter struct{}
+
+func (f *ZuluFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *ZuluFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *ZuluFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *ZuluFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *ZuluFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *ZuluFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	multiplier := decimal.NewFromInt(1)
+	for i := 0; i < precision; i++ {
+		multiplier = multiplier.Mul(decimal.NewFromInt(10))
+	}
+	return amount.Mul(multiplier).Truncate(0).Div(multiplier)
 }
