@@ -2,39 +2,6 @@ package locale
 
 import "github.com/shopspring/decimal"
 
-// SwedishFinlandFormatter handles Swedish (Finland) formatting
-type SwedishFinlandFormatter struct{}
-
-func (f *SwedishFinlandFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
-	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
-}
-
-func (f *SwedishFinlandFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
-	if wholePart == 1 {
-		return result + " " + currencyName
-	}
-	return result + " " + currencyPlural
-}
-
-func (f *SwedishFinlandFormatter) FormatFractional(result, fractionalWords string, andText string) string {
-	return result + " " + andText + " " + fractionalWords
-}
-
-func (f *SwedishFinlandFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
-	if fractionalValue == 1 {
-		return result + " " + fractionName
-	}
-	return result + " " + fractionPlural
-}
-
-func (f *SwedishFinlandFormatter) FormatNegative(result, negativeWord string) string {
-	return negativeWord + " " + result
-}
-
-func (f *SwedishFinlandFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
-	return amount.Truncate(int32(precision))
-}
-
 // SVFILocale represents the Swedish (Finland) locale
 var SVFILocale = NumI18NLocale{
 	Currency: Currency{
@@ -232,4 +199,37 @@ var SVFILocale = NumI18NLocale{
 		{Number: 1000, Word: "tusende", Suffix: ":e", Masculine: "tusende", Feminine: "tusende", Neuter: "tusende"},
 	},
 	LocaleFormatter: &SwedishFinlandFormatter{},
+}
+
+// SwedishFinlandFormatter handles Swedish (Finland) formatting
+type SwedishFinlandFormatter struct{}
+
+func (f *SwedishFinlandFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SwedishFinlandFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SwedishFinlandFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SwedishFinlandFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SwedishFinlandFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SwedishFinlandFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

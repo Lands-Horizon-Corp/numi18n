@@ -1,7 +1,12 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // SWKELocale represents the Swahili (Kenya) locale
 var SWKELocale = NumI18NLocale{
+	LocaleFormatter: &SwahiliKenyaFormatter{},
 	Currency: Currency{
 		Name:     "Kenyan Shilling",
 		Plural:   "Shilingi za Kikinya",
@@ -196,4 +201,37 @@ var SWKELocale = NumI18NLocale{
 		{Number: 100, Word: "wa mia moja", Suffix: ".", Masculine: "wa mia moja", Feminine: "wa mia moja", Neuter: "wa mia moja"},
 		{Number: 1000, Word: "wa elfu moja", Suffix: ".", Masculine: "wa elfu moja", Feminine: "wa elfu moja", Neuter: "wa elfu moja"},
 	},
+}
+
+// SwahiliKenyaFormatter handles Swahili (Kenya) formatting
+type SwahiliKenyaFormatter struct{}
+
+func (f *SwahiliKenyaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SwahiliKenyaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SwahiliKenyaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SwahiliKenyaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SwahiliKenyaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SwahiliKenyaFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }

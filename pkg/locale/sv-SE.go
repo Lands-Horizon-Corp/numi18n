@@ -1,7 +1,12 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // SVSELocale represents the Swedish (Sweden) locale
 var SVSELocale = NumI18NLocale{
+	LocaleFormatter: &SwedishSwedenFormatter{},
 	Currency: Currency{
 		Name:     "Swedish Krona",
 		Plural:   "Kronor",
@@ -196,4 +201,37 @@ var SVSELocale = NumI18NLocale{
 		{Number: 100, Word: "hundrade", Suffix: ":e", Masculine: "hundrade", Feminine: "hundrade", Neuter: "hundrade"},
 		{Number: 1000, Word: "tusende", Suffix: ":e", Masculine: "tusende", Feminine: "tusende", Neuter: "tusende"},
 	},
+}
+
+// SwedishSwedenFormatter handles Swedish (Sweden) formatting
+type SwedishSwedenFormatter struct{}
+
+func (f *SwedishSwedenFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SwedishSwedenFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SwedishSwedenFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SwedishSwedenFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SwedishSwedenFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SwedishSwedenFormatter) ChopDecimal(amount decimal.Decimal, precision int) decimal.Decimal {
+	return amount.Truncate(int32(precision))
 }
