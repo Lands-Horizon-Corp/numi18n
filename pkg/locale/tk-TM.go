@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // TKTMLocale represents the Turkmen (Turkmenistan) locale
 var TKTMLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var TKTMLocale = NumI18NLocale{
 		{Number: 100, Word: "ýüzünji", Suffix: "-nji", Masculine: "ýüzünji", Feminine: "ýüzünji", Neuter: "ýüzünji"},
 		{Number: 1000, Word: "müňünji", Suffix: "-nji", Masculine: "müňünji", Feminine: "müňünji", Neuter: "müňünji"},
 	},
+	LocaleFormatter: &TurkmenFormatter{},
+}
+
+// TurkmenFormatter handles Turkmen (Turkmenistan) formatting
+type TurkmenFormatter struct{}
+
+func (f *TurkmenFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *TurkmenFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *TurkmenFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *TurkmenFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *TurkmenFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *TurkmenFormatter) ChopDecimal(value decimal.Decimal, decimalPlaces int) decimal.Decimal {
+	return value.Truncate(int32(decimalPlaces))
 }

@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // TNBWLocale represents the Tswana (Botswana) locale
 var TNBWLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var TNBWLocale = NumI18NLocale{
 		{Number: 100, Word: "wa lekgolo", Suffix: ".", Masculine: "wa lekgolo", Feminine: "wa lekgolo", Neuter: "wa lekgolo"},
 		{Number: 1000, Word: "wa sekete", Suffix: ".", Masculine: "wa sekete", Feminine: "wa sekete", Neuter: "wa sekete"},
 	},
+	LocaleFormatter: &TswanaFormatter{},
+}
+
+// TswanaFormatter handles Tswana (Botswana) formatting
+type TswanaFormatter struct{}
+
+func (f *TswanaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *TswanaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *TswanaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *TswanaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *TswanaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *TswanaFormatter) ChopDecimal(value decimal.Decimal, decimalPlaces int) decimal.Decimal {
+	return value.Truncate(int32(decimalPlaces))
 }
