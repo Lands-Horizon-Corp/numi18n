@@ -446,3 +446,519 @@ func TestToWords_OverrideOptions(t *testing.T) {
 		})
 	}
 }
+
+// ========== ToFormat Tests ==========
+
+func TestToFormat_EnglishUS(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Basic whole number",
+			amount: 1234,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "1,234",
+		},
+		{
+			name:   "Number with decimals",
+			amount: 1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "1,234.56",
+		},
+		{
+			name:   "Basic currency",
+			amount: 1234,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "$1,234.00",
+		},
+		{
+			name:   "Currency with decimals",
+			amount: 1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "$1,234.56",
+		},
+		{
+			name:   "Negative currency",
+			amount: -1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "-$1,000.00",
+		},
+		{
+			name:   "Override currency symbol",
+			amount: 5000,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "€",
+					},
+				},
+			},
+			expected: "€5,000.00",
+		},
+		{
+			name:   "Zero amount",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "0",
+		},
+		{
+			name:   "Zero currency",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "$0.00",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_Japanese(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Basic whole number (no separators)",
+			amount: 1234567,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "1234567",
+		},
+		{
+			name:   "Number with decimals (no separators)",
+			amount: 1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "1234.56",
+		},
+		{
+			name:   "Basic currency",
+			amount: 1234,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "¥1234",
+		},
+		{
+			name:   "Currency with decimals (rounded)",
+			amount: 1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "¥1235",
+		},
+		{
+			name:   "Negative currency",
+			amount: -1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "-¥1000",
+		},
+		{
+			name:   "Override currency symbol",
+			amount: 5000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "$",
+					},
+				},
+			},
+			expected: "$5000",
+		},
+		{
+			name:   "Large number (no separators)",
+			amount: 123456789,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "123456789",
+		},
+		{
+			name:   "Zero currency",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "¥0",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_Filipino(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Basic whole number with separators",
+			amount: 1234567,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+			},
+			expected: "1,234,567",
+		},
+		{
+			name:   "Number with decimals and separators",
+			amount: 1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+			},
+			expected: "1,234.56",
+		},
+		{
+			name:   "Basic currency",
+			amount: 1234,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "₱1,234.00",
+		},
+		{
+			name:   "Currency with decimals",
+			amount: 1234.56,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "₱1,234.56",
+		},
+		{
+			name:   "Negative currency",
+			amount: -1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "-₱1,000.00",
+		},
+		{
+			name:   "Override currency symbol",
+			amount: 5000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "$",
+					},
+				},
+			},
+			expected: "$5,000.00",
+		},
+		{
+			name:   "Small number without separators",
+			amount: 123,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+			},
+			expected: "123",
+		},
+		{
+			name:   "Zero currency",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "₱0.00",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_OverrideOptions(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Override symbol only",
+			amount: 1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "€",
+					},
+				},
+			},
+			expected: "€1,000.00",
+		},
+		{
+			name:   "Override symbol with Japanese locale",
+			amount: 1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "USD",
+					},
+				},
+			},
+			expected: "USD1000",
+		},
+		{
+			name:   "Override symbol with Philippines locale",
+			amount: 1000,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "¥",
+					},
+				},
+			},
+			expected: "¥1,000.00",
+		},
+		{
+			name:   "Complex currency override with custom symbol",
+			amount: 12345.67,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "BTC",
+					},
+				},
+			},
+			expected: "BTC12,345.67",
+		},
+		{
+			name:   "Negative with override symbol",
+			amount: -500,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "£",
+					},
+				},
+			},
+			expected: "-£500.00",
+		},
+		{
+			name:   "Zero with override symbol",
+			amount: 0,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+					OverrideOptions: &pkg.OverrideOptions{
+						Symbol: "₹",
+					},
+				},
+			},
+			expected: "₹0.00",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToFormat_EdgeCases(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *pkg.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Very small decimal",
+			amount: 0.001,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "0.001",
+		},
+		{
+			name:   "Very large number US",
+			amount: 999999999999.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "999,999,999,999.99",
+		},
+		{
+			name:   "Very large number Japan (no separators)",
+			amount: 999999999999.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+			},
+			expected: "999999999999.99",
+		},
+		{
+			name:   "Very large number Philippines",
+			amount: 999999999999.99,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+			},
+			expected: "999,999,999,999.99",
+		},
+		{
+			name:   "Many decimal places",
+			amount: 123.456789,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+			},
+			expected: "123.456789",
+		},
+		{
+			name:   "Currency with many decimals (US rounds to 2)",
+			amount: 123.456789,
+			options: &pkg.NumI18NOptions{
+				Locale: "en-US",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "$123.46",
+		},
+		{
+			name:   "Currency with many decimals (Japan rounds to integer)",
+			amount: 123.456789,
+			options: &pkg.NumI18NOptions{
+				Locale: "ja-JP",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "¥123",
+		},
+		{
+			name:   "Currency with many decimals (Philippines rounds to 2)",
+			amount: 123.456789,
+			options: &pkg.NumI18NOptions{
+				Locale: "ph-PH",
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "₱123.46",
+		},
+		{
+			name:     "No locale fallback to US",
+			amount:   1234,
+			options:  &pkg.NumI18NOptions{},
+			expected: "1,234",
+		},
+		{
+			name:   "Currency with no locale fallback",
+			amount: 1234,
+			options: &pkg.NumI18NOptions{
+				WordDetails: &pkg.WordDetails{
+					Currency: true,
+				},
+			},
+			expected: "$1,234.00",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToFormat(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToFormat(%f) = %q, expected %q", tt.amount, result, tt.expected)
+			}
+		})
+	}
+}
