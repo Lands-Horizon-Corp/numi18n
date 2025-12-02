@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // PLPLLocale represents the Polish (Poland) locale
 var PLPLLocale = NumI18NLocale{
 	Currency: Currency{
@@ -197,4 +199,38 @@ var PLPLLocale = NumI18NLocale{
 		{Number: 100, Word: "setny", Suffix: ".", Masculine: "setny", Feminine: "setna", Neuter: "setne"},
 		{Number: 1000, Word: "tysięczny", Suffix: ".", Masculine: "tysięczny", Feminine: "tysięczna", Neuter: "tysięczne"},
 	},
+	LocaleFormatter: &PolishFormatter{},
+}
+
+// PolishFormatter handles Polish formatting
+type PolishFormatter struct{}
+
+func (f *PolishFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *PolishFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *PolishFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *PolishFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *PolishFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *PolishFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }
