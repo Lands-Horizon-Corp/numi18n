@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // SILKLocale represents the Sinhala (Sri Lanka) locale
 var SILKLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var SILKLocale = NumI18NLocale{
 		{Number: 100, Word: "සියවැනි", Suffix: "වැනි", Masculine: "සියවැනි", Feminine: "සියවැනි", Neuter: "සියවැනි"},
 		{Number: 1000, Word: "දහස්වැනි", Suffix: "වැනි", Masculine: "දහස්වැනි", Feminine: "දහස්වැනි", Neuter: "දහස්වැනි"},
 	},
+	LocaleFormatter: &SinhalaSriLankaFormatter{},
+}
+
+// SinhalaSriLankaFormatter handles Sinhala (Sri Lanka) formatting
+type SinhalaSriLankaFormatter struct{}
+
+func (f *SinhalaSriLankaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SinhalaSriLankaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SinhalaSriLankaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SinhalaSriLankaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SinhalaSriLankaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SinhalaSriLankaFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

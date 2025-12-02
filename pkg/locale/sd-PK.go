@@ -1,5 +1,7 @@
 package locale
 
+import "github.com/shopspring/decimal"
+
 // SDPKLocale represents the Sindhi (Pakistan) locale
 var SDPKLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +198,38 @@ var SDPKLocale = NumI18NLocale{
 		{Number: 100, Word: "سئون", Suffix: "ون", Masculine: "سئون", Feminine: "سئاڣ", Neuter: "سئون"},
 		{Number: 1000, Word: "هزارون", Suffix: "ون", Masculine: "هزارون", Feminine: "هزاراڣ", Neuter: "هزارون"},
 	},
+	LocaleFormatter: &SindhiPakistanFormatter{},
+}
+
+// SindhiPakistanFormatter handles Sindhi (Pakistan) formatting
+type SindhiPakistanFormatter struct{}
+
+func (f *SindhiPakistanFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *SindhiPakistanFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *SindhiPakistanFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *SindhiPakistanFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return result + " " + fractionName
+	}
+	return result + " " + fractionPlural
+}
+
+func (f *SindhiPakistanFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *SindhiPakistanFormatter) ChopDecimal(d decimal.Decimal, precision int) decimal.Decimal {
+	return d.Truncate(int32(precision))
 }

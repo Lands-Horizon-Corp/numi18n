@@ -1,5 +1,9 @@
 package locale
 
+import (
+	"github.com/shopspring/decimal"
+)
+
 // RWRWLocale represents the Kinyarwanda (Rwanda) locale
 var RWRWLocale = NumI18NLocale{
 	Currency: Currency{
@@ -196,4 +200,38 @@ var RWRWLocale = NumI18NLocale{
 		{Number: 100, Word: "wa ijana", Suffix: "-a", Masculine: "wa ijana", Feminine: "wa ijana", Neuter: "wa ijana"},
 		{Number: 1000, Word: "wa rukumi", Suffix: "-a", Masculine: "wa rukumi", Feminine: "wa rukumi", Neuter: "wa rukumi"},
 	},
+	LocaleFormatter: &KinyarwandaRwandaFormatter{},
+}
+
+// KinyarwandaRwandaFormatter handles Kinyarwanda (Rwanda) formatting
+type KinyarwandaRwandaFormatter struct{}
+
+func (f *KinyarwandaRwandaFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
+	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+}
+
+func (f *KinyarwandaRwandaFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
+	if wholePart == 1 {
+		return result + " " + currencyName
+	}
+	return result + " " + currencyPlural
+}
+
+func (f *KinyarwandaRwandaFormatter) FormatFractional(result, fractionalWords string, andText string) string {
+	return result + " " + andText + " " + fractionalWords
+}
+
+func (f *KinyarwandaRwandaFormatter) FormatFractionalCurrency(result string, fractionalValue int64, fractionName, fractionPlural string) string {
+	if fractionalValue == 1 {
+		return " " + fractionName
+	}
+	return " " + fractionPlural
+}
+
+func (f *KinyarwandaRwandaFormatter) FormatNegative(result, negativeWord string) string {
+	return negativeWord + " " + result
+}
+
+func (f *KinyarwandaRwandaFormatter) ChopDecimal(value decimal.Decimal, precision int) decimal.Decimal {
+	return value.Truncate(int32(precision))
 }
