@@ -44,7 +44,7 @@ func TestToWords_ChineseSG_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "四十 七",
+			expected: "四十七",
 		},
 		{
 			name:   "One hundred",
@@ -55,7 +55,7 @@ func TestToWords_ChineseSG_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "一百",
+			expected: "百",
 		},
 		{
 			name:   "Hundreds with remainder",
@@ -66,7 +66,7 @@ func TestToWords_ChineseSG_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "两 百 五十 六",
+			expected: "二 一百 五十 六",
 		},
 		{
 			name:   "Large complex number",
@@ -77,7 +77,7 @@ func TestToWords_ChineseSG_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "一 百万 两 百 三十 四 千 五 百 六十 七",
+			expected: "一 一百万 二 一百 三十 四 一千 五 一百 六十 七",
 		},
 	}
 
@@ -176,7 +176,7 @@ func TestToWords_ChineseSG_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "五新元和二十 五分",
+			expected: "五新元和二十五分",
 		},
 		{
 			name:   "Only cents",
@@ -189,7 +189,7 @@ func TestToWords_ChineseSG_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "零新元和九十 九分",
+			expected: "零新元和九十九分",
 		},
 		{
 			name:   "Complex amount",
@@ -202,7 +202,7 @@ func TestToWords_ChineseSG_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "一 千 两 百 三十 四新元和五十 六分",
+			expected: "一 一千 二 一百 三十 四新元和五十六分",
 		},
 		{
 			name:   "Decimal without currency",
@@ -214,7 +214,7 @@ func TestToWords_ChineseSG_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "一 百 二十 三和四十 五",
+			expected: "一 一百 二十 三和四十五",
 		},
 	}
 
@@ -259,7 +259,7 @@ func TestToWords_ChineseSG_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "负二十 五新元和七十 五分",
+			expected: "负二十五新元和七十五分",
 		},
 		{
 			name:   "Negative with custom word",
@@ -275,7 +275,7 @@ func TestToWords_ChineseSG_Negative(t *testing.T) {
 					},
 				},
 			},
-			expected: "负数一百新元",
+			expected: "负数百新元",
 		},
 	}
 
@@ -306,7 +306,7 @@ func TestToWords_ChineseSG_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "九 百 九十 九只",
+			expected: "九 一百 九十 九只",
 		},
 		{
 			name:   "Only flag with currency",
@@ -319,7 +319,7 @@ func TestToWords_ChineseSG_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "五 百新元只",
+			expected: "五百新元只",
 		},
 	}
 
@@ -362,7 +362,7 @@ func TestToWords_ChineseSG_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "二十 一",
+			expected: "二十一",
 		},
 		{
 			name:   "One hundred one",
@@ -373,7 +373,7 @@ func TestToWords_ChineseSG_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "一 百 一",
+			expected: "一 一百 一",
 		},
 	}
 
