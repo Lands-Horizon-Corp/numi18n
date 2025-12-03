@@ -23,6 +23,7 @@ var COLocale = NumI18NLocale{
 		Locale:         "es-CO",
 		Timezone:       []string{"America/Bogota"},
 		Language:       "es",
+		Emoji:          "🇨🇴",
 	},
 	Texts: Texts{
 		And:   "Y",

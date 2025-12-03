@@ -27,6 +27,7 @@ var ITLocale = NumI18NLocale{
 		Locale:         "it-IT",
 		Timezone:       []string{"Europe/Rome"},
 		Language:       "it",
+		Emoji:          "🇮🇹",
 	},
 	Texts: Texts{
 		And:   "E",

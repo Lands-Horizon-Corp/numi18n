@@ -28,6 +28,7 @@ var PHLocale = NumI18NLocale{
 		Locale:         "en-PH",
 		Timezone:       []string{"Asia/Manila"},
 		Language:       "en",
+		Emoji:          "🇵🇭",
 	},
 	Texts: Texts{
 		And:   "And",

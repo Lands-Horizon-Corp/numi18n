@@ -27,6 +27,7 @@ var ROROLocale = NumI18NLocale{
 		Locale:         "ro-RO",
 		Timezone:       []string{"Europe/Bucharest"},
 		Language:       "ro",
+		Emoji:          "🇷🇴",
 	},
 	Texts: Texts{
 		And:   "și",

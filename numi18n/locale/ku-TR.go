@@ -27,6 +27,7 @@ var TRKULocale = NumI18NLocale{
 		Locale:         "ku-TR",
 		Timezone:       []string{"Europe/Istanbul"},
 		Language:       "ku",
+		Emoji:          "🇹🇷",
 	},
 	Texts: Texts{
 		And:   "Û",

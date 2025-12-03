@@ -23,6 +23,7 @@ var ARYELocale = NumI18NLocale{
 		Locale:         "ar-YE",
 		Timezone:       []string{"Asia/Aden"},
 		Language:       "ar",
+		Emoji:          "🇾🇪",
 	},
 	Texts: Texts{
 		And:   "و",

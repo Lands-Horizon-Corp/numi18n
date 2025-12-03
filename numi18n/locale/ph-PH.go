@@ -29,6 +29,7 @@ var PHPHLocale = NumI18NLocale{
 		Locale:         "ph-PH",
 		Timezone:       []string{"Asia/Manila"},
 		Language:       "ph",
+		Emoji:          "🇵🇭",
 	},
 	Texts: Texts{
 		And:   "at",

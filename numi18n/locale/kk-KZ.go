@@ -27,6 +27,7 @@ var KZLocale = NumI18NLocale{
 		Locale:         "kk-KZ",
 		Timezone:       []string{"Asia/Almaty"},
 		Language:       "kk",
+		Emoji:          "🇰🇿",
 	},
 	Texts: Texts{
 		And:   "Және",

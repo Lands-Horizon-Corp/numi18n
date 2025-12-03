@@ -28,6 +28,7 @@ var AZAZLocale = NumI18NLocale{
 		Locale:         "az-AZ",
 		Timezone:       []string{"Asia/Baku"},
 		Language:       "az",
+		Emoji:          "🇦🇿",
 	},
 	Texts: Texts{
 		And:   "Və",

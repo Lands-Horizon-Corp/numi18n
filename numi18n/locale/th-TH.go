@@ -27,6 +27,7 @@ var THTHLocale = NumI18NLocale{
 		Locale:         "th-TH",
 		Timezone:       []string{"Asia/Bangkok"},
 		Language:       "th",
+		Emoji:          "🇹🇭",
 	},
 	Texts: Texts{
 		And:   "และ",

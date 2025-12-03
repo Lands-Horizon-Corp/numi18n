@@ -27,6 +27,7 @@ var ZHCNLocale = NumI18NLocale{
 		Locale:         "zh-CN",
 		Timezone:       []string{"Asia/Shanghai"},
 		Language:       "zh",
+		Emoji:          "🇨🇳",
 	},
 	Texts: Texts{
 		And:   "和",

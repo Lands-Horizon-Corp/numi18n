@@ -27,6 +27,7 @@ var ARIQLocale = NumI18NLocale{
 		Locale:         "ar-IQ",
 		Timezone:       []string{"Asia/Baghdad"},
 		Language:       "ar",
+		Emoji:          "🇮🇶",
 	},
 	Texts: Texts{
 		And:   "و",

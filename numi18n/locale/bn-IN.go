@@ -28,6 +28,7 @@ var BNINLocale = NumI18NLocale{
 		Locale:         "bn-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "bn",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "এবং",

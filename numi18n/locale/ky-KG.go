@@ -27,6 +27,7 @@ var KGLocale = NumI18NLocale{
 		Locale:         "ky-KG",
 		Timezone:       []string{"Asia/Bishkek"},
 		Language:       "ky",
+		Emoji:          "🇰🇬",
 	},
 	Texts: Texts{
 		And:   "Жана",

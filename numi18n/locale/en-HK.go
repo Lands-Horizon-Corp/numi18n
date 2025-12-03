@@ -28,6 +28,7 @@ var HKLocale = NumI18NLocale{
 		Locale:         "en-HK",
 		Timezone:       []string{"Asia/Hong_Kong"},
 		Language:       "en",
+		Emoji:          "🇭🇰",
 	},
 	Texts: Texts{
 		And:   "And",

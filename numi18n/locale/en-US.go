@@ -27,6 +27,7 @@ var USLocale = NumI18NLocale{
 		Locale:         "en-US",
 		Timezone:       []string{"America/New_York"},
 		Language:       "en",
+		Emoji:          "🇺🇸",
 	},
 	Texts: Texts{
 		And:   "And",

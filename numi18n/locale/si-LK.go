@@ -27,6 +27,7 @@ var SILKLocale = NumI18NLocale{
 		Locale:         "si-LK",
 		Timezone:       []string{"Asia/Colombo"},
 		Language:       "si",
+		Emoji:          "🇱🇰",
 	},
 	Texts: Texts{
 		And:   "සහ",

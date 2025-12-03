@@ -28,6 +28,7 @@ var YI001Locale = NumI18NLocale{
 		Locale:         "yi-001",
 		Timezone:       []string{"UTC"},
 		Language:       "yi",
+		Emoji:          "🌍",
 	},
 	Texts: Texts{
 		And:   "און",

@@ -27,6 +27,7 @@ var MGMGLocale = NumI18NLocale{
 		Locale:         "mg-MG",
 		Timezone:       []string{"Indian/Antananarivo"},
 		Language:       "mg",
+		Emoji:          "🇲🇬",
 	},
 	Texts: Texts{
 		And:   "ary",

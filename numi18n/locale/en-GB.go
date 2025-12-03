@@ -28,6 +28,7 @@ var GBLocale = NumI18NLocale{
 		Locale:         "en-GB",
 		Timezone:       []string{"Europe/London"},
 		Language:       "en",
+		Emoji:          "🇬🇧",
 	},
 	Texts: Texts{
 		And:   "And",

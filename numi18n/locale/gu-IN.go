@@ -28,6 +28,7 @@ var INGULocale = NumI18NLocale{
 		Locale:         "gu-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "gu",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "અને",

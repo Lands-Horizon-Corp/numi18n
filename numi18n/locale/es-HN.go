@@ -23,6 +23,7 @@ var HNLocale = NumI18NLocale{
 		Locale:         "es-HN",
 		Timezone:       []string{"America/Tegucigalpa"},
 		Language:       "es",
+		Emoji:          "🇭🇳",
 	},
 	Texts: Texts{
 		And:   "Y",

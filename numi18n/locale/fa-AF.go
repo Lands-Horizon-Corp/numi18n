@@ -27,6 +27,7 @@ var AFLocale = NumI18NLocale{
 		Locale:         "fa-AF",
 		Timezone:       []string{"Asia/Kabul"},
 		Language:       "fa",
+		Emoji:          "🇦🇫",
 	},
 	Texts: Texts{
 		And:   "و",

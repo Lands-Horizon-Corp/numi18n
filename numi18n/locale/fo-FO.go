@@ -27,6 +27,7 @@ var FOLocale = NumI18NLocale{
 		Locale:         "fo-FO",
 		Timezone:       []string{"Atlantic/Faroe"},
 		Language:       "fo",
+		Emoji:          "🇫🇴",
 	},
 	Texts: Texts{
 		And:   "Og",

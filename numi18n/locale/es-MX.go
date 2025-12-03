@@ -23,6 +23,7 @@ var MXLlocale = NumI18NLocale{
 		Locale:         "es-MX",
 		Timezone:       []string{"America/Mexico_City"},
 		Language:       "es",
+		Emoji:          "🇲🇽",
 	},
 	Texts: Texts{
 		And:   "Y",

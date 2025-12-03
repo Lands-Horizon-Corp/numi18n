@@ -27,6 +27,7 @@ var PTCVLocale = NumI18NLocale{
 		Locale:         "pt-CV",
 		Timezone:       []string{"Atlantic/Cape_Verde"},
 		Language:       "pt",
+		Emoji:          "🇨🇻",
 	},
 	Texts: Texts{
 		And:   "e",

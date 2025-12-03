@@ -28,6 +28,7 @@ var WOSNLocale = NumI18NLocale{
 		Locale:         "wo-SN",
 		Timezone:       []string{"Africa/Dakar"},
 		Language:       "wo",
+		Emoji:          "🇸🇳",
 	},
 	Texts: Texts{
 		And:   "ak",

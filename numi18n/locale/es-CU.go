@@ -23,6 +23,7 @@ var CULocale = NumI18NLocale{
 		Locale:         "es-CU",
 		Timezone:       []string{"America/Havana"},
 		Language:       "es",
+		Emoji:          "🇨🇺",
 	},
 	Texts: Texts{
 		And:   "Y",

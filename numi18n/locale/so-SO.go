@@ -27,6 +27,7 @@ var SOSOLocale = NumI18NLocale{
 		Locale:         "so-SO",
 		Timezone:       []string{"Africa/Mogadishu"},
 		Language:       "so",
+		Emoji:          "🇸🇴",
 	},
 	Texts: Texts{
 		And:   "iyo",

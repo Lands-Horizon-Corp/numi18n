@@ -27,6 +27,7 @@ var GBGDLocale = NumI18NLocale{
 		Locale:         "gd-GB",
 		Timezone:       []string{"Europe/London"},
 		Language:       "gd",
+		Emoji:          "🇬🇧",
 	},
 	Texts: Texts{
 		And:   "Agus",

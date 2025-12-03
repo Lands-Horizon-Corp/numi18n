@@ -27,6 +27,7 @@ var TIETLocale = NumI18NLocale{
 		Locale:         "ti-ET",
 		Timezone:       []string{"Africa/Addis_Ababa"},
 		Language:       "ti",
+		Emoji:          "🇪🇹",
 	},
 	Texts: Texts{
 		And:   "ከምኡ'ውን",

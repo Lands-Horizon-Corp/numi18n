@@ -27,6 +27,7 @@ var LVLVLocale = NumI18NLocale{
 		Locale:         "lv-LV",
 		Timezone:       []string{"Europe/Riga"},
 		Language:       "lv",
+		Emoji:          "🇱🇻",
 	},
 	Texts: Texts{
 		And:   "un",

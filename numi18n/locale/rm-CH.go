@@ -27,6 +27,7 @@ var RMCHLocale = NumI18NLocale{
 		Locale:         "rm-CH",
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "rm",
+		Emoji:          "🇨🇭",
 	},
 	Texts: Texts{
 		And:   "e",

@@ -23,6 +23,7 @@ var BOLocale = NumI18NLocale{
 		Locale:         "es-BO",
 		Timezone:       []string{"America/La_Paz"},
 		Language:       "es",
+		Emoji:          "🇧🇴",
 	},
 	Texts: Texts{
 		And:   "Y",

@@ -23,6 +23,7 @@ var PALocale = NumI18NLocale{
 		Locale:         "es-PA",
 		Timezone:       []string{"America/Panama"},
 		Language:       "es",
+		Emoji:          "🇵🇦",
 	},
 	Texts: Texts{
 		And:   "Y",

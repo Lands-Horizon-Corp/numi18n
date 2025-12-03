@@ -27,6 +27,7 @@ var KHLocale = NumI18NLocale{
 		Locale:         "km-KH",
 		Timezone:       []string{"Asia/Phnom_Penh"},
 		Language:       "km",
+		Emoji:          "🇰🇭",
 	},
 	Texts: Texts{
 		And:   "និង",

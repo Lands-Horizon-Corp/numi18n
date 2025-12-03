@@ -23,6 +23,7 @@ var VELocale = NumI18NLocale{
 		Locale:         "es-VE",
 		Timezone:       []string{"America/Caracas"},
 		Language:       "es",
+		Emoji:          "🇻🇪",
 	},
 	Texts: Texts{
 		And:   "Y",

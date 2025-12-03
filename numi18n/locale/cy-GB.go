@@ -28,6 +28,7 @@ var CYGBLocale = NumI18NLocale{
 		Locale:         "cy-GB",
 		Timezone:       []string{"Europe/London"},
 		Language:       "cy",
+		Emoji:          "🇬🇧",
 	},
 	Texts: Texts{
 		And:   "a",

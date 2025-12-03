@@ -27,6 +27,7 @@ var UZUZLocale = NumI18NLocale{
 		Locale:         "uz-UZ",
 		Timezone:       []string{"Asia/Tashkent"},
 		Language:       "uz",
+		Emoji:          "🇺🇿",
 	},
 	Texts: Texts{
 		And:   "va",

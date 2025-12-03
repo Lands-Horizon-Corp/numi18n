@@ -29,6 +29,7 @@ var IDLocale = NumI18NLocale{
 		Locale:         "id-ID",
 		Timezone:       []string{"Asia/Jakarta"},
 		Language:       "id",
+		Emoji:          "🇮🇩",
 	},
 	Texts: Texts{
 		And:   "Dan",

@@ -28,6 +28,7 @@ var TZLocale = NumI18NLocale{
 		Locale:         "en-TZ",
 		Timezone:       []string{"Africa/Dar_es_Salaam"},
 		Language:       "en",
+		Emoji:          "🇹🇿",
 	},
 	Texts: Texts{
 		And:   "And",

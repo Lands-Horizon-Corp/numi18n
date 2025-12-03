@@ -27,6 +27,7 @@ var TKTMLocale = NumI18NLocale{
 		Locale:         "tk-TM",
 		Timezone:       []string{"Asia/Ashgabat"},
 		Language:       "tk",
+		Emoji:          "🇹🇲",
 	},
 	Texts: Texts{
 		And:   "we",

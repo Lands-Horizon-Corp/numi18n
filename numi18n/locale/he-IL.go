@@ -27,6 +27,7 @@ var ILLocale = NumI18NLocale{
 		Locale:         "he-IL",
 		Timezone:       []string{"Asia/Jerusalem"},
 		Language:       "he",
+		Emoji:          "🇮🇱",
 	},
 	Texts: Texts{
 		And:   "ו",

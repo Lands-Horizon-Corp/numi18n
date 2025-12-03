@@ -27,6 +27,7 @@ var SLSILocale = NumI18NLocale{
 		Locale:         "sl-SI",
 		Timezone:       []string{"Europe/Ljubljana"},
 		Language:       "sl",
+		Emoji:          "🇸🇮",
 	},
 	Texts: Texts{
 		And:   "in",

@@ -23,6 +23,7 @@ var PELocale = NumI18NLocale{
 		Locale:         "es-PE",
 		Timezone:       []string{"America/Lima"},
 		Language:       "es",
+		Emoji:          "🇵🇪",
 	},
 	Texts: Texts{
 		And:   "Y",

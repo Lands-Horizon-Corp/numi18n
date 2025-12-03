@@ -28,6 +28,7 @@ var TAINLocale = NumI18NLocale{
 		Locale:         "ta-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "ta",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "மற்றும்",

@@ -27,6 +27,7 @@ var AR001Locale = NumI18NLocale{
 		Locale:         "ar-001",
 		Timezone:       []string{"UTC"},
 		Language:       "ar",
+		Emoji:          "🌍",
 	},
 	Texts: Texts{
 		And:   "و",

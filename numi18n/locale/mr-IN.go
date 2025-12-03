@@ -27,6 +27,7 @@ var MRINLocale = NumI18NLocale{
 		Locale:         "mr-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "mr",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "आणि",

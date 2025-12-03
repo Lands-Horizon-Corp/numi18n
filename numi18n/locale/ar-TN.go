@@ -23,6 +23,7 @@ var ARTNLocale = NumI18NLocale{
 		Locale:         "ar-TN",
 		Timezone:       []string{"Africa/Tunis"},
 		Language:       "ar",
+		Emoji:          "🇹🇳",
 	},
 	Texts: Texts{
 		And:   "و",

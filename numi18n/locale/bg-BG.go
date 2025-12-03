@@ -28,6 +28,7 @@ var BGBGLocale = NumI18NLocale{
 		Locale:         "bg-BG",
 		Timezone:       []string{"Europe/Sofia"},
 		Language:       "bg",
+		Emoji:          "🇧🇬",
 	},
 	Texts: Texts{
 		And:   "и",

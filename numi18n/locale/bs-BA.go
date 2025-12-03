@@ -28,6 +28,7 @@ var BSBALocale = NumI18NLocale{
 		Locale:         "bs-BA",
 		Timezone:       []string{"Europe/Sarajevo"},
 		Language:       "bs",
+		Emoji:          "🇧🇦",
 	},
 	Texts: Texts{
 		And:   "i",

@@ -27,6 +27,7 @@ var SRRSLocale = NumI18NLocale{
 		Locale:         "sr-RS",
 		Timezone:       []string{"Europe/Belgrade"},
 		Language:       "sr",
+		Emoji:          "🇷🇸",
 	},
 	Texts: Texts{
 		And:   "и",

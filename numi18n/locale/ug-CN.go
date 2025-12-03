@@ -27,6 +27,7 @@ var UGCNLocale = NumI18NLocale{
 		Locale:         "ug-CN",
 		Timezone:       []string{"Asia/Shanghai"},
 		Language:       "ug",
+		Emoji:          "🇨🇳",
 	},
 	Texts: Texts{
 		And:   "ۋە",

@@ -27,6 +27,7 @@ var IRLocale = NumI18NLocale{
 		Locale:         "fa-IR",
 		Timezone:       []string{"Asia/Tehran"},
 		Language:       "fa",
+		Emoji:          "🇮🇷",
 	},
 	Texts: Texts{
 		And:   "و",

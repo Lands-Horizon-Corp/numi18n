@@ -28,6 +28,7 @@ var INLocale = NumI18NLocale{
 		Locale:         "en-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "en",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "And",

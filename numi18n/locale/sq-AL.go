@@ -27,6 +27,7 @@ var SQALLocale = NumI18NLocale{
 		Locale:         "sq-AL",
 		Timezone:       []string{"Europe/Tirane"},
 		Language:       "sq",
+		Emoji:          "🇦🇱",
 	},
 	Texts: Texts{
 		And:   "dhe",

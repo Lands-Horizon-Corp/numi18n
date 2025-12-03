@@ -28,6 +28,7 @@ var MULocale = NumI18NLocale{
 		Locale:         "en-MU",
 		Timezone:       []string{"Indian/Mauritius"},
 		Language:       "en",
+		Emoji:          "🇲🇺",
 	},
 	Texts: Texts{
 		And:   "And",

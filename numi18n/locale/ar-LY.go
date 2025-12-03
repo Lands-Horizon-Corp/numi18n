@@ -28,6 +28,7 @@ var ARLYLocale = NumI18NLocale{
 		Locale:         "ar-LY",
 		Timezone:       []string{"Africa/Tripoli"},
 		Language:       "ar",
+		Emoji:          "🇱🇾",
 	},
 	Texts: Texts{
 		And:   "و",

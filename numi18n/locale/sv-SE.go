@@ -28,6 +28,7 @@ var SVSELocale = NumI18NLocale{
 		Locale:         "sv-SE",
 		Timezone:       []string{"Europe/Stockholm"},
 		Language:       "sv",
+		Emoji:          "🇸🇪",
 	},
 	Texts: Texts{
 		And:   "och",

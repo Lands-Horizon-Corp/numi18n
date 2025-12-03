@@ -27,6 +27,7 @@ var PTMZLocale = NumI18NLocale{
 		Locale:         "pt-MZ",
 		Timezone:       []string{"Africa/Maputo"},
 		Language:       "pt",
+		Emoji:          "🇲🇿",
 	},
 	Texts: Texts{
 		And:   "e",

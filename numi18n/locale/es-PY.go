@@ -23,6 +23,7 @@ var PYLocale = NumI18NLocale{
 		Locale:         "es-PY",
 		Timezone:       []string{"America/Asuncion"},
 		Language:       "es",
+		Emoji:          "🇵🇾",
 	},
 	Texts: Texts{
 		And:   "Y",

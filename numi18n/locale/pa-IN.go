@@ -27,6 +27,7 @@ var PAINLocale = NumI18NLocale{
 		Locale:         "pa-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "pa",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "ਅਤੇ",

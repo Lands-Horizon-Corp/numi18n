@@ -28,6 +28,7 @@ var SGLocale = NumI18NLocale{
 		Locale:         "en-SG",
 		Timezone:       []string{"Asia/Singapore"},
 		Language:       "en",
+		Emoji:          "🇸🇬",
 	},
 	Texts: Texts{
 		And:   "And",

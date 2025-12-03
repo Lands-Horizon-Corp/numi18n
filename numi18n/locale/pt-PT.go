@@ -27,6 +27,7 @@ var PTPTLocale = NumI18NLocale{
 		Locale:         "pt-PT",
 		Timezone:       []string{"Europe/Lisbon"},
 		Language:       "pt",
+		Emoji:          "🇵🇹",
 	},
 	Texts: Texts{
 		And:   "e",

@@ -28,6 +28,7 @@ var BNBDLocale = NumI18NLocale{
 		Locale:         "bn-BD",
 		Timezone:       []string{"Asia/Dhaka"},
 		Language:       "bn",
+		Emoji:          "🇧🇩",
 	},
 	Texts: Texts{
 		And:   "এবং",

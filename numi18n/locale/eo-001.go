@@ -28,6 +28,7 @@ var EOLocale = NumI18NLocale{
 		Locale:         "eo-001",
 		Timezone:       []string{"UTC"},
 		Language:       "eo",
+		Emoji:          "🌍",
 	},
 	Texts: Texts{
 		And:   "Kaj",

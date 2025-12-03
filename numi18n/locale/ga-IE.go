@@ -27,6 +27,7 @@ var IEGALocale = NumI18NLocale{
 		Locale:         "ga-IE",
 		Timezone:       []string{"Europe/Dublin"},
 		Language:       "ga",
+		Emoji:          "🇮🇪",
 	},
 	Texts: Texts{
 		And:   "Agus",

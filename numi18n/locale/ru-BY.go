@@ -27,6 +27,7 @@ var RUBYLocale = NumI18NLocale{
 		Locale:         "ru-BY",
 		Timezone:       []string{"Europe/Minsk"},
 		Language:       "ru",
+		Emoji:          "🇧🇾",
 	},
 	Texts: Texts{
 		And:   "и",

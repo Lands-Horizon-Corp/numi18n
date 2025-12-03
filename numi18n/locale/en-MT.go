@@ -28,6 +28,7 @@ var MTLocale = NumI18NLocale{
 		Locale:         "en-MT",
 		Timezone:       []string{"Europe/Malta"},
 		Language:       "en",
+		Emoji:          "🇲🇹",
 	},
 	Texts: Texts{
 		And:   "And",

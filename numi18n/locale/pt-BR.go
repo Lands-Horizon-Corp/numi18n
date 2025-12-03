@@ -27,6 +27,7 @@ var PTBRLocale = NumI18NLocale{
 		Locale:         "pt-BR",
 		Timezone:       []string{"America/Sao_Paulo"},
 		Language:       "pt",
+		Emoji:          "🇧🇷",
 	},
 	Texts: Texts{
 		And:   "e",

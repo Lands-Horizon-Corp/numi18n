@@ -28,6 +28,7 @@ var ARKWLocale = NumI18NLocale{
 		Locale:         "ar-KW",
 		Timezone:       []string{"Asia/Kuwait"},
 		Language:       "ar",
+		Emoji:          "🇰🇼",
 	},
 	Texts: Texts{
 		And:   "و",

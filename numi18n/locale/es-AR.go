@@ -23,6 +23,7 @@ var ARLocale = NumI18NLocale{
 		Locale:         "es-AR",
 		Timezone:       []string{"America/Argentina/Buenos_Aires"},
 		Language:       "es",
+		Emoji:          "🇦🇷",
 	},
 	Texts: Texts{
 		And:   "Y",

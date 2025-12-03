@@ -28,6 +28,7 @@ var ZWLocale = NumI18NLocale{
 		Locale:         "en-ZW",
 		Timezone:       []string{"Africa/Harare"},
 		Language:       "en",
+		Emoji:          "🇿🇼",
 	},
 	Texts: Texts{
 		And:   "And",

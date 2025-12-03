@@ -27,6 +27,7 @@ var LOLALocale = NumI18NLocale{
 		Locale:         "lo-LA",
 		Timezone:       []string{"Asia/Vientiane"},
 		Language:       "lo",
+		Emoji:          "🇱🇦",
 	},
 	LocaleFormatter: &LaoFormatter{},
 	Texts: Texts{

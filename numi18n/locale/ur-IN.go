@@ -27,6 +27,7 @@ var URINLocale = NumI18NLocale{
 		Locale:         "ur-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "ur",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "اور",

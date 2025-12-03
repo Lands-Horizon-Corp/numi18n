@@ -27,6 +27,7 @@ var ESEULocale = NumI18NLocale{
 		Locale:         "eu-ES",
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "eu",
+		Emoji:          "🇪🇸",
 	},
 	Texts: Texts{
 		And:   "Eta",

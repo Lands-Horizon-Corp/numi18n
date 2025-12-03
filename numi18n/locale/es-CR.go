@@ -23,6 +23,7 @@ var CRLocale = NumI18NLocale{
 		Locale:         "es-CR",
 		Timezone:       []string{"America/Costa_Rica"},
 		Language:       "es",
+		Emoji:          "🇨🇷",
 	},
 	Texts: Texts{
 		And:   "Y",

@@ -27,6 +27,7 @@ var MINZLocale = NumI18NLocale{
 		Locale:         "mi-NZ",
 		Timezone:       []string{"Pacific/Auckland"},
 		Language:       "mi",
+		Emoji:          "🇳🇿",
 	},
 	Texts: Texts{
 		And:   "me",

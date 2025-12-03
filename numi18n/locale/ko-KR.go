@@ -27,6 +27,7 @@ var KRLocale = NumI18NLocale{
 		Locale:         "ko-KR",
 		Timezone:       []string{"Asia/Seoul"},
 		Language:       "ko",
+		Emoji:          "🇰🇷",
 	},
 	Texts: Texts{
 		And:   "그리고",

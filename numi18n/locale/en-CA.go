@@ -28,6 +28,7 @@ var CALocale = NumI18NLocale{
 		Locale:         "en-CA",
 		Timezone:       []string{"America/Toronto"},
 		Language:       "en",
+		Emoji:          "🇨🇦",
 	},
 	Texts: Texts{
 		And:   "And",

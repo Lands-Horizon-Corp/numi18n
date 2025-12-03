@@ -27,6 +27,7 @@ var LTLTLocale = NumI18NLocale{
 		Locale:         "lt-LT",
 		Timezone:       []string{"Europe/Vilnius"},
 		Language:       "lt",
+		Emoji:          "🇱🇹",
 	},
 	LocaleFormatter: &LithuanianFormatter{},
 	Texts: Texts{

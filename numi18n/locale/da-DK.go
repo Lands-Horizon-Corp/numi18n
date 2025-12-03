@@ -28,6 +28,7 @@ var DADKLocale = NumI18NLocale{
 		Locale:         "da-DK",
 		Timezone:       []string{"Europe/Copenhagen"},
 		Language:       "da",
+		Emoji:          "🇩🇰",
 	},
 	Texts: Texts{
 		And:   "og",

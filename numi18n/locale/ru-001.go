@@ -27,6 +27,7 @@ var RU001Locale = NumI18NLocale{
 		Locale:         "ru-001",
 		Timezone:       []string{"UTC"},
 		Language:       "ru",
+		Emoji:          "🌍",
 	},
 	Texts: Texts{
 		And:   "и",

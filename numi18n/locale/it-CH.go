@@ -61,6 +61,7 @@ var CHITLocale = NumI18NLocale{
 		Locale:         "it-CH",
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "it",
+		Emoji:          "🇨🇭",
 	},
 	Texts: Texts{
 		And:   "E",

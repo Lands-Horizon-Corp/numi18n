@@ -28,6 +28,7 @@ var ARLBLocale = NumI18NLocale{
 		Locale:         "ar-LB",
 		Timezone:       []string{"Asia/Beirut"},
 		Language:       "ar",
+		Emoji:          "🇱🇧",
 	},
 	Texts: Texts{
 		And:   "و",

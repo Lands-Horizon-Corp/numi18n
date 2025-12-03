@@ -27,6 +27,7 @@ var SDPKLocale = NumI18NLocale{
 		Locale:         "sd-PK",
 		Timezone:       []string{"Asia/Karachi"},
 		Language:       "sd",
+		Emoji:          "🇵🇰",
 	},
 	Texts: Texts{
 		And:   "۽",

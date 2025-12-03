@@ -29,6 +29,7 @@ var NLNLLocale = NumI18NLocale{
 		Locale:         "nl-NL",
 		Timezone:       []string{"Europe/Amsterdam"},
 		Language:       "nl",
+		Emoji:          "🇳🇱",
 	},
 	Texts: Texts{
 		And:   "en",

@@ -27,6 +27,7 @@ var FILocale = NumI18NLocale{
 		Locale:         "fi-FI",
 		Timezone:       []string{"Europe/Helsinki"},
 		Language:       "fi",
+		Emoji:          "🇫🇮",
 	},
 	Texts: Texts{
 		And:   "Ja",

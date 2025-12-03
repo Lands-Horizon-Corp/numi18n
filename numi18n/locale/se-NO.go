@@ -27,6 +27,7 @@ var SENOLocale = NumI18NLocale{
 		Locale:         "se-NO",
 		Timezone:       []string{"Europe/Oslo"},
 		Language:       "se",
+		Emoji:          "🇳🇴",
 	},
 	Texts: Texts{
 		And:   "ja",

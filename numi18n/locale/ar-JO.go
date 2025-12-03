@@ -27,6 +27,7 @@ var ARJOLocale = NumI18NLocale{
 		Locale:         "ar-JO",
 		Timezone:       []string{"Asia/Amman"},
 		Language:       "ar",
+		Emoji:          "🇯🇴",
 	},
 	Texts: Texts{
 		And:   "و",

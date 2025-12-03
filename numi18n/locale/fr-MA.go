@@ -27,6 +27,7 @@ var MAFRLocale = NumI18NLocale{
 		Locale:         "fr-MA",
 		Timezone:       []string{"Africa/Casablanca"},
 		Language:       "fr",
+		Emoji:          "🇲🇦",
 	},
 	Texts: Texts{
 		And:   "Et",

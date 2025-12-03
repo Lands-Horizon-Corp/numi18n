@@ -27,6 +27,7 @@ var PTMOLocale = NumI18NLocale{
 		Locale:         "pt-MO",
 		Timezone:       []string{"Asia/Macau"},
 		Language:       "pt",
+		Emoji:          "🇲🇴",
 	},
 	Texts: Texts{
 		And:   "e",

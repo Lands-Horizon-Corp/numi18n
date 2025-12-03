@@ -27,6 +27,7 @@ var ARAELocale = NumI18NLocale{
 		Locale:         "ar-AE",
 		Timezone:       []string{"Asia/Dubai"},
 		Language:       "ar",
+		Emoji:          "🇦🇪",
 	},
 	Texts: Texts{
 		And:   "و",

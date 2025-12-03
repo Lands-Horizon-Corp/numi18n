@@ -28,6 +28,7 @@ var SWKELocale = NumI18NLocale{
 		Locale:         "sw-KE",
 		Timezone:       []string{"Africa/Nairobi"},
 		Language:       "sw",
+		Emoji:          "🇰🇪",
 	},
 	Texts: Texts{
 		And:   "na",

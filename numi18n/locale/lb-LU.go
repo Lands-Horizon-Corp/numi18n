@@ -27,6 +27,7 @@ var LBLULocale = NumI18NLocale{
 		Locale:         "lb-LU",
 		Timezone:       []string{"Europe/Luxembourg"},
 		Language:       "lb",
+		Emoji:          "🇱🇺",
 	},
 	Texts: Texts{
 		And:   "an",

@@ -27,6 +27,7 @@ var AMETLocale = NumI18NLocale{
 		Locale:         "am-ET",
 		Timezone:       []string{"Africa/Addis_Ababa"},
 		Language:       "am",
+		Emoji:          "🇪🇹",
 	},
 	Texts: Texts{
 		And:   "እና",

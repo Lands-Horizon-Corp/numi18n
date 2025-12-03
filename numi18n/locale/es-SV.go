@@ -23,6 +23,7 @@ var SVLocale = NumI18NLocale{
 		Locale:         "es-SV",
 		Timezone:       []string{"America/El_Salvador"},
 		Language:       "es",
+		Emoji:          "🇸🇻",
 	},
 	Texts: Texts{
 		And:   "Y",

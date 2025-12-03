@@ -28,6 +28,7 @@ var ELGRLocale = NumI18NLocale{
 		Locale:         "el-GR",
 		Timezone:       []string{"Europe/Athens"},
 		Language:       "el",
+		Emoji:          "🇬🇷",
 	},
 	Texts: Texts{
 		And:   "και",

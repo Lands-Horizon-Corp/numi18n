@@ -27,6 +27,7 @@ var HTLocale = NumI18NLocale{
 		Locale:         "ht-HT",
 		Timezone:       []string{"America/Port-au-Prince"},
 		Language:       "ht",
+		Emoji:          "🇭🇹",
 	},
 	Texts: Texts{
 		And:   "ak",

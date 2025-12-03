@@ -27,6 +27,7 @@ var JPLocale = NumI18NLocale{
 		Locale:         "ja-JP",
 		Timezone:       []string{"Asia/Tokyo"},
 		Language:       "ja",
+		Emoji:          "🇯🇵",
 	},
 	Texts: Texts{
 		And:   "と",

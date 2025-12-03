@@ -27,6 +27,7 @@ var HULocale = NumI18NLocale{
 		Locale:         "hu-HU",
 		Timezone:       []string{"Europe/Budapest"},
 		Language:       "hu",
+		Emoji:          "🇭🇺",
 	},
 	Texts: Texts{
 		And:   "És",

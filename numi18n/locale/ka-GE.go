@@ -27,6 +27,7 @@ var GELocale = NumI18NLocale{
 		Locale:         "ka-GE",
 		Timezone:       []string{"Asia/Tbilisi"},
 		Language:       "ka",
+		Emoji:          "🇬🇪",
 	},
 	Texts: Texts{
 		And:   "და",

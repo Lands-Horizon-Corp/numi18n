@@ -23,6 +23,7 @@ var ECLocale = NumI18NLocale{
 		Locale:         "es-EC",
 		Timezone:       []string{"America/Guayaquil"},
 		Language:       "es",
+		Emoji:          "🇪🇨",
 	},
 	Texts: Texts{
 		And:   "Y",

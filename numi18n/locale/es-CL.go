@@ -23,6 +23,7 @@ var CLLocale = NumI18NLocale{
 		Locale:         "es-CL",
 		Timezone:       []string{"America/Santiago"},
 		Language:       "es",
+		Emoji:          "🇨🇱",
 	},
 	Texts: Texts{
 		And:   "Y",

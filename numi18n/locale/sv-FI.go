@@ -27,6 +27,7 @@ var SVFILocale = NumI18NLocale{
 		Locale:         "sv-FI",
 		Timezone:       []string{"Europe/Helsinki"},
 		Language:       "sv",
+		Emoji:          "🇫🇮",
 	},
 	Texts: Texts{
 		And:   "och",

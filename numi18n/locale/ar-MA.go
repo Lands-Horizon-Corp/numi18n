@@ -23,6 +23,7 @@ var ARMALocale = NumI18NLocale{
 		Locale:         "ar-MA",
 		Timezone:       []string{"Africa/Casablanca"},
 		Language:       "ar",
+		Emoji:          "🇲🇦",
 	},
 	Texts: Texts{
 		And:   "و",

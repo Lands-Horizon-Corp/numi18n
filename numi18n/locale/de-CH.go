@@ -30,6 +30,7 @@ var DECHLocale = NumI18NLocale{
 		Locale:         "de-CH",
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "de",
+		Emoji:          "🇨🇭",
 	},
 	Texts: Texts{
 		And:   "und",

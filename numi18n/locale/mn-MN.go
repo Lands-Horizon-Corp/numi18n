@@ -27,6 +27,7 @@ var MNMNLocale = NumI18NLocale{
 		Locale:         "mn-MN",
 		Timezone:       []string{"Asia/Ulaanbaatar"},
 		Language:       "mn",
+		Emoji:          "🇲🇳",
 	},
 	Texts: Texts{
 		And:   "ба",

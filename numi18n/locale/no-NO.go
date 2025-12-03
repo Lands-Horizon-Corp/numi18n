@@ -27,6 +27,7 @@ var NONOLocale = NumI18NLocale{
 		Locale:         "no-NO",
 		Timezone:       []string{"Europe/Oslo"},
 		Language:       "no",
+		Emoji:          "🇳🇴",
 	},
 	Texts: Texts{
 		And:   "og",

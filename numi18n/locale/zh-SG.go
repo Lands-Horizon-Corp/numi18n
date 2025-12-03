@@ -27,6 +27,7 @@ var ZHSGLocale = NumI18NLocale{
 		Locale:         "zh-SG",
 		Timezone:       []string{"Asia/Singapore"},
 		Language:       "zh",
+		Emoji:          "🇸🇬",
 	},
 	Texts: Texts{
 		And:   "和",

@@ -28,6 +28,7 @@ var BEBYLocale = NumI18NLocale{
 		Locale:         "be-BY",
 		Timezone:       []string{"Europe/Minsk"},
 		Language:       "be",
+		Emoji:          "🇧🇾",
 	},
 	Texts: Texts{
 		And:   "і",

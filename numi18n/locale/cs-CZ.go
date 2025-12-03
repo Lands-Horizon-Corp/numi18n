@@ -28,6 +28,7 @@ var CSCZLocale = NumI18NLocale{
 		Locale:         "cs-CZ",
 		Timezone:       []string{"Europe/Prague"},
 		Language:       "cs",
+		Emoji:          "🇨🇿",
 	},
 	Texts: Texts{
 		And:   "a",

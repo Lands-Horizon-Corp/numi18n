@@ -23,6 +23,7 @@ var AROMLocale = NumI18NLocale{
 		Locale:         "ar-OM",
 		Timezone:       []string{"Asia/Muscat"},
 		Language:       "ar",
+		Emoji:          "🇴🇲",
 	},
 	Texts: Texts{
 		And:   "و",

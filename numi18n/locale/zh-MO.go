@@ -27,6 +27,7 @@ var ZHMOLocale = NumI18NLocale{
 		Locale:         "zh-MO",
 		Timezone:       []string{"Asia/Macau"},
 		Language:       "zh",
+		Emoji:          "🇲🇴",
 	},
 	Texts: Texts{
 		And:   "同",

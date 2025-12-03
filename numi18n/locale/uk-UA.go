@@ -27,6 +27,7 @@ var UKUALocale = NumI18NLocale{
 		Locale:         "uk-UA",
 		Timezone:       []string{"Europe/Kiev"},
 		Language:       "uk",
+		Emoji:          "🇺🇦",
 	},
 	Texts: Texts{
 		And:   "і",

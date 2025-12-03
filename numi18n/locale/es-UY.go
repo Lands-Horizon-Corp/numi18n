@@ -23,6 +23,7 @@ var UYLocale = NumI18NLocale{
 		Locale:         "es-UY",
 		Timezone:       []string{"America/Montevideo"},
 		Language:       "es",
+		Emoji:          "🇺🇾",
 	},
 	Texts: Texts{
 		And:   "Y",

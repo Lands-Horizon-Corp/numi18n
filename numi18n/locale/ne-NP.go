@@ -28,6 +28,7 @@ var NENPLocale = NumI18NLocale{
 		Locale:         "ne-NP",
 		Timezone:       []string{"Asia/Kathmandu"},
 		Language:       "ne",
+		Emoji:          "🇳🇵",
 	},
 	Texts: Texts{
 		And:   "र",

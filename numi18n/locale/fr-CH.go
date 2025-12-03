@@ -27,6 +27,7 @@ var CHFRLocale = NumI18NLocale{
 		Locale:         "fr-CH",
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "fr",
+		Emoji:          "🇨🇭",
 	},
 	Texts: Texts{
 		And:   "Et",

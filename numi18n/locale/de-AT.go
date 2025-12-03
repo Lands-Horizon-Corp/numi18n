@@ -30,6 +30,7 @@ var DEATLocale = NumI18NLocale{
 		Locale:         "de-AT",
 		Timezone:       []string{"Europe/Vienna"},
 		Language:       "de",
+		Emoji:          "🇦🇹",
 	},
 	Texts: Texts{
 		And:   "und",

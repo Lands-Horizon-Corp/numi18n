@@ -23,6 +23,7 @@ var ARSALocale = NumI18NLocale{
 		Locale:         "ar-SA",
 		Timezone:       []string{"Asia/Riyadh"},
 		Language:       "ar",
+		Emoji:          "🇸🇦",
 	},
 	Texts: Texts{
 		And:   "و",

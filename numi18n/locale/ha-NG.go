@@ -27,6 +27,7 @@ var NGHALocale = NumI18NLocale{
 		Locale:         "ha-NG",
 		Timezone:       []string{"Africa/Lagos"},
 		Language:       "ha",
+		Emoji:          "🇳🇬",
 	},
 	Texts: Texts{
 		And:   "Da",

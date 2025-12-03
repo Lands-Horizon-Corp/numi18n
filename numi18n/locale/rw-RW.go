@@ -27,6 +27,7 @@ var RWRWLocale = NumI18NLocale{
 		Locale:         "rw-RW",
 		Timezone:       []string{"Africa/Kigali"},
 		Language:       "rw",
+		Emoji:          "🇷🇼",
 	},
 	Texts: Texts{
 		And:   "na",

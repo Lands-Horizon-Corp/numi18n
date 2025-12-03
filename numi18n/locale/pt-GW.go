@@ -27,6 +27,7 @@ var PTGWLocale = NumI18NLocale{
 		Locale:         "pt-GW",
 		Timezone:       []string{"Africa/Bissau"},
 		Language:       "pt",
+		Emoji:          "🇬🇼",
 	},
 	Texts: Texts{
 		And:   "e",

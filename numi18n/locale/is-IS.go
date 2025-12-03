@@ -27,6 +27,7 @@ var ISLocale = NumI18NLocale{
 		Locale:         "is-IS",
 		Timezone:       []string{"Atlantic/Reykjavik"},
 		Language:       "is",
+		Emoji:          "🇮🇸",
 	},
 	Texts: Texts{
 		And:   "Og",

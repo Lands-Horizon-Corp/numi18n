@@ -28,6 +28,7 @@ var ZALocale = NumI18NLocale{
 		Locale:         "en-ZA",
 		Timezone:       []string{"Africa/Johannesburg"},
 		Language:       "en",
+		Emoji:          "🇿🇦",
 	},
 	Texts: Texts{
 		And:   "And",

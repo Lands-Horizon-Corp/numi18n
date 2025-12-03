@@ -27,6 +27,7 @@ var MKMKLocale = NumI18NLocale{
 		Locale:         "mk-MK",
 		Timezone:       []string{"Europe/Skopje"},
 		Language:       "mk",
+		Emoji:          "🇲🇰",
 	},
 	Texts: Texts{
 		And:   "и",

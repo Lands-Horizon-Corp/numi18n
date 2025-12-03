@@ -27,6 +27,7 @@ var SKSKLocale = NumI18NLocale{
 		Locale:         "sk-SK",
 		Timezone:       []string{"Europe/Bratislava"},
 		Language:       "sk",
+		Emoji:          "🇸🇰",
 	},
 	Texts: Texts{
 		And:   "a",

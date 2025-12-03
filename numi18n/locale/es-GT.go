@@ -23,6 +23,7 @@ var GTLocale = NumI18NLocale{
 		Locale:         "es-GT",
 		Timezone:       []string{"America/Guatemala"},
 		Language:       "es",
+		Emoji:          "🇬🇹",
 	},
 	Texts: Texts{
 		And:   "Y",

@@ -28,6 +28,7 @@ var GHLocale = NumI18NLocale{
 		Locale:         "en-GH",
 		Timezone:       []string{"Africa/Accra"},
 		Language:       "en",
+		Emoji:          "🇬🇭",
 	},
 	Texts: Texts{
 		And:   "And",

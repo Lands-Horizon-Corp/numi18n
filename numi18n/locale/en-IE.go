@@ -28,6 +28,7 @@ var IELocale = NumI18NLocale{
 		Locale:         "en-IE",
 		Timezone:       []string{"Europe/Dublin"},
 		Language:       "en",
+		Emoji:          "🇮🇪",
 	},
 	Texts: Texts{
 		And:   "And",

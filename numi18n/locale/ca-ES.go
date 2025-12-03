@@ -28,6 +28,7 @@ var CAESLocale = NumI18NLocale{
 		Locale:         "ca-ES",
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "ca",
+		Emoji:          "🇪🇸",
 	},
 	Texts: Texts{
 		And:   "i",

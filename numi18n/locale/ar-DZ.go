@@ -27,6 +27,7 @@ var ARDZLocale = NumI18NLocale{
 		Locale:         "ar-DZ",
 		Timezone:       []string{"Africa/Algiers"},
 		Language:       "ar",
+		Emoji:          "🇩🇿",
 	},
 	Texts: Texts{
 		And:   "و",

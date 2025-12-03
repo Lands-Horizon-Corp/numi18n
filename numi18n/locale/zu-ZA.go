@@ -27,6 +27,7 @@ var ZUZALocale = NumI18NLocale{
 		Locale:         "zu-ZA",
 		Timezone:       []string{"Africa/Johannesburg"},
 		Language:       "zu",
+		Emoji:          "🇿🇦",
 	},
 	Texts: Texts{
 		And:   "ne",

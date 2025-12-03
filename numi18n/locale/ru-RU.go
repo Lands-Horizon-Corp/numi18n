@@ -27,6 +27,7 @@ var RURULocale = NumI18NLocale{
 		Locale:         "ru-RU",
 		Timezone:       []string{"Europe/Moscow"},
 		Language:       "ru",
+		Emoji:          "🇷🇺",
 	},
 	Texts: Texts{
 		And:   "и",

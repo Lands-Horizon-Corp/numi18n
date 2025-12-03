@@ -27,6 +27,7 @@ var AREGLocale = NumI18NLocale{
 		Locale:         "ar-EG",
 		Timezone:       []string{"Africa/Cairo"},
 		Language:       "ar",
+		Emoji:          "🇪🇬",
 	},
 	Texts: Texts{
 		And:   "و",

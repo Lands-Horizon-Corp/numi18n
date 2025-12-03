@@ -27,6 +27,7 @@ var SNFRLocale = NumI18NLocale{
 		Locale:         "fr-SN",
 		Timezone:       []string{"Africa/Dakar"},
 		Language:       "fr",
+		Emoji:          "🇸🇳",
 	},
 	Texts: Texts{
 		And:   "Et",

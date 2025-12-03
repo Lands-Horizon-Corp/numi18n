@@ -27,6 +27,7 @@ var HRLocale = NumI18NLocale{
 		Locale:         "hr-HR",
 		Timezone:       []string{"Europe/Zagreb"},
 		Language:       "hr",
+		Emoji:          "🇭🇷",
 	},
 	Texts: Texts{
 		And:   "I",

@@ -23,6 +23,7 @@ var ARSYLocale = NumI18NLocale{
 		Locale:         "ar-SY",
 		Timezone:       []string{"Asia/Damascus"},
 		Language:       "ar",
+		Emoji:          "🇸🇾",
 	},
 	Texts: Texts{
 		And:   "و",

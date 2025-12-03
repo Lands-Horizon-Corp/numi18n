@@ -27,6 +27,7 @@ var QUPELocale = NumI18NLocale{
 		Locale:         "qu-PE",
 		Timezone:       []string{"America/Lima"},
 		Language:       "qu",
+		Emoji:          "🇵🇪",
 	},
 	Texts: Texts{
 		And:   "wan",

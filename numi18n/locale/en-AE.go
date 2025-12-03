@@ -28,6 +28,7 @@ var AEELocale = NumI18NLocale{
 		Locale:         "en-AE",
 		Timezone:       []string{"Asia/Dubai"},
 		Language:       "en",
+		Emoji:          "🇦🇪",
 	},
 	Texts: Texts{
 		And:   "And",

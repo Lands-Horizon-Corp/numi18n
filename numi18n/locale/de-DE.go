@@ -31,6 +31,7 @@ var DEDELocale = NumI18NLocale{
 		Locale:         "de-DE",
 		Timezone:       []string{"Europe/Berlin"},
 		Language:       "de",
+		Emoji:          "🇩🇪",
 	},
 	Texts: Texts{
 		And:   "und",

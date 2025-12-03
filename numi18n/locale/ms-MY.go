@@ -27,6 +27,7 @@ var MSMYLocale = NumI18NLocale{
 		Locale:         "ms-MY",
 		Timezone:       []string{"Asia/Kuala_Lumpur"},
 		Language:       "ms",
+		Emoji:          "🇲🇾",
 	},
 	Texts: Texts{
 		And:   "dan",

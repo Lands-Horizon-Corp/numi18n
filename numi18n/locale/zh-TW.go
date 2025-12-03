@@ -27,6 +27,7 @@ var ZHTWLocale = NumI18NLocale{
 		Locale:         "zh-TW",
 		Timezone:       []string{"Asia/Taipei"},
 		Language:       "zh",
+		Emoji:          "🇹🇼",
 	},
 	Texts: Texts{
 		And:   "和",

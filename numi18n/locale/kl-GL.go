@@ -27,6 +27,7 @@ var GLLocale = NumI18NLocale{
 		Locale:         "kl-GL",
 		Timezone:       []string{"America/Godthab"},
 		Language:       "kl",
+		Emoji:          "🇬🇱",
 	},
 	Texts: Texts{
 		And:   "Aamma",

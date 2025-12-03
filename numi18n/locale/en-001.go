@@ -28,6 +28,7 @@ var EN001Locale = NumI18NLocale{
 		Locale:         "en-001",
 		Timezone:       []string{"UTC"},
 		Language:       "en",
+		Emoji:          "🌍",
 	},
 	Texts: Texts{
 		And:   "And",

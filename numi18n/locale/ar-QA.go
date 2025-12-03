@@ -23,6 +23,7 @@ var ARQALocale = NumI18NLocale{
 		Locale:         "ar-QA",
 		Timezone:       []string{"Asia/Qatar"},
 		Language:       "ar",
+		Emoji:          "🇶🇦",
 	},
 	Texts: Texts{
 		And:   "و",

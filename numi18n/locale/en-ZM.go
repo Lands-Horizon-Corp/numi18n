@@ -28,6 +28,7 @@ var ZMLocale = NumI18NLocale{
 		Locale:         "en-ZM",
 		Timezone:       []string{"Africa/Lusaka"},
 		Language:       "en",
+		Emoji:          "🇿🇲",
 	},
 	Texts: Texts{
 		And:   "And",

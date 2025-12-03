@@ -27,6 +27,7 @@ var ASINLocale = NumI18NLocale{
 		Locale:         "as-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "as",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "আৰু",

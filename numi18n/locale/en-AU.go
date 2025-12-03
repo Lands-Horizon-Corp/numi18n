@@ -28,6 +28,7 @@ var AUALocale = NumI18NLocale{
 		Locale:         "en-AU",
 		Timezone:       []string{"Australia/Sydney"},
 		Language:       "en",
+		Emoji:          "🇦🇺",
 	},
 	Texts: Texts{
 		And:   "And",

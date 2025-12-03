@@ -28,6 +28,7 @@ var NGLocale = NumI18NLocale{
 		Locale:         "en-NG",
 		Timezone:       []string{"Africa/Lagos"},
 		Language:       "en",
+		Emoji:          "🇳🇬",
 	},
 	Texts: Texts{
 		And:   "And",

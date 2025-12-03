@@ -28,6 +28,7 @@ var NZLocale = NumI18NLocale{
 		Locale:         "en-NZ",
 		Timezone:       []string{"Pacific/Auckland"},
 		Language:       "en",
+		Emoji:          "🇳🇿",
 	},
 	Texts: Texts{
 		And:   "And",

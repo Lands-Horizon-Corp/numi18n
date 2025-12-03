@@ -27,6 +27,7 @@ var URPKLocale = NumI18NLocale{
 		Locale:         "ur-PK",
 		Timezone:       []string{"Asia/Karachi"},
 		Language:       "ur",
+		Emoji:          "🇵🇰",
 	},
 	Texts: Texts{
 		And:   "اور",

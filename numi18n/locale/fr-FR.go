@@ -27,6 +27,7 @@ var FRLocale = NumI18NLocale{
 		Locale:         "fr-FR",
 		Timezone:       []string{"Europe/Paris"},
 		Language:       "fr",
+		Emoji:          "🇫🇷",
 	},
 	Texts: Texts{
 		And:   "Et",

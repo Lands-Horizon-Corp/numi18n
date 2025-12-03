@@ -27,6 +27,7 @@ var ORINLocale = NumI18NLocale{
 		Locale:         "or-IN",
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "or",
+		Emoji:          "🇮🇳",
 	},
 	Texts: Texts{
 		And:   "ଏବଂ",

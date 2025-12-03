@@ -27,6 +27,7 @@ var NYMWLocale = NumI18NLocale{
 		Locale:         "ny-MW",
 		Timezone:       []string{"Africa/Blantyre"},
 		Language:       "ny",
+		Emoji:          "🇲🇼",
 	},
 	Texts: Texts{
 		And:   "ndi",

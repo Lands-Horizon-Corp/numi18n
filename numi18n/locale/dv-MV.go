@@ -28,6 +28,7 @@ var DVMVLocale = NumI18NLocale{
 		Locale:         "dv-MV",
 		Timezone:       []string{"Indian/Maldives"},
 		Language:       "dv",
+		Emoji:          "🇲🇻",
 	},
 	Texts: Texts{
 		And:   "އަންޑް",

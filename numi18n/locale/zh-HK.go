@@ -27,6 +27,7 @@ var ZHHKLocale = NumI18NLocale{
 		Locale:         "zh-HK",
 		Timezone:       []string{"Asia/Hong_Kong"},
 		Language:       "zh",
+		Emoji:          "🇭🇰",
 	},
 	Texts: Texts{
 		And:   "同",

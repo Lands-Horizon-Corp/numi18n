@@ -23,6 +23,7 @@ var NILocale = NumI18NLocale{
 		Locale:         "es-NI",
 		Timezone:       []string{"America/Managua"},
 		Language:       "es",
+		Emoji:          "🇳🇮",
 	},
 	Texts: Texts{
 		And:   "Y",

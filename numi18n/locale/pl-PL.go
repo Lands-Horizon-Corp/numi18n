@@ -27,6 +27,7 @@ var PLPLLocale = NumI18NLocale{
 		Locale:         "pl-PL",
 		Timezone:       []string{"Europe/Warsaw"},
 		Language:       "pl",
+		Emoji:          "🇵🇱",
 	},
 	Texts: Texts{
 		And:   "i",

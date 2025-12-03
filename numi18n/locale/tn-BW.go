@@ -27,6 +27,7 @@ var TNBWLocale = NumI18NLocale{
 		Locale:         "tn-BW",
 		Timezone:       []string{"Africa/Gaborone"},
 		Language:       "tn",
+		Emoji:          "🇧🇼",
 	},
 	Texts: Texts{
 		And:   "le",

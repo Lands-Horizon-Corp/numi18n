@@ -27,6 +27,7 @@ var VIVNLocale = NumI18NLocale{
 		Locale:         "vi-VN",
 		Timezone:       []string{"Asia/Ho_Chi_Minh"},
 		Language:       "vi",
+		Emoji:          "🇻🇳",
 	},
 	Texts: Texts{
 		And:   "và",

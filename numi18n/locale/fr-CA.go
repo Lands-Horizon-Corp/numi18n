@@ -27,6 +27,7 @@ var CAFRLocale = NumI18NLocale{
 		Locale:         "fr-CA",
 		Timezone:       []string{"America/Toronto"},
 		Language:       "fr",
+		Emoji:          "🇨🇦",
 	},
 	Texts: Texts{
 		And:   "Et",

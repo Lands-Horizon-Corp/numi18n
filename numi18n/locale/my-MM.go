@@ -27,6 +27,7 @@ var MYMMLocale = NumI18NLocale{
 		Locale:         "my-MM",
 		Timezone:       []string{"Asia/Yangon"},
 		Language:       "my",
+		Emoji:          "🇲🇲",
 	},
 	Texts: Texts{
 		And:   "နှင့်",

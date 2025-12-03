@@ -28,6 +28,7 @@ var DZBTLocale = NumI18NLocale{
 		Locale:         "dz-BT",
 		Timezone:       []string{"Asia/Thimphu"},
 		Language:       "dz",
+		Emoji:          "🇧🇹",
 	},
 	Texts: Texts{
 		And:   "དང་",

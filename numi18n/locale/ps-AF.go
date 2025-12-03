@@ -27,6 +27,7 @@ var PSAFLocale = NumI18NLocale{
 		Locale:         "ps-AF",
 		Timezone:       []string{"Asia/Kabul"},
 		Language:       "ps",
+		Emoji:          "🇦🇫",
 	},
 	Texts: Texts{
 		And:   "او",

@@ -28,6 +28,7 @@ var ESGLLocale = NumI18NLocale{
 		Locale:         "gl-ES",
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "gl",
+		Emoji:          "🇪🇸",
 	},
 	Texts: Texts{
 		And:   "E",

@@ -27,6 +27,7 @@ var PTAOLocale = NumI18NLocale{
 		Locale:         "pt-AO",
 		Timezone:       []string{"Africa/Luanda"},
 		Language:       "pt",
+		Emoji:          "🇦🇴",
 	},
 	Texts: Texts{
 		And:   "e",

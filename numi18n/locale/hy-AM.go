@@ -27,6 +27,7 @@ var AMLocale = NumI18NLocale{
 		Locale:         "hy-AM",
 		Timezone:       []string{"Asia/Yerevan"},
 		Language:       "hy",
+		Emoji:          "🇦🇲",
 	},
 	Texts: Texts{
 		And:   "Եվ",
