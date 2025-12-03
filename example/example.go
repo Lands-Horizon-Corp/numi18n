@@ -216,5 +216,40 @@ func main() {
 	fmt.Printf("Filipino - Currency words: %s\n", filipinoCurrencyInPlainWords)
 
 	fmt.Println()
+
+	// === Custom Currency Example ===
+	fmt.Println("₿ Custom Currency Example (Bitcoin):")
+	fmt.Println("----------------------------------")
+
+	// Custom currency override with Bitcoin
+	customOptions := &numi18n.NumI18NOptions{
+		Locale: "en-US",
+		WordDetails: &numi18n.WordDetails{
+			Currency:   true,
+			Decimal:    true,
+			Capitalize: true,
+			OverrideOptions: &numi18n.OverrideOptions{
+				Name:             "Bitcoin",
+				Plural:           "Bitcoins",
+				Symbol:           "₿",
+				FractionUnitName: "Satoshi",
+				FractionPlural:   "Satoshis",
+				FractionSymbol:   "₿",
+				NegativeWord:     "minus",
+			},
+		},
+	}
+
+	result := customOptions.ToWords(1.50)
+	fmt.Printf("Bitcoin amount (₿%.2f): %s\n", 1.50, result) // "One Bitcoin And Fifty Satoshis"
+
+	// Test with different amounts
+	singleBitcoin := customOptions.ToWords(1.00)
+	fmt.Printf("Single Bitcoin (₿%.2f): %s\n", 1.00, singleBitcoin)
+
+	multipleBitcoins := customOptions.ToWords(5.25)
+	fmt.Printf("Multiple Bitcoins (₿%.2f): %s\n", 5.25, multipleBitcoins)
+
+	fmt.Println()
 	fmt.Println("=== Sample Complete ===")
 }

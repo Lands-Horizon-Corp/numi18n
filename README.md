@@ -119,11 +119,13 @@ customOptions := &numi18n.NumI18NOptions{
         Decimal:    true,
         Capitalize: true,
         OverrideOptions: &numi18n.OverrideOptions{
-            CurrencyName:       "Bitcoin",
-            CurrencyPluralName: "Bitcoins", 
-            CurrencySymbol:     "₿",
-            FractionalName:     "Satoshi",
-            FractionalPluralName: "Satoshis",
+            Name:             "Bitcoin",
+            Plural:           "Bitcoins", 
+            Symbol:           "₿",
+            FractionUnitName: "Satoshi",
+            FractionPlural:   "Satoshis",
+            FractionSymbol:   "₿",
+            NegativeWord:     "minus",
         },
     },
 }
@@ -154,18 +156,13 @@ fmt.Println(isValid) // false
 ### Get Available Locales
 
 ```go
-// Get all available locales
-func Locales() []locale.NumI18NLocale {
-    return Locale.AllLocales()
-}
-
 // Usage example
 availableLocales := numi18n.Locales()
 fmt.Printf("Total locales available: %d\n", len(availableLocales))
 
 // Iterate through available locales
 for _, locale := range availableLocales {
-    fmt.Printf("Locale: %s - %s\n", locale.LocaleCode, locale.Name)
+    fmt.Printf("Locale: %s - %s\n", locale.NumI18Identifier.Locale, locale.NumI18Identifier.CountryName)
 }
 ```
 
@@ -175,31 +172,41 @@ for _, locale := range availableLocales {
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| `Locale` | `string` | `"en-US"` | Locale code for language/region selection |
+| `CountryName` | `string` | `""` | Full country name, e.g., "Philippines" |
+| `Currency` | `string` | `""` | Currency code, e.g., "PHP", "USD" |
+| `ISO3166Alpha2` | `string` | `""` | ISO 3166-1 alpha-2 code, e.g., "PH" |
+| `ISO3166Alpha3` | `string` | `""` | ISO 3166-1 alpha-3 code, e.g., "PHL" |
+| `ISO3166Numeric` | `string` | `""` | ISO 3166 numeric code, e.g., "608" |
+| `Locale` | `string` | `"en-US"` | Locale string, e.g., "en-PH", "fr-FR" |
+| `Timezone` | `string` | `""` | Timezone, e.g., "Asia/Manila" |
+| `Language` | `string` | `""` | Language code, e.g., "en", "fr", "ja" |
 | `WordDetails` | `*WordDetails` | `nil` | Detailed configuration for word conversion |
+| `OrdinalDetails` | `*OrdinalDetails` | `nil` | Configuration for ordinal number conversion |
 
 ### WordDetails Options
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| `Currency` | `bool` | `false` | Convert as currency with currency units |
-| `Decimal` | `bool` | `false` | Include decimal/fractional parts in words |
-| `Capitalize` | `bool` | `false` | Capitalize the first letter of output |
-| `UpperCase` | `bool` | `false` | Convert entire output to uppercase |
-| `LowerCase` | `bool` | `false` | Convert entire output to lowercase |  
-| `NegativeWord` | `bool` | `false` | Include negative indicator for negative numbers |
+| `Currency` | `bool` | `false` | Include currency words, e.g., "one hundred pesos" |
+| `Decimal` | `bool` | `false` | Include decimals/fractions in words, e.g., "fifty-six centavos" |
+| `Only` | `bool` | `false` | Output only words without numbers or symbols |
+| `Capitalize` | `bool` | `false` | Capitalize the first letter of the resulting words |
+| `Uppercase` | `bool` | `false` | Convert entire output to uppercase |
+| `Lowercase` | `bool` | `false` | Convert entire output to lowercase |
+| `NegativeWord` | `bool` | `false` | Use the negative word instead of a negative sign, e.g., "minus one" |
 | `OverrideOptions` | `*OverrideOptions` | `nil` | Custom currency and formatting options |
 
 ### OverrideOptions
 
 | Option | Type | Description |
 |--------|------|-------------|
-| `CurrencyName` | `string` | Override currency name (singular) |
-| `CurrencyPluralName` | `string` | Override currency name (plural) |
-| `CurrencySymbol` | `string` | Override currency symbol |
-| `FractionalName` | `string` | Override fractional unit name (singular) |
-| `FractionalPluralName` | `string` | Override fractional unit name (plural) |
-| `NegativeWord` | `string` | Override negative word indicator |
+| `Name` | `string` | Currency name override (singular), e.g., "peso" |
+| `Plural` | `string` | Currency plural override, e.g., "pesos" |
+| `Symbol` | `string` | Currency symbol override, e.g., "₱" |
+| `FractionUnitName` | `string` | Fractional unit name override, e.g., "centavo" |
+| `FractionPlural` | `string` | Fractional plural override, e.g., "centavos" |
+| `FractionSymbol` | `string` | Fraction symbol override, e.g., "¢" |
+| `NegativeWord` | `string` | Custom negative word override, e.g., "minus" |
 
 ## Supported Locales
 
