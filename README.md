@@ -151,6 +151,24 @@ isValid = numi18n.IsValid("IIII")
 fmt.Println(isValid) // false
 ```
 
+### Get Available Locales
+
+```go
+// Get all available locales
+func Locales() []locale.NumI18NLocale {
+    return Locale.AllLocales()
+}
+
+// Usage example
+availableLocales := numi18n.Locales()
+fmt.Printf("Total locales available: %d\n", len(availableLocales))
+
+// Iterate through available locales
+for _, locale := range availableLocales {
+    fmt.Printf("Locale: %s - %s\n", locale.LocaleCode, locale.Name)
+}
+```
+
 ## Configuration Options
 
 ### NumI18NOptions

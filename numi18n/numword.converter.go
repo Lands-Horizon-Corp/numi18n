@@ -9,6 +9,10 @@ import (
 
 var Locale = locale.NewNumI18Locales()
 
+func Locales() []locale.NumI18NLocale {
+	return Locale.AllLocales()
+}
+
 // ToWords converts a numeric amount to its written word representation in the specified locale
 // Example: 1234.56 -> "One Thousand Two Hundred Thirty Four Dollars and Fifty Six Cents" (en-US)
 //
