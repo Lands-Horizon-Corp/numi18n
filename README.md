@@ -8,7 +8,7 @@
   <a href="https://pkg.go.dev/github.com/Lands-Horizon-Corp/numi18n"><img src="https://pkg.go.dev/badge/github.com/Lands-Horizon-Corp/numi18n.svg" alt="Go Reference"></a>
   <a href="https://goreportcard.com/report/github.com/Lands-Horizon-Corp/numi18n"><img src="https://goreportcard.com/badge/github.com/Lands-Horizon-Corp/numi18n" alt="Go Report Card"></a>
   <a href="https://github.com/Lands-Horizon-Corp/numi18n/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-  <a href="https://github.com/Lands-Horizon-Corp/numi18n/releases"><img src="https://img.shields.io/github/v/release/Lands-Horizon-Corp/numi18n.svg" alt="Release"></a>
+  <a href="https://github.com/Lands-Horizon-Corp/numi18n/releases"><img src="https://img.shields.io/github/v/release/Lands-Horizon-Corp/numi18n?include_prereleases&sort=semver" alt="Release"></a>
 </p>
 
 <p align="center">
