@@ -1,7 +1,7 @@
 # numi18n
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Lands-Horizon-Corp/numi18n/master/.github/assets/icon.png" alt="numi18n Logo" width="200"/>
+  <img src="https://raw.githubusercontent.com/Lands-Horizon-Corp/numi18n/master/assets/icon.png" alt="numi18n Logo" width="200"/>
 </div>
 
 <p align="center">
