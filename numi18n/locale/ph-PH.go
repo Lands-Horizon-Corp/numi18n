@@ -122,14 +122,23 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 	million := decimal.NewFromInt(1000000)
 	thousand := decimal.NewFromInt(1000)
 	hundred := decimal.NewFromInt(100)
-	twenty := decimal.NewFromInt(20)
-	ten := decimal.NewFromInt(10)
-	one := decimal.NewFromInt(1)
 
-	// Handle billions
+	// Handle large numbers
+	result, decimalNumber = f.handleBillions(result, decimalNumber, billion, targetLocale)
+	result, decimalNumber = f.handleMillions(result, decimalNumber, million, targetLocale)
+	result, decimalNumber = f.handleThousands(result, decimalNumber, thousand, targetLocale)
+	result, decimalNumber = f.handleHundreds(result, decimalNumber, hundred, targetLocale)
+
+	// Handle remaining numbers (tens and ones)
+	result = f.handleTensAndOnes(result, decimalNumber, targetLocale)
+
+	return strings.TrimSpace(result)
+}
+
+func (f *FilipinoFormatter) handleBillions(result string, decimalNumber, billion decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
 	if decimalNumber.GreaterThanOrEqual(billion) {
 		billions := decimalNumber.Div(billion).Floor()
-		if billions.Equal(one) {
+		if billions.Equal(decimal.NewFromInt(1)) {
 			result += "Isang " + GetWordForNumber(billion, targetLocale)
 		} else {
 			result += f.FormatNumber(billions.IntPart(), targetLocale) + " " + GetWordForNumber(billion, targetLocale)
@@ -139,11 +148,13 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 			result += " "
 		}
 	}
+	return result, decimalNumber
+}
 
-	// Handle millions
+func (f *FilipinoFormatter) handleMillions(result string, decimalNumber, million decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
 	if decimalNumber.GreaterThanOrEqual(million) {
 		millions := decimalNumber.Div(million).Floor()
-		if millions.Equal(one) {
+		if millions.Equal(decimal.NewFromInt(1)) {
 			result += "Isang " + GetWordForNumber(million, targetLocale)
 		} else {
 			result += f.FormatNumber(millions.IntPart(), targetLocale) + " " + GetWordForNumber(million, targetLocale)
@@ -153,11 +164,13 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 			result += " "
 		}
 	}
+	return result, decimalNumber
+}
 
-	// Handle thousands
+func (f *FilipinoFormatter) handleThousands(result string, decimalNumber, thousand decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
 	if decimalNumber.GreaterThanOrEqual(thousand) {
 		thousands := decimalNumber.Div(thousand).Floor()
-		if thousands.Equal(one) {
+		if thousands.Equal(decimal.NewFromInt(1)) {
 			result += "Isang " + GetWordForNumber(thousand, targetLocale)
 		} else {
 			result += f.FormatNumber(thousands.IntPart(), targetLocale) + " " + GetWordForNumber(thousand, targetLocale)
@@ -167,11 +180,13 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 			result += " "
 		}
 	}
+	return result, decimalNumber
+}
 
-	// Handle hundreds - check exact mapping first
+func (f *FilipinoFormatter) handleHundreds(result string, decimalNumber, hundred decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
 	if decimalNumber.GreaterThanOrEqual(hundred) {
 		hundreds := decimalNumber.Div(hundred).Floor()
-		if hundreds.Equal(one) {
+		if hundreds.Equal(decimal.NewFromInt(1)) {
 			// Use exact mapping for "Isang daan"
 			for _, mapping := range targetLocale.ExactWordsMapping {
 				if mapping.Number == 100 {
@@ -187,48 +202,62 @@ func (f *FilipinoFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 			result += " "
 		}
 	}
+	return result, decimalNumber
+}
 
-	// Handle tens and ones
+func (f *FilipinoFormatter) handleTensAndOnes(result string, decimalNumber decimal.Decimal, targetLocale NumI18NLocale) string {
+	twenty := decimal.NewFromInt(20)
+	ten := decimal.NewFromInt(10)
+
 	if decimalNumber.GreaterThanOrEqual(twenty) {
 		tens := decimalNumber.Div(ten).Floor()
 		tensNumber := tens.Mul(ten)
 		result += GetWordForNumber(tensNumber, targetLocale)
 		decimalNumber = decimalNumber.Mod(ten)
-		if decimalNumber.GreaterThan(decimal.Zero) {
-			// Special case for 1 when it's at the end (like "twenty one")
-			if decimalNumber.Equal(one) {
-				result += " Isa"
-			} else {
-				// Check for exact mapping first
-				found := false
-				for _, mapping := range targetLocale.ExactWordsMapping {
-					if decimal.NewFromInt(mapping.Number).Equal(decimalNumber) {
-						result += " " + mapping.Value
-						found = true
-						break
-					}
-				}
-				if !found {
-					result += " " + GetWordForNumber(decimalNumber, targetLocale)
-				}
-			}
-		}
+
+		result = f.handleOnesAfterTens(result, decimalNumber, targetLocale)
 	} else if decimalNumber.GreaterThan(decimal.Zero) {
-		// Check for exact mapping first (which includes "Isang" for 1)
-		found := false
-		for _, mapping := range targetLocale.ExactWordsMapping {
-			if decimal.NewFromInt(mapping.Number).Equal(decimalNumber) {
-				result += mapping.Value
-				found = true
-				break
-			}
-		}
-		if !found {
-			result += GetWordForNumber(decimalNumber, targetLocale)
-		}
+		result = f.handleSingleDigits(result, decimalNumber, targetLocale)
 	}
 
-	return strings.TrimSpace(result)
+	return result
+}
+
+func (f *FilipinoFormatter) handleOnesAfterTens(result string, decimalNumber decimal.Decimal, targetLocale NumI18NLocale) string {
+	one := decimal.NewFromInt(1)
+
+	if decimalNumber.GreaterThan(decimal.Zero) {
+		if decimalNumber.Equal(one) {
+			result += " Isa"
+		} else {
+			found := f.findExactMapping(decimalNumber, targetLocale)
+			if found != "" {
+				result += " " + found
+			} else {
+				result += " " + GetWordForNumber(decimalNumber, targetLocale)
+			}
+		}
+	}
+	return result
+}
+
+func (f *FilipinoFormatter) handleSingleDigits(result string, decimalNumber decimal.Decimal, targetLocale NumI18NLocale) string {
+	found := f.findExactMapping(decimalNumber, targetLocale)
+	if found != "" {
+		result += found
+	} else {
+		result += GetWordForNumber(decimalNumber, targetLocale)
+	}
+	return result
+}
+
+func (f *FilipinoFormatter) findExactMapping(decimalNumber decimal.Decimal, targetLocale NumI18NLocale) string {
+	for _, mapping := range targetLocale.ExactWordsMapping {
+		if decimal.NewFromInt(mapping.Number).Equal(decimalNumber) {
+			return mapping.Value
+		}
+	}
+	return ""
 }
 
 func (f *FilipinoFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {

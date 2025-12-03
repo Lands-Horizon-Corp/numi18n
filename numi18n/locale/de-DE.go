@@ -142,116 +142,134 @@ func (f *GermanFormatter) convertGermanNumberInternal(number int64, targetLocale
 		return "minus " + f.convertGermanNumberInternal(-number, targetLocale, spaced)
 	}
 
-	// Handle numbers 1-19 directly
+	// Handle different number ranges
 	if number <= 19 {
-		for _, mapping := range targetLocale.NumberWordsMapping {
-			if mapping.Number == number {
-				return strings.ToLower(mapping.Value)
-			}
-		}
+		return f.handleSingleDigits(number, targetLocale)
 	}
 
-	// Handle 20-99 (compound tens)
 	if number < 100 {
-		tens := (number / 10) * 10
-		ones := number % 10
-
-		tensWord := ""
-		for _, mapping := range targetLocale.NumberWordsMapping {
-			if mapping.Number == tens {
-				tensWord = strings.ToLower(mapping.Value)
-				break
-			}
-		}
-
-		if ones == 0 {
-			return tensWord
-		}
-
-		onesWord := ""
-		for _, mapping := range targetLocale.NumberWordsMapping {
-			if mapping.Number == ones {
-				onesWord = strings.ToLower(mapping.Value)
-				break
-			}
-		}
-
-		if spaced {
-			// For individual tests: "Vierzig Sieben" format
-			return tensWord + " " + onesWord
-		}
-
-		return onesWord + "und" + tensWord
+		return f.handleTens(number, targetLocale, spaced)
 	}
 
-	// Handle 100-999 (hundreds)
 	if number < 1000 {
-		hundreds := number / 100
-		remainder := number % 100
-
-		result := ""
-		if spaced {
-			// For individual tests: "Zwei Hundert Fünfzig Sechs" format
-			if hundreds == 1 {
-				result = "Einhundert"
-			} else {
-				hundredsWord := f.convertGermanNumberInternal(hundreds, targetLocale, spaced)
-				result = hundredsWord + " Hundert"
-			}
-			if remainder > 0 {
-				result += " " + f.convertGermanNumberInternal(remainder, targetLocale, spaced)
-			}
-		} else {
-			// For compound format
-			if hundreds == 1 {
-				result = "einhundert"
-			} else {
-				hundredsWord := f.convertGermanNumber(hundreds, targetLocale)
-				result = hundredsWord + "hundert"
-			}
-			if remainder > 0 {
-				result += f.convertGermanNumber(remainder, targetLocale)
-			}
-		}
-
-		return result
+		return f.handleHundreds(number, targetLocale, spaced)
 	}
 
-	// Handle 1000+ (thousands, millions, etc.)
 	if number < 1000000 {
-		thousands := number / 1000
-		remainder := number % 1000
-
-		result := ""
-		if spaced {
-			// For individual tests: space-separated format
-			if thousands == 1 {
-				result = "Tausend"
-			} else {
-				thousandsWord := f.convertGermanNumberInternal(thousands, targetLocale, spaced)
-				result = thousandsWord + " Tausend"
-			}
-			if remainder > 0 {
-				result += " " + f.convertGermanNumberInternal(remainder, targetLocale, spaced)
-			}
-		} else {
-			// For compound format
-			if thousands == 1 {
-				result = "eintausend"
-			} else {
-				thousandsWord := f.convertGermanNumber(thousands, targetLocale)
-				result = thousandsWord + "tausend"
-			}
-			if remainder > 0 {
-				result += f.convertGermanNumber(remainder, targetLocale)
-			}
-		}
-
-		return result
+		return f.handleThousands(number, targetLocale, spaced)
 	}
 
 	// For larger numbers, fall back to generic conversion but lowercase
 	return strings.ToLower(ConvertToWordsWithExactMappingInt64(number, targetLocale))
+}
+
+func (f *GermanFormatter) handleSingleDigits(number int64, targetLocale NumI18NLocale) string {
+	for _, mapping := range targetLocale.NumberWordsMapping {
+		if mapping.Number == number {
+			return strings.ToLower(mapping.Value)
+		}
+	}
+	return ""
+}
+
+func (f *GermanFormatter) handleTens(number int64, targetLocale NumI18NLocale, spaced bool) string {
+	tens := (number / 10) * 10
+	ones := number % 10
+
+	tensWord := f.findNumberWord(tens, targetLocale)
+	if ones == 0 {
+		return tensWord
+	}
+
+	onesWord := f.findNumberWord(ones, targetLocale)
+
+	if spaced {
+		// For individual tests: "Vierzig Sieben" format
+		return tensWord + " " + onesWord
+	}
+
+	return onesWord + "und" + tensWord
+}
+
+func (f *GermanFormatter) handleHundreds(number int64, targetLocale NumI18NLocale, spaced bool) string {
+	hundreds := number / 100
+	remainder := number % 100
+
+	var result string
+	if spaced {
+		result = f.formatHundredsSpaced(hundreds, targetLocale)
+		if remainder > 0 {
+			result += " " + f.convertGermanNumberInternal(remainder, targetLocale, spaced)
+		}
+	} else {
+		result = f.formatHundredsCompound(hundreds, targetLocale)
+		if remainder > 0 {
+			result += f.convertGermanNumber(remainder, targetLocale)
+		}
+	}
+
+	return result
+}
+
+func (f *GermanFormatter) handleThousands(number int64, targetLocale NumI18NLocale, spaced bool) string {
+	thousands := number / 1000
+	remainder := number % 1000
+
+	var result string
+	if spaced {
+		result = f.formatThousandsSpaced(thousands, targetLocale)
+		if remainder > 0 {
+			result += " " + f.convertGermanNumberInternal(remainder, targetLocale, spaced)
+		}
+	} else {
+		result = f.formatThousandsCompound(thousands, targetLocale)
+		if remainder > 0 {
+			result += f.convertGermanNumber(remainder, targetLocale)
+		}
+	}
+
+	return result
+}
+
+func (f *GermanFormatter) findNumberWord(number int64, targetLocale NumI18NLocale) string {
+	for _, mapping := range targetLocale.NumberWordsMapping {
+		if mapping.Number == number {
+			return strings.ToLower(mapping.Value)
+		}
+	}
+	return ""
+}
+
+func (f *GermanFormatter) formatHundredsSpaced(hundreds int64, targetLocale NumI18NLocale) string {
+	if hundreds == 1 {
+		return "Einhundert"
+	}
+	hundredsWord := f.convertGermanNumberInternal(hundreds, targetLocale, true)
+	return hundredsWord + " Hundert"
+}
+
+func (f *GermanFormatter) formatHundredsCompound(hundreds int64, targetLocale NumI18NLocale) string {
+	if hundreds == 1 {
+		return "einhundert"
+	}
+	hundredsWord := f.convertGermanNumber(hundreds, targetLocale)
+	return hundredsWord + "hundert"
+}
+
+func (f *GermanFormatter) formatThousandsSpaced(thousands int64, targetLocale NumI18NLocale) string {
+	if thousands == 1 {
+		return "Tausend"
+	}
+	thousandsWord := f.convertGermanNumberInternal(thousands, targetLocale, true)
+	return thousandsWord + " Tausend"
+}
+
+func (f *GermanFormatter) formatThousandsCompound(thousands int64, targetLocale NumI18NLocale) string {
+	if thousands == 1 {
+		return "eintausend"
+	}
+	thousandsWord := f.convertGermanNumber(thousands, targetLocale)
+	return thousandsWord + "tausend"
 }
 
 func (f *GermanFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {

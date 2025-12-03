@@ -388,42 +388,76 @@ func (n NumI18NLocales) AllLocales() []NumI18NLocale {
 // FindMostMatchedLocale finds the best matching locale for the given identifier
 // Prioritizes exact locale string matches, then falls back to other criteria with smart prioritization
 func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI18NLocale {
-	// Try to find by locale string first (most specific)
-	if identifier.Locale != "" {
-		if locale := n.FindByLocale(identifier.Locale); locale != nil {
-			return locale
-		}
+	// Try exact locale match first (most specific)
+	if result := n.findByExactLocale(identifier); result != nil {
+		return result
 	}
 
-	// Try to find by language + country combination
-	if identifier.Language != "" {
-		languageLocales := n.FindByLanguage(identifier.Language)
-		if identifier.ISO3166Alpha2 != "" {
-			countryLocales := n.FindByISO3166Alpha2(identifier.ISO3166Alpha2)
-			// Find intersection
-			for _, langLocale := range languageLocales {
-				for _, countryLocale := range countryLocales {
-					if langLocale.NumI18Identifier.Locale == countryLocale.NumI18Identifier.Locale {
-						return &langLocale
-					}
+	// Try language + country combination
+	if result := n.findByLanguageAndCountry(identifier); result != nil {
+		return result
+	}
+
+	// Try currency-based search
+	if result := n.findByCurrencyFallback(identifier); result != nil {
+		return result
+	}
+
+	// Try ISO code-based search
+	if result := n.findByISOCodes(identifier); result != nil {
+		return result
+	}
+
+	// No match found
+	return nil
+}
+
+func (n NumI18NLocales) findByExactLocale(identifier NumI18Identifier) *NumI18NLocale {
+	if identifier.Locale != "" {
+		return n.FindByLocale(identifier.Locale)
+	}
+	return nil
+}
+
+func (n NumI18NLocales) findByLanguageAndCountry(identifier NumI18Identifier) *NumI18NLocale {
+	if identifier.Language == "" {
+		return nil
+	}
+
+	languageLocales := n.FindByLanguage(identifier.Language)
+
+	if identifier.ISO3166Alpha2 != "" {
+		countryLocales := n.FindByISO3166Alpha2(identifier.ISO3166Alpha2)
+		// Find intersection
+		for _, langLocale := range languageLocales {
+			for _, countryLocale := range countryLocales {
+				if langLocale.NumI18Identifier.Locale == countryLocale.NumI18Identifier.Locale {
+					return &langLocale
 				}
 			}
 		}
-		// Return prioritized language match if no country match
-		if len(languageLocales) > 0 {
-			return n.prioritizeLocale(languageLocales)
-		}
 	}
 
-	// Try to find by currency
+	// Return prioritized language match if no country match
+	if len(languageLocales) > 0 {
+		return n.prioritizeLocale(languageLocales)
+	}
+
+	return nil
+}
+
+func (n NumI18NLocales) findByCurrencyFallback(identifier NumI18Identifier) *NumI18NLocale {
 	if identifier.Currency != "" {
 		currencyLocales := n.FindByCurrency(identifier.Currency)
 		if len(currencyLocales) > 0 {
 			return n.prioritizeLocale(currencyLocales)
 		}
 	}
+	return nil
+}
 
-	// Try to find by ISO codes
+func (n NumI18NLocales) findByISOCodes(identifier NumI18Identifier) *NumI18NLocale {
+	// Try ISO3166Alpha2
 	if identifier.ISO3166Alpha2 != "" {
 		alpha2Locales := n.FindByISO3166Alpha2(identifier.ISO3166Alpha2)
 		if len(alpha2Locales) > 0 {
@@ -431,6 +465,7 @@ func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI
 		}
 	}
 
+	// Try ISO3166Alpha3
 	if identifier.ISO3166Alpha3 != "" {
 		alpha3Locales := n.FindByISO3166Alpha3(identifier.ISO3166Alpha3)
 		if len(alpha3Locales) > 0 {
@@ -438,13 +473,11 @@ func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI
 		}
 	}
 
+	// Try ISO3166Numeric
 	if identifier.ISO3166Numeric != "" {
-		if numericLocale := n.FindByISO3166Numeric(identifier.ISO3166Numeric); numericLocale != nil {
-			return numericLocale
-		}
+		return n.FindByISO3166Numeric(identifier.ISO3166Numeric)
 	}
 
-	// No match found
 	return nil
 }
 

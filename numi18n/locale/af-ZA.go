@@ -134,12 +134,22 @@ func (f *AfrikaansFormatter) FormatNumber(number int64, targetLocale NumI18NLoca
 	million := decimal.NewFromInt(1000000)
 	thousand := decimal.NewFromInt(1000)
 	hundred := decimal.NewFromInt(100)
-	twentyOne := decimal.NewFromInt(21)
-	ninety9 := decimal.NewFromInt(99)
-	ten := decimal.NewFromInt(10)
-	one := decimal.NewFromInt(1)
 
-	// Handle millions and above
+	// Handle large numbers
+	result, decNumber = f.handleMillions(result, decNumber, million, targetLocale)
+	result, decNumber = f.handleThousands(result, decNumber, thousand, targetLocale)
+	result, decNumber = f.handleHundreds(result, decNumber, hundred, targetLocale)
+
+	// Handle remaining numbers (compound tens)
+	if decNumber.GreaterThan(decimal.Zero) {
+		result = f.handleCompoundTens(result, decNumber, targetLocale)
+	}
+
+	return result
+}
+
+func (f *AfrikaansFormatter) handleMillions(result string, decNumber, million decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
+	one := decimal.NewFromInt(1)
 	if decNumber.GreaterThanOrEqual(million) {
 		millions := decNumber.Div(million).Floor()
 		if millions.Equal(one) {
@@ -151,10 +161,17 @@ func (f *AfrikaansFormatter) FormatNumber(number int64, targetLocale NumI18NLoca
 		if remainder.GreaterThan(decimal.Zero) {
 			result += " " + f.FormatNumber(remainder.IntPart(), targetLocale)
 		}
-		return result
+		return result, decimal.Zero // Signal to stop processing
+	}
+	return result, decNumber
+}
+
+func (f *AfrikaansFormatter) handleThousands(result string, decNumber, thousand decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
+	if result != "" {
+		return result, decNumber // Already processed in millions
 	}
 
-	// Handle thousands
+	one := decimal.NewFromInt(1)
 	if decNumber.GreaterThanOrEqual(thousand) {
 		thousands := decNumber.Div(thousand).Floor()
 		if thousands.Equal(one) {
@@ -166,10 +183,17 @@ func (f *AfrikaansFormatter) FormatNumber(number int64, targetLocale NumI18NLoca
 		if remainder.GreaterThan(decimal.Zero) {
 			result += " " + f.FormatNumber(remainder.IntPart(), targetLocale)
 		}
-		return result
+		return result, decimal.Zero // Signal to stop processing
+	}
+	return result, decNumber
+}
+
+func (f *AfrikaansFormatter) handleHundreds(result string, decNumber, hundred decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
+	if result != "" {
+		return result, decNumber // Already processed
 	}
 
-	// Handle hundreds
+	one := decimal.NewFromInt(1)
 	if decNumber.GreaterThanOrEqual(hundred) {
 		hundreds := decNumber.Div(hundred).Floor()
 		if hundreds.Equal(one) {
@@ -181,8 +205,20 @@ func (f *AfrikaansFormatter) FormatNumber(number int64, targetLocale NumI18NLoca
 		if remainder.GreaterThan(decimal.Zero) {
 			result += " " + f.FormatNumber(remainder.IntPart(), targetLocale)
 		}
-		return result
+		return result, decimal.Zero // Signal to stop processing
 	}
+	return result, decNumber
+}
+
+func (f *AfrikaansFormatter) handleCompoundTens(result string, decNumber decimal.Decimal, targetLocale NumI18NLocale) string {
+	if result != "" {
+		return result // Already processed
+	}
+
+	twentyOne := decimal.NewFromInt(21)
+	ninety9 := decimal.NewFromInt(99)
+	ten := decimal.NewFromInt(10)
+
 	if decNumber.GreaterThanOrEqual(twentyOne) && decNumber.LessThanOrEqual(ninety9) {
 		tens := decNumber.Div(ten).Floor().Mul(ten)
 		ones := decNumber.Mod(ten)

@@ -133,85 +133,94 @@ func (f *DutchFormatter) convertDutchNumber(number int64, targetLocale NumI18NLo
 		return "min " + f.convertDutchNumber(-number, targetLocale)
 	}
 
-	// Handle numbers 1-19 directly
+	// Handle different number ranges
 	if number <= 19 {
-		for _, mapping := range targetLocale.NumberWordsMapping {
-			if mapping.Number == number {
-				return strings.ToLower(mapping.Value)
-			}
-		}
+		return f.handleSingleDigits(number, targetLocale)
 	}
 
-	// Handle 20-99 (compound tens)
 	if number < 100 {
-		tens := (number / 10) * 10
-		ones := number % 10
-
-		tensWord := ""
-		for _, mapping := range targetLocale.NumberWordsMapping {
-			if mapping.Number == tens {
-				tensWord = strings.ToLower(mapping.Value)
-				break
-			}
-		}
-
-		if ones == 0 {
-			return tensWord
-		}
-
-		onesWord := ""
-		for _, mapping := range targetLocale.NumberWordsMapping {
-			if mapping.Number == ones {
-				onesWord = strings.ToLower(mapping.Value)
-				break
-			}
-		}
-
-		return onesWord + "en" + tensWord
+		return f.handleTens(number, targetLocale)
 	}
 
-	// Handle 100-999 (hundreds)
 	if number < 1000 {
-		hundreds := number / 100
-		remainder := number % 100
-
-		result := ""
-		if hundreds == 1 {
-			result = "honderd"
-		} else {
-			hundredsWord := f.convertDutchNumber(hundreds, targetLocale)
-			result = hundredsWord + "honderd"
-		}
-
-		if remainder > 0 {
-			result += f.convertDutchNumber(remainder, targetLocale)
-		}
-
-		return result
+		return f.handleHundreds(number, targetLocale)
 	}
 
-	// Handle 1000+ (thousands, millions, etc.)
 	if number < 1000000 {
-		thousands := number / 1000
-		remainder := number % 1000
-
-		result := ""
-		if thousands == 1 {
-			result = "duizend"
-		} else {
-			thousandsWord := f.convertDutchNumber(thousands, targetLocale)
-			result = thousandsWord + "duizend"
-		}
-
-		if remainder > 0 {
-			result += f.convertDutchNumber(remainder, targetLocale)
-		}
-
-		return result
+		return f.handleThousands(number, targetLocale)
 	}
 
 	// For larger numbers, fall back to generic conversion but lowercase
 	return strings.ToLower(ConvertToWordsWithExactMappingInt64(number, targetLocale))
+}
+
+func (f *DutchFormatter) handleSingleDigits(number int64, targetLocale NumI18NLocale) string {
+	for _, mapping := range targetLocale.NumberWordsMapping {
+		if mapping.Number == number {
+			return strings.ToLower(mapping.Value)
+		}
+	}
+	return ""
+}
+
+func (f *DutchFormatter) handleTens(number int64, targetLocale NumI18NLocale) string {
+	tens := (number / 10) * 10
+	ones := number % 10
+
+	tensWord := f.findNumberWord(tens, targetLocale)
+	if ones == 0 {
+		return tensWord
+	}
+
+	onesWord := f.findNumberWord(ones, targetLocale)
+	return onesWord + "en" + tensWord
+}
+
+func (f *DutchFormatter) handleHundreds(number int64, targetLocale NumI18NLocale) string {
+	hundreds := number / 100
+	remainder := number % 100
+
+	var result string
+	if hundreds == 1 {
+		result = "honderd"
+	} else {
+		hundredsWord := f.convertDutchNumber(hundreds, targetLocale)
+		result = hundredsWord + "honderd"
+	}
+
+	if remainder > 0 {
+		result += f.convertDutchNumber(remainder, targetLocale)
+	}
+
+	return result
+}
+
+func (f *DutchFormatter) handleThousands(number int64, targetLocale NumI18NLocale) string {
+	thousands := number / 1000
+	remainder := number % 1000
+
+	var result string
+	if thousands == 1 {
+		result = "duizend"
+	} else {
+		thousandsWord := f.convertDutchNumber(thousands, targetLocale)
+		result = thousandsWord + "duizend"
+	}
+
+	if remainder > 0 {
+		result += f.convertDutchNumber(remainder, targetLocale)
+	}
+
+	return result
+}
+
+func (f *DutchFormatter) findNumberWord(number int64, targetLocale NumI18NLocale) string {
+	for _, mapping := range targetLocale.NumberWordsMapping {
+		if mapping.Number == number {
+			return strings.ToLower(mapping.Value)
+		}
+	}
+	return ""
 }
 
 func (f *DutchFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {

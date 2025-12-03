@@ -158,11 +158,16 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 	result := ""
 	oku := decimal.NewFromInt(100000000) // 億 (oku)
 	man := decimal.NewFromInt(10000)     // 万 (man)
-	thousand := decimal.NewFromInt(1000) // 千 (sen)
-	hundred := decimal.NewFromInt(100)   // 百 (hyaku)
-	ten := decimal.NewFromInt(10)        // 十 (ju)
 
 	// Handle large numbers first
+	result, decimalNumber = f.handleOku(result, decimalNumber, oku, targetLocale)
+	result, decimalNumber = f.handleMan(result, decimalNumber, man, targetLocale)
+	result = f.handleRemainingDigits(result, decimalNumber, targetLocale)
+
+	return result
+}
+
+func (f *JapaneseFormatter) handleOku(result string, decimalNumber, oku decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
 	if decimalNumber.GreaterThanOrEqual(oku) {
 		okuPart := decimalNumber.Div(oku).Floor()
 		if okuPart.GreaterThan(decimal.Zero) {
@@ -170,7 +175,10 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 		}
 		decimalNumber = decimalNumber.Mod(oku)
 	}
+	return result, decimalNumber
+}
 
+func (f *JapaneseFormatter) handleMan(result string, decimalNumber, man decimal.Decimal, targetLocale NumI18NLocale) (string, decimal.Decimal) {
 	if decimalNumber.GreaterThanOrEqual(man) {
 		manPart := decimalNumber.Div(man).Floor()
 		if manPart.GreaterThan(decimal.Zero) {
@@ -184,7 +192,29 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 		}
 		decimalNumber = decimalNumber.Mod(man)
 	}
+	return result, decimalNumber
+}
 
+func (f *JapaneseFormatter) handleRemainingDigits(result string, decimalNumber decimal.Decimal, targetLocale NumI18NLocale) string {
+	thousand := decimal.NewFromInt(1000) // 千 (sen)
+	hundred := decimal.NewFromInt(100)   // 百 (hyaku)
+	ten := decimal.NewFromInt(10)        // 十 (ju)
+
+	result = f.handleThousands(result, decimalNumber, thousand, targetLocale)
+	decimalNumber = decimalNumber.Mod(thousand)
+
+	result = f.handleHundreds(result, decimalNumber, hundred, targetLocale)
+	decimalNumber = decimalNumber.Mod(hundred)
+
+	result = f.handleTens(result, decimalNumber, ten, targetLocale)
+	decimalNumber = decimalNumber.Mod(ten)
+
+	result = f.handleOnes(result, decimalNumber, targetLocale)
+
+	return result
+}
+
+func (f *JapaneseFormatter) handleThousands(result string, decimalNumber, thousand decimal.Decimal, targetLocale NumI18NLocale) string {
 	if decimalNumber.GreaterThanOrEqual(thousand) {
 		thousandsPart := decimalNumber.Div(thousand).Floor()
 		if thousandsPart.GreaterThan(decimal.Zero) {
@@ -194,9 +224,11 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 				result += f.formatNumberRecursive(thousandsPart.IntPart(), targetLocale) + "千"
 			}
 		}
-		decimalNumber = decimalNumber.Mod(thousand)
 	}
+	return result
+}
 
+func (f *JapaneseFormatter) handleHundreds(result string, decimalNumber, hundred decimal.Decimal, targetLocale NumI18NLocale) string {
 	if decimalNumber.GreaterThanOrEqual(hundred) {
 		hundredsPart := decimalNumber.Div(hundred).Floor()
 		if hundredsPart.GreaterThan(decimal.Zero) {
@@ -206,9 +238,11 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 				result += f.formatNumberRecursive(hundredsPart.IntPart(), targetLocale) + "百"
 			}
 		}
-		decimalNumber = decimalNumber.Mod(hundred)
 	}
+	return result
+}
 
+func (f *JapaneseFormatter) handleTens(result string, decimalNumber, ten decimal.Decimal, targetLocale NumI18NLocale) string {
 	if decimalNumber.GreaterThanOrEqual(ten) {
 		tensPart := decimalNumber.Div(ten).Floor()
 		if tensPart.GreaterThan(decimal.Zero) {
@@ -218,13 +252,14 @@ func (f *JapaneseFormatter) FormatNumber(number int64, targetLocale NumI18NLocal
 				result += f.formatNumberRecursive(tensPart.IntPart(), targetLocale) + "十"
 			}
 		}
-		decimalNumber = decimalNumber.Mod(ten)
 	}
+	return result
+}
 
+func (f *JapaneseFormatter) handleOnes(result string, decimalNumber decimal.Decimal, targetLocale NumI18NLocale) string {
 	if decimalNumber.GreaterThan(decimal.Zero) {
 		result += GetWordForNumber(decimalNumber, targetLocale)
 	}
-
 	return result
 }
 
