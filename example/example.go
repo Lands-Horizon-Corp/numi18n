@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Lands-Horizon-Corp/numi18n/pkg"
+	"github.com/Lands-Horizon-Corp/numi18n/numi18n"
 )
 
 func main() {
@@ -21,9 +21,9 @@ func main() {
 	fmt.Println("-----------------------------------")
 
 	// Convert simple number to words (no currency, no decimals)
-	englishSimpleWordOptions := &pkg.NumI18NOptions{
+	englishSimpleWordOptions := &numi18n.NumI18NOptions{
 		Locale: "en-US",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Capitalize: true,
 		},
 	}
@@ -31,9 +31,9 @@ func main() {
 	fmt.Printf("Simple number (%g): %s\n", sampleSimpleNumber, englishSimpleNumberInWords)
 
 	// Convert large number with decimals to words
-	englishDecimalWordOptions := &pkg.NumI18NOptions{
+	englishDecimalWordOptions := &numi18n.NumI18NOptions{
 		Locale: "en-US",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Capitalize: true,
 			Decimal:    true, // Include decimal part in words
 		},
@@ -42,9 +42,9 @@ func main() {
 	fmt.Printf("Large number with decimals (%g): %s\n", sampleLargeNumber, englishLargeNumberInWords)
 
 	// Format numbers with currency (both words and formatted numbers)
-	englishCurrencyWordOptions := &pkg.NumI18NOptions{
+	englishCurrencyWordOptions := &numi18n.NumI18NOptions{
 		Locale: "en-US",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Currency:   true, // Include currency in output
 			Decimal:    true, // Include decimal part
 			Capitalize: true,
@@ -66,9 +66,9 @@ func main() {
 	fmt.Println("----------------------------")
 
 	// Convert simple number to words in Japanese
-	japaneseSimpleWordOptions := &pkg.NumI18NOptions{
+	japaneseSimpleWordOptions := &numi18n.NumI18NOptions{
 		Locale: "ja-JP",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Capitalize: true,
 		},
 	}
@@ -76,9 +76,9 @@ func main() {
 	fmt.Printf("Simple number (%g): %s\n", sampleSimpleNumber, japaneseSimpleNumberInWords)
 
 	// Convert large number with decimals to words in Japanese
-	japaneseDecimalWordOptions := &pkg.NumI18NOptions{
+	japaneseDecimalWordOptions := &numi18n.NumI18NOptions{
 		Locale: "ja-JP",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Capitalize: true,
 			Decimal:    true, // Include decimal part in Japanese
 		},
@@ -87,9 +87,9 @@ func main() {
 	fmt.Printf("Large number with decimals (%g): %s\n", sampleLargeNumber, japaneseLargeNumberInWords)
 
 	// Format numbers with currency in Japanese (Yen)
-	japaneseCurrencyWordOptions := &pkg.NumI18NOptions{
+	japaneseCurrencyWordOptions := &numi18n.NumI18NOptions{
 		Locale: "ja-JP",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Currency:   true, // Include Japanese Yen currency
 			Decimal:    true, // Include decimal part (sen)
 			Capitalize: true,
@@ -111,9 +111,9 @@ func main() {
 	fmt.Println("----------------------------------")
 
 	// Convert simple number to words in Filipino
-	philippinesSimpleWordOptions := &pkg.NumI18NOptions{
+	philippinesSimpleWordOptions := &numi18n.NumI18NOptions{
 		Locale: "ph-PH",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Capitalize: true,
 		},
 	}
@@ -121,9 +121,9 @@ func main() {
 	fmt.Printf("Simple number (%g): %s\n", sampleSimpleNumber, philippinesSimpleNumberInWords)
 
 	// Convert large number with decimals to words in Filipino
-	philippinesDecimalWordOptions := &pkg.NumI18NOptions{
+	philippinesDecimalWordOptions := &numi18n.NumI18NOptions{
 		Locale: "ph-PH",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Capitalize: true,
 			Decimal:    true, // Include decimal part in Filipino
 		},
@@ -132,9 +132,9 @@ func main() {
 	fmt.Printf("Large number with decimals (%g): %s\n", sampleLargeNumber, philippinesLargeNumberInWords)
 
 	// Format numbers with currency in Filipino (Peso)
-	philippinesCurrencyWordOptions := &pkg.NumI18NOptions{
+	philippinesCurrencyWordOptions := &numi18n.NumI18NOptions{
 		Locale: "ph-PH",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Currency:   true, // Include Philippine Peso currency
 			Decimal:    true, // Include decimal part (sentimo)
 			Capitalize: true,
@@ -159,9 +159,9 @@ func main() {
 	testNumberForComparison := 123.45
 
 	// English: Number vs Currency formatting comparison
-	englishNumberFormatOptions := &pkg.NumI18NOptions{
+	englishNumberFormatOptions := &numi18n.NumI18NOptions{
 		Locale: "en-US",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Decimal:    true, // Include decimals but no currency
 			Capitalize: true,
 		},
@@ -178,9 +178,9 @@ func main() {
 	fmt.Printf("English - Currency words: %s\n", englishCurrencyInPlainWords)
 
 	// Japanese: Number vs Currency formatting comparison
-	japaneseNumberFormatOptions := &pkg.NumI18NOptions{
+	japaneseNumberFormatOptions := &numi18n.NumI18NOptions{
 		Locale: "ja-JP",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Decimal:    true, // Include decimals but no currency
 			Capitalize: true,
 		},
@@ -197,9 +197,9 @@ func main() {
 	fmt.Printf("Japanese - Currency words: %s\n", japaneseCurrencyInPlainWords)
 
 	// Filipino: Number vs Currency formatting comparison
-	filipinoNumberFormatOptions := &pkg.NumI18NOptions{
+	filipinoNumberFormatOptions := &numi18n.NumI18NOptions{
 		Locale: "ph-PH",
-		WordDetails: &pkg.WordDetails{
+		WordDetails: &numi18n.WordDetails{
 			Decimal:    true, // Include decimals but no currency
 			Capitalize: true,
 		},

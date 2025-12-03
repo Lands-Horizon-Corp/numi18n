@@ -20,7 +20,7 @@ This library uses only one external dependency:
 ### Basic Import
 
 ```go
-import "github.com/Lands-Horizon-Corp/numi18n/pkg"
+import "github.com/Lands-Horizon-Corp/numi18n/numi18n"
 ```
 
 ### Simple Number to Words
@@ -30,14 +30,14 @@ package main
 
 import (
     "fmt"
-    "github.com/Lands-Horizon-Corp/numi18n/pkg"
+    "github.com/Lands-Horizon-Corp/numi18n/numi18n"
 )
 
 func main() {
     // Simple number conversion
-    options := &pkg.NumI18NOptions{
+    options := &numi18n.NumI18NOptions{
         Locale: "en-US",
-        WordDetails: &pkg.WordDetails{
+        WordDetails: &numi18n.WordDetails{
             Capitalize: true,
         },
     }
@@ -46,9 +46,9 @@ func main() {
     fmt.Println(result) // "One Hundred Twenty Three"
     
     // Number with decimals
-    decimalOptions := &pkg.NumI18NOptions{
+    decimalOptions := &numi18n.NumI18NOptions{
         Locale: "en-US", 
-        WordDetails: &pkg.WordDetails{
+        WordDetails: &numi18n.WordDetails{
             Decimal:    true,
             Capitalize: true,
         },
@@ -63,9 +63,9 @@ func main() {
 
 ```go
 // Convert to currency format
-currencyOptions := &pkg.NumI18NOptions{
+currencyOptions := &numi18n.NumI18NOptions{
     Locale: "en-US",
-    WordDetails: &pkg.WordDetails{
+    WordDetails: &numi18n.WordDetails{
         Currency:   true,
         Decimal:    true, 
         Capitalize: true,
@@ -83,9 +83,9 @@ fmt.Println(formatted) // "$452.36"
 
 ```go
 // Japanese
-japaneseOptions := &pkg.NumI18NOptions{
+japaneseOptions := &numi18n.NumI18NOptions{
     Locale: "ja-JP",
-    WordDetails: &pkg.WordDetails{
+    WordDetails: &numi18n.WordDetails{
         Currency:   true,
         Decimal:    true,
         Capitalize: true,
@@ -96,9 +96,9 @@ words := japaneseOptions.ToWords(1234.56)
 fmt.Println(words) // "千二百三十四円と五十六銭"
 
 // Spanish (Mexico)
-spanishOptions := &pkg.NumI18NOptions{
+spanishOptions := &numi18n.NumI18NOptions{
     Locale: "es-MX", 
-    WordDetails: &pkg.WordDetails{
+    WordDetails: &numi18n.WordDetails{
         Currency:   true,
         Decimal:    true,
         Capitalize: true,
@@ -112,13 +112,13 @@ fmt.Println(words) // "Novecientos Noventa y Nueve Pesos con Noventa y Nueve Cen
 ### Custom Currency Override
 
 ```go
-customOptions := &pkg.NumI18NOptions{
+customOptions := &numi18n.NumI18NOptions{
     Locale: "en-US",
-    WordDetails: &pkg.WordDetails{
+    WordDetails: &numi18n.WordDetails{
         Currency:   true,
         Decimal:    true,
         Capitalize: true,
-        OverrideOptions: &pkg.OverrideOptions{
+        OverrideOptions: &numi18n.OverrideOptions{
             CurrencyName:       "Bitcoin",
             CurrencyPluralName: "Bitcoins", 
             CurrencySymbol:     "₿",
@@ -136,18 +136,18 @@ fmt.Println(result) // "One Bitcoin And Fifty Satoshis"
 
 ```go
 // Convert to Roman numerals
-roman := pkg.ToRoman(1994)
+roman := numi18n.ToRoman(1994)
 fmt.Println(roman) // "MCMXCIV"
 
 // Convert from Roman numerals
-number := pkg.FromRoman("MCMXCIV") 
+number := numi18n.FromRoman("MCMXCIV") 
 fmt.Println(number) // 1994
 
 // Validate Roman numerals
-isValid := pkg.IsValid("MCMXCIV")
+isValid := numi18n.IsValid("MCMXCIV")
 fmt.Println(isValid) // true
 
-isValid = pkg.IsValid("IIII")
+isValid = numi18n.IsValid("IIII")
 fmt.Println(isValid) // false
 ```
 

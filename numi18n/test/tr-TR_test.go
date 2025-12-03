@@ -1,0 +1,572 @@
+package test
+
+import (
+	"testing"
+
+	"github.com/Lands-Horizon-Corp/numi18n/numi18n"
+)
+
+func TestToWords_TurkishTurkey_Numbers(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Zero",
+			amount: 0,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Sıfır",
+		},
+		{
+			name:   "Single digit",
+			amount: 5,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Beş",
+		},
+		{
+			name:   "Teens",
+			amount: 15,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "On beş",
+		},
+		{
+			name:   "Tens",
+			amount: 30,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Otuz",
+		},
+		{
+			name:   "Compound number",
+			amount: 47,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Kırk yedi",
+		},
+		{
+			name:   "One hundred (exact mapping)",
+			amount: 100,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Yüz",
+		},
+		{
+			name:   "Hundreds with remainder",
+			amount: 256,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Iki yüz elli altı",
+		},
+		{
+			name:   "One thousand",
+			amount: 1000,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Bin",
+		},
+		{
+			name:   "One million (exact mapping)",
+			amount: 1000000,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Bir milyon",
+		},
+		{
+			name:   "Large complex number",
+			amount: 1234567,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Bir bir milyon iki yüz otuz dört bin beş yüz altmış yedi",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_TurkishTurkey_Currency(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "One lira",
+			amount: 1,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+				},
+			},
+			expected: "Bir lira",
+		},
+		{
+			name:   "Multiple liras",
+			amount: 5,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+				},
+			},
+			expected: "Beş lira",
+		},
+		{
+			name:   "Zero liras",
+			amount: 0,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+				},
+			},
+			expected: "Sıfır lira",
+		},
+		{
+			name:   "Large amount",
+			amount: 1000000,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+				},
+			},
+			expected: "Bir milyon lira",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_TurkishTurkey_Decimals(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Liras and one kuruş",
+			amount: 5.01,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Beş lira ve bir kuruş",
+		},
+		{
+			name:   "Liras and multiple kuruş",
+			amount: 5.25,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Beş lira ve yirmi beş kuruş",
+		},
+		{
+			name:   "Only kuruş",
+			amount: 0.99,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Sıfır lira ve doksan dokuz kuruş",
+		},
+		{
+			name:   "Complex amount",
+			amount: 1234.56,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Bir bin iki yüz otuz dört lira ve elli altı kuruş",
+		},
+		{
+			name:   "Decimal without currency",
+			amount: 123.45,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Bir yüz yirmi üç ve kırk beş",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_TurkishTurkey_Negative(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Negative number basic",
+			amount: -50,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					NegativeWord: true,
+					Capitalize:   true,
+				},
+			},
+			expected: "Eksi elli",
+		},
+		{
+			name:   "Negative currency",
+			amount: -25.75,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:     true,
+					Decimal:      true,
+					NegativeWord: true,
+					Capitalize:   true,
+				},
+			},
+			expected: "Eksi yirmi beş lira ve yetmiş beş kuruş",
+		},
+		{
+			name:   "Negative with custom word",
+			amount: -100,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:     true,
+					NegativeWord: true,
+					Capitalize:   true,
+					OverrideOptions: &numi18n.OverrideOptions{
+						NegativeWord: "Negatif",
+					},
+				},
+			},
+			expected: "Negatif Yüz lira",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_TurkishTurkey_Formatting(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Uppercase",
+			amount: 123,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:  true,
+					Uppercase: true,
+				},
+			},
+			expected: "BIR YÜZ YIRMI ÜÇ LIRA",
+		},
+		{
+			name:   "Lowercase",
+			amount: 123,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:  true,
+					Lowercase: true,
+				},
+			},
+			expected: "bir yüz yirmi üç lira",
+		},
+		{
+			name:   "Only flag",
+			amount: 999,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Only:       true,
+					Capitalize: true,
+				},
+			},
+			expected: "Dokuz yüz doksan dokuz sadece",
+		},
+		{
+			name:   "Only flag with currency",
+			amount: 500,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Only:       true,
+					Capitalize: true,
+				},
+			},
+			expected: "Beş yüz lira sadece",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_TurkishTurkey_CustomCurrency(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Custom currency name",
+			amount: 100,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+					OverrideOptions: &numi18n.OverrideOptions{
+						Name:   "euro",
+						Plural: "euro",
+					},
+				},
+			},
+			expected: "Yüz euro",
+		},
+		{
+			name:   "Custom currency with decimals",
+			amount: 50.25,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+					OverrideOptions: &numi18n.OverrideOptions{
+						Name:             "dolar",
+						Plural:           "dolar",
+						FractionUnitName: "sent",
+						FractionPlural:   "sent",
+					},
+				},
+			},
+			expected: "Elli dolar ve yirmi beş sent",
+		},
+		{
+			name:   "Single custom currency",
+			amount: 1,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+					OverrideOptions: &numi18n.OverrideOptions{
+						Name:   "pound",
+						Plural: "pound",
+					},
+				},
+			},
+			expected: "Bir pound",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_TurkishTurkey_EdgeCases(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Very small decimal",
+			amount: 0.01,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Sıfır lira ve bir kuruş",
+		},
+		{
+			name:   "Eleven (special case)",
+			amount: 11,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "On bir",
+		},
+		{
+			name:   "Twelve (special case)",
+			amount: 12,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "On iki",
+		},
+		{
+			name:   "Twenty one",
+			amount: 21,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Yirmi bir",
+		},
+		{
+			name:   "One hundred one",
+			amount: 101,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Bir yüz bir",
+		},
+		{
+			name:   "One thousand one",
+			amount: 1001,
+			options: &numi18n.NumI18NOptions{
+				Locale: "tr-TR",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Bir bin bir",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}

@@ -1,0 +1,572 @@
+package test
+
+import (
+	"testing"
+
+	"github.com/Lands-Horizon-Corp/numi18n/numi18n"
+)
+
+func TestToWords_SwedishSweden_Numbers(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Zero",
+			amount: 0,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Noll",
+		},
+		{
+			name:   "Single digit",
+			amount: 5,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Fem",
+		},
+		{
+			name:   "Teens",
+			amount: 15,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Femton",
+		},
+		{
+			name:   "Tens",
+			amount: 30,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Trettio",
+		},
+		{
+			name:   "Compound number",
+			amount: 47,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Fyrtiosju",
+		},
+		{
+			name:   "One hundred (exact mapping)",
+			amount: 100,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Etthundra",
+		},
+		{
+			name:   "Hundreds with remainder",
+			amount: 256,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Två etthundra femtio sex",
+		},
+		{
+			name:   "One thousand",
+			amount: 1000,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Ettusen",
+		},
+		{
+			name:   "One million (exact mapping)",
+			amount: 1000000,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "En miljon",
+		},
+		{
+			name:   "Large complex number",
+			amount: 1234567,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Ett en miljon två etthundra trettio fyra ettusen fem etthundra sextio sju",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_SwedishSweden_Currency(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "One krona",
+			amount: 1,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+				},
+			},
+			expected: "Ett Krona",
+		},
+		{
+			name:   "Multiple kronor",
+			amount: 5,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+				},
+			},
+			expected: "Fem Kronor",
+		},
+		{
+			name:   "Zero kronor",
+			amount: 0,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+				},
+			},
+			expected: "Noll Kronor",
+		},
+		{
+			name:   "Large amount",
+			amount: 1000000,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+				},
+			},
+			expected: "En miljon Kronor",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_SwedishSweden_Decimals(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Kronor and one öre",
+			amount: 5.01,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Fem Kronor och ett Öre",
+		},
+		{
+			name:   "Kronor and multiple öre",
+			amount: 5.25,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Fem Kronor och tjugofem Öre",
+		},
+		{
+			name:   "Only öre",
+			amount: 0.99,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Noll Kronor och nittionio Öre",
+		},
+		{
+			name:   "Complex amount",
+			amount: 1234.56,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Ett ettusen två etthundra trettio fyra Kronor och femtiosex Öre",
+		},
+		{
+			name:   "Decimal without currency",
+			amount: 123.45,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Ett etthundra tjugo tre och fyrtiofem",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_SwedishSweden_Negative(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Negative number basic",
+			amount: -50,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					NegativeWord: true,
+					Capitalize:   true,
+				},
+			},
+			expected: "Minus femtio",
+		},
+		{
+			name:   "Negative currency",
+			amount: -25.75,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:     true,
+					Decimal:      true,
+					NegativeWord: true,
+					Capitalize:   true,
+				},
+			},
+			expected: "Minus tjugofem Kronor och sjuttiofem Öre",
+		},
+		{
+			name:   "Negative with custom word",
+			amount: -100,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:     true,
+					NegativeWord: true,
+					Capitalize:   true,
+					OverrideOptions: &numi18n.OverrideOptions{
+						NegativeWord: "Negativ",
+					},
+				},
+			},
+			expected: "Negativ Etthundra Kronor",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_SwedishSweden_Formatting(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Uppercase",
+			amount: 123,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:  true,
+					Uppercase: true,
+				},
+			},
+			expected: "ETT ETTHUNDRA TJUGO TRE KRONOR",
+		},
+		{
+			name:   "Lowercase",
+			amount: 123,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:  true,
+					Lowercase: true,
+				},
+			},
+			expected: "ett etthundra tjugo tre kronor",
+		},
+		{
+			name:   "Only flag",
+			amount: 999,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Only:       true,
+					Capitalize: true,
+				},
+			},
+			expected: "Nio etthundra nittio nio endast",
+		},
+		{
+			name:   "Only flag with currency",
+			amount: 500,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Only:       true,
+					Capitalize: true,
+				},
+			},
+			expected: "Femhundra Kronor endast",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_SwedishSweden_CustomCurrency(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Custom currency name",
+			amount: 100,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+					OverrideOptions: &numi18n.OverrideOptions{
+						Name:   "peso",
+						Plural: "pesos",
+					},
+				},
+			},
+			expected: "Etthundra pesos",
+		},
+		{
+			name:   "Custom currency with decimals",
+			amount: 50.25,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+					OverrideOptions: &numi18n.OverrideOptions{
+						Name:             "euro",
+						Plural:           "euros",
+						FractionUnitName: "cent",
+						FractionPlural:   "cents",
+					},
+				},
+			},
+			expected: "Femtio euros och tjugofem cents",
+		},
+		{
+			name:   "Single custom currency",
+			amount: 1,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Capitalize: true,
+					OverrideOptions: &numi18n.OverrideOptions{
+						Name:   "pund",
+						Plural: "pund",
+					},
+				},
+			},
+			expected: "Ett pund",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestToWords_SwedishSweden_EdgeCases(t *testing.T) {
+	tests := []struct {
+		name     string
+		amount   float64
+		options  *numi18n.NumI18NOptions
+		expected string
+	}{
+		{
+			name:   "Very small decimal",
+			amount: 0.01,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Currency:   true,
+					Decimal:    true,
+					Capitalize: true,
+				},
+			},
+			expected: "Noll Kronor och ett Öre",
+		},
+		{
+			name:   "Eleven (special case)",
+			amount: 11,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Elva",
+		},
+		{
+			name:   "Twelve (special case)",
+			amount: 12,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Tolv",
+		},
+		{
+			name:   "Twenty one",
+			amount: 21,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Tjugoett",
+		},
+		{
+			name:   "One hundred one",
+			amount: 101,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Ett etthundra ett",
+		},
+		{
+			name:   "One thousand one",
+			amount: 1001,
+			options: &numi18n.NumI18NOptions{
+				Locale: "sv-SE",
+				WordDetails: &numi18n.WordDetails{
+					Capitalize: true,
+				},
+			},
+			expected: "Ett ettusen ett",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.options.ToWords(tt.amount)
+			if result != tt.expected {
+				t.Errorf("ToWords() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
