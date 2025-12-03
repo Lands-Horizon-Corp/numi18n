@@ -385,6 +385,28 @@ func (n NumI18NLocales) AllLocales() []NumI18NLocale {
 	return n.Locale
 }
 
+// PerCountryLocales returns one preferred locale for each unique country/region
+// This helps avoid duplicates and provides clean globalized locale selection
+// Returns the most preferred locale per country based on language priority
+func (n NumI18NLocales) PerCountryLocales() []NumI18NLocale {
+	countryGroups := make(map[string][]NumI18NLocale)
+
+	for _, locale := range n.Locale {
+		key := locale.NumI18Identifier.ISO3166Alpha2
+		if key == "" {
+			key = locale.NumI18Identifier.CountryName
+		}
+		countryGroups[key] = append(countryGroups[key], locale)
+	}
+	var perCountryLocales []NumI18NLocale
+	for _, locales := range countryGroups {
+		if preferredLocale := n.prioritizeLocale(locales); preferredLocale != nil {
+			perCountryLocales = append(perCountryLocales, *preferredLocale)
+		}
+	}
+	return perCountryLocales
+}
+
 // FindMostMatchedLocale finds the best matching locale for the given identifier
 // Prioritizes exact locale string matches, then falls back to other criteria with smart prioritization
 func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI18NLocale {
