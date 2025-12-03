@@ -1,4 +1,21 @@
-# Number to Words (Go)
+# numi18n
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Lands-Horizon-Corp/numi18n/master/.github/assets/icon.png" alt="numi18n Logo" width="200"/>
+</div>
+
+<p align="center">
+  <a href="https://pkg.go.dev/github.com/Lands-Horizon-Corp/numi18n"><img src="https://pkg.go.dev/badge/github.com/Lands-Horizon-Corp/numi18n.svg" alt="Go Reference"></a>
+  <a href="https://goreportcard.com/report/github.com/Lands-Horizon-Corp/numi18n"><img src="https://goreportcard.com/badge/github.com/Lands-Horizon-Corp/numi18n" alt="Go Report Card"></a>
+  <a href="https://github.com/Lands-Horizon-Corp/numi18n/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+  <a href="https://github.com/Lands-Horizon-Corp/numi18n/releases"><img src="https://img.shields.io/github/release/Lands-Horizon-Corp/numi18n.svg" alt="Release"></a>
+</p>
+
+<p align="center">
+  <strong>🌍 Internationalized Number-to-Words Conversion for Go</strong>
+</p>
+
+---
 
 ## Introduction
 
@@ -364,7 +381,58 @@ The library includes extensive tests covering:
 
 ## Keywords
 
-`golang` `number-to-words` `internationalization` `i18n` `currency` `localization` `decimal` `shopspring-decimal` `multi-locale` `financial` `invoice` `converter` `words` `numbers` `formatting`
+`go` `golang` `number-to-words` `internationalization` `i18n` `l10n` `currency` `localization` `decimal` `shopspring-decimal` `multi-locale` `financial` `invoice` `converter` `words` `numbers` `formatting` `unicode` `emoji` `flags` `countries` `language` `numeral` `roman-numerals` `ordinal` `cardinal` `money` `accounting` `business` `enterprise` `library` `package` `module`
+
+## Go Package Information
+
+```go
+// Package numi18n provides internationalized number-to-words conversion
+// with support for 100+ locales, currencies, and custom formatting.
+//
+// Features:
+//   - Convert numbers to words in multiple languages
+//   - Currency formatting with locale-specific rules  
+//   - Decimal and fraction handling
+//   - Roman numeral conversion
+//   - Ordinal number support
+//   - Custom currency overrides
+//   - Unicode emoji support for country flags
+//
+// Example:
+//   options := &numi18n.NumI18NOptions{
+//       Locale: "en-US",
+//       WordDetails: &numi18n.WordDetails{
+//           Currency: true,
+//           Decimal: true,
+//           Capitalize: true,
+//       },
+//   }
+//   result := options.ToWords(1234.56)
+//   // Output: "One Thousand Two Hundred Thirty Four Dollars And Fifty Six Cents"
+package numi18n
+```
+
+## Tags
+
+- `#golang`
+- `#go`
+- `#internationalization`
+- `#i18n`
+- `#localization` 
+- `#currency`
+- `#numbers`
+- `#words`
+- `#conversion`
+- `#formatting`
+- `#multilingual`
+- `#financial`
+- `#accounting`
+- `#invoice`
+- `#decimal`
+- `#unicode`
+- `#emoji`
+- `#countries`
+- `#languages`
 
 ## Contributing
 
