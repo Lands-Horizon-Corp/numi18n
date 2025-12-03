@@ -357,25 +357,6 @@ func FormatFrenchCurrency(amount float64, currencySymbol string) string {
 	}
 
 	return currencySymbol + formattedNumber
-} // addThousandSeparatorsToFormattedNumberFrench adds space separators for French formatting
-func addThousandSeparatorsToFormattedNumberFrench(formattedNumber string) string {
-	parts := strings.Split(formattedNumber, ",")
-	if len(parts) == 2 {
-		integerPart := parts[0]
-		// Handle negative sign
-		negative := strings.HasPrefix(integerPart, "-")
-		if negative {
-			integerPart = strings.TrimPrefix(integerPart, "-")
-		}
-
-		formattedInteger := formatWithSeparators(integerPart, " ")
-
-		if negative {
-			formattedInteger = "-" + formattedInteger
-		}
-		return formattedInteger + "," + parts[1]
-	}
-	return formattedNumber
 }
 
 // FormatEuropeanDecimal formats a number with European locale conventions (period as thousands separator, comma as decimal separator)
@@ -395,25 +376,6 @@ func FormatEuropeanCurrency(amount float64, currencySymbol string) string {
 	}
 
 	return currencySymbol + formattedNumber
-} // addThousandSeparatorsToFormattedNumberEuropean adds period separators for European formatting
-func addThousandSeparatorsToFormattedNumberEuropean(formattedNumber string) string {
-	parts := strings.Split(formattedNumber, ",")
-	if len(parts) == 2 {
-		integerPart := parts[0]
-		// Handle negative sign
-		negative := strings.HasPrefix(integerPart, "-")
-		if negative {
-			integerPart = strings.TrimPrefix(integerPart, "-")
-		}
-
-		formattedInteger := formatWithSeparators(integerPart, ".")
-
-		if negative {
-			formattedInteger = "-" + formattedInteger
-		}
-		return formattedInteger + "," + parts[1]
-	}
-	return formattedNumber
 }
 
 // FormatPolishDecimal formats a number with Polish locale conventions (comma as thousands separator, period as decimal separator)
@@ -432,4 +394,59 @@ func FormatPolishCurrency(amount float64, currencySymbol string) string {
 	}
 
 	return currencySymbol + formattedNumber
+}
+
+// prioritizeLocale returns the most preferred locale from a list based on language priority
+func (n NumI18NLocales) prioritizeLocale(locales []NumI18NLocale) *NumI18NLocale {
+	if len(locales) == 0 {
+		return nil
+	}
+	if len(locales) == 1 {
+		return &locales[0]
+	}
+
+	// Language priority order (most common/preferred first)
+	languagePriority := []string{
+		"en", // English (most common international language)
+		"es", // Spanish
+		"fr", // French
+		"de", // German
+		"it", // Italian
+		"pt", // Portuguese
+		"ru", // Russian
+		"zh", // Chinese
+		"ja", // Japanese
+		"ko", // Korean
+		"ar", // Arabic
+		"hi", // Hindi
+		"nl", // Dutch
+		"sv", // Swedish
+		"no", // Norwegian
+		"da", // Danish
+		"fi", // Finnish
+		"pl", // Polish
+		"tr", // Turkish
+		"cs", // Czech
+		"hu", // Hungarian
+		"ro", // Romanian
+		"bg", // Bulgarian
+		"hr", // Croatian
+		"sk", // Slovak
+		"sl", // Slovenian
+		"et", // Estonian
+		"lv", // Latvian
+		"lt", // Lithuanian
+	}
+
+	// Find highest priority language
+	for _, priorityLang := range languagePriority {
+		for _, locale := range locales {
+			if strings.ToLower(locale.NumI18Identifier.Language) == priorityLang {
+				return &locale
+			}
+		}
+	}
+
+	// If no prioritized language found, return first locale
+	return &locales[0]
 }

@@ -205,6 +205,8 @@ func NewNumI18Locales() NumI18NLocales {
 }
 
 // FindByCountryName returns all locales for a specific country name
+// Example: "United States" returns en-US, es-US, etc.
+// Country names are matched case-insensitively
 func (n NumI18NLocales) FindByCountryName(countryName string) []NumI18NLocale {
 	var results []NumI18NLocale
 	countryName = strings.TrimSpace(strings.ToLower(countryName))
@@ -217,6 +219,8 @@ func (n NumI18NLocales) FindByCountryName(countryName string) []NumI18NLocale {
 }
 
 // FindByCurrency returns all locales that use a specific currency
+// Example: "USD" returns en-US, en-CA (for some contexts), etc.
+// Currency codes are matched case-insensitively using ISO 4217 codes
 func (n NumI18NLocales) FindByCurrency(currency string) []NumI18NLocale {
 	var results []NumI18NLocale
 	currency = strings.TrimSpace(strings.ToUpper(currency))
@@ -228,7 +232,9 @@ func (n NumI18NLocales) FindByCurrency(currency string) []NumI18NLocale {
 	return results
 }
 
-// FindByISO3166Alpha2 returns the locale for a specific ISO 3166-1 alpha-2 code
+// FindByISO3166Alpha2 returns all locales for a specific ISO 3166-1 alpha-2 code
+// Example: "US" returns en-US, es-US, etc.
+// ISO codes are matched case-insensitively (2-letter country codes)
 func (n NumI18NLocales) FindByISO3166Alpha2(iso2 string) []NumI18NLocale {
 	var results []NumI18NLocale
 	iso2 = strings.TrimSpace(strings.ToUpper(iso2))
@@ -240,7 +246,9 @@ func (n NumI18NLocales) FindByISO3166Alpha2(iso2 string) []NumI18NLocale {
 	return results
 }
 
-// FindByISO3166Alpha3 returns the locale for a specific ISO 3166-1 alpha-3 code
+// FindByISO3166Alpha3 returns all locales for a specific ISO 3166-1 alpha-3 code
+// Example: "USA" returns en-US, es-US, etc.
+// ISO codes are matched case-insensitively (3-letter country codes)
 func (n NumI18NLocales) FindByISO3166Alpha3(iso3 string) []NumI18NLocale {
 	var results []NumI18NLocale
 	iso3 = strings.TrimSpace(strings.ToUpper(iso3))
@@ -253,30 +261,33 @@ func (n NumI18NLocales) FindByISO3166Alpha3(iso3 string) []NumI18NLocale {
 }
 
 // FindByISO3166Numeric returns the locale for a specific ISO 3166 numeric code
-func (n NumI18NLocales) FindByISO3166Numeric(numeric string) []NumI18NLocale {
-	var results []NumI18NLocale
+// Example: "840" returns the US locale. Returns nil if not found.
+// Numeric codes are unique identifiers (3-digit country codes)
+func (n NumI18NLocales) FindByISO3166Numeric(numeric string) *NumI18NLocale {
 	numeric = strings.TrimSpace(numeric)
 	for _, locale := range n.Locale {
 		if locale.NumI18Identifier.ISO3166Numeric == numeric {
-			results = append(results, locale)
+			return &locale
 		}
 	}
-	return results
+	return nil
 }
 
 // FindByLocale returns the locale for a specific locale string (e.g., "en-US", "fr-FR")
-func (n NumI18NLocales) FindByLocale(localeStr string) []NumI18NLocale {
-	var results []NumI18NLocale
+// Returns nil if the locale is not found. Locale strings are unique identifiers.
+func (n NumI18NLocales) FindByLocale(localeStr string) *NumI18NLocale {
 	localeStr = strings.TrimSpace(strings.ToLower(localeStr))
 	for _, locale := range n.Locale {
 		if strings.ToLower(locale.NumI18Identifier.Locale) == localeStr {
-			results = append(results, locale)
+			return &locale
 		}
 	}
-	return results
+	return nil
 }
 
 // FindByTimezone returns all locales that use a specific timezone
+// Example: "America/New_York" returns en-US, es-US, etc.
+// Timezone matching is case-insensitive
 func (n NumI18NLocales) FindByTimezone(timezone string) []NumI18NLocale {
 	var results []NumI18NLocale
 	timezone = strings.TrimSpace(timezone)
@@ -291,7 +302,9 @@ func (n NumI18NLocales) FindByTimezone(timezone string) []NumI18NLocale {
 	return results
 }
 
-// FindByLanguage returns all locales for a specific language code (e.g., "en", "fr")
+// FindByLanguage returns all locales for a specific language code
+// Example: "en" returns en-US, en-GB, en-CA, etc.
+// Language codes are matched case-insensitively (2-letter ISO 639-1 codes)
 func (n NumI18NLocales) FindByLanguage(language string) []NumI18NLocale {
 	var results []NumI18NLocale
 	language = strings.TrimSpace(strings.ToLower(language))
@@ -304,7 +317,9 @@ func (n NumI18NLocales) FindByLanguage(language string) []NumI18NLocale {
 }
 
 // Find performs a flexible search across multiple fields and returns matching locales
-// It searches in: CountryName, Currency, ISO codes, Locale, Timezone, and Language
+// Searches in: CountryName, Currency, ISO codes, Locale, Timezone, and Language
+// Example: "US" matches ISO codes, "USD" matches currency, "United" matches country name
+// Uses partial matching and is case-insensitive. Returns deduplicated results.
 func (n NumI18NLocales) Find(query string) []NumI18NLocale {
 	if query == "" {
 		return []NumI18NLocale{}
@@ -364,133 +379,79 @@ func (n NumI18NLocales) Find(query string) []NumI18NLocale {
 	return results
 }
 
-// AllLocales returns all available locales
+// AllLocales returns all available locales in the system
+// Useful for enumeration or when you need the complete list of supported locales
 func (n NumI18NLocales) AllLocales() []NumI18NLocale {
 	return n.Locale
 }
 
+// FindMostMatchedLocale finds the best matching locale for the given identifier
+// Prioritizes exact locale string matches, then falls back to other criteria with smart prioritization
 func (n NumI18NLocales) FindMostMatchedLocale(identifier NumI18Identifier) *NumI18NLocale {
-	if len(n.Locale) == 0 {
-		return nil
+	// Try to find by locale string first (most specific)
+	if identifier.Locale != "" {
+		if locale := n.FindByLocale(identifier.Locale); locale != nil {
+			return locale
+		}
 	}
 
-	type localeScore struct {
-		locale       NumI18NLocale
-		fieldMatches int
-		priority     int
-	}
-
-	var candidates []localeScore
-
-	for _, locale := range n.Locale {
-		fieldMatches := 0
-		priority := 0
-
-		// Count field matches and calculate priority based on order
-		// Locale gets the highest priority
-		if strings.EqualFold(
-			strings.TrimSpace(locale.NumI18Identifier.Locale),
-			strings.TrimSpace(identifier.Locale)) &&
-			strings.TrimSpace(identifier.Locale) != "" {
-			fieldMatches++
-			priority += 10 // Highest priority for locale
-		}
-		if strings.EqualFold(
-			strings.TrimSpace(locale.NumI18Identifier.ISO3166Alpha2),
-			strings.TrimSpace(identifier.ISO3166Alpha2)) &&
-			strings.TrimSpace(identifier.ISO3166Alpha2) != "" {
-			fieldMatches++
-			priority += 8
-		}
-		if strings.EqualFold(
-			strings.TrimSpace(locale.NumI18Identifier.ISO3166Alpha3),
-			strings.TrimSpace(identifier.ISO3166Alpha3)) &&
-			strings.TrimSpace(identifier.ISO3166Alpha3) != "" {
-			fieldMatches++
-			priority += 7
-		}
-		if strings.EqualFold(
-			strings.TrimSpace(locale.NumI18Identifier.Language),
-			strings.TrimSpace(identifier.Language)) &&
-			strings.TrimSpace(identifier.Language) != "" {
-			fieldMatches++
-			priority += 6
-		}
-		if strings.EqualFold(
-			strings.TrimSpace(locale.NumI18Identifier.CountryName),
-			strings.TrimSpace(identifier.CountryName)) &&
-			strings.TrimSpace(identifier.CountryName) != "" {
-			fieldMatches++
-			priority += 5
-		}
-
-		// Currency gets lower priority than locale/language/country
-		if strings.EqualFold(strings.TrimSpace(locale.NumI18Identifier.Currency), strings.TrimSpace(identifier.Currency)) && strings.TrimSpace(identifier.Currency) != "" {
-			fieldMatches++
-			priority += 4 // Currency priority lowered
-		}
-
-		if identifier.Timezone != nil {
-			for _, searchTz := range identifier.Timezone {
-				for _, localeTz := range locale.NumI18Identifier.Timezone {
-					if strings.EqualFold(strings.TrimSpace(localeTz), strings.TrimSpace(searchTz)) {
-						fieldMatches++
-						priority += 3
-						goto nextField1
+	// Try to find by language + country combination
+	if identifier.Language != "" {
+		languageLocales := n.FindByLanguage(identifier.Language)
+		if identifier.ISO3166Alpha2 != "" {
+			countryLocales := n.FindByISO3166Alpha2(identifier.ISO3166Alpha2)
+			// Find intersection
+			for _, langLocale := range languageLocales {
+				for _, countryLocale := range countryLocales {
+					if langLocale.NumI18Identifier.Locale == countryLocale.NumI18Identifier.Locale {
+						return &langLocale
 					}
 				}
 			}
 		}
-	nextField1:
-		if strings.TrimSpace(locale.NumI18Identifier.ISO3166Numeric) == strings.TrimSpace(identifier.ISO3166Numeric) && strings.TrimSpace(identifier.ISO3166Numeric) != "" {
-			fieldMatches++
-			priority += 1 // Lowest priority
-		}
-
-		if fieldMatches > 0 {
-			candidates = append(candidates, localeScore{
-				locale:       locale,
-				fieldMatches: fieldMatches,
-				priority:     priority,
-			})
+		// Return prioritized language match if no country match
+		if len(languageLocales) > 0 {
+			return n.prioritizeLocale(languageLocales)
 		}
 	}
 
-	if len(candidates) == 0 {
-		return nil
-	}
-
-	// Sort by field matches first (descending), then by priority (descending)
-	bestCandidate := candidates[0]
-	for _, candidate := range candidates[1:] {
-		if candidate.fieldMatches > bestCandidate.fieldMatches ||
-			(candidate.fieldMatches == bestCandidate.fieldMatches && candidate.priority > bestCandidate.priority) {
-			bestCandidate = candidate
+	// Try to find by currency
+	if identifier.Currency != "" {
+		currencyLocales := n.FindByCurrency(identifier.Currency)
+		if len(currencyLocales) > 0 {
+			return n.prioritizeLocale(currencyLocales)
 		}
 	}
 
-	// Special case: If we have multiple candidates with the same score and only currency was provided,
-	// prefer en-US for USD currency (common case for international applications)
-	if strings.TrimSpace(identifier.Currency) == "USD" &&
-		strings.TrimSpace(identifier.Locale) == "" &&
-		strings.TrimSpace(identifier.Language) == "" &&
-		strings.TrimSpace(identifier.CountryName) == "" {
-
-		for _, candidate := range candidates {
-			if candidate.fieldMatches == bestCandidate.fieldMatches &&
-				candidate.priority == bestCandidate.priority &&
-				candidate.locale.NumI18Identifier.Locale == "en-US" {
-				bestCandidate = candidate
-				break
-			}
+	// Try to find by ISO codes
+	if identifier.ISO3166Alpha2 != "" {
+		alpha2Locales := n.FindByISO3166Alpha2(identifier.ISO3166Alpha2)
+		if len(alpha2Locales) > 0 {
+			return n.prioritizeLocale(alpha2Locales)
 		}
 	}
 
-	return &bestCandidate.locale
+	if identifier.ISO3166Alpha3 != "" {
+		alpha3Locales := n.FindByISO3166Alpha3(identifier.ISO3166Alpha3)
+		if len(alpha3Locales) > 0 {
+			return n.prioritizeLocale(alpha3Locales)
+		}
+	}
+
+	if identifier.ISO3166Numeric != "" {
+		if numericLocale := n.FindByISO3166Numeric(identifier.ISO3166Numeric); numericLocale != nil {
+			return numericLocale
+		}
+	}
+
+	// No match found
+	return nil
 }
 
-// FindMatch allows clients to find the best matching locale using any field value
-// They can provide country name, locale string, currency, ISO codes, timezone, or language
+// FindMatch finds the best matching locale using any field value
+// Accepts: country name, locale string, currency, ISO codes, timezone, or language
+// Example: "US", "en-US", "USD", "America/New_York" all return en-US locale
+// Returns nil if no match is found. Uses intelligent matching priority.
 func (n NumI18NLocales) FindMatch(query string) *NumI18NLocale {
 	if strings.TrimSpace(query) == "" {
 		return nil
