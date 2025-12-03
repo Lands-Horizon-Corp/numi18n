@@ -412,28 +412,6 @@ The library includes extensive tests covering:
 package numi18n
 ```
 
-## Tags
-
-- `#golang`
-- `#go`
-- `#internationalization`
-- `#i18n`
-- `#localization` 
-- `#currency`
-- `#numbers`
-- `#words`
-- `#conversion`
-- `#formatting`
-- `#multilingual`
-- `#financial`
-- `#accounting`
-- `#invoice`
-- `#decimal`
-- `#unicode`
-- `#emoji`
-- `#countries`
-- `#languages`
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
