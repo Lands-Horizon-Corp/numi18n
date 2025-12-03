@@ -8,7 +8,7 @@
   <a href="https://pkg.go.dev/github.com/Lands-Horizon-Corp/numi18n"><img src="https://pkg.go.dev/badge/github.com/Lands-Horizon-Corp/numi18n.svg" alt="Go Reference"></a>
   <a href="https://goreportcard.com/report/github.com/Lands-Horizon-Corp/numi18n"><img src="https://goreportcard.com/badge/github.com/Lands-Horizon-Corp/numi18n" alt="Go Report Card"></a>
   <a href="https://github.com/Lands-Horizon-Corp/numi18n/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-  <a href="https://github.com/Lands-Horizon-Corp/numi18n/releases"><img src="https://img.shields.io/github/release/Lands-Horizon-Corp/numi18n.svg" alt="Release"></a>
+  <a href="https://github.com/Lands-Horizon-Corp/numi18n/releases"><img src="https://img.shields.io/github/v/release/Lands-Horizon-Corp/numi18n.svg" alt="Release"></a>
 </p>
 
 <p align="center">
@@ -356,7 +356,7 @@ for _, locale := range availableLocales {
 
 ## Examples
 
-For complete examples, see [`example/en-us_sample.go`](example/en-us_sample.go) which demonstrates:
+For complete examples, see [`example/example.go`](example/example.go) which demonstrates:
 
 - Basic number to words conversion
 - Currency formatting across multiple locales
