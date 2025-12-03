@@ -154,11 +154,15 @@ func DefaultFormatDecimalNumber(amount float64, thousandSeparator string, decima
 	// Format fractional part if it exists
 	result := wholeStr
 	if !fractionalPart.IsZero() {
-		// Get fractional part as string (remove "0." prefix)
+		// Get fractional part as string (remove "0." prefix) and remove trailing zeros
 		fractionalStr := fractionalPart.String()
 		if len(fractionalStr) > 2 {
 			fractionalStr = fractionalStr[2:] // Remove "0."
-			result += decimalSeparator + fractionalStr
+			// Remove trailing zeros
+			fractionalStr = strings.TrimRight(fractionalStr, "0")
+			if fractionalStr != "" {
+				result += decimalSeparator + fractionalStr
+			}
 		}
 	}
 
@@ -222,9 +226,29 @@ func FormatDecimalWithSeparators(amount float64, thousandSeparator string) strin
 	return result
 }
 
-// FormatCurrencyWithSeparators formats currency with thousand separators and 2 decimal places
+// FormatCurrencyWithSeparators formats currency with thousand separators and removes trailing zeros
 func FormatCurrencyWithSeparators(amount float64, thousandSeparator string, symbol string, symbolPrefix bool) string {
-	// Format number with 2 decimal places
+	// Use the decimal formatting function which removes trailing zeros
+	formattedNumber := DefaultFormatDecimalNumber(amount, thousandSeparator, ".")
+
+	// Handle negative numbers - move negative sign before currency symbol
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		if symbolPrefix {
+			return "-" + symbol + formattedNumber
+		}
+		return "-" + formattedNumber + symbol
+	}
+
+	if symbolPrefix {
+		return symbol + formattedNumber
+	}
+	return formattedNumber + symbol
+}
+
+// FormatUSCurrencyWithSeparators formats US currency with thousand separators and always shows 2 decimal places
+func FormatUSCurrencyWithSeparators(amount float64, thousandSeparator string, symbol string, symbolPrefix bool) string {
+	// Format number with exactly 2 decimal places for US currency
 	formattedNumber := fmt.Sprintf("%.2f", amount)
 
 	// Apply thousands separators if needed (>=1000 or <=-1000)
@@ -245,9 +269,7 @@ func FormatCurrencyWithSeparators(amount float64, thousandSeparator string, symb
 		return symbol + formattedNumber
 	}
 	return formattedNumber + symbol
-}
-
-// addThousandSeparatorsToFormattedNumber adds thousand separators to a formatted number string
+} // addThousandSeparatorsToFormattedNumber adds thousand separators to a formatted number string
 func addThousandSeparatorsToFormattedNumber(formattedNumber string, separator string) string {
 	// Replace decimal point temporarily
 	parts := strings.Split(formattedNumber, ".")
@@ -287,4 +309,127 @@ func FormatJapaneseCurrency(amount float64, symbol string) string {
 // FormatDecimalWithoutSeparators formats a decimal number without thousand separators (for Japanese)
 func FormatDecimalWithoutSeparators(amount float64) string {
 	return DefaultFormatDecimalNumber(amount, "", ".")
+}
+
+// FormatAngloDecimal formats a decimal number with Anglo conventions (comma thousands, period decimal)
+func FormatAngloDecimal(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+
+// FormatAngloCurrency formats currency with Anglo conventions (comma thousands, period decimal, prefix symbol)
+func FormatAngloCurrency(amount float64, symbol string) string {
+	return FormatCurrencyWithSeparators(amount, ",", symbol, true)
+}
+
+// FormatAsianDecimal formats a decimal number with Asian conventions (no thousands separators, period decimal)
+func FormatAsianDecimal(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, "", ".")
+}
+
+// FormatAsianCurrency formats currency with Asian conventions (no thousands separators, period decimal, prefix symbol)
+func FormatAsianCurrency(amount float64, symbol string) string {
+	// Use decimal formatting to remove trailing zeros
+	formattedNumber := DefaultFormatDecimalNumber(amount, "", ".")
+
+	// Handle negative numbers - move negative sign before currency symbol
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + symbol + formattedNumber
+	}
+
+	return symbol + formattedNumber
+}
+
+// FormatFrenchDecimal formats a number with French locale conventions (space as thousands separator, comma as decimal separator)
+func FormatFrenchDecimal(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, " ", ",")
+}
+
+// FormatFrenchCurrency formats currency with French locale conventions (space separators, comma decimal, prefix currency symbol)
+func FormatFrenchCurrency(amount float64, currencySymbol string) string {
+	// Use French decimal formatting which removes trailing zeros
+	formattedNumber := FormatFrenchDecimal(amount)
+
+	// Handle negative numbers
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+
+	return currencySymbol + formattedNumber
+} // addThousandSeparatorsToFormattedNumberFrench adds space separators for French formatting
+func addThousandSeparatorsToFormattedNumberFrench(formattedNumber string) string {
+	parts := strings.Split(formattedNumber, ",")
+	if len(parts) == 2 {
+		integerPart := parts[0]
+		// Handle negative sign
+		negative := strings.HasPrefix(integerPart, "-")
+		if negative {
+			integerPart = strings.TrimPrefix(integerPart, "-")
+		}
+
+		formattedInteger := formatWithSeparators(integerPart, " ")
+
+		if negative {
+			formattedInteger = "-" + formattedInteger
+		}
+		return formattedInteger + "," + parts[1]
+	}
+	return formattedNumber
+}
+
+// FormatEuropeanDecimal formats a number with European locale conventions (period as thousands separator, comma as decimal separator)
+func FormatEuropeanDecimal(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ".", ",")
+}
+
+// FormatEuropeanCurrency formats currency with European locale conventions (period separators, comma decimal, prefix currency symbol)
+func FormatEuropeanCurrency(amount float64, currencySymbol string) string {
+	// Use European decimal formatting which removes trailing zeros
+	formattedNumber := FormatEuropeanDecimal(amount)
+
+	// Handle negative numbers
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+
+	return currencySymbol + formattedNumber
+} // addThousandSeparatorsToFormattedNumberEuropean adds period separators for European formatting
+func addThousandSeparatorsToFormattedNumberEuropean(formattedNumber string) string {
+	parts := strings.Split(formattedNumber, ",")
+	if len(parts) == 2 {
+		integerPart := parts[0]
+		// Handle negative sign
+		negative := strings.HasPrefix(integerPart, "-")
+		if negative {
+			integerPart = strings.TrimPrefix(integerPart, "-")
+		}
+
+		formattedInteger := formatWithSeparators(integerPart, ".")
+
+		if negative {
+			formattedInteger = "-" + formattedInteger
+		}
+		return formattedInteger + "," + parts[1]
+	}
+	return formattedNumber
+}
+
+// FormatPolishDecimal formats a number with Polish locale conventions (comma as thousands separator, period as decimal separator)
+func FormatPolishDecimal(amount float64) string {
+	return DefaultFormatDecimalNumber(amount, ",", ".")
+}
+
+// FormatPolishCurrency formats currency with Polish locale conventions (comma separators, period decimal, prefix currency symbol)
+func FormatPolishCurrency(amount float64, currencySymbol string) string {
+	formattedNumber := FormatPolishDecimal(amount)
+
+	// Handle negative numbers
+	if strings.HasPrefix(formattedNumber, "-") {
+		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
+		return "-" + currencySymbol + formattedNumber
+	}
+
+	return currencySymbol + formattedNumber
 }

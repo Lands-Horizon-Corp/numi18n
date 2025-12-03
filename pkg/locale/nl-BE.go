@@ -2,20 +2,21 @@ package locale
 
 import (
 	"strings"
+
 	"github.com/shopspring/decimal"
 )
 
 // NLBELocale represents the Dutch (Belgium) locale
 var NLBELocale = NumI18NLocale{
 	Currency: Currency{
-		Name:     "Euro",
-		Plural:   "Euro",
-		Singular: "Euro",
+		Name:     "euro",
+		Plural:   "euro",
+		Singular: "euro",
 		Symbol:   "€",
 		FractionUnit: FractionUnit{
-			Name:     "Cent",
-			Plural:   "Cent",
-			Singular: "Cent",
+			Name:     "cent",
+			Plural:   "cent",
+			Singular: "cent",
 			Symbol:   "c",
 		},
 	},
@@ -207,7 +208,7 @@ var NLBELocale = NumI18NLocale{
 type DutchBelgianFormatter struct{}
 
 func (f *DutchBelgianFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
-	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+	return f.convertDutchNumber(number, targetLocale)
 }
 
 func (f *DutchBelgianFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
@@ -239,23 +240,108 @@ func (f *DutchBelgianFormatter) ChopDecimal(amount decimal.Decimal, precision in
 	return amount.Truncate(int32(precision))
 }
 
-
 func (f *DutchBelgianFormatter) FormatDecimalNumber(amount float64) string {
-	return DefaultFormatDecimalNumber(amount, ".", ",")
+	return FormatEuropeanDecimal(amount)
 }
+
 func (f *DutchBelgianFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
-	formattedNumber := f.FormatDecimalNumber(amount)
-	
+	// Get currency symbol
 	currencySymbol := targetLocale.Currency.Symbol
 	if overrideOptions != nil && overrideOptions.Symbol != "" {
 		currencySymbol = overrideOptions.Symbol
 	}
-	
-	// Default currency placement for this locale (prefix with symbol)
-	if strings.HasPrefix(formattedNumber, "-") {
-		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
-		return "-" + currencySymbol + formattedNumber
+
+	// Format with European conventions (period separators, comma decimal, prefix symbol)
+	return FormatEuropeanCurrency(amount, currencySymbol)
+}
+
+// convertDutchNumber converts numbers to Dutch compound words
+func (f *DutchBelgianFormatter) convertDutchNumber(number int64, targetLocale NumI18NLocale) string {
+	if number == 0 {
+		return "nul"
 	}
-	
-	return currencySymbol + formattedNumber
+
+	if number < 0 {
+		return "min " + f.convertDutchNumber(-number, targetLocale)
+	}
+
+	// Handle numbers 1-19 directly
+	if number <= 19 {
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == number {
+				return strings.ToLower(mapping.Value)
+			}
+		}
+	}
+
+	// Handle 20-99 (compound tens - Dutch puts ones before tens with "en")
+	if number < 100 {
+		tens := (number / 10) * 10
+		ones := number % 10
+
+		tensWord := ""
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == tens {
+				tensWord = strings.ToLower(mapping.Value)
+				break
+			}
+		}
+
+		if ones == 0 {
+			return tensWord
+		}
+
+		onesWord := ""
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == ones {
+				onesWord = strings.ToLower(mapping.Value)
+				break
+			}
+		}
+
+		return onesWord + "en" + tensWord
+	}
+
+	// Handle 100-999 (hundreds)
+	if number < 1000 {
+		hundreds := number / 100
+		remainder := number % 100
+
+		result := ""
+		if hundreds == 1 {
+			result = "honderd"
+		} else {
+			hundredsWord := f.convertDutchNumber(hundreds, targetLocale)
+			result = hundredsWord + "honderd"
+		}
+
+		if remainder > 0 {
+			result += f.convertDutchNumber(remainder, targetLocale)
+		}
+
+		return result
+	}
+
+	// Handle 1000+ (thousands)
+	if number < 1000000 {
+		thousands := number / 1000
+		remainder := number % 1000
+
+		result := ""
+		if thousands == 1 {
+			result = "duizend"
+		} else {
+			thousandsWord := f.convertDutchNumber(thousands, targetLocale)
+			result = thousandsWord + "duizend"
+		}
+
+		if remainder > 0 {
+			result += f.convertDutchNumber(remainder, targetLocale)
+		}
+
+		return result
+	}
+
+	// For larger numbers, fall back to generic conversion but lowercase
+	return strings.ToLower(ConvertToWordsWithExactMappingInt64(number, targetLocale))
 }

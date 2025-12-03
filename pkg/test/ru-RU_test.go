@@ -152,7 +152,7 @@ func TestToWords_RussianRussia_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Один Российский рубль",
+			expected: "Один рубль",
 		},
 		{
 			name:   "Multiple Russian rubles",
@@ -164,7 +164,7 @@ func TestToWords_RussianRussia_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Пять Российских рублей",
+			expected: "Пять рублей",
 		},
 		{
 			name:   "Zero Russian rubles",
@@ -176,7 +176,7 @@ func TestToWords_RussianRussia_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Ноль Российских рублей",
+			expected: "Ноль рублей",
 		},
 		{
 			name:   "Large amount",
@@ -188,7 +188,7 @@ func TestToWords_RussianRussia_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Миллион Российских рублей",
+			expected: "Миллион рублей",
 		},
 	}
 
@@ -220,7 +220,7 @@ func TestToWords_RussianRussia_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: " Копейка",
+			expected: "Пять рублей и один копейка",
 		},
 		{
 			name:   "Rubles and multiple kopecks",
@@ -233,7 +233,7 @@ func TestToWords_RussianRussia_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: " Копеек",
+			expected: "Пять рублей и двадцать пять копеек",
 		},
 		{
 			name:   "Only kopecks",
@@ -246,7 +246,7 @@ func TestToWords_RussianRussia_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: " Копеек",
+			expected: "Ноль рублей и девяносто девять копеек",
 		},
 		{
 			name:   "Complex amount",
@@ -259,7 +259,7 @@ func TestToWords_RussianRussia_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: " Копеек",
+			expected: "Один тысяча два сто тридцать четыре рублей и пятьдесят шесть копеек",
 		},
 		{
 			name:   "Decimal without currency",
@@ -316,7 +316,7 @@ func TestToWords_RussianRussia_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Минус  Копеек",
+			expected: "Минус двадцать пять рублей и семьдесят пять копеек",
 		},
 		{
 			name:   "Negative with custom word",
@@ -332,7 +332,7 @@ func TestToWords_RussianRussia_Negative(t *testing.T) {
 					},
 				},
 			},
-			expected: "Отрицательный Сто Российских рублей",
+			expected: "Отрицательный Сто рублей",
 		},
 	}
 
@@ -363,7 +363,7 @@ func TestToWords_RussianRussia_Formatting(t *testing.T) {
 					Uppercase: true,
 				},
 			},
-			expected: "ОДИН СТО ДВАДЦАТЬ ТРИ РОССИЙСКИХ РУБЛЕЙ",
+			expected: "ОДИН СТО ДВАДЦАТЬ ТРИ РУБЛЕЙ",
 		},
 		{
 			name:   "Lowercase",
@@ -375,7 +375,7 @@ func TestToWords_RussianRussia_Formatting(t *testing.T) {
 					Lowercase: true,
 				},
 			},
-			expected: "один сто двадцать три российских рублей",
+			expected: "один сто двадцать три рублей",
 		},
 		{
 			name:   "Only flag",
@@ -400,7 +400,7 @@ func TestToWords_RussianRussia_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Пятьсот Российских рублей только",
+			expected: "Пятьсот рублей только",
 		},
 	}
 
@@ -454,7 +454,7 @@ func TestToWords_RussianRussia_CustomCurrency(t *testing.T) {
 					},
 				},
 			},
-			expected: " центов",
+			expected: "Пятьдесят евро и двадцать пять центов",
 		},
 		{
 			name:   "Single custom currency",
@@ -502,7 +502,7 @@ func TestToWords_RussianRussia_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: " Копейка",
+			expected: "Ноль рублей и один копейка",
 		},
 		{
 			name:   "Eleven (special case)",

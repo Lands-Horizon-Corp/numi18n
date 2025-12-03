@@ -270,9 +270,6 @@ func (f *FilipinoFormatter) FormatDecimalNumberWithCurrency(amount float64, targ
 		currencySymbol = overrideOptions.Symbol
 	}
 
-	// Format with thousand separators, currency symbol, and symbol prefix (true for Philippines)
-	return FormatCurrencyWithSeparators(amount, ",", currencySymbol, true)
-} // formatWithThousandSeparators adds commas every three digits from right to left
-func (f *FilipinoFormatter) formatWithThousandSeparators(numStr string) string {
-	return formatWithSeparators(numStr, ",")
+	// Format with thousand separators, currency symbol, and symbol prefix (true for Philippines) - always shows 2 decimal places
+	return FormatUSCurrencyWithSeparators(amount, ",", currencySymbol, true)
 }

@@ -1,7 +1,6 @@
 package locale
 
 import (
-	"strings"
 	"github.com/shopspring/decimal"
 )
 
@@ -147,23 +146,14 @@ func (f *EnglishSouthAfricaFormatter) ChopDecimal(d decimal.Decimal, precision i
 	return d.Truncate(int32(precision))
 }
 
-
 func (f *EnglishSouthAfricaFormatter) FormatDecimalNumber(amount float64) string {
-	return DefaultFormatDecimalNumber(amount, " ", ",")
+	return FormatFrenchDecimal(amount)
 }
 func (f *EnglishSouthAfricaFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
-	formattedNumber := f.FormatDecimalNumber(amount)
-	
 	currencySymbol := targetLocale.Currency.Symbol
 	if overrideOptions != nil && overrideOptions.Symbol != "" {
 		currencySymbol = overrideOptions.Symbol
 	}
-	
-	// Default currency placement for this locale (prefix with symbol)
-	if strings.HasPrefix(formattedNumber, "-") {
-		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
-		return "-" + currencySymbol + formattedNumber
-	}
-	
-	return currencySymbol + formattedNumber
+
+	return FormatFrenchCurrency(amount, currencySymbol)
 }

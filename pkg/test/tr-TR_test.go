@@ -152,7 +152,7 @@ func TestToWords_TurkishTurkey_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Bir Türk Lirası",
+			expected: "Bir lira",
 		},
 		{
 			name:   "Multiple liras",
@@ -164,7 +164,7 @@ func TestToWords_TurkishTurkey_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Beş Türk Lirası",
+			expected: "Beş lira",
 		},
 		{
 			name:   "Zero liras",
@@ -176,7 +176,7 @@ func TestToWords_TurkishTurkey_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Sıfır Türk Lirası",
+			expected: "Sıfır lira",
 		},
 		{
 			name:   "Large amount",
@@ -188,7 +188,7 @@ func TestToWords_TurkishTurkey_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Bir milyon Türk Lirası",
+			expected: "Bir milyon lira",
 		},
 	}
 
@@ -220,7 +220,7 @@ func TestToWords_TurkishTurkey_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Beş Türk Lirası ve bir Kuruş",
+			expected: "Beş lira ve bir kuruş",
 		},
 		{
 			name:   "Liras and multiple kuruş",
@@ -233,7 +233,7 @@ func TestToWords_TurkishTurkey_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Beş Türk Lirası ve yirmi beş Kuruş",
+			expected: "Beş lira ve yirmi beş kuruş",
 		},
 		{
 			name:   "Only kuruş",
@@ -246,7 +246,7 @@ func TestToWords_TurkishTurkey_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Sıfır Türk Lirası ve doksan dokuz Kuruş",
+			expected: "Sıfır lira ve doksan dokuz kuruş",
 		},
 		{
 			name:   "Complex amount",
@@ -259,7 +259,7 @@ func TestToWords_TurkishTurkey_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Bir bin iki yüz otuz dört Türk Lirası ve elli altı Kuruş",
+			expected: "Bir bin iki yüz otuz dört lira ve elli altı kuruş",
 		},
 		{
 			name:   "Decimal without currency",
@@ -316,7 +316,7 @@ func TestToWords_TurkishTurkey_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Eksi yirmi beş Türk Lirası ve yetmiş beş Kuruş",
+			expected: "Eksi yirmi beş lira ve yetmiş beş kuruş",
 		},
 		{
 			name:   "Negative with custom word",
@@ -332,7 +332,7 @@ func TestToWords_TurkishTurkey_Negative(t *testing.T) {
 					},
 				},
 			},
-			expected: "Negatif Yüz Türk Lirası",
+			expected: "Negatif Yüz lira",
 		},
 	}
 
@@ -363,7 +363,7 @@ func TestToWords_TurkishTurkey_Formatting(t *testing.T) {
 					Uppercase: true,
 				},
 			},
-			expected: "BIR YÜZ YIRMI ÜÇ TÜRK LIRASI",
+			expected: "BIR YÜZ YIRMI ÜÇ LIRA",
 		},
 		{
 			name:   "Lowercase",
@@ -375,7 +375,7 @@ func TestToWords_TurkishTurkey_Formatting(t *testing.T) {
 					Lowercase: true,
 				},
 			},
-			expected: "bir yüz yirmi üç türk lirası",
+			expected: "bir yüz yirmi üç lira",
 		},
 		{
 			name:   "Only flag",
@@ -400,7 +400,7 @@ func TestToWords_TurkishTurkey_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Beş yüz Türk Lirası sadece",
+			expected: "Beş yüz lira sadece",
 		},
 	}
 
@@ -502,7 +502,7 @@ func TestToWords_TurkishTurkey_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Sıfır Türk Lirası ve bir Kuruş",
+			expected: "Sıfır lira ve bir kuruş",
 		},
 		{
 			name:   "Eleven (special case)",

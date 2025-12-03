@@ -1,7 +1,6 @@
 package locale
 
 import (
-	"strings"
 	"github.com/shopspring/decimal"
 )
 
@@ -239,23 +238,16 @@ func (f *NorwegianNynorskFormatter) ChopDecimal(amount decimal.Decimal, precisio
 	return amount.Truncate(int32(precision))
 }
 
-
 func (f *NorwegianNynorskFormatter) FormatDecimalNumber(amount float64) string {
-	return DefaultFormatDecimalNumber(amount, ",", ".")
+	return FormatPolishDecimal(amount)
 }
 func (f *NorwegianNynorskFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
-	formattedNumber := f.FormatDecimalNumber(amount)
-	
+	// Get currency symbol
 	currencySymbol := targetLocale.Currency.Symbol
 	if overrideOptions != nil && overrideOptions.Symbol != "" {
 		currencySymbol = overrideOptions.Symbol
 	}
-	
-	// Default currency placement for this locale (prefix with symbol)
-	if strings.HasPrefix(formattedNumber, "-") {
-		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
-		return "-" + currencySymbol + formattedNumber
-	}
-	
-	return currencySymbol + formattedNumber
+
+	// Format with Polish conventions (comma separators, period decimal, prefix symbol)
+	return FormatPolishCurrency(amount, currencySymbol)
 }

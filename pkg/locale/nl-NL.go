@@ -2,20 +2,21 @@ package locale
 
 import (
 	"strings"
+
 	"github.com/shopspring/decimal"
 )
 
 // NLNLLocale represents the Dutch (Netherlands) locale
 var NLNLLocale = NumI18NLocale{
 	Currency: Currency{
-		Name:     "Euro",
-		Plural:   "Euro",
-		Singular: "Euro",
+		Name:     "euro",
+		Plural:   "euro",
+		Singular: "euro",
 		Symbol:   "€",
 		FractionUnit: FractionUnit{
-			Name:     "Cent",
-			Plural:   "Cent",
-			Singular: "Cent",
+			Name:     "cent",
+			Plural:   "cent",
+			Singular: "cent",
 			Symbol:   "c",
 		},
 	},
@@ -36,40 +37,40 @@ var NLNLLocale = NumI18NLocale{
 		Point: "komma",
 	},
 	NumberWordsMapping: []NumberWordMapping{
-		{Number: 1000000000000000, Value: "Quadrillion"},
-		{Number: 1000000000000, Value: "Trillion"},
-		{Number: 1000000000, Value: "Billion"},
-		{Number: 1000000, Value: "Million"},
-		{Number: 1000, Value: "Thousand"},
-		{Number: 100, Value: "Hundred"},
-		{Number: 90, Value: "Ninety"},
-		{Number: 80, Value: "Eighty"},
-		{Number: 70, Value: "Seventy"},
-		{Number: 60, Value: "Sixty"},
-		{Number: 50, Value: "Fifty"},
-		{Number: 40, Value: "Forty"},
-		{Number: 30, Value: "Thirty"},
-		{Number: 20, Value: "Twenty"},
-		{Number: 19, Value: "Nineteen"},
-		{Number: 18, Value: "Eighteen"},
-		{Number: 17, Value: "Seventeen"},
-		{Number: 16, Value: "Sixteen"},
-		{Number: 15, Value: "Fifteen"},
-		{Number: 14, Value: "Fourteen"},
-		{Number: 13, Value: "Thirteen"},
-		{Number: 12, Value: "Twelve"},
-		{Number: 11, Value: "Eleven"},
-		{Number: 10, Value: "Ten"},
-		{Number: 9, Value: "Nine"},
-		{Number: 8, Value: "Eight"},
-		{Number: 7, Value: "Seven"},
-		{Number: 6, Value: "Six"},
-		{Number: 5, Value: "Five"},
-		{Number: 4, Value: "Four"},
-		{Number: 3, Value: "Three"},
-		{Number: 2, Value: "Two"},
-		{Number: 1, Value: "One"},
-		{Number: 0, Value: "Zero"},
+		{Number: 1000000000000000, Value: "biljard"},
+		{Number: 1000000000000, Value: "biljoen"},
+		{Number: 1000000000, Value: "miljard"},
+		{Number: 1000000, Value: "miljoen"},
+		{Number: 1000, Value: "duizend"},
+		{Number: 100, Value: "honderd"},
+		{Number: 90, Value: "negentig"},
+		{Number: 80, Value: "tachtig"},
+		{Number: 70, Value: "zeventig"},
+		{Number: 60, Value: "zestig"},
+		{Number: 50, Value: "vijftig"},
+		{Number: 40, Value: "veertig"},
+		{Number: 30, Value: "dertig"},
+		{Number: 20, Value: "twintig"},
+		{Number: 19, Value: "negentien"},
+		{Number: 18, Value: "achttien"},
+		{Number: 17, Value: "zeventien"},
+		{Number: 16, Value: "zestien"},
+		{Number: 15, Value: "vijftien"},
+		{Number: 14, Value: "veertien"},
+		{Number: 13, Value: "dertien"},
+		{Number: 12, Value: "twaalf"},
+		{Number: 11, Value: "elf"},
+		{Number: 10, Value: "tien"},
+		{Number: 9, Value: "negen"},
+		{Number: 8, Value: "acht"},
+		{Number: 7, Value: "zeven"},
+		{Number: 6, Value: "zes"},
+		{Number: 5, Value: "vijf"},
+		{Number: 4, Value: "vier"},
+		{Number: 3, Value: "drie"},
+		{Number: 2, Value: "twee"},
+		{Number: 1, Value: "een"},
+		{Number: 0, Value: "nul"},
 	},
 	ExactWordsMapping: []ExactWordMapping{
 		{Number: 1000000, Value: "One Million"},
@@ -118,7 +119,98 @@ var NLNLLocale = NumI18NLocale{
 type DutchFormatter struct{}
 
 func (f *DutchFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
-	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+	return f.convertDutchNumber(number, targetLocale)
+}
+
+// convertDutchNumber converts numbers to Dutch compound words
+func (f *DutchFormatter) convertDutchNumber(number int64, targetLocale NumI18NLocale) string {
+	if number == 0 {
+		return "nul"
+	}
+
+	if number < 0 {
+		return "min " + f.convertDutchNumber(-number, targetLocale)
+	}
+
+	// Handle numbers 1-19 directly
+	if number <= 19 {
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == number {
+				return strings.ToLower(mapping.Value)
+			}
+		}
+	}
+
+	// Handle 20-99 (compound tens)
+	if number < 100 {
+		tens := (number / 10) * 10
+		ones := number % 10
+
+		tensWord := ""
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == tens {
+				tensWord = strings.ToLower(mapping.Value)
+				break
+			}
+		}
+
+		if ones == 0 {
+			return tensWord
+		}
+
+		onesWord := ""
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == ones {
+				onesWord = strings.ToLower(mapping.Value)
+				break
+			}
+		}
+
+		return onesWord + "en" + tensWord
+	}
+
+	// Handle 100-999 (hundreds)
+	if number < 1000 {
+		hundreds := number / 100
+		remainder := number % 100
+
+		result := ""
+		if hundreds == 1 {
+			result = "honderd"
+		} else {
+			hundredsWord := f.convertDutchNumber(hundreds, targetLocale)
+			result = hundredsWord + "honderd"
+		}
+
+		if remainder > 0 {
+			result += f.convertDutchNumber(remainder, targetLocale)
+		}
+
+		return result
+	}
+
+	// Handle 1000+ (thousands, millions, etc.)
+	if number < 1000000 {
+		thousands := number / 1000
+		remainder := number % 1000
+
+		result := ""
+		if thousands == 1 {
+			result = "duizend"
+		} else {
+			thousandsWord := f.convertDutchNumber(thousands, targetLocale)
+			result = thousandsWord + "duizend"
+		}
+
+		if remainder > 0 {
+			result += f.convertDutchNumber(remainder, targetLocale)
+		}
+
+		return result
+	}
+
+	// For larger numbers, fall back to generic conversion but lowercase
+	return strings.ToLower(ConvertToWordsWithExactMappingInt64(number, targetLocale))
 }
 
 func (f *DutchFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
@@ -150,23 +242,17 @@ func (f *DutchFormatter) ChopDecimal(amount decimal.Decimal, precision int) deci
 	return amount.Truncate(int32(precision))
 }
 
-
 func (f *DutchFormatter) FormatDecimalNumber(amount float64) string {
-	return DefaultFormatDecimalNumber(amount, ".", ",")
+	return FormatEuropeanDecimal(amount)
 }
+
 func (f *DutchFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
-	formattedNumber := f.FormatDecimalNumber(amount)
-	
+	// Get currency symbol
 	currencySymbol := targetLocale.Currency.Symbol
 	if overrideOptions != nil && overrideOptions.Symbol != "" {
 		currencySymbol = overrideOptions.Symbol
 	}
-	
-	// Default currency placement for this locale (prefix with symbol)
-	if strings.HasPrefix(formattedNumber, "-") {
-		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
-		return "-" + currencySymbol + formattedNumber
-	}
-	
-	return currencySymbol + formattedNumber
+
+	// Format with European conventions (period separators, comma decimal, prefix symbol)
+	return FormatEuropeanCurrency(amount, currencySymbol)
 }

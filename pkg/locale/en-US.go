@@ -160,6 +160,6 @@ func (f *EnglishFormatter) FormatDecimalNumberWithCurrency(amount float64, targe
 		currencySymbol = overrideOptions.Symbol
 	}
 
-	// Format with thousand separators, currency symbol, and symbol prefix (true for US)
-	return FormatCurrencyWithSeparators(amount, ",", currencySymbol, true)
+	// Format with thousand separators, currency symbol, and symbol prefix (true for US) - always shows 2 decimal places
+	return FormatUSCurrencyWithSeparators(amount, ",", currencySymbol, true)
 }

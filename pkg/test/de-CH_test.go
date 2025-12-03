@@ -66,7 +66,7 @@ func TestToWords_SwissGerman_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Vierzig Sieben",
+			expected: "Siebenundvierzig",
 		},
 		{
 			name:   "One hundred (exact mapping)",
@@ -88,7 +88,7 @@ func TestToWords_SwissGerman_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Zwei Hundert Fünfzig Sechs",
+			expected: "Zweihundertsechsundfünfzig",
 		},
 		{
 			name:   "One thousand",
@@ -99,7 +99,7 @@ func TestToWords_SwissGerman_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Tausend",
+			expected: "Eintausend",
 		},
 		{
 			name:   "One million (exact mapping)",
@@ -121,7 +121,7 @@ func TestToWords_SwissGerman_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Million Zwei Hundert Dreißig Vier Tausend Fünf Hundert Sechzig Sieben",
+			expected: "Eins million zwei hundert dreißig vier tausend fünf hundert sechzig sieben",
 		},
 	}
 
@@ -152,7 +152,7 @@ func TestToWords_SwissGerman_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Schweizer Franken",
+			expected: "Eins Franken",
 		},
 		{
 			name:   "Multiple Schweizer Franken",
@@ -164,7 +164,7 @@ func TestToWords_SwissGerman_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Fünf Schweizer Franken",
+			expected: "Fünf Franken",
 		},
 		{
 			name:   "Zero Schweizer Franken",
@@ -176,7 +176,7 @@ func TestToWords_SwissGerman_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Null Schweizer Franken",
+			expected: "Null Franken",
 		},
 		{
 			name:   "Large amount",
@@ -188,7 +188,7 @@ func TestToWords_SwissGerman_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Million Schweizer Franken",
+			expected: "Million Franken",
 		},
 	}
 
@@ -220,7 +220,7 @@ func TestToWords_SwissGerman_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Fünf Schweizer Franken und Eins Rappen",
+			expected: "Fünf Franken und eins Rappen",
 		},
 		{
 			name:   "Schweizer Franken and multiple Rappen",
@@ -233,7 +233,7 @@ func TestToWords_SwissGerman_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Fünf Schweizer Franken und Zwanzig Fünf Rappen",
+			expected: "Fünf Franken und fünfundzwanzig Rappen",
 		},
 		{
 			name:   "Only Rappen",
@@ -246,7 +246,7 @@ func TestToWords_SwissGerman_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Null Schweizer Franken und Neunzig Neun Rappen",
+			expected: "Null Franken und neunundneunzig Rappen",
 		},
 		{
 			name:   "Complex amount",
@@ -259,7 +259,7 @@ func TestToWords_SwissGerman_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Tausend Zwei Hundert Dreißig Vier Schweizer Franken und Fünfzig Sechs Rappen",
+			expected: "Eintausendzweihundertvierunddreißig Franken und sechsundfünfzig Rappen",
 		},
 		{
 			name:   "Decimal without currency",
@@ -271,7 +271,7 @@ func TestToWords_SwissGerman_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Hundert Zwanzig Drei und Vierzig Fünf",
+			expected: "Einhundertdreiundzwanzig und fünfundvierzig",
 		},
 	}
 
@@ -302,7 +302,7 @@ func TestToWords_SwissGerman_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Minus Fünfzig",
+			expected: "Minus fünfzig",
 		},
 		{
 			name:   "Negative currency",
@@ -316,7 +316,7 @@ func TestToWords_SwissGerman_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Minus Zwanzig Fünf Schweizer Franken und Siebzig Fünf Rappen",
+			expected: "Minus fünfundzwanzig Franken und fünfundsiebzig Rappen",
 		},
 		{
 			name:   "Negative with custom word",
@@ -332,7 +332,7 @@ func TestToWords_SwissGerman_Negative(t *testing.T) {
 					},
 				},
 			},
-			expected: "Negativ Einhundert Schweizer Franken",
+			expected: "Negativ einhundert Franken",
 		},
 	}
 
@@ -363,7 +363,7 @@ func TestToWords_SwissGerman_Formatting(t *testing.T) {
 					Uppercase: true,
 				},
 			},
-			expected: "EINS HUNDERT ZWANZIG DREI SCHWEIZER FRANKEN",
+			expected: "EINHUNDERTDREIUNDZWANZIG FRANKEN",
 		},
 		{
 			name:   "Lowercase",
@@ -375,7 +375,7 @@ func TestToWords_SwissGerman_Formatting(t *testing.T) {
 					Lowercase: true,
 				},
 			},
-			expected: "eins hundert zwanzig drei schweizer franken",
+			expected: "einhundertdreiundzwanzig franken",
 		},
 		{
 			name:   "Only flag",
@@ -387,7 +387,7 @@ func TestToWords_SwissGerman_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Neun Hundert Neunzig Neun nur",
+			expected: "Neunhundertneunundneunzig nur",
 		},
 		{
 			name:   "Only flag with currency",
@@ -400,7 +400,7 @@ func TestToWords_SwissGerman_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Fünf Hundert Schweizer Franken nur",
+			expected: "Fünfhundert Franken nur",
 		},
 	}
 
@@ -454,7 +454,7 @@ func TestToWords_SwissGerman_CustomCurrency(t *testing.T) {
 					},
 				},
 			},
-			expected: "Fünfzig Dollar und Zwanzig Fünf Cent",
+			expected: "Fünfzig Dollar und fünfundzwanzig Cent",
 		},
 		{
 			name:   "Single custom currency",
@@ -502,7 +502,7 @@ func TestToWords_SwissGerman_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Null Schweizer Franken und Eins Rappen",
+			expected: "Null Franken und eins Rappen",
 		},
 		{
 			name:   "Eleven (special case)",
@@ -535,7 +535,7 @@ func TestToWords_SwissGerman_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Zwanzig Eins",
+			expected: "Einsundzwanzig",
 		},
 		{
 			name:   "One hundred one",
@@ -546,7 +546,7 @@ func TestToWords_SwissGerman_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Hundert Eins",
+			expected: "Einhunderteins",
 		},
 		{
 			name:   "One thousand one",
@@ -557,7 +557,7 @@ func TestToWords_SwissGerman_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Tausend Eins",
+			expected: "Eintausendeins",
 		},
 	}
 

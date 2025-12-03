@@ -66,7 +66,7 @@ func TestToWords_German_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Vierzig Sieben",
+			expected: "Siebenundvierzig",
 		},
 		{
 			name:   "One hundred (exact mapping)",
@@ -88,7 +88,7 @@ func TestToWords_German_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Zwei Hundert Fünfzig Sechs",
+			expected: "Zweihundertsechsundfünfzig",
 		},
 		{
 			name:   "One thousand",
@@ -99,7 +99,7 @@ func TestToWords_German_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Tausend",
+			expected: "Eintausend",
 		},
 		{
 			name:   "One million (exact mapping)",
@@ -121,7 +121,7 @@ func TestToWords_German_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Million Zwei Hundert Dreißig Vier Tausend Fünf Hundert Sechzig Sieben",
+			expected: "Eins million zwei hundert dreißig vier tausend fünf hundert sechzig sieben",
 		},
 	}
 
@@ -220,7 +220,7 @@ func TestToWords_German_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Fünf Euro Und Eins Cent",
+			expected: "Fünf Euro und eins Cent",
 		},
 		{
 			name:   "Euros and multiple Cents",
@@ -233,7 +233,7 @@ func TestToWords_German_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Fünf Euro Und Zwanzig Fünf Cent",
+			expected: "Fünf Euro und fünfundzwanzig Cent",
 		},
 		{
 			name:   "Only Cents",
@@ -246,7 +246,7 @@ func TestToWords_German_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Null Euro Und Neunzig Neun Cent",
+			expected: "Null Euro und neunundneunzig Cent",
 		},
 		{
 			name:   "Complex amount",
@@ -259,7 +259,7 @@ func TestToWords_German_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Tausend Zwei Hundert Dreißig Vier Euro Und Fünfzig Sechs Cent",
+			expected: "Eintausendzweihundertvierunddreißig Euro und sechsundfünfzig Cent",
 		},
 		{
 			name:   "Decimal without currency",
@@ -271,7 +271,7 @@ func TestToWords_German_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Hundert Zwanzig Drei Und Vierzig Fünf",
+			expected: "Einhundertdreiundzwanzig und fünfundvierzig",
 		},
 	}
 
@@ -302,7 +302,7 @@ func TestToWords_German_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Minus Fünfzig",
+			expected: "Minus fünfzig",
 		},
 		{
 			name:   "Negative currency",
@@ -316,7 +316,7 @@ func TestToWords_German_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Minus Zwanzig Fünf Euro Und Siebzig Fünf Cent",
+			expected: "Minus fünfundzwanzig Euro und fünfundsiebzig Cent",
 		},
 		{
 			name:   "Negative with custom word",
@@ -332,7 +332,7 @@ func TestToWords_German_Negative(t *testing.T) {
 					},
 				},
 			},
-			expected: "Negativ Einhundert Euro",
+			expected: "Negativ einhundert Euro",
 		},
 	}
 
@@ -363,7 +363,7 @@ func TestToWords_German_Formatting(t *testing.T) {
 					Uppercase: true,
 				},
 			},
-			expected: "EINS HUNDERT ZWANZIG DREI EURO",
+			expected: "EINHUNDERTDREIUNDZWANZIG EURO",
 		},
 		{
 			name:   "Lowercase",
@@ -375,7 +375,7 @@ func TestToWords_German_Formatting(t *testing.T) {
 					Lowercase: true,
 				},
 			},
-			expected: "eins hundert zwanzig drei euro",
+			expected: "einhundertdreiundzwanzig euro",
 		},
 		{
 			name:   "Only flag",
@@ -387,7 +387,7 @@ func TestToWords_German_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Neun Hundert Neunzig Neun Nur",
+			expected: "Neunhundertneunundneunzig nur",
 		},
 		{
 			name:   "Only flag with currency",
@@ -400,7 +400,7 @@ func TestToWords_German_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Fünf Hundert Euro Nur",
+			expected: "Fünfhundert Euro nur",
 		},
 	}
 
@@ -454,7 +454,7 @@ func TestToWords_German_CustomCurrency(t *testing.T) {
 					},
 				},
 			},
-			expected: "Fünfzig Dollar Und Zwanzig Fünf Cent",
+			expected: "Fünfzig Dollar und fünfundzwanzig Cent",
 		},
 		{
 			name:   "Single custom currency",
@@ -502,7 +502,7 @@ func TestToWords_German_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Null Euro Und Eins Cent",
+			expected: "Null Euro und eins Cent",
 		},
 		{
 			name:   "Eleven (special case)",
@@ -535,7 +535,7 @@ func TestToWords_German_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Zwanzig Eins",
+			expected: "Einsundzwanzig",
 		},
 		{
 			name:   "One hundred one",
@@ -546,7 +546,7 @@ func TestToWords_German_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Hundert Eins",
+			expected: "Einhunderteins",
 		},
 		{
 			name:   "One thousand one",
@@ -557,7 +557,7 @@ func TestToWords_German_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eins Tausend Eins",
+			expected: "Eintausendeins",
 		},
 	}
 

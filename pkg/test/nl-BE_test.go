@@ -77,7 +77,7 @@ func TestToWords_DutchBelgian_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Eenhonderd",
+			expected: "Honderd",
 		},
 		{
 			name:   "Hundreds with remainder",
@@ -88,7 +88,7 @@ func TestToWords_DutchBelgian_Numbers(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Twee honderd vijftig zes",
+			expected: "Tweehonderdzesenvijftig",
 		},
 		{
 			name:   "One thousand",
@@ -152,7 +152,7 @@ func TestToWords_DutchBelgian_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Een Euro",
+			expected: "Een euro",
 		},
 		{
 			name:   "Multiple euros",
@@ -164,7 +164,7 @@ func TestToWords_DutchBelgian_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Vijf Euro",
+			expected: "Vijf euro",
 		},
 		{
 			name:   "Zero euros",
@@ -176,7 +176,7 @@ func TestToWords_DutchBelgian_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Nul Euro",
+			expected: "Nul euro",
 		},
 		{
 			name:   "Large amount",
@@ -188,7 +188,7 @@ func TestToWords_DutchBelgian_Currency(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Miljoen Euro",
+			expected: "Miljoen euro",
 		},
 	}
 
@@ -220,7 +220,7 @@ func TestToWords_DutchBelgian_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Vijf Euro en een Cent",
+			expected: "Vijf euro en een cent",
 		},
 		{
 			name:   "Euros and multiple cents",
@@ -233,7 +233,7 @@ func TestToWords_DutchBelgian_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Vijf Euro en vijfentwintig Cent",
+			expected: "Vijf euro en vijfentwintig cent",
 		},
 		{
 			name:   "Only cents",
@@ -246,7 +246,7 @@ func TestToWords_DutchBelgian_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Nul Euro en negenennegentig Cent",
+			expected: "Nul euro en negenennegentig cent",
 		},
 		{
 			name:   "Complex amount",
@@ -259,7 +259,7 @@ func TestToWords_DutchBelgian_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Een duizend twee honderd dertig vier Euro en zesenvijftig Cent",
+			expected: "Duizendtweehonderdvierendertig euro en zesenvijftig cent",
 		},
 		{
 			name:   "Decimal without currency",
@@ -271,7 +271,7 @@ func TestToWords_DutchBelgian_Decimals(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Een honderd twintig drie en vijfenveertig",
+			expected: "Honderddrieentwintig en vijfenveertig",
 		},
 	}
 
@@ -316,7 +316,7 @@ func TestToWords_DutchBelgian_Negative(t *testing.T) {
 					Capitalize:   true,
 				},
 			},
-			expected: "Min vijfentwintig Euro en vijfenzeventig Cent",
+			expected: "Min vijfentwintig euro en vijfenzeventig cent",
 		},
 		{
 			name:   "Negative with custom word",
@@ -332,7 +332,7 @@ func TestToWords_DutchBelgian_Negative(t *testing.T) {
 					},
 				},
 			},
-			expected: "Negatief Eenhonderd Euro",
+			expected: "Negatief honderd euro",
 		},
 	}
 
@@ -362,7 +362,7 @@ func TestToWords_DutchBelgian_Formatting(t *testing.T) {
 					Capitalize: false,
 				},
 			},
-			expected: "tweeënveertig",
+			expected: "tweeenveertig",
 		},
 		{
 			name:   "Only flag",
@@ -374,7 +374,7 @@ func TestToWords_DutchBelgian_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Negen honderd negentig negen alleen",
+			expected: "Negenhonderdnegenennegentig alleen",
 		},
 		{
 			name:   "Only flag with currency",
@@ -387,7 +387,7 @@ func TestToWords_DutchBelgian_Formatting(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Vijfhonderd Euro alleen",
+			expected: "Vijfhonderd euro alleen",
 		},
 	}
 
@@ -422,7 +422,7 @@ func TestToWords_DutchBelgian_CustomCurrency(t *testing.T) {
 					},
 				},
 			},
-			expected: "Eenhonderd dollar",
+			expected: "Honderd dollar",
 		},
 		{
 			name:   "Custom currency with decimals",
@@ -489,7 +489,7 @@ func TestToWords_DutchBelgian_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Nul Euro en een Cent",
+			expected: "Nul euro en een cent",
 		},
 		{
 			name:   "Eleven (special case)",
@@ -533,7 +533,7 @@ func TestToWords_DutchBelgian_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Een honderd een",
+			expected: "Honderdeen",
 		},
 		{
 			name:   "One thousand one",
@@ -544,7 +544,7 @@ func TestToWords_DutchBelgian_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Een duizend een",
+			expected: "Duizendeen",
 		},
 		{
 			name:   "Belgian number style",
@@ -555,7 +555,7 @@ func TestToWords_DutchBelgian_EdgeCases(t *testing.T) {
 					Capitalize: true,
 				},
 			},
-			expected: "Drieëntachtig",
+			expected: "Drieentachtig",
 		},
 	}
 

@@ -2,6 +2,7 @@ package locale
 
 import (
 	"strings"
+
 	"github.com/shopspring/decimal"
 )
 
@@ -232,23 +233,58 @@ func (f *ChineseChinaFormatter) ChopDecimal(value decimal.Decimal, places int) d
 	return value.Truncate(int32(places))
 }
 
-
 func (f *ChineseChinaFormatter) FormatDecimalNumber(amount float64) string {
-	return DefaultFormatDecimalNumber(amount, "", ".")
+	return FormatAsianDecimal(amount)
 }
+
 func (f *ChineseChinaFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
-	formattedNumber := f.FormatDecimalNumber(amount)
-	
 	currencySymbol := targetLocale.Currency.Symbol
 	if overrideOptions != nil && overrideOptions.Symbol != "" {
 		currencySymbol = overrideOptions.Symbol
 	}
-	
-	// Default currency placement for this locale (prefix with symbol)
-	if strings.HasPrefix(formattedNumber, "-") {
-		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
-		return "-" + currencySymbol + formattedNumber
+	return FormatAsianCurrency(amount, currencySymbol)
+}
+
+// convertChineseNumber converts numbers to Chinese compound words
+func (f *ChineseChinaFormatter) convertChineseNumber(number int64, targetLocale NumI18NLocale) string {
+	if number == 0 {
+		return "零"
 	}
-	
-	return currencySymbol + formattedNumber
+
+	if number < 0 {
+		return "负" + f.convertChineseNumber(-number, targetLocale)
+	}
+
+	// Check for exact mappings first (numbers up to 99 are pre-computed)
+	for _, mapping := range targetLocale.NumberWordsMapping {
+		if mapping.Number == number {
+			return mapping.Value
+		}
+	}
+
+	// Handle 100-999 (hundreds)
+	if number < 1000 {
+		hundreds := number / 100
+		remainder := number % 100
+
+		result := ""
+
+		// Get hundreds digit
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == hundreds {
+				result = mapping.Value + "百"
+				break
+			}
+		}
+
+		if remainder > 0 {
+			result += f.convertChineseNumber(remainder, targetLocale)
+		}
+
+		return result
+	}
+
+	// For larger numbers, fall back to generic but try to remove spaces
+	genericResult := ConvertToWordsWithExactMappingInt64(number, targetLocale)
+	return strings.ReplaceAll(genericResult, " ", "")
 }

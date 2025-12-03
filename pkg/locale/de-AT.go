@@ -2,6 +2,7 @@ package locale
 
 import (
 	"strings"
+
 	"github.com/shopspring/decimal"
 )
 
@@ -34,7 +35,7 @@ var DEATLocale = NumI18NLocale{
 		And:   "und",
 		Minus: "minus",
 		Only:  "nur",
-		Point: "Komma",
+		Point: "komma",
 	},
 	NumberWordsMapping: []NumberWordMapping{
 		{Number: 1000000000000000, Value: "Billiarde"},
@@ -110,7 +111,98 @@ var DEATLocale = NumI18NLocale{
 type AustrianGermanFormatter struct{}
 
 func (f *AustrianGermanFormatter) FormatNumber(number int64, targetLocale NumI18NLocale) string {
-	return ConvertToWordsWithExactMappingInt64(number, targetLocale)
+	return f.convertGermanNumber(number, targetLocale)
+}
+
+// convertGermanNumber converts numbers to German compound words
+func (f *AustrianGermanFormatter) convertGermanNumber(number int64, targetLocale NumI18NLocale) string {
+	if number == 0 {
+		return "null"
+	}
+
+	if number < 0 {
+		return "minus " + f.convertGermanNumber(-number, targetLocale)
+	}
+
+	// Handle numbers 1-19 directly
+	if number <= 19 {
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == number {
+				return strings.ToLower(mapping.Value)
+			}
+		}
+	}
+
+	// Handle 20-99 (compound tens)
+	if number < 100 {
+		tens := (number / 10) * 10
+		ones := number % 10
+
+		tensWord := ""
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == tens {
+				tensWord = strings.ToLower(mapping.Value)
+				break
+			}
+		}
+
+		if ones == 0 {
+			return tensWord
+		}
+
+		onesWord := ""
+		for _, mapping := range targetLocale.NumberWordsMapping {
+			if mapping.Number == ones {
+				onesWord = strings.ToLower(mapping.Value)
+				break
+			}
+		}
+
+		return onesWord + "und" + tensWord
+	}
+
+	// Handle 100-999 (hundreds)
+	if number < 1000 {
+		hundreds := number / 100
+		remainder := number % 100
+
+		result := ""
+		if hundreds == 1 {
+			result = "einhundert"
+		} else {
+			hundredsWord := f.convertGermanNumber(hundreds, targetLocale)
+			result = hundredsWord + "hundert"
+		}
+
+		if remainder > 0 {
+			result += f.convertGermanNumber(remainder, targetLocale)
+		}
+
+		return result
+	}
+
+	// Handle 1000+ (thousands, millions, etc.)
+	if number < 1000000 {
+		thousands := number / 1000
+		remainder := number % 1000
+
+		result := ""
+		if thousands == 1 {
+			result = "eintausend"
+		} else {
+			thousandsWord := f.convertGermanNumber(thousands, targetLocale)
+			result = thousandsWord + "tausend"
+		}
+
+		if remainder > 0 {
+			result += f.convertGermanNumber(remainder, targetLocale)
+		}
+
+		return result
+	}
+
+	// For larger numbers, fall back to generic conversion but lowercase
+	return strings.ToLower(ConvertToWordsWithExactMappingInt64(number, targetLocale))
 }
 
 func (f *AustrianGermanFormatter) FormatCurrency(result string, wholePart int64, currencyName, currencyPlural string) string {
@@ -139,23 +231,17 @@ func (f *AustrianGermanFormatter) ChopDecimal(amount decimal.Decimal, precision 
 	return amount.Round(int32(precision))
 }
 
-
 func (f *AustrianGermanFormatter) FormatDecimalNumber(amount float64) string {
-	return DefaultFormatDecimalNumber(amount, ".", ",")
+	return FormatEuropeanDecimal(amount)
 }
+
 func (f *AustrianGermanFormatter) FormatDecimalNumberWithCurrency(amount float64, targetLocale NumI18NLocale, overrideOptions *OverrideOptions) string {
-	formattedNumber := f.FormatDecimalNumber(amount)
-	
+	// Get currency symbol
 	currencySymbol := targetLocale.Currency.Symbol
 	if overrideOptions != nil && overrideOptions.Symbol != "" {
 		currencySymbol = overrideOptions.Symbol
 	}
-	
-	// Default currency placement for this locale (prefix with symbol)
-	if strings.HasPrefix(formattedNumber, "-") {
-		formattedNumber = strings.TrimPrefix(formattedNumber, "-")
-		return "-" + currencySymbol + formattedNumber
-	}
-	
-	return currencySymbol + formattedNumber
+
+	// Format with European conventions (period separators, comma decimal, prefix symbol)
+	return FormatEuropeanCurrency(amount, currencySymbol)
 }
