@@ -28,6 +28,8 @@ var INHILocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "hi",
 		Emoji:          "🇮🇳",
+		PhoneCode:      "+91",
+		Domain:         ".in",
 	},
 	Texts: Texts{
 		And:   "और",

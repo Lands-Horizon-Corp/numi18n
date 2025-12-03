@@ -28,6 +28,8 @@ var MGMGLocale = NumI18NLocale{
 		Timezone:       []string{"Indian/Antananarivo"},
 		Language:       "mg",
 		Emoji:          "🇲🇬",
+		PhoneCode:      "+261",
+		Domain:         ".mg",
 	},
 	Texts: Texts{
 		And:   "ary",

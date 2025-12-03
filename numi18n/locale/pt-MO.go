@@ -28,6 +28,8 @@ var PTMOLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Macau"},
 		Language:       "pt",
 		Emoji:          "🇲🇴",
+		PhoneCode:      "+853",
+		Domain:         ".mo",
 	},
 	Texts: Texts{
 		And:   "e",

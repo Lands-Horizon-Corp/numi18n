@@ -28,6 +28,8 @@ var NYMWLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Blantyre"},
 		Language:       "ny",
 		Emoji:          "🇲🇼",
+		PhoneCode:      "+265",
+		Domain:         ".mw",
 	},
 	Texts: Texts{
 		And:   "ndi",

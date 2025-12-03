@@ -24,6 +24,8 @@ var VELocale = NumI18NLocale{
 		Timezone:       []string{"America/Caracas"},
 		Language:       "es",
 		Emoji:          "🇻🇪",
+		PhoneCode:      "+58",
+		Domain:         ".ve",
 	},
 	Texts: Texts{
 		And:   "Y",

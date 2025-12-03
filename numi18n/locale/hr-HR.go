@@ -28,6 +28,8 @@ var HRLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Zagreb"},
 		Language:       "hr",
 		Emoji:          "🇭🇷",
+		PhoneCode:      "+385",
+		Domain:         ".hr",
 	},
 	Texts: Texts{
 		And:   "I",

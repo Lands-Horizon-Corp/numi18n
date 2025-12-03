@@ -28,6 +28,8 @@ var HULocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Budapest"},
 		Language:       "hu",
 		Emoji:          "🇭🇺",
+		PhoneCode:      "+36",
+		Domain:         ".hu",
 	},
 	Texts: Texts{
 		And:   "És",

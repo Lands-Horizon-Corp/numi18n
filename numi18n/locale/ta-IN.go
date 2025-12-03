@@ -29,6 +29,8 @@ var TAINLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "ta",
 		Emoji:          "🇮🇳",
+		PhoneCode:      "+91",
+		Domain:         ".in",
 	},
 	Texts: Texts{
 		And:   "மற்றும்",

@@ -28,6 +28,8 @@ var ILLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Jerusalem"},
 		Language:       "he",
 		Emoji:          "🇮🇱",
+		PhoneCode:      "+972",
+		Domain:         ".il",
 	},
 	Texts: Texts{
 		And:   "ו",

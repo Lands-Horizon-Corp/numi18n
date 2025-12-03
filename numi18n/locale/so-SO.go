@@ -28,6 +28,8 @@ var SOSOLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Mogadishu"},
 		Language:       "so",
 		Emoji:          "🇸🇴",
+		PhoneCode:      "+252",
+		Domain:         ".so",
 	},
 	Texts: Texts{
 		And:   "iyo",

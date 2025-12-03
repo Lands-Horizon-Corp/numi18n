@@ -28,6 +28,8 @@ var USLocale = NumI18NLocale{
 		Timezone:       []string{"America/New_York"},
 		Language:       "en",
 		Emoji:          "🇺🇸",
+		PhoneCode:      "+1",
+		Domain:         ".us",
 	},
 	Texts: Texts{
 		And:   "And",

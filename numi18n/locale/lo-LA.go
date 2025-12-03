@@ -28,6 +28,8 @@ var LOLALocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Vientiane"},
 		Language:       "lo",
 		Emoji:          "🇱🇦",
+		PhoneCode:      "+856",
+		Domain:         ".la",
 	},
 	LocaleFormatter: &LaoFormatter{},
 	Texts: Texts{

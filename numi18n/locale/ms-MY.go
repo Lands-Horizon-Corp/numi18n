@@ -28,6 +28,8 @@ var MSMYLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kuala_Lumpur"},
 		Language:       "ms",
 		Emoji:          "🇲🇾",
+		PhoneCode:      "+60",
+		Domain:         ".my",
 	},
 	Texts: Texts{
 		And:   "dan",

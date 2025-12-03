@@ -28,6 +28,8 @@ var ZHSGLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Singapore"},
 		Language:       "zh",
 		Emoji:          "🇸🇬",
+		PhoneCode:      "+65",
+		Domain:         ".sg",
 	},
 	Texts: Texts{
 		And:   "和",

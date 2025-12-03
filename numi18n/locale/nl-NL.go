@@ -30,6 +30,8 @@ var NLNLLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Amsterdam"},
 		Language:       "nl",
 		Emoji:          "🇳🇱",
+		PhoneCode:      "+31",
+		Domain:         ".nl",
 	},
 	Texts: Texts{
 		And:   "en",

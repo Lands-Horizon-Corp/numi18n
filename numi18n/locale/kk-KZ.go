@@ -28,6 +28,8 @@ var KZLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Almaty"},
 		Language:       "kk",
 		Emoji:          "🇰🇿",
+		PhoneCode:      "+7",
+		Domain:         ".kz",
 	},
 	Texts: Texts{
 		And:   "Және",

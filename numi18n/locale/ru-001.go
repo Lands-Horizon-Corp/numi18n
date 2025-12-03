@@ -28,6 +28,8 @@ var RU001Locale = NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "ru",
 		Emoji:          "🌍",
+		PhoneCode:      "+1",
+		Domain:         ".com",
 	},
 	Texts: Texts{
 		And:   "и",

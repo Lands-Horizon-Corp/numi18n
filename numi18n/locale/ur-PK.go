@@ -28,6 +28,8 @@ var URPKLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Karachi"},
 		Language:       "ur",
 		Emoji:          "🇵🇰",
+		PhoneCode:      "+92",
+		Domain:         ".pk",
 	},
 	Texts: Texts{
 		And:   "اور",

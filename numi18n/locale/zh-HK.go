@@ -28,6 +28,8 @@ var ZHHKLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Hong_Kong"},
 		Language:       "zh",
 		Emoji:          "🇭🇰",
+		PhoneCode:      "+852",
+		Domain:         ".hk",
 	},
 	Texts: Texts{
 		And:   "同",

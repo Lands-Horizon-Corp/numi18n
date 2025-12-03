@@ -29,6 +29,8 @@ var NENPLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kathmandu"},
 		Language:       "ne",
 		Emoji:          "🇳🇵",
+		PhoneCode:      "+977",
+		Domain:         ".np",
 	},
 	Texts: Texts{
 		And:   "र",

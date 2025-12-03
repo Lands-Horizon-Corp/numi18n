@@ -28,6 +28,8 @@ var GLLocale = NumI18NLocale{
 		Timezone:       []string{"America/Godthab"},
 		Language:       "kl",
 		Emoji:          "🇬🇱",
+		PhoneCode:      "+299",
+		Domain:         ".gl",
 	},
 	Texts: Texts{
 		And:   "Aamma",

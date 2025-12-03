@@ -28,6 +28,8 @@ var RWRWLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Kigali"},
 		Language:       "rw",
 		Emoji:          "🇷🇼",
+		PhoneCode:      "+250",
+		Domain:         ".rw",
 	},
 	Texts: Texts{
 		And:   "na",

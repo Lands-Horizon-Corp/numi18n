@@ -24,6 +24,8 @@ var HNLocale = NumI18NLocale{
 		Timezone:       []string{"America/Tegucigalpa"},
 		Language:       "es",
 		Emoji:          "🇭🇳",
+		PhoneCode:      "+504",
+		Domain:         ".hn",
 	},
 	Texts: Texts{
 		And:   "Y",

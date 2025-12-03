@@ -28,6 +28,8 @@ var SNFRLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Dakar"},
 		Language:       "fr",
 		Emoji:          "🇸🇳",
+		PhoneCode:      "+221",
+		Domain:         ".sn",
 	},
 	Texts: Texts{
 		And:   "Et",

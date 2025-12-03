@@ -28,6 +28,8 @@ var SVFILocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Helsinki"},
 		Language:       "sv",
 		Emoji:          "🇫🇮",
+		PhoneCode:      "+358",
+		Domain:         ".fi",
 	},
 	Texts: Texts{
 		And:   "och",

@@ -29,6 +29,8 @@ var DADKLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Copenhagen"},
 		Language:       "da",
 		Emoji:          "🇩🇰",
+		PhoneCode:      "+45",
+		Domain:         ".dk",
 	},
 	Texts: Texts{
 		And:   "og",

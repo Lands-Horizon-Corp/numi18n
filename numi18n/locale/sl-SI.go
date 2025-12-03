@@ -28,6 +28,8 @@ var SLSILocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Ljubljana"},
 		Language:       "sl",
 		Emoji:          "🇸🇮",
+		PhoneCode:      "+386",
+		Domain:         ".si",
 	},
 	Texts: Texts{
 		And:   "in",

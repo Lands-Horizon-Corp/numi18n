@@ -28,6 +28,8 @@ var MNMNLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Ulaanbaatar"},
 		Language:       "mn",
 		Emoji:          "🇲🇳",
+		PhoneCode:      "+976",
+		Domain:         ".mn",
 	},
 	Texts: Texts{
 		And:   "ба",

@@ -28,6 +28,8 @@ var URINLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "ur",
 		Emoji:          "🇮🇳",
+		PhoneCode:      "+91",
+		Domain:         ".in",
 	},
 	Texts: Texts{
 		And:   "اور",

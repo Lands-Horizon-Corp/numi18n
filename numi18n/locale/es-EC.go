@@ -24,6 +24,8 @@ var ECLocale = NumI18NLocale{
 		Timezone:       []string{"America/Guayaquil"},
 		Language:       "es",
 		Emoji:          "🇪🇨",
+		PhoneCode:      "+593",
+		Domain:         ".ec",
 	},
 	Texts: Texts{
 		And:   "Y",

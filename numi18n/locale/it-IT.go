@@ -28,6 +28,8 @@ var ITLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Rome"},
 		Language:       "it",
 		Emoji:          "🇮🇹",
+		PhoneCode:      "+39",
+		Domain:         ".it",
 	},
 	Texts: Texts{
 		And:   "E",

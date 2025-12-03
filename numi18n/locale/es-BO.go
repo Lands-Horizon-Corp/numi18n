@@ -24,6 +24,8 @@ var BOLocale = NumI18NLocale{
 		Timezone:       []string{"America/La_Paz"},
 		Language:       "es",
 		Emoji:          "🇧🇴",
+		PhoneCode:      "+591",
+		Domain:         ".bo",
 	},
 	Texts: Texts{
 		And:   "Y",

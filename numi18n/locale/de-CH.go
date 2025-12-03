@@ -31,6 +31,8 @@ var DECHLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "de",
 		Emoji:          "🇨🇭",
+		PhoneCode:      "+41",
+		Domain:         ".ch",
 	},
 	Texts: Texts{
 		And:   "und",

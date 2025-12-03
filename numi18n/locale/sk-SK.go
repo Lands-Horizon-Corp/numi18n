@@ -28,6 +28,8 @@ var SKSKLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Bratislava"},
 		Language:       "sk",
 		Emoji:          "🇸🇰",
+		PhoneCode:      "+421",
+		Domain:         ".sk",
 	},
 	Texts: Texts{
 		And:   "a",

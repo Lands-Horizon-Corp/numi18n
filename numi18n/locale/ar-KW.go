@@ -29,6 +29,8 @@ var ARKWLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kuwait"},
 		Language:       "ar",
 		Emoji:          "🇰🇼",
+		PhoneCode:      "+965",
+		Domain:         ".kw",
 	},
 	Texts: Texts{
 		And:   "و",

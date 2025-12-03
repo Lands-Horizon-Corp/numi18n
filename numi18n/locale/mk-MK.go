@@ -28,6 +28,8 @@ var MKMKLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Skopje"},
 		Language:       "mk",
 		Emoji:          "🇲🇰",
+		PhoneCode:      "+389",
+		Domain:         ".mk",
 	},
 	Texts: Texts{
 		And:   "и",

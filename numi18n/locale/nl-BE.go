@@ -30,6 +30,8 @@ var NLBELocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Brussels"},
 		Language:       "nl",
 		Emoji:          "🇧🇪",
+		PhoneCode:      "+32",
+		Domain:         ".be",
 	},
 	Texts: Texts{
 		And:   "en",

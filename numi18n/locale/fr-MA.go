@@ -28,6 +28,8 @@ var MAFRLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Casablanca"},
 		Language:       "fr",
 		Emoji:          "🇲🇦",
+		PhoneCode:      "+212",
+		Domain:         ".ma",
 	},
 	Texts: Texts{
 		And:   "Et",

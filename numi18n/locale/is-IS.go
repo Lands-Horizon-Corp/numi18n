@@ -28,6 +28,8 @@ var ISLocale = NumI18NLocale{
 		Timezone:       []string{"Atlantic/Reykjavik"},
 		Language:       "is",
 		Emoji:          "🇮🇸",
+		PhoneCode:      "+354",
+		Domain:         ".is",
 	},
 	Texts: Texts{
 		And:   "Og",

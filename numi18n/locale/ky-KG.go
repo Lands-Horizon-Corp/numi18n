@@ -28,6 +28,8 @@ var KGLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Bishkek"},
 		Language:       "ky",
 		Emoji:          "🇰🇬",
+		PhoneCode:      "+996",
+		Domain:         ".kg",
 	},
 	Texts: Texts{
 		And:   "Жана",

@@ -28,6 +28,8 @@ var NGHALocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Lagos"},
 		Language:       "ha",
 		Emoji:          "🇳🇬",
+		PhoneCode:      "+234",
+		Domain:         ".ng",
 	},
 	Texts: Texts{
 		And:   "Da",

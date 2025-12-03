@@ -28,6 +28,8 @@ var ARBHLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Bahrain"},
 		Language:       "ar",
 		Emoji:          "🇧🇭",
+		PhoneCode:      "+973",
+		Domain:         ".bh",
 	},
 	Texts: Texts{
 		And:   "و",

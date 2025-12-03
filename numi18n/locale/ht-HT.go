@@ -28,6 +28,8 @@ var HTLocale = NumI18NLocale{
 		Timezone:       []string{"America/Port-au-Prince"},
 		Language:       "ht",
 		Emoji:          "🇭🇹",
+		PhoneCode:      "+509",
+		Domain:         ".ht",
 	},
 	Texts: Texts{
 		And:   "ak",

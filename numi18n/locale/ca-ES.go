@@ -29,6 +29,8 @@ var CAESLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "ca",
 		Emoji:          "🇪🇸",
+		PhoneCode:      "+34",
+		Domain:         ".es",
 	},
 	Texts: Texts{
 		And:   "i",

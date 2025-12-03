@@ -29,6 +29,8 @@ var NGLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Lagos"},
 		Language:       "en",
 		Emoji:          "🇳🇬",
+		PhoneCode:      "+234",
+		Domain:         ".ng",
 	},
 	Texts: Texts{
 		And:   "And",

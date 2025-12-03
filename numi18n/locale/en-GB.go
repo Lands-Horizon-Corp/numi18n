@@ -29,6 +29,8 @@ var GBLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/London"},
 		Language:       "en",
 		Emoji:          "🇬🇧",
+		PhoneCode:      "+44",
+		Domain:         ".uk",
 	},
 	Texts: Texts{
 		And:   "And",

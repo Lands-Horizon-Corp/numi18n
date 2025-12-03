@@ -28,6 +28,8 @@ var LUFRLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Luxembourg"},
 		Language:       "fr",
 		Emoji:          "🇱🇺",
+		PhoneCode:      "+352",
+		Domain:         ".lu",
 	},
 	Texts: Texts{
 		And:   "Et",

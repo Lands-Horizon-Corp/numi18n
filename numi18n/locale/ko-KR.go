@@ -28,6 +28,8 @@ var KRLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Seoul"},
 		Language:       "ko",
 		Emoji:          "🇰🇷",
+		PhoneCode:      "+82",
+		Domain:         ".kr",
 	},
 	Texts: Texts{
 		And:   "그리고",

@@ -24,6 +24,8 @@ var ARMALocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Casablanca"},
 		Language:       "ar",
 		Emoji:          "🇲🇦",
+		PhoneCode:      "+212",
+		Domain:         ".ma",
 	},
 	Texts: Texts{
 		And:   "و",

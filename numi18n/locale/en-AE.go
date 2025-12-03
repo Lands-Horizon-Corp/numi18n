@@ -29,6 +29,8 @@ var AEELocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Dubai"},
 		Language:       "en",
 		Emoji:          "🇦🇪",
+		PhoneCode:      "+971",
+		Domain:         ".ae",
 	},
 	Texts: Texts{
 		And:   "And",

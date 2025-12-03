@@ -28,6 +28,8 @@ var PAINLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "pa",
 		Emoji:          "🇮🇳",
+		PhoneCode:      "+91",
+		Domain:         ".in",
 	},
 	Texts: Texts{
 		And:   "ਅਤੇ",

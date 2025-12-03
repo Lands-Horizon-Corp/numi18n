@@ -28,6 +28,8 @@ var QUPELocale = NumI18NLocale{
 		Timezone:       []string{"America/Lima"},
 		Language:       "qu",
 		Emoji:          "🇵🇪",
+		PhoneCode:      "+51",
+		Domain:         ".pe",
 	},
 	Texts: Texts{
 		And:   "wan",

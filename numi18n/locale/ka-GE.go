@@ -28,6 +28,8 @@ var GELocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Tbilisi"},
 		Language:       "ka",
 		Emoji:          "🇬🇪",
+		PhoneCode:      "+995",
+		Domain:         ".ge",
 	},
 	Texts: Texts{
 		And:   "და",

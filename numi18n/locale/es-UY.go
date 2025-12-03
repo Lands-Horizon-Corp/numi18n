@@ -24,6 +24,8 @@ var UYLocale = NumI18NLocale{
 		Timezone:       []string{"America/Montevideo"},
 		Language:       "es",
 		Emoji:          "🇺🇾",
+		PhoneCode:      "+598",
+		Domain:         ".uy",
 	},
 	Texts: Texts{
 		And:   "Y",

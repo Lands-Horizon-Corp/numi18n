@@ -28,6 +28,8 @@ var PTBRLocale = NumI18NLocale{
 		Timezone:       []string{"America/Sao_Paulo"},
 		Language:       "pt",
 		Emoji:          "🇧🇷",
+		PhoneCode:      "+55",
+		Domain:         ".br",
 	},
 	Texts: Texts{
 		And:   "e",

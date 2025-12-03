@@ -62,6 +62,8 @@ var CHITLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Zurich"},
 		Language:       "it",
 		Emoji:          "🇨🇭",
+		PhoneCode:      "+41",
+		Domain:         ".ch",
 	},
 	Texts: Texts{
 		And:   "E",

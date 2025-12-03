@@ -29,6 +29,8 @@ var CYGBLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/London"},
 		Language:       "cy",
 		Emoji:          "🇬🇧",
+		PhoneCode:      "+44",
+		Domain:         ".uk",
 	},
 	Texts: Texts{
 		And:   "a",

@@ -28,6 +28,8 @@ var SQALLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Tirane"},
 		Language:       "sq",
 		Emoji:          "🇦🇱",
+		PhoneCode:      "+355",
+		Domain:         ".al",
 	},
 	Texts: Texts{
 		And:   "dhe",

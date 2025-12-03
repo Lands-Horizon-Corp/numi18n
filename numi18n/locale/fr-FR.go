@@ -28,6 +28,8 @@ var FRLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Paris"},
 		Language:       "fr",
 		Emoji:          "🇫🇷",
+		PhoneCode:      "+33",
+		Domain:         ".fr",
 	},
 	Texts: Texts{
 		And:   "Et",

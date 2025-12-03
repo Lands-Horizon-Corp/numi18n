@@ -29,6 +29,8 @@ var DZBTLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Thimphu"},
 		Language:       "dz",
 		Emoji:          "🇧🇹",
+		PhoneCode:      "+975",
+		Domain:         ".bt",
 	},
 	Texts: Texts{
 		And:   "དང་",

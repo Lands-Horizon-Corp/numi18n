@@ -29,6 +29,8 @@ var BGBGLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Sofia"},
 		Language:       "bg",
 		Emoji:          "🇧🇬",
+		PhoneCode:      "+359",
+		Domain:         ".bg",
 	},
 	Texts: Texts{
 		And:   "и",

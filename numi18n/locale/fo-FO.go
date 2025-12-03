@@ -28,6 +28,8 @@ var FOLocale = NumI18NLocale{
 		Timezone:       []string{"Atlantic/Faroe"},
 		Language:       "fo",
 		Emoji:          "🇫🇴",
+		PhoneCode:      "+298",
+		Domain:         ".fo",
 	},
 	Texts: Texts{
 		And:   "Og",

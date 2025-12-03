@@ -28,6 +28,8 @@ var TKTMLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Ashgabat"},
 		Language:       "tk",
 		Emoji:          "🇹🇲",
+		PhoneCode:      "+993",
+		Domain:         ".tm",
 	},
 	Texts: Texts{
 		And:   "we",

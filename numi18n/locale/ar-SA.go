@@ -24,6 +24,8 @@ var ARSALocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Riyadh"},
 		Language:       "ar",
 		Emoji:          "🇸🇦",
+		PhoneCode:      "+966",
+		Domain:         ".sa",
 	},
 	Texts: Texts{
 		And:   "و",

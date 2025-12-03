@@ -24,6 +24,8 @@ var CRLocale = NumI18NLocale{
 		Timezone:       []string{"America/Costa_Rica"},
 		Language:       "es",
 		Emoji:          "🇨🇷",
+		PhoneCode:      "+506",
+		Domain:         ".cr",
 	},
 	Texts: Texts{
 		And:   "Y",

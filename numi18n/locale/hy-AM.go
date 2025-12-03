@@ -28,6 +28,8 @@ var AMLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Yerevan"},
 		Language:       "hy",
 		Emoji:          "🇦🇲",
+		PhoneCode:      "+374",
+		Domain:         ".am",
 	},
 	Texts: Texts{
 		And:   "Եվ",

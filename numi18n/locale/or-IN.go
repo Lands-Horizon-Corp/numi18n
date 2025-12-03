@@ -28,6 +28,8 @@ var ORINLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "or",
 		Emoji:          "🇮🇳",
+		PhoneCode:      "+91",
+		Domain:         ".in",
 	},
 	Texts: Texts{
 		And:   "ଏବଂ",

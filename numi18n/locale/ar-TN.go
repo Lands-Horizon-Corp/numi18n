@@ -24,6 +24,8 @@ var ARTNLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Tunis"},
 		Language:       "ar",
 		Emoji:          "🇹🇳",
+		PhoneCode:      "+216",
+		Domain:         ".tn",
 	},
 	Texts: Texts{
 		And:   "و",

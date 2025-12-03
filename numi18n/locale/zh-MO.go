@@ -28,6 +28,8 @@ var ZHMOLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Macau"},
 		Language:       "zh",
 		Emoji:          "🇲🇴",
+		PhoneCode:      "+853",
+		Domain:         ".mo",
 	},
 	Texts: Texts{
 		And:   "同",

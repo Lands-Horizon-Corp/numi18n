@@ -29,6 +29,8 @@ var BSBALocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Sarajevo"},
 		Language:       "bs",
 		Emoji:          "🇧🇦",
+		PhoneCode:      "+387",
+		Domain:         ".ba",
 	},
 	Texts: Texts{
 		And:   "i",

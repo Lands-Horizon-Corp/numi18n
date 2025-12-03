@@ -29,6 +29,8 @@ var BNINLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "bn",
 		Emoji:          "🇮🇳",
+		PhoneCode:      "+91",
+		Domain:         ".in",
 	},
 	Texts: Texts{
 		And:   "এবং",

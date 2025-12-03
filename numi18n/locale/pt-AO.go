@@ -28,6 +28,8 @@ var PTAOLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Luanda"},
 		Language:       "pt",
 		Emoji:          "🇦🇴",
+		PhoneCode:      "+244",
+		Domain:         ".ao",
 	},
 	Texts: Texts{
 		And:   "e",

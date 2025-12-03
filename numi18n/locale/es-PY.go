@@ -24,6 +24,8 @@ var PYLocale = NumI18NLocale{
 		Timezone:       []string{"America/Asuncion"},
 		Language:       "es",
 		Emoji:          "🇵🇾",
+		PhoneCode:      "+595",
+		Domain:         ".py",
 	},
 	Texts: Texts{
 		And:   "Y",

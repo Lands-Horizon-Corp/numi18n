@@ -24,6 +24,8 @@ var ARSYLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Damascus"},
 		Language:       "ar",
 		Emoji:          "🇸🇾",
+		PhoneCode:      "+963",
+		Domain:         ".sy",
 	},
 	Texts: Texts{
 		And:   "و",

@@ -24,6 +24,8 @@ var ELocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "es",
 		Emoji:          "🇪🇸",
+		PhoneCode:      "+34",
+		Domain:         ".es",
 	},
 	Texts: Texts{
 		And:   "Y",

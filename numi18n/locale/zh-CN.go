@@ -28,6 +28,8 @@ var ZHCNLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Shanghai"},
 		Language:       "zh",
 		Emoji:          "🇨🇳",
+		PhoneCode:      "+86",
+		Domain:         ".cn",
 	},
 	Texts: Texts{
 		And:   "和",

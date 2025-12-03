@@ -28,6 +28,8 @@ var PLPLLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Warsaw"},
 		Language:       "pl",
 		Emoji:          "🇵🇱",
+		PhoneCode:      "+48",
+		Domain:         ".pl",
 	},
 	Texts: Texts{
 		And:   "i",

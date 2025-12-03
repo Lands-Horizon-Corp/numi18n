@@ -28,6 +28,8 @@ var PSAFLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kabul"},
 		Language:       "ps",
 		Emoji:          "🇦🇫",
+		PhoneCode:      "+93",
+		Domain:         ".af",
 	},
 	Texts: Texts{
 		And:   "او",

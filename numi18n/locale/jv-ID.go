@@ -28,6 +28,8 @@ var IDJVLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Jakarta"},
 		Language:       "jv",
 		Emoji:          "🇮🇩",
+		PhoneCode:      "+62",
+		Domain:         ".id",
 	},
 	Texts: Texts{
 		And:   "Lan",

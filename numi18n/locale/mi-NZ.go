@@ -28,6 +28,8 @@ var MINZLocale = NumI18NLocale{
 		Timezone:       []string{"Pacific/Auckland"},
 		Language:       "mi",
 		Emoji:          "🇳🇿",
+		PhoneCode:      "+64",
+		Domain:         ".nz",
 	},
 	Texts: Texts{
 		And:   "me",

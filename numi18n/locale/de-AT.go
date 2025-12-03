@@ -31,6 +31,8 @@ var DEATLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Vienna"},
 		Language:       "de",
 		Emoji:          "🇦🇹",
+		PhoneCode:      "+43",
+		Domain:         ".at",
 	},
 	Texts: Texts{
 		And:   "und",

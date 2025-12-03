@@ -29,6 +29,8 @@ var AUALocale = NumI18NLocale{
 		Timezone:       []string{"Australia/Sydney"},
 		Language:       "en",
 		Emoji:          "🇦🇺",
+		PhoneCode:      "+61",
+		Domain:         ".au",
 	},
 	Texts: Texts{
 		And:   "And",

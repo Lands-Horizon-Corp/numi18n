@@ -29,6 +29,8 @@ var ZMLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Lusaka"},
 		Language:       "en",
 		Emoji:          "🇿🇲",
+		PhoneCode:      "+260",
+		Domain:         ".zm",
 	},
 	Texts: Texts{
 		And:   "And",

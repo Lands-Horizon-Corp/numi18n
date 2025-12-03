@@ -30,6 +30,8 @@ var PHPHLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Manila"},
 		Language:       "ph",
 		Emoji:          "🇵🇭",
+		PhoneCode:      "+63",
+		Domain:         ".ph",
 	},
 	Texts: Texts{
 		And:   "at",

@@ -24,6 +24,8 @@ var PELocale = NumI18NLocale{
 		Timezone:       []string{"America/Lima"},
 		Language:       "es",
 		Emoji:          "🇵🇪",
+		PhoneCode:      "+51",
+		Domain:         ".pe",
 	},
 	Texts: Texts{
 		And:   "Y",

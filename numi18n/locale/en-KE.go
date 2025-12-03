@@ -29,6 +29,8 @@ var KELocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Nairobi"},
 		Language:       "en",
 		Emoji:          "🇰🇪",
+		PhoneCode:      "+254",
+		Domain:         ".ke",
 	},
 	Texts: Texts{
 		And:   "And",

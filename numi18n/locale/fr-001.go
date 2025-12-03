@@ -28,6 +28,8 @@ var FR001Locale = NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "fr",
 		Emoji:          "🌍",
+		PhoneCode:      "+1",
+		Domain:         ".com",
 	},
 	Texts: Texts{
 		And:   "Et",

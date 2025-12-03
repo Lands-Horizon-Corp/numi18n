@@ -28,6 +28,8 @@ var RUBYLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Minsk"},
 		Language:       "ru",
 		Emoji:          "🇧🇾",
+		PhoneCode:      "+375",
+		Domain:         ".by",
 	},
 	Texts: Texts{
 		And:   "и",

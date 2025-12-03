@@ -29,6 +29,8 @@ var SGLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Singapore"},
 		Language:       "en",
 		Emoji:          "🇸🇬",
+		PhoneCode:      "+65",
+		Domain:         ".sg",
 	},
 	Texts: Texts{
 		And:   "And",

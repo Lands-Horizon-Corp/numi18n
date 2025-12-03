@@ -28,6 +28,8 @@ var PTPTLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Lisbon"},
 		Language:       "pt",
 		Emoji:          "🇵🇹",
+		PhoneCode:      "+351",
+		Domain:         ".pt",
 	},
 	Texts: Texts{
 		And:   "e",

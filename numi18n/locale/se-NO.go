@@ -28,6 +28,8 @@ var SENOLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Oslo"},
 		Language:       "se",
 		Emoji:          "🇳🇴",
+		PhoneCode:      "+47",
+		Domain:         ".no",
 	},
 	Texts: Texts{
 		And:   "ja",

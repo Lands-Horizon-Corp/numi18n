@@ -29,6 +29,8 @@ var IELocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Dublin"},
 		Language:       "en",
 		Emoji:          "🇮🇪",
+		PhoneCode:      "+353",
+		Domain:         ".ie",
 	},
 	Texts: Texts{
 		And:   "And",

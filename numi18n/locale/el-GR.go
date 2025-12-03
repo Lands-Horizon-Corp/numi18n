@@ -29,6 +29,8 @@ var ELGRLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Athens"},
 		Language:       "el",
 		Emoji:          "🇬🇷",
+		PhoneCode:      "+30",
+		Domain:         ".gr",
 	},
 	Texts: Texts{
 		And:   "και",

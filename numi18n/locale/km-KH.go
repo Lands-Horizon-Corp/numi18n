@@ -28,6 +28,8 @@ var KHLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Phnom_Penh"},
 		Language:       "km",
 		Emoji:          "🇰🇭",
+		PhoneCode:      "+855",
+		Domain:         ".kh",
 	},
 	Texts: Texts{
 		And:   "និង",

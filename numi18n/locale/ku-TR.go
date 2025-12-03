@@ -28,6 +28,8 @@ var TRKULocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Istanbul"},
 		Language:       "ku",
 		Emoji:          "🇹🇷",
+		PhoneCode:      "+90",
+		Domain:         ".tr",
 	},
 	Texts: Texts{
 		And:   "Û",

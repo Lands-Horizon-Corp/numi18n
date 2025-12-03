@@ -28,6 +28,8 @@ var TIETLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Addis_Ababa"},
 		Language:       "ti",
 		Emoji:          "🇪🇹",
+		PhoneCode:      "+251",
+		Domain:         ".et",
 	},
 	Texts: Texts{
 		And:   "ከምኡ'ውን",

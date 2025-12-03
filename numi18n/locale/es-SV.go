@@ -24,6 +24,8 @@ var SVLocale = NumI18NLocale{
 		Timezone:       []string{"America/El_Salvador"},
 		Language:       "es",
 		Emoji:          "🇸🇻",
+		PhoneCode:      "+503",
+		Domain:         ".sv",
 	},
 	Texts: Texts{
 		And:   "Y",

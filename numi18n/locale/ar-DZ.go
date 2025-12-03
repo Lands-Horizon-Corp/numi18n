@@ -28,6 +28,8 @@ var ARDZLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Algiers"},
 		Language:       "ar",
 		Emoji:          "🇩🇿",
+		PhoneCode:      "+213",
+		Domain:         ".dz",
 	},
 	Texts: Texts{
 		And:   "و",

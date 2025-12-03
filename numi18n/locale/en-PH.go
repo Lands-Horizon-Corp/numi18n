@@ -29,6 +29,8 @@ var PHLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Manila"},
 		Language:       "en",
 		Emoji:          "🇵🇭",
+		PhoneCode:      "+63",
+		Domain:         ".ph",
 	},
 	Texts: Texts{
 		And:   "And",

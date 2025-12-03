@@ -24,6 +24,8 @@ var CLLocale = NumI18NLocale{
 		Timezone:       []string{"America/Santiago"},
 		Language:       "es",
 		Emoji:          "🇨🇱",
+		PhoneCode:      "+56",
+		Domain:         ".cl",
 	},
 	Texts: Texts{
 		And:   "Y",

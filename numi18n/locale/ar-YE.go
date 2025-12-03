@@ -24,6 +24,8 @@ var ARYELocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Aden"},
 		Language:       "ar",
 		Emoji:          "🇾🇪",
+		PhoneCode:      "+967",
+		Domain:         ".ye",
 	},
 	Texts: Texts{
 		And:   "و",

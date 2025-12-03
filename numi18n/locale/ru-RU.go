@@ -28,6 +28,8 @@ var RURULocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Moscow"},
 		Language:       "ru",
 		Emoji:          "🇷🇺",
+		PhoneCode:      "+7",
+		Domain:         ".ru",
 	},
 	Texts: Texts{
 		And:   "и",

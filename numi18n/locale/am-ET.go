@@ -28,6 +28,8 @@ var AMETLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Addis_Ababa"},
 		Language:       "am",
 		Emoji:          "🇪🇹",
+		PhoneCode:      "+251",
+		Domain:         ".et",
 	},
 	Texts: Texts{
 		And:   "እና",

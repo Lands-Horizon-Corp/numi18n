@@ -24,6 +24,8 @@ var NILocale = NumI18NLocale{
 		Timezone:       []string{"America/Managua"},
 		Language:       "es",
 		Emoji:          "🇳🇮",
+		PhoneCode:      "+505",
+		Domain:         ".ni",
 	},
 	Texts: Texts{
 		And:   "Y",

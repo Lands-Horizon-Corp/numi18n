@@ -29,6 +29,8 @@ var EN001Locale = NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "en",
 		Emoji:          "🌍",
+		PhoneCode:      "+1",
+		Domain:         ".com",
 	},
 	Texts: Texts{
 		And:   "And",

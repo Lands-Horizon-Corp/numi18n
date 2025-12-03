@@ -28,6 +28,8 @@ var THTHLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Bangkok"},
 		Language:       "th",
 		Emoji:          "🇹🇭",
+		PhoneCode:      "+66",
+		Domain:         ".th",
 	},
 	Texts: Texts{
 		And:   "และ",

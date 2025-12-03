@@ -28,6 +28,8 @@ var UKUALocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Kiev"},
 		Language:       "uk",
 		Emoji:          "🇺🇦",
+		PhoneCode:      "+380",
+		Domain:         ".ua",
 	},
 	Texts: Texts{
 		And:   "і",

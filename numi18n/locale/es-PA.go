@@ -24,6 +24,8 @@ var PALocale = NumI18NLocale{
 		Timezone:       []string{"America/Panama"},
 		Language:       "es",
 		Emoji:          "🇵🇦",
+		PhoneCode:      "+507",
+		Domain:         ".pa",
 	},
 	Texts: Texts{
 		And:   "Y",

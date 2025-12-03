@@ -29,6 +29,8 @@ var GHLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Accra"},
 		Language:       "en",
 		Emoji:          "🇬🇭",
+		PhoneCode:      "+233",
+		Domain:         ".gh",
 	},
 	Texts: Texts{
 		And:   "And",

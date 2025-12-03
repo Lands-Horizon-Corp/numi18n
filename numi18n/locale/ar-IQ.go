@@ -28,6 +28,8 @@ var ARIQLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Baghdad"},
 		Language:       "ar",
 		Emoji:          "🇮🇶",
+		PhoneCode:      "+964",
+		Domain:         ".iq",
 	},
 	Texts: Texts{
 		And:   "و",

@@ -28,6 +28,8 @@ var SDPKLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Karachi"},
 		Language:       "sd",
 		Emoji:          "🇵🇰",
+		PhoneCode:      "+92",
+		Domain:         ".pk",
 	},
 	Texts: Texts{
 		And:   "۽",

@@ -29,6 +29,8 @@ var ESGLLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "gl",
 		Emoji:          "🇪🇸",
+		PhoneCode:      "+34",
+		Domain:         ".es",
 	},
 	Texts: Texts{
 		And:   "E",

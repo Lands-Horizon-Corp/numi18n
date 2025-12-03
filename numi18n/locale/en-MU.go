@@ -29,6 +29,8 @@ var MULocale = NumI18NLocale{
 		Timezone:       []string{"Indian/Mauritius"},
 		Language:       "en",
 		Emoji:          "🇲🇺",
+		PhoneCode:      "+230",
+		Domain:         ".mu",
 	},
 	Texts: Texts{
 		And:   "And",

@@ -24,6 +24,8 @@ var CULocale = NumI18NLocale{
 		Timezone:       []string{"America/Havana"},
 		Language:       "es",
 		Emoji:          "🇨🇺",
+		PhoneCode:      "+53",
+		Domain:         ".cu",
 	},
 	Texts: Texts{
 		And:   "Y",

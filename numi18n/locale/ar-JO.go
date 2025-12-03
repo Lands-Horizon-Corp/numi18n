@@ -28,6 +28,8 @@ var ARJOLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Amman"},
 		Language:       "ar",
 		Emoji:          "🇯🇴",
+		PhoneCode:      "+962",
+		Domain:         ".jo",
 	},
 	Texts: Texts{
 		And:   "و",

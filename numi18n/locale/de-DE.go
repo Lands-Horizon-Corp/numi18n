@@ -32,6 +32,8 @@ var DEDELocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Berlin"},
 		Language:       "de",
 		Emoji:          "🇩🇪",
+		PhoneCode:      "+49",
+		Domain:         ".de",
 	},
 	Texts: Texts{
 		And:   "und",

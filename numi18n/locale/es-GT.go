@@ -24,6 +24,8 @@ var GTLocale = NumI18NLocale{
 		Timezone:       []string{"America/Guatemala"},
 		Language:       "es",
 		Emoji:          "🇬🇹",
+		PhoneCode:      "+502",
+		Domain:         ".gt",
 	},
 	Texts: Texts{
 		And:   "Y",

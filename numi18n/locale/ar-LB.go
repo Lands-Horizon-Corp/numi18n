@@ -29,6 +29,8 @@ var ARLBLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Beirut"},
 		Language:       "ar",
 		Emoji:          "🇱🇧",
+		PhoneCode:      "+961",
+		Domain:         ".lb",
 	},
 	Texts: Texts{
 		And:   "و",

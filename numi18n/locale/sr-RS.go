@@ -28,6 +28,8 @@ var SRRSLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Belgrade"},
 		Language:       "sr",
 		Emoji:          "🇷🇸",
+		PhoneCode:      "+381",
+		Domain:         ".rs",
 	},
 	Texts: Texts{
 		And:   "и",

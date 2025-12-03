@@ -28,6 +28,8 @@ var AFLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kabul"},
 		Language:       "fa",
 		Emoji:          "🇦🇫",
+		PhoneCode:      "+93",
+		Domain:         ".af",
 	},
 	Texts: Texts{
 		And:   "و",

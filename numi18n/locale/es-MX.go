@@ -24,6 +24,8 @@ var MXLlocale = NumI18NLocale{
 		Timezone:       []string{"America/Mexico_City"},
 		Language:       "es",
 		Emoji:          "🇲🇽",
+		PhoneCode:      "+52",
+		Domain:         ".mx",
 	},
 	Texts: Texts{
 		And:   "Y",

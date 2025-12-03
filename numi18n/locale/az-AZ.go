@@ -29,6 +29,8 @@ var AZAZLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Baku"},
 		Language:       "az",
 		Emoji:          "🇦🇿",
+		PhoneCode:      "+994",
+		Domain:         ".az",
 	},
 	Texts: Texts{
 		And:   "Və",

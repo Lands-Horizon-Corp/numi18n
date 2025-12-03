@@ -29,6 +29,8 @@ var INGULocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Kolkata"},
 		Language:       "gu",
 		Emoji:          "🇮🇳",
+		PhoneCode:      "+91",
+		Domain:         ".in",
 	},
 	Texts: Texts{
 		And:   "અને",

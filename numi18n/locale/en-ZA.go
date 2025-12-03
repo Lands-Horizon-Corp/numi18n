@@ -29,6 +29,8 @@ var ZALocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Johannesburg"},
 		Language:       "en",
 		Emoji:          "🇿🇦",
+		PhoneCode:      "+27",
+		Domain:         ".za",
 	},
 	Texts: Texts{
 		And:   "And",

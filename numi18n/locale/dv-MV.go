@@ -29,6 +29,8 @@ var DVMVLocale = NumI18NLocale{
 		Timezone:       []string{"Indian/Maldives"},
 		Language:       "dv",
 		Emoji:          "🇲🇻",
+		PhoneCode:      "+960",
+		Domain:         ".mv",
 	},
 	Texts: Texts{
 		And:   "އަންޑް",

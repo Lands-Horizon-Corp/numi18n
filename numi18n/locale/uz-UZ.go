@@ -28,6 +28,8 @@ var UZUZLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Tashkent"},
 		Language:       "uz",
 		Emoji:          "🇺🇿",
+		PhoneCode:      "+998",
+		Domain:         ".uz",
 	},
 	Texts: Texts{
 		And:   "va",

@@ -28,6 +28,8 @@ var VIVNLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Ho_Chi_Minh"},
 		Language:       "vi",
 		Emoji:          "🇻🇳",
+		PhoneCode:      "+84",
+		Domain:         ".vn",
 	},
 	Texts: Texts{
 		And:   "và",

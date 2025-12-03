@@ -28,6 +28,8 @@ var JPLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Tokyo"},
 		Language:       "ja",
 		Emoji:          "🇯🇵",
+		PhoneCode:      "+81",
+		Domain:         ".jp",
 	},
 	Texts: Texts{
 		And:   "と",

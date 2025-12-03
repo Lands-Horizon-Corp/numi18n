@@ -24,6 +24,8 @@ var COLocale = NumI18NLocale{
 		Timezone:       []string{"America/Bogota"},
 		Language:       "es",
 		Emoji:          "🇨🇴",
+		PhoneCode:      "+57",
+		Domain:         ".co",
 	},
 	Texts: Texts{
 		And:   "Y",

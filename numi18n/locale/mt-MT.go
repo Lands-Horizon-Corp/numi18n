@@ -28,6 +28,8 @@ var MTMTLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Malta"},
 		Language:       "mt",
 		Emoji:          "🇲🇹",
+		PhoneCode:      "+356",
+		Domain:         ".mt",
 	},
 	Texts: Texts{
 		And:   "u",

@@ -28,6 +28,8 @@ var IEGALocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Dublin"},
 		Language:       "ga",
 		Emoji:          "🇮🇪",
+		PhoneCode:      "+353",
+		Domain:         ".ie",
 	},
 	Texts: Texts{
 		And:   "Agus",

@@ -28,6 +28,8 @@ var LVLVLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Riga"},
 		Language:       "lv",
 		Emoji:          "🇱🇻",
+		PhoneCode:      "+371",
+		Domain:         ".lv",
 	},
 	Texts: Texts{
 		And:   "un",

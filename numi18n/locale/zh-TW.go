@@ -28,6 +28,8 @@ var ZHTWLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Taipei"},
 		Language:       "zh",
 		Emoji:          "🇹🇼",
+		PhoneCode:      "+886",
+		Domain:         ".tw",
 	},
 	Texts: Texts{
 		And:   "和",

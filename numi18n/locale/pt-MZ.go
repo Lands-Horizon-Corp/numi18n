@@ -28,6 +28,8 @@ var PTMZLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Maputo"},
 		Language:       "pt",
 		Emoji:          "🇲🇿",
+		PhoneCode:      "+258",
+		Domain:         ".mz",
 	},
 	Texts: Texts{
 		And:   "e",

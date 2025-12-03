@@ -24,6 +24,8 @@ var AROMLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Muscat"},
 		Language:       "ar",
 		Emoji:          "🇴🇲",
+		PhoneCode:      "+968",
+		Domain:         ".om",
 	},
 	Texts: Texts{
 		And:   "و",

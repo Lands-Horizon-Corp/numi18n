@@ -28,6 +28,8 @@ var PTGWLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Bissau"},
 		Language:       "pt",
 		Emoji:          "🇬🇼",
+		PhoneCode:      "+245",
+		Domain:         ".gw",
 	},
 	Texts: Texts{
 		And:   "e",

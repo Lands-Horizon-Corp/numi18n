@@ -28,6 +28,8 @@ var PTCVLocale = NumI18NLocale{
 		Timezone:       []string{"Atlantic/Cape_Verde"},
 		Language:       "pt",
 		Emoji:          "🇨🇻",
+		PhoneCode:      "+238",
+		Domain:         ".cv",
 	},
 	Texts: Texts{
 		And:   "e",

@@ -28,6 +28,8 @@ var EELocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Tallinn"},
 		Language:       "et",
 		Emoji:          "🇪🇪",
+		PhoneCode:      "+372",
+		Domain:         ".ee",
 	},
 	Texts: Texts{
 		And:   "Ja",

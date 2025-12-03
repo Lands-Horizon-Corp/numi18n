@@ -28,6 +28,8 @@ var MYMMLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Yangon"},
 		Language:       "my",
 		Emoji:          "🇲🇲",
+		PhoneCode:      "+95",
+		Domain:         ".mm",
 	},
 	Texts: Texts{
 		And:   "နှင့်",

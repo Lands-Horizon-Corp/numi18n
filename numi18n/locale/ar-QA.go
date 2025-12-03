@@ -24,6 +24,8 @@ var ARQALocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Qatar"},
 		Language:       "ar",
 		Emoji:          "🇶🇦",
+		PhoneCode:      "+974",
+		Domain:         ".qa",
 	},
 	Texts: Texts{
 		And:   "و",

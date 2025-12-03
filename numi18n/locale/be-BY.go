@@ -29,6 +29,8 @@ var BEBYLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Minsk"},
 		Language:       "be",
 		Emoji:          "🇧🇾",
+		PhoneCode:      "+375",
+		Domain:         ".by",
 	},
 	Texts: Texts{
 		And:   "і",

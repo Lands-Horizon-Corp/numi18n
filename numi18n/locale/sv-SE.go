@@ -29,6 +29,8 @@ var SVSELocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Stockholm"},
 		Language:       "sv",
 		Emoji:          "🇸🇪",
+		PhoneCode:      "+46",
+		Domain:         ".se",
 	},
 	Texts: Texts{
 		And:   "och",

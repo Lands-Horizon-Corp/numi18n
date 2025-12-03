@@ -28,6 +28,8 @@ var ARAELocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Dubai"},
 		Language:       "ar",
 		Emoji:          "🇦🇪",
+		PhoneCode:      "+971",
+		Domain:         ".ae",
 	},
 	Texts: Texts{
 		And:   "و",

@@ -29,6 +29,8 @@ var ZWLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Harare"},
 		Language:       "en",
 		Emoji:          "🇿🇼",
+		PhoneCode:      "+263",
+		Domain:         ".zw",
 	},
 	Texts: Texts{
 		And:   "And",

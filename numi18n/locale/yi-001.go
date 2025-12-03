@@ -29,6 +29,8 @@ var YI001Locale = NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "yi",
 		Emoji:          "🌍",
+		PhoneCode:      "+1",
+		Domain:         ".com",
 	},
 	Texts: Texts{
 		And:   "און",

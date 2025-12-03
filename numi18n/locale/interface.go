@@ -64,6 +64,8 @@ type NumI18Identifier struct {
 	Timezone       []string // Timezone, e.g., "Asia/Manila"
 	Language       string   // Language code, e.g., "en", "fr", "ja"
 	Emoji          string   // Country flag emoji, e.g., "🇵🇭", "🇺🇸", "🇫🇷"
+	PhoneCode      string   // International dialing code, e.g., "+63", "+1", "+33"
+	Domain         string   // Top-level domain, e.g., ".ph", ".us", ".fr"
 }
 
 type NumI18NLocale struct {

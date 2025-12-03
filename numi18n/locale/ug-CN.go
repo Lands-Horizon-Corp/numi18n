@@ -28,6 +28,8 @@ var UGCNLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Shanghai"},
 		Language:       "ug",
 		Emoji:          "🇨🇳",
+		PhoneCode:      "+86",
+		Domain:         ".cn",
 	},
 	Texts: Texts{
 		And:   "ۋە",

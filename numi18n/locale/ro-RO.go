@@ -28,6 +28,8 @@ var ROROLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Bucharest"},
 		Language:       "ro",
 		Emoji:          "🇷🇴",
+		PhoneCode:      "+40",
+		Domain:         ".ro",
 	},
 	Texts: Texts{
 		And:   "și",

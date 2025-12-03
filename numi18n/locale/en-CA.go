@@ -29,6 +29,8 @@ var CALocale = NumI18NLocale{
 		Timezone:       []string{"America/Toronto"},
 		Language:       "en",
 		Emoji:          "🇨🇦",
+		PhoneCode:      "+1",
+		Domain:         ".ca",
 	},
 	Texts: Texts{
 		And:   "And",

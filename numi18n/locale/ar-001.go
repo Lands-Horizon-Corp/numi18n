@@ -28,6 +28,8 @@ var AR001Locale = NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "ar",
 		Emoji:          "🌍",
+		PhoneCode:      "+1",
+		Domain:         ".com",
 	},
 	Texts: Texts{
 		And:   "و",

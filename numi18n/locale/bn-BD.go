@@ -29,6 +29,8 @@ var BNBDLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Dhaka"},
 		Language:       "bn",
 		Emoji:          "🇧🇩",
+		PhoneCode:      "+880",
+		Domain:         ".bd",
 	},
 	Texts: Texts{
 		And:   "এবং",

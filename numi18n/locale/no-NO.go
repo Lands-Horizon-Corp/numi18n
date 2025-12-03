@@ -28,6 +28,8 @@ var NONOLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Oslo"},
 		Language:       "no",
 		Emoji:          "🇳🇴",
+		PhoneCode:      "+47",
+		Domain:         ".no",
 	},
 	Texts: Texts{
 		And:   "og",

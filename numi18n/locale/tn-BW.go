@@ -28,6 +28,8 @@ var TNBWLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Gaborone"},
 		Language:       "tn",
 		Emoji:          "🇧🇼",
+		PhoneCode:      "+267",
+		Domain:         ".bw",
 	},
 	Texts: Texts{
 		And:   "le",

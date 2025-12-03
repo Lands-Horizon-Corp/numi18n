@@ -28,6 +28,8 @@ var LTLTLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Vilnius"},
 		Language:       "lt",
 		Emoji:          "🇱🇹",
+		PhoneCode:      "+370",
+		Domain:         ".lt",
 	},
 	LocaleFormatter: &LithuanianFormatter{},
 	Texts: Texts{

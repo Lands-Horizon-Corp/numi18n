@@ -24,6 +24,8 @@ var ARLocale = NumI18NLocale{
 		Timezone:       []string{"America/Argentina/Buenos_Aires"},
 		Language:       "es",
 		Emoji:          "🇦🇷",
+		PhoneCode:      "+54",
+		Domain:         ".ar",
 	},
 	Texts: Texts{
 		And:   "Y",

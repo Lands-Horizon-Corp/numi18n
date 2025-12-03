@@ -29,6 +29,8 @@ var NZLocale = NumI18NLocale{
 		Timezone:       []string{"Pacific/Auckland"},
 		Language:       "en",
 		Emoji:          "🇳🇿",
+		PhoneCode:      "+64",
+		Domain:         ".nz",
 	},
 	Texts: Texts{
 		And:   "And",

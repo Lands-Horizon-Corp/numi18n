@@ -28,6 +28,8 @@ var ZH001Locale = NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "zh",
 		Emoji:          "🌍",
+		PhoneCode:      "+1",
+		Domain:         ".com",
 	},
 	Texts: Texts{
 		And:   "和",

@@ -28,6 +28,8 @@ var CAFRLocale = NumI18NLocale{
 		Timezone:       []string{"America/Toronto"},
 		Language:       "fr",
 		Emoji:          "🇨🇦",
+		PhoneCode:      "+1",
+		Domain:         ".ca",
 	},
 	Texts: Texts{
 		And:   "Et",

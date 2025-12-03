@@ -29,6 +29,8 @@ var CSCZLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Prague"},
 		Language:       "cs",
 		Emoji:          "🇨🇿",
+		PhoneCode:      "+420",
+		Domain:         ".cz",
 	},
 	Texts: Texts{
 		And:   "a",

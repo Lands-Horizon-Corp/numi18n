@@ -28,6 +28,8 @@ var AREGLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Cairo"},
 		Language:       "ar",
 		Emoji:          "🇪🇬",
+		PhoneCode:      "+20",
+		Domain:         ".eg",
 	},
 	Texts: Texts{
 		And:   "و",

@@ -28,6 +28,8 @@ var PT001Locale = NumI18NLocale{
 		Timezone:       []string{"UTC"},
 		Language:       "pt",
 		Emoji:          "🌍",
+		PhoneCode:      "+1",
+		Domain:         ".com",
 	},
 	Texts: Texts{
 		And:   "E",

@@ -28,6 +28,8 @@ var ESEULocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Madrid"},
 		Language:       "eu",
 		Emoji:          "🇪🇸",
+		PhoneCode:      "+34",
+		Domain:         ".es",
 	},
 	Texts: Texts{
 		And:   "Eta",

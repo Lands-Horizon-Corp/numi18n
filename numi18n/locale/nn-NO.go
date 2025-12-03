@@ -28,6 +28,8 @@ var NNNOLocale = NumI18NLocale{
 		Timezone:       []string{"Europe/Oslo"},
 		Language:       "nn",
 		Emoji:          "🇳🇴",
+		PhoneCode:      "+47",
+		Domain:         ".no",
 	},
 	Texts: Texts{
 		And:   "og",

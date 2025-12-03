@@ -29,6 +29,8 @@ var WOSNLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Dakar"},
 		Language:       "wo",
 		Emoji:          "🇸🇳",
+		PhoneCode:      "+221",
+		Domain:         ".sn",
 	},
 	Texts: Texts{
 		And:   "ak",

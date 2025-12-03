@@ -29,6 +29,8 @@ var HKLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Hong_Kong"},
 		Language:       "en",
 		Emoji:          "🇭🇰",
+		PhoneCode:      "+852",
+		Domain:         ".hk",
 	},
 	Texts: Texts{
 		And:   "And",

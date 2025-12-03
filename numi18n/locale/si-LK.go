@@ -28,6 +28,8 @@ var SILKLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Colombo"},
 		Language:       "si",
 		Emoji:          "🇱🇰",
+		PhoneCode:      "+94",
+		Domain:         ".lk",
 	},
 	Texts: Texts{
 		And:   "සහ",

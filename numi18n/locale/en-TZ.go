@@ -29,6 +29,8 @@ var TZLocale = NumI18NLocale{
 		Timezone:       []string{"Africa/Dar_es_Salaam"},
 		Language:       "en",
 		Emoji:          "🇹🇿",
+		PhoneCode:      "+255",
+		Domain:         ".tz",
 	},
 	Texts: Texts{
 		And:   "And",

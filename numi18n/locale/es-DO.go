@@ -24,6 +24,8 @@ var DOLocale = NumI18NLocale{
 		Timezone:       []string{"America/Santo_Domingo"},
 		Language:       "es",
 		Emoji:          "🇩🇴",
+		PhoneCode:      "+1",
+		Domain:         ".do",
 	},
 	Texts: Texts{
 		And:   "Y",

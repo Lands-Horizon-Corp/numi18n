@@ -28,6 +28,8 @@ var IRLocale = NumI18NLocale{
 		Timezone:       []string{"Asia/Tehran"},
 		Language:       "fa",
 		Emoji:          "🇮🇷",
+		PhoneCode:      "+98",
+		Domain:         ".ir",
 	},
 	Texts: Texts{
 		And:   "و",
